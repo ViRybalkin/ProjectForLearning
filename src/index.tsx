@@ -1,8 +1,13 @@
 import {render} from "react-dom";
-import './index.module.scss'
 import {App} from "./app";
+import {BrowserRouter} from "react-router-dom";
+import {ThemeProvider} from "./themeContext/ThemeProvider";
 
 render(
-    <App/>,
+    <BrowserRouter>
+        <ThemeProvider>
+         <App/>
+        </ThemeProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 )

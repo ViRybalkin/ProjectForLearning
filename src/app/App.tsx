@@ -1,15 +1,17 @@
-import styles from '../index.module.scss'
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
-import MainPage from "../pages/MainPage/MainPage";
+import '../styles/index.scss'
+import { Link, Route, Routes} from "react-router-dom";
 import {lazy, Suspense} from "react";
+import {UseTheme} from "../helpers/useTheme";
+
+const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
+const AboutPage = lazy(() => import('../pages/About/About'));
+
 
 export const App = () => {
-    const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
-    const AboutPage = lazy(() => import('../pages/About/About'));
-
+    const {theme, onToggleTheme} = UseTheme();
     return (
-        <BrowserRouter>
-            <div className={styles.app}>
+            <div className={`app ${theme}`}>
+                <button onClick={onToggleTheme}>Change theme</button>
                 <Link to={'/'} > Main Page</Link>
                 <Link to={'/about'}>About Page</Link>
                     <Suspense fallback={<div>Loading ...</div>}>
@@ -19,6 +21,5 @@ export const App = () => {
                         </Routes>
                     </Suspense>
             </div>
-        </BrowserRouter>
     )
 };
