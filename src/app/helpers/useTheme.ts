@@ -1,11 +1,11 @@
 import {useContext} from "react";
-import {LOCAL_STORAGE_THEME, ThemeContext, ThemeEnum} from "app";
+import {LOCAL_STORAGE_THEME, ThemeContext} from "app";
 
 export const UseTheme = () => {
     const {theme, setTheme} = useContext(ThemeContext)
 
     const onToggleTheme = () => {
-        const newTheme = theme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK
+        const newTheme = theme === 'dark' ? 'light' : 'dark'
         setTheme(newTheme)
         localStorage.setItem(LOCAL_STORAGE_THEME, newTheme)
     };

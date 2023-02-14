@@ -6,11 +6,10 @@ import {linkConfig, routerConfig} from "shared/config";
 import {NavBar} from "widget/ui";
 
 export const App = () => {
-    const {theme, onToggleTheme} = UseTheme();
+    const {theme} = UseTheme();
         return (
         <div className={classNames('app', {}, [theme])}>
             <NavBar links={linkConfig}/>
-            <button onClick={onToggleTheme}>Change theme</button>
                 <Suspense fallback={<div>Loading ...</div>}>
                     <Routes>
                         {Object.values(routerConfig).map((rout) => {
