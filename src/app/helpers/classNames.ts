@@ -1,6 +1,4 @@
-type ModeType = Record<string, boolean>
-
-export const classNames = (mainCls: string, mode: ModeType, additionalCls?: Array<string>): string => {
+export const classNames = (mainCls: string, mode = {}, additionalCls:Array<string> = []): string => {
     const modeCls = Object.entries(mode).filter(([cls,value]) => value).map(([cls]) => cls);
 
     return [

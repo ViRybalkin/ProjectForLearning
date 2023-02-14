@@ -1,15 +1,19 @@
 import {PathRouteProps} from "react-router/dist/lib/components";
-import MainPage from "pages/MainPage/MainPage";
-import About from "pages/About/About";
+import {MainPage, About} from "pages";
 
 type Path = 'main' | 'about'
+
+interface linkConfigType {
+    path: string;
+    name: string;
+}
 
 const routerPath:Record<Path, string> = {
     main: '/',
     about: '/about',
 }
 
-export const routerConfig:Record<Path, PathRouteProps> = {
+const routerConfig:Record<Path, PathRouteProps> = {
     main: {
         path: routerPath.main,
         element: <MainPage/>
@@ -19,3 +23,16 @@ export const routerConfig:Record<Path, PathRouteProps> = {
         element: <About/>
     }
 }
+
+const linkConfig: Array<linkConfigType> = [
+    {
+        path: routerPath.main,
+        name: 'MainPage'
+    },
+     {
+        path: routerPath.about,
+        name: 'About'
+    }
+];
+
+export {routerConfig, linkConfig, Path, linkConfigType}
