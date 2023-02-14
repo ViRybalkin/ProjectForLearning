@@ -3,6 +3,7 @@ type PathTypes = {
     entry:string;
     output: string;
     html: string;
+    src: string;
 }
 export type WebpackBuildOption = {
     mode: ModeType,

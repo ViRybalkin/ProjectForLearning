@@ -19,7 +19,7 @@ export const WebpackBuilder =  (options: WebpackBuildOption): webpack.Configurat
         rules: Rules(options.isDev),
         },
         devtool: options.isDev ? 'inline-source-map' : undefined,
-        resolve: Extensions(),
+        resolve: Extensions(options.path.src),
         devServer: options.isDev ? buildDevServer(options.port) : undefined,
     }
 }

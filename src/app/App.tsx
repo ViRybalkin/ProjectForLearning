@@ -1,8 +1,7 @@
-import '../styles/index.scss'
+import './styles/index.scss'
 import { Link, Route, Routes} from "react-router-dom";
 import {lazy, Suspense} from "react";
-import {UseTheme} from "../helpers/useTheme";
-import {classNames} from "../helpers/classNames";
+import {classNames, UseTheme} from "app/helpers";
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const AboutPage = lazy(() => import('../pages/About/About'));

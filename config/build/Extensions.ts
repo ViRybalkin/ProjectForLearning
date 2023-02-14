@@ -1,7 +1,11 @@
 import {ResolveOptions} from "webpack";
 
-export const Extensions = ():ResolveOptions => {
+export const Extensions = (path: string):ResolveOptions => {
     return {
-            extensions: ['.tsx', '.ts', '.js'],
-        }
+        extensions: ['.tsx', '.ts', '.js'],
+        modules: [path,'node_modules'],
+        mainFiles: ['index'],
+        preferAbsolute: true,
+        alias: {},
+    }
 }
