@@ -1,8 +1,6 @@
 import './styles/index.scss'
-import { Route, Routes} from "react-router-dom";
-import { Suspense} from "react";
 import {classNames, UseTheme} from "app/helpers";
-import {linkConfig, routerConfig} from "shared/config";
+import {AppRouter, linkConfig} from "shared/config";
 import {NavBar} from "widget/ui";
 
 export const App = () => {
@@ -10,13 +8,7 @@ export const App = () => {
         return (
         <div className={classNames('app', {}, [theme])}>
             <NavBar links={linkConfig}/>
-                <Suspense fallback={<div>Loading ...</div>}>
-                    <Routes>
-                        {Object.values(routerConfig).map((rout) => {
-                            return <Route key={rout.path} element={rout.element} path={rout.path} />
-                        })}
-                    </Routes>
-                </Suspense>
+              <AppRouter/>
         </div>
     )
 };
