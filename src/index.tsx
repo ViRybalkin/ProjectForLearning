@@ -1,5 +1,5 @@
 import {render} from "react-dom";
-import './index.scss'
+import './index.module.scss'
 import {App} from "./app";
 
 render(

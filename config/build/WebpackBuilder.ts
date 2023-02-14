@@ -16,7 +16,7 @@ export const WebpackBuilder =  (options: WebpackBuildOption): webpack.Configurat
         },
         plugins: Plugins(options.path.html),
         module: {
-        rules: Rules(),
+        rules: Rules(options.isDev),
         },
         devtool: options.isDev ? 'inline-source-map' : undefined,
         resolve: Extensions(),
