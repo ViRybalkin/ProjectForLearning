@@ -1,5 +1,4 @@
 import path from 'path';
-import webpack from 'webpack';
 import {BuildEnvType, WebpackBuilder, WebpackBuildOption} from "./config";
 
 
@@ -14,13 +13,11 @@ export default (env: BuildEnvType) => {
         port: port,
         isDev: isDev,
         path: {
-            entry: path.resolve(__dirname, 'src', 'index.ts'),
+            entry: path.resolve(__dirname, 'src', 'index.tsx'),
             output: path.resolve(__dirname,'dist'),
             html: path.resolve(__dirname, 'public', 'index.html')
         }
     }
 
-    const config: webpack.Configuration = WebpackBuilder(webpackBuildOption);
-
-    return config;
+    return WebpackBuilder(webpackBuildOption);
 };
