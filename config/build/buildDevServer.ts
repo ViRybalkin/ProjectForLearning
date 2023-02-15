@@ -4,6 +4,7 @@ export const buildDevServer = (port: number): DevServerConfiguration => {
     return {
         port: port,
         historyApiFallback: true,
+        hot: true,
         open: {
             app: {
                 name: 'Safari'
