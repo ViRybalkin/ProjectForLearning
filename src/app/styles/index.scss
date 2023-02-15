@@ -9,3 +9,11 @@
   background-color: var(--bg-color);
   min-height: 100vh;
 }
+
+.mainWrapper {
+  display: flex;
+}
+
+.contentWrapper {
+  flex: 1;
+}
