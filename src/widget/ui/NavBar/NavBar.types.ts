@@ -1,4 +1,4 @@
-import {linkConfigType} from "shared";
+import { linkConfigType } from 'shared';
 
 export interface NavBarProps {
     className?: string;

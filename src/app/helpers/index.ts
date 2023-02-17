@@ -1,2 +1,2 @@
-export * from './classNames'
-export * from './useTheme'
+export * from './classNames';
+export * from './useTheme';

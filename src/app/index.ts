@@ -1,3 +1,3 @@
-export * from './App'
+export * from './App';
 export * from './helpers';
-export * from './providers'
+export * from './providers';

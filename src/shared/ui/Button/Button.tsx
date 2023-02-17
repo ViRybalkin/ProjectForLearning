@@ -1,14 +1,14 @@
-import React, {FC} from 'react';
-import cls from './button.module.scss'
-import {ButtonProps} from "./Button.types";
-import {classNames} from "app";
+import { FC } from 'react';
+import { classNames } from 'app';
+import cls from './button.module.scss';
+import { ButtonProps } from './Button.types';
 
-const Button:FC<ButtonProps> = ({className,theme, children, ...otherProps}) => {
-    return (
-        <button className={classNames(cls.button, {}, [className, cls[theme]])} {...otherProps}>
-            {children}
-        </button>
-    );
-};
+const Button:FC<ButtonProps> = ({
+  className, theme, children, ...otherProps
+}) => (
+  <button type="button" className={classNames(cls.button, {}, [className, cls[theme]])} {...otherProps}>
+    {children}
+  </button>
+);
 
-export {Button};
+export { Button };
