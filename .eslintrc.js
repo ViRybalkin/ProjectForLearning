@@ -17,12 +17,14 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: [
     'react',
+    'i18next',
     '@typescript-eslint',
   ],
   rules: {
     'react/jsx-filename-extension': ['off', { extensions: ['.tsx', '.jsx'] }],
     'import/prefer-default-export': ['off'],
     'import/extensions': ['off'],
+    'i18next/no-literal-string': 'warn',
     'import/no-unresolved': [
       0,
       { caseSensitive: false },

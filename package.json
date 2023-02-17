@@ -9,8 +9,8 @@
     "build:dev": "webpack --env mode=development",
     "eslint": " eslint \"**/*.{ts,tsx}\"",
     "eslint:fix": " eslint \"**/*.{ts,tsx}\" --fix",
-    "stylelint" : "npx stylelint \"**/*.scss\"",
-    "stylelint:fix" : "npx stylelint \"**/*.scss\" --fix"
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "@typescript-eslint/parser": "^5.52.0",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-n": "^15.6.1",
