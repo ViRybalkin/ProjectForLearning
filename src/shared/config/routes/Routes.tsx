@@ -1,5 +1,9 @@
 import { PathRouteProps } from 'react-router/dist/lib/components';
-import { MainPage, About, NotFound } from 'pages';
+import { lazy } from 'react';
+
+const MainPage = lazy(() => import('pages/MainPage/MainPage'));
+const AboutPage = lazy(() => import('pages/About/About'));
+const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
 type Path = 'main' | 'about' | 'notFound'
 
@@ -21,11 +25,11 @@ const routerConfig:Record<Path, PathRouteProps> = {
   },
   about: {
     path: routerPath.about,
-    element: <About />,
+    element: <AboutPage />,
   },
   notFound: {
     path: routerPath.notFound,
-    element: <NotFound />,
+    element: <NotFoundPage />,
   },
 };
 
