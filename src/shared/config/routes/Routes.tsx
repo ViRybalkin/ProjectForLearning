@@ -1,7 +1,7 @@
 import { PathRouteProps } from 'react-router/dist/lib/components';
-import { MainPage, About } from 'pages';
+import { MainPage, About, NotFound } from 'pages';
 
-type Path = 'main' | 'about'
+type Path = 'main' | 'about' | 'notFound'
 
 interface linkConfigType {
     path: string;
@@ -11,6 +11,7 @@ interface linkConfigType {
 const routerPath:Record<Path, string> = {
   main: '/',
   about: '/about',
+  notFound: '*',
 };
 
 const routerConfig:Record<Path, PathRouteProps> = {
@@ -21,6 +22,10 @@ const routerConfig:Record<Path, PathRouteProps> = {
   about: {
     path: routerPath.about,
     element: <About />,
+  },
+  notFound: {
+    path: routerPath.notFound,
+    element: <NotFound />,
   },
 };
 
