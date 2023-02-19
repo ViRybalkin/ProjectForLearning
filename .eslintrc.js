@@ -35,7 +35,7 @@ module.exports = {
     'no-unused-vars': ['off'],
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['off'],
     'react/function-component-definition': [
       2,
       {
