@@ -36,6 +36,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/no-extraneous-dependencies': ['off'],
+    'react/jsx-one-expression-per-line': ['off'],
     'react/function-component-definition': [
       2,
       {

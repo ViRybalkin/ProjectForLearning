@@ -1,0 +1,16 @@
+.errorPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.errorInfoWrapper {
+  display: block;
+}
+
+.errorText{
+  margin-bottom: 20px;
+}
