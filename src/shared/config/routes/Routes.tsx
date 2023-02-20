@@ -7,11 +7,6 @@ const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
 type Path = 'main' | 'about' | 'notFound'
 
-interface linkConfigType {
-    path: string;
-    name: string;
-}
-
 const routerPath:Record<Path, string> = {
   main: '/',
   about: '/about',
@@ -33,17 +28,6 @@ const routerConfig:Record<Path, PathRouteProps> = {
   },
 };
 
-const linkConfig: Array<linkConfigType> = [
-  {
-    path: routerPath.main,
-    name: 'MainPage',
-  },
-  {
-    path: routerPath.about,
-    name: 'About',
-  },
-];
-
 export {
-  routerConfig, linkConfig, Path, linkConfigType,
+  routerConfig, Path,
 };

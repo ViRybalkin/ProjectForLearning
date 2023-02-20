@@ -1,6 +1,6 @@
 import './styles/index.scss';
 import { classNames, UseTheme } from 'app/helpers';
-import { AppRouter, linkConfig } from 'shared/config';
+import { AppRouter } from 'shared/config';
 import { NavBar, SideBar } from 'widget/ui';
 import { Suspense } from 'react';
 
@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
-        <NavBar links={linkConfig} />
+        <NavBar />
         <main className={classNames('mainWrapper')}>
           <SideBar />
           <div className={classNames('contentWrapper')}>
