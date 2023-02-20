@@ -5,11 +5,13 @@ export default (env: BuildEnvType) => {
   const mode = env.mode || 'development';
   const port = env.port || 3000;
   const isDev = mode === 'development';
+  const webpackAnalyze = env.report || false;
 
   const webpackBuildOption: WebpackBuildOption = {
     mode,
     port,
     isDev,
+    isReport: webpackAnalyze,
     path: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'dist'),

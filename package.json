@@ -12,7 +12,8 @@
     "eslint:fix": " eslint \"**/*.{ts,tsx}\" --fix",
     "stylelint": "npx stylelint \"**/*.scss\"",
     "test": "jest --config config/jest/jest.config.js",
-    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix"
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
+    "webpackAnalyze": "webpack --env report=true"
   },
   "author": "",
   "license": "ISC",

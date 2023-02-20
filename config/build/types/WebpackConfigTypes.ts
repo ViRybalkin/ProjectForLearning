@@ -6,13 +6,15 @@ type PathTypes = {
     src: string;
 }
 export type WebpackBuildOption = {
-    mode: ModeType,
-    path: PathTypes,
-    isDev: boolean,
-    port: number,
+    mode: ModeType;
+    path: PathTypes;
+    isDev: boolean;
+    port: number;
+    isReport: boolean;
 }
 
 export type BuildEnvType = {
-    mode: ModeType,
-    port: number
+    mode: ModeType;
+    port: number;
+    report: true;
 }
