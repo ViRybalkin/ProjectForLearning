@@ -25,7 +25,7 @@ module.exports = {
     'react/jsx-filename-extension': ['off', { extensions: ['.tsx', '.jsx'] }],
     'import/prefer-default-export': ['off'],
     'import/extensions': ['off'],
-    'i18next/no-literal-string': 'warn',
+    'i18next/no-literal-string': 'off',
     'import/no-unresolved': [
       0,
       { caseSensitive: false },

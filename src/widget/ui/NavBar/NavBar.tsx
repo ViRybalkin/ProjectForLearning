@@ -6,9 +6,9 @@ import cls from './navBar.module.scss';
 
 const NavBar = ({ className, links }:NavBarProps) => {
   return (
-    <header className={classNames(cls.navBar, {}, [className])}>
+    <header data-testid="navBarId" className={classNames(cls.navBar, {}, [className])}>
       <ThemeSwitcher />
-      <nav className={cls.btnWrapper}>
+      <nav data-testid="navTagNavBarId" className={cls.btnWrapper}>
         {links.map((elem) => <CustomLink key={elem.path} to={elem.path} name={elem.name} />)}
       </nav>
     </header>

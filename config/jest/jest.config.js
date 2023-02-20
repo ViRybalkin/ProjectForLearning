@@ -3,7 +3,8 @@ module.exports = async () => {
     verbose: true,
     cacheDirectory: '<rootDir>/node_modules/.cache/jest-cache',
     coverageDirectory: '<rootDir>/coverage',
-    rootDir: '../',
+    rootDir: '../../',
+    coverageReporters: ['clover', 'json', 'lcov', 'text', 'text-summary'],
     coveragePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/public/', '<rootDir>/node_modules/'],
     // FIXME раскомментировать после написания тестов т.к pre-commit hook запускает тесты
     // collectCoverage: true,
@@ -12,9 +13,23 @@ module.exports = async () => {
         branches: 80,
         functions: 80,
         lines: 80,
-        statements: -10,
+        statements: 80,
       },
     },
+    globals: {
+      __IS_DEV__: true,
+    },
+    setupFilesAfterEnv: [
+      '<rootDir>/config/jest/setupTest.ts',
+    ],
+    moduleNameMapper: {
+      '\\.(scss)$': 'identity-obj-proxy',
+    },
+    transform: {
+      '^.+\\.tsx?$': 'babel-jest',
+      '^.+\\.svg$': 'jest-transformer-svg',
+    },
+    moduleDirectories: ['node_modules', 'src'],
     testEnvironment: 'jsdom',
     collectCoverageFrom: [
       '**/*.{js,jsx,ts,tsx}',

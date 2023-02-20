@@ -1,4 +1,4 @@
-import { classNames } from './classNames';
+import { classNames } from '../classNames';
 
 describe('Тестирование функции classNames', () => {
   test('функция должна вернуть корректный класс если передан один параметр', () => {

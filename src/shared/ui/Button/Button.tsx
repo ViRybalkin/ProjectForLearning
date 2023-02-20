@@ -6,7 +6,12 @@ import { ButtonProps } from './Button.types';
 const Button:FC<ButtonProps> = ({
   className, theme, children, ...otherProps
 }) => (
-  <button type="button" className={classNames(cls.button, {}, [className, cls[theme]])} {...otherProps}>
+  <button
+    data-testid="buttonTestId"
+    type="button"
+    className={classNames(cls.button, {}, [className, cls[theme]])}
+    {...otherProps}
+  >
     {children}
   </button>
 );
