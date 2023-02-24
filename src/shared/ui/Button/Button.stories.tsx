@@ -8,7 +8,7 @@ export default {
   component: Button,
   argTypes: {
     theme: {
-      options: ['clear', 'outlined'],
+      options: ['clear', 'outlined', 'contained'],
       control: { type: 'radio' },
       defaultValue: 'clear',
     },

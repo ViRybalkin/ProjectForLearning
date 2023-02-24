@@ -17,6 +17,7 @@
     "storybook": "start-storybook -p 6006 -c config/storybook BROWSER=safari",
     "build-storybook": "build-storybook -c config/storybook",
     "loki": "npx loki",
+    "loki:ok": "npx loki approve",
     "loki:ci": "npx loki --requireReference --reactUri  file:./storybook-static",
     "visual:report": "npm run visual:report:json && npm run visual:report:html",
     "visual:report:json": "node config/generate-visual-json-report.js",
