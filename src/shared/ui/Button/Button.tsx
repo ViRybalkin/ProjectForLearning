@@ -4,12 +4,12 @@ import cls from './button.module.scss';
 import { ButtonProps } from './Button.types';
 
 const Button:FC<ButtonProps> = ({
-  className, theme, children, ...otherProps
+  className, theme, children, size = 'medium', ...otherProps
 }) => (
   <button
     data-testid="buttonTestId"
     type="button"
-    className={classNames(cls.button, {}, [className, cls[theme]])}
+    className={classNames(cls.button, {}, [className, cls[theme], cls[size]])}
     {...otherProps}
   >
     {children}
