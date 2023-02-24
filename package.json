@@ -1,7 +1,7 @@
 {
-  "name": "ubilty",
+  "name": "project",
   "version": "1.0.0",
-  "description": "Ubilty course",
+  "description": "project-for-learning",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3007",
@@ -17,7 +17,10 @@
     "storybook": "start-storybook -p 6006 -c config/storybook BROWSER=safari",
     "build-storybook": "build-storybook -c config/storybook",
     "loki": "npx loki",
-    "loki:ci": "npx loki --requireReference --reactUri  file:./storybook-static"
+    "loki:ci": "npx loki --requireReference --reactUri  file:./storybook-static",
+    "visual:report": "npm run visual:report:json && npm run visual:report:html",
+    "visual:report:json": "node config/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
   },
   "author": "",
   "license": "ISC",
@@ -100,6 +103,7 @@
     "react-i18next": "12.1.5",
     "react-refresh": "^0.14.0",
     "react-router-dom": "6.8.1",
+    "reg-cli": "^0.17.7",
     "style-loader": "3.3.1",
     "ts-node-dev": "^2.0.0"
   }
