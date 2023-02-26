@@ -4,10 +4,13 @@
 @import "./theme/light";
 
 .app {
-  font: var(--font-m);
-  color: var(--color-primary);
   background-color: var(--bg-color);
   min-height: 100vh;
+}
+
+body {
+  font: var(--font-m);
+  color: var(--color-primary);
 }
 
 .mainWrapper {

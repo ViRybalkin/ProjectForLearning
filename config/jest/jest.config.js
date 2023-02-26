@@ -32,7 +32,7 @@ module.exports = async () => {
     moduleDirectories: ['node_modules', 'src'],
     testEnvironment: 'jsdom',
     collectCoverageFrom: [
-      '**/*.{js,jsx,ts,tsx}',
+      '**/*.{jsx,ts,tsx}',
       '!**/node_modules/**',
       '!**/dist/**',
       '!**/index.ts',
@@ -45,6 +45,7 @@ module.exports = async () => {
       '!**/.stylelintrc.js',
       '!**/*.config.{js,ts}',
       '!**/config/**',
+      '!**/*.stories.tsx',
     ],
   };
 };

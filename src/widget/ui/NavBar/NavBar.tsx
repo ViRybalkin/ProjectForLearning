@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
-const NavBar = ({ className }:NavBarProps) => {
+const NavBar = ({ className }: NavBarProps) => {
   const { t } = useTranslation('links');
   return (
     <header data-testid="navBarId" className={classNames(cls.navBar, {}, [className])}>

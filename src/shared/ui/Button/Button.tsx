@@ -3,7 +3,7 @@ import { classNames } from 'app';
 import cls from './button.module.scss';
 import { ButtonProps } from './Button.types';
 
-const Button:FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   className, theme, children, size = 'medium', ...otherProps
 }) => (
   <button

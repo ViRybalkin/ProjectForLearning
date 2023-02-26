@@ -7,13 +7,13 @@ const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
 type Path = 'main' | 'about' | 'notFound'
 
-const routerPath:Record<Path, string> = {
+const routerPath: Record<Path, string> = {
   main: '/',
   about: '/about',
   notFound: '*',
 };
 
-const routerConfig:Record<Path, PathRouteProps> = {
+const routerConfig: Record<Path, PathRouteProps> = {
   main: {
     path: routerPath.main,
     element: <MainPage />,
