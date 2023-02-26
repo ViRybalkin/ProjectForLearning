@@ -7,6 +7,6 @@ export default {
   component: LanguageSwitcher,
 } as ComponentMeta<typeof LanguageSwitcher>;
 
-const Proto: ComponentStory<typeof LanguageSwitcher> = () => (<LanguageSwitcher />);
+const Proto: ComponentStory<typeof LanguageSwitcher> = () => <LanguageSwitcher />;
 
 export const Template = Proto.bind({});

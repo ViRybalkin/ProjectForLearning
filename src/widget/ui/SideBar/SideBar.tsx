@@ -17,10 +17,12 @@ const SideBar = ({ className }: SideBarProps) => {
   return (
     <aside className={classNames(cls.navBar, { [cls.collapsed]: isCollapsed }, [className])}>
       <LanguageSwitcher />
-      <Button theme="clear" className={cls.collapseBtn} onClick={onToggle}>
-        {isCollapsed
-          ? <DoubleArrowRight fill="#fff" width={30} height={30} />
-          : <DoubleArrowLeft fill="#fff" width={30} height={30} />}
+      <Button theme='clear' className={cls.collapseBtn} onClick={onToggle}>
+        {isCollapsed ? (
+          <DoubleArrowRight fill='#fff' width={30} height={30} />
+        ) : (
+          <DoubleArrowLeft fill='#fff' width={30} height={30} />
+        )}
       </Button>
     </aside>
   );

@@ -7,6 +7,6 @@ export default {
   component: ThemeSwitcher,
 } as ComponentMeta<typeof ThemeSwitcher>;
 
-const Proto: ComponentStory<typeof ThemeSwitcher> = () => (<ThemeSwitcher />);
+const Proto: ComponentStory<typeof ThemeSwitcher> = () => <ThemeSwitcher />;
 
 export const Template = Proto.bind({});

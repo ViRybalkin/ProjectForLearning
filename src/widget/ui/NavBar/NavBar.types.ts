@@ -1,3 +1,3 @@
 export interface NavBarProps {
-    className?: string;
+  className?: string;
 }

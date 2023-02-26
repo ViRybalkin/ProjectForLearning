@@ -27,7 +27,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
       const errorInfoText = errorInfo.componentStack.toString();
 
       return (
-        <Suspense fallback="">
+        <Suspense fallback=''>
           <ErrorPage errorInfo={errorInfoText} errorName={errorName} errorMessage={errorMessage} />
         </Suspense>
       );

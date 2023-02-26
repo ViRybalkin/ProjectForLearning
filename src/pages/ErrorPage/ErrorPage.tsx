@@ -19,10 +19,10 @@ const ErrorPage = ({ errorName, errorMessage, errorInfo }: ErrorPageProps) => {
           {t('errorMessage')} {errorMessage}
         </h3>
         <br />
-        <h4 className={classNames(cls.errorText)}>
-          {errorInfo}
-        </h4>
-        <button type="button" onClick={onReload}>{t('reloadBtn')}</button>
+        <h4 className={classNames(cls.errorText)}>{errorInfo}</h4>
+        <button type='button' onClick={onReload}>
+          {t('reloadBtn')}
+        </button>
       </div>
     </div>
   );

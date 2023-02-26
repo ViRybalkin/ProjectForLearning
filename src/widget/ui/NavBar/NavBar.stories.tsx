@@ -7,6 +7,6 @@ export default {
   component: NavBar,
 } as ComponentMeta<typeof NavBar>;
 
-const Proto: ComponentStory<typeof NavBar> = (args) => (<NavBar {...args} />);
+const Proto: ComponentStory<typeof NavBar> = (args) => <NavBar {...args} />;
 
 export const Template = Proto.bind({});
