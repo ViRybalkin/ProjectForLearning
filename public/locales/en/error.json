@@ -1,6 +1,6 @@
 {
- "errorTitle": "Something went wrong!",
- "errorName": "Error name:",
- "errorMessage": "Error message:",
- "reloadBtn": "Reload page"
+  "errorTitle": "Something went wrong!",
+  "errorName": "Error name:",
+  "errorMessage": "Error message:",
+  "reloadBtn": "Reload page"
 }

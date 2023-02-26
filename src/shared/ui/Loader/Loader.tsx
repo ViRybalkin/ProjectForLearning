@@ -5,7 +5,7 @@ import { LoaderProps } from './Loader.types';
 
 const Loader = ({ className }: LoaderProps) => {
   return (
-    <div data-testid="loaderTestId" className={classNames(cls.ldsRing, { }, [className])}>
+    <div data-testid='loaderTestId' className={classNames(cls.ldsRing, {}, [className])}>
       <div />
       <div />
       <div />

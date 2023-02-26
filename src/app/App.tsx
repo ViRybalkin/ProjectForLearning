@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 export const App = () => {
   return (
     <div className={classNames('app', {})}>
-      <Suspense fallback="">
+      <Suspense fallback=''>
         <NavBar />
         <main className={classNames('mainWrapper')}>
           <SideBar />

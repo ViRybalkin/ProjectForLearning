@@ -4,9 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 const JestProvider: FC<any> = ({ children }) => {
   return (
     <MemoryRouter>
-      <Suspense fallback="">
-        { children }
-      </Suspense>
+      <Suspense fallback=''>{children}</Suspense>
     </MemoryRouter>
   );
 };

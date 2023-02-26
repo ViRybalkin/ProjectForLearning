@@ -17,4 +17,4 @@ export default {
   },
 } as ComponentMeta<typeof CustomLink>;
 
-export const DefaultButton: ComponentStory<typeof CustomLink> = (args) => (<CustomLink {...args} />);
+export const DefaultButton: ComponentStory<typeof CustomLink> = (args) => <CustomLink {...args} />;

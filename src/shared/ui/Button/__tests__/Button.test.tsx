@@ -4,11 +4,11 @@ import { BtnThemes } from '../Button.types';
 import { Button } from '../Button';
 
 describe('Тестирование компонента Button', () => {
-  const setup = (theme?: BtnThemes, className?: string, children?: ReactNode| string) => {
+  const setup = (theme?: BtnThemes, className?: string, children?: ReactNode | string) => {
     render(
       <Button theme={theme} className={className}>
         {children}
-      </Button>,
+      </Button>
     );
   };
 
@@ -36,7 +36,7 @@ describe('Тестирование компонента Button', () => {
   });
 
   test('Если передана компонент кнопка должна содержать компонент', () => {
-    const children = <div data-testid="btnChild" />;
+    const children = <div data-testid='btnChild' />;
     setup(undefined, 'someClass', children);
 
     const buttonChild = screen.getByTestId('btnChild');

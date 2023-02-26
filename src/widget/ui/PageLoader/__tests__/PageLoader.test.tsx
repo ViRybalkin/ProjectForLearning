@@ -3,9 +3,7 @@ import { PageLoader } from '../PageLoader';
 
 describe('Тестирование компонента PageLoader', () => {
   const setup = () => {
-    render(
-      <PageLoader />,
-    );
+    render(<PageLoader />);
   };
 
   test('PageLoader должен отрендерится', () => {

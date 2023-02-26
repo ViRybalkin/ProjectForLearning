@@ -11,5 +11,4 @@ export default {
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};

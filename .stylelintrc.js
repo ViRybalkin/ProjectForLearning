@@ -1,7 +1,7 @@
 module.exports = {
-  extends: ["stylelint-config-standard-scss"],
-  rules:{
-    "selector-class-pattern": null,
-    "keyframes-name-pattern": null,
-  }
-}
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
+  rules: {
+    'selector-class-pattern': null,
+    'keyframes-name-pattern': null,
+  },
+};

@@ -7,6 +7,6 @@ export default {
   component: PageLoader,
 } as ComponentMeta<typeof PageLoader>;
 
-const Proto: ComponentStory<typeof PageLoader> = () => (<PageLoader />);
+const Proto: ComponentStory<typeof PageLoader> = () => <PageLoader />;
 
 export const Template = Proto.bind({});

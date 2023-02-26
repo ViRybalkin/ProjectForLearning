@@ -7,6 +7,4 @@ export default {
   component: SideBar,
 } as ComponentMeta<typeof SideBar>;
 
-export const Template: ComponentStory<typeof SideBar> = (args) => (
-  <SideBar {...args} />
-);
+export const Template: ComponentStory<typeof SideBar> = (args) => <SideBar {...args} />;

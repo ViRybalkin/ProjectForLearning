@@ -8,7 +8,7 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
   return (
-    <Button theme="clear" onClick={() => onChangeLanguage()}>
+    <Button theme='clear' onClick={() => onChangeLanguage()}>
       {t('languageBtn')}
     </Button>
   );

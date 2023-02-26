@@ -7,7 +7,7 @@ describe('Тестирование компонента CustomLink', () => {
     render(
       <JestProvider>
         <CustomLink to={to} className={className} name={name} />
-      </JestProvider>,
+      </JestProvider>
     );
   };
 
