@@ -15,13 +15,15 @@ const SideBar = ({ className }: SideBarProps) => {
   }, []);
 
   return (
-    <aside className={classNames(cls.navBar, { [cls.collapsed]: isCollapsed }, [className])}>
+    <aside
+      data-testid='sideBarTestId'
+      className={classNames(cls.navBar, { [cls.collapsed]: isCollapsed }, [className])}>
       <LanguageSwitcher />
-      <Button theme='clear' className={cls.collapseBtn} onClick={onToggle}>
+      <Button data-testid="toggleSideBarBtn" theme='clear' className={cls.collapseBtn} onClick={onToggle}>
         {isCollapsed ? (
-          <DoubleArrowRight fill='#fff' width={30} height={30} />
+          <DoubleArrowRight data-testid='DoubleArrowRight' fill='#fff' width={30} height={30} />
         ) : (
-          <DoubleArrowLeft fill='#fff' width={30} height={30} />
+          <DoubleArrowLeft data-testid='DoubleArrowLeft' fill='#fff' width={30} height={30} />
         )}
       </Button>
     </aside>

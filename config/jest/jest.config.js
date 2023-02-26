@@ -6,8 +6,7 @@ module.exports = async () => {
     rootDir: '../../',
     coverageReporters: ['clover', 'json', 'lcov', 'text', 'text-summary'],
     coveragePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/public/', '<rootDir>/node_modules/'],
-    // FIXME раскомментировать после написания тестов т.к pre-commit hook запускает тесты
-    // collectCoverage: true,
+    collectCoverage: true,
     coverageThreshold: {
       global: {
         branches: 80,

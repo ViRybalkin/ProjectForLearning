@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 
 export const App = () => {
   return (
-    <div className={classNames('app', {})}>
+    <div data-testid="appId" className={classNames('app', {})}>
       <Suspense fallback=''>
         <NavBar />
         <main className={classNames('mainWrapper')}>
