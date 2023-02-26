@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Modal } from './Modal';
 
@@ -9,7 +9,7 @@ export default {
   argTypes: {
     isOpen: {
       control: 'boolean',
-      defaultValue: false,
+      defaultValue: true,
     },
     children: {
       control: 'text',
