@@ -1,6 +1,6 @@
 type ModeType = 'development' | 'production'
 type PathTypes = {
-    entry:string;
+    entry: string;
     output: string;
     html: string;
     src: string;

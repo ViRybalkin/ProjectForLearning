@@ -1,13 +1,12 @@
 import './styles/index.scss';
-import { classNames, UseTheme } from 'app/helpers';
+import { classNames } from 'app/helpers';
 import { AppRouter } from 'shared/config';
 import { NavBar, SideBar } from 'widget/ui';
 import { Suspense } from 'react';
 
 export const App = () => {
-  const { theme } = UseTheme();
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {})}>
       <Suspense fallback="">
         <NavBar />
         <main className={classNames('mainWrapper')}>

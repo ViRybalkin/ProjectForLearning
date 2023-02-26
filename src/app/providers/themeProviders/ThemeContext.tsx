@@ -4,7 +4,7 @@ export type ThemeTypes = 'light' |'dark';
 
 export interface ThemeContextProps {
     theme?: ThemeTypes;
-    setTheme?: (theme: ThemeTypes) => void
+    setTheme?: (theme: ThemeTypes)=> void
 }
 
 export const LOCAL_STORAGE_THEME = 'theme';

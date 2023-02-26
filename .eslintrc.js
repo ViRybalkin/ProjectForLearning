@@ -11,7 +11,7 @@ module.exports = {
     sourceType: 'module',
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'i18next', '@typescript-eslint'],
+  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks'],
   rules: {
     'react/jsx-filename-extension': ['off', {
       extensions: ['.tsx', '.jsx'],
@@ -19,21 +19,46 @@ module.exports = {
     'import/prefer-default-export': ['off'],
     'import/extensions': ['off'],
     'i18next/no-literal-string': 'off',
-    'import/no-unresolved': [0, {
+    'import/no-unresolved': ['off', {
       caseSensitive: false,
     }],
-    'max-len': ['error', {
-      code: 120,
-    }],
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreComments: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreUrls: true,
+      },
+    ],
     'arrow-body-style': 'off',
     'no-unused-vars': ['off'],
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/no-extraneous-dependencies': ['off'],
     'react/jsx-one-expression-per-line': ['off'],
-    'react/function-component-definition': [2, {
+    'react/function-component-definition': ['error', {
       namedComponents: 'arrow-function',
       unnamedComponents: 'arrow-function',
+    }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'key-spacing': ['error', {
+      singleLine: {
+        beforeColon: false,
+        afterColon: true,
+      },
+      multiLine: {
+        beforeColon: false,
+        afterColon: true,
+      },
+    }],
+    '@typescript-eslint/type-annotation-spacing': ['error', {
+      before: false,
+      after: true,
     }],
   },
   globals: {

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18nStory';
@@ -22,7 +22,7 @@ export const globalTypes = {
     toolbar: {
       icon: 'circlehollow',
       items: [
-        { value: 'light', icon: 'circlehollow', title: 'light' },
+        { value: 'light', icon: 'circle', title: 'light' },
         { value: 'dark', icon: 'circle', title: 'dark' },
       ],
       showName: true,
@@ -42,18 +42,19 @@ export const globalTypes = {
   },
 };
 
-const withI18next = (Story, context) => {
-  const { theme } = context.globals;
+const WithI18next = (Story, { globals }) => {
+  const { theme } = globals;
   const storyTheme = theme === 'dark' ? 'light' : 'dark';
-  const { locale } = context.globals;
+  const { locale } = globals;
 
-  React.useEffect(() => {
+  useEffect(() => {
     i18n.changeLanguage(locale);
   }, [locale]);
+  document.body.className = storyTheme;
 
   return (
     <MemoryRouter>
-      <Suspense fallback={<div>loading translations...</div>}>
+      <Suspense fallback={<div id="app">loading translations...</div>}>
         <I18nextProvider i18n={i18n}>
           <div className={`app ${storyTheme}`}>
             <Story />
@@ -64,4 +65,4 @@ const withI18next = (Story, context) => {
   );
 };
 
-export const decorators = [withI18next];
+export const decorators = [WithI18next];
