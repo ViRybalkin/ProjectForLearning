@@ -22,7 +22,6 @@ describe('тестирование компонента Counter', () => {
   test('Counter должен отобразить дефолтные значения', () => {
     setup();
     const count = screen.getByTestId('countId');
-    screen.debug();
 
     expect(count).toHaveTextContent(String(initialState.counter.value));
   });
