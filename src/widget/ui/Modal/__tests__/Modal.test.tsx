@@ -9,7 +9,7 @@ describe('Тестирования модального окна', () => {
   const setup = (isOpen = true, onEscapeClose = true, onClickOutside = true) => {
     render(
       <JestProvider>
-        <Modal isOpen={isOpen} setIsOpen={setIsOpenMock} onEscapeClose={onEscapeClose} onOverlayClose={onClickOutside}>
+        <Modal isOpen={isOpen} onClose={setIsOpenMock} onEscapeClose={onEscapeClose} onOverlayClose={onClickOutside}>
           <p>someText</p>
         </Modal>
       </JestProvider>

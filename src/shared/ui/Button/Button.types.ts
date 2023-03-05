@@ -7,4 +7,5 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: BtnThemes;
   size?: BtnSizes;
+  type?: 'submit' | 'button';
 }
