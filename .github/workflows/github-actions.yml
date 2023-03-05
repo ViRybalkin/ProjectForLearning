@@ -2,8 +2,6 @@ name: GitHub Actions
 run-name: ${{ github.actor }} is run GitHub Actions 🚀
 on:
   push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -12,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [ 17.x ]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
