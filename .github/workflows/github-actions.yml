@@ -1,7 +1,6 @@
 name: GitHub Actions
 run-name: ${{ github.actor }} is run GitHub Actions 🚀
 on:
-  push:
   pull_request:
     branches:
       - master
