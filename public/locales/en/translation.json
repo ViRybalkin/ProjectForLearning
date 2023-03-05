@@ -1,4 +1,7 @@
 {
   "languageBtn": "Русский",
-  "notFound": "Page not found"
+  "notFound": "Page not found",
+  "login": "Login",
+  "close": "Close",
+  "save": "Save"
 }

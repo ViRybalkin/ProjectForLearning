@@ -1,4 +1,7 @@
 {
   "languageBtn": "English",
-  "notFound": "Страница не найден"
+  "notFound": "Страница не найден",
+  "login": "Войти",
+  "close": "Закрыть",
+  "save": "Сохранить"
 }

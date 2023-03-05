@@ -4,10 +4,10 @@ import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './modal.module.scss';
 import { ModalProps } from './Modal.types';
 
-const Modal = ({ isOpen, setIsOpen, children, onEscapeClose = true, onOverlayClose = true }: ModalProps) => {
+const Modal = ({ isOpen, onClose, children, onEscapeClose = true, onOverlayClose = true }: ModalProps) => {
   const closeHandler = useCallback(() => {
-    setIsOpen(false);
-  }, [setIsOpen]);
+    onClose();
+  }, [onClose]);
 
   const onEscapePress = useCallback(
     (e: KeyboardEvent) => {

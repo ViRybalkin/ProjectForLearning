@@ -1,9 +1,9 @@
-import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { ReactNode } from 'react';
 
 export interface ModalProps {
   isOpen: boolean;
   children?: ReactNode;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  onClose: () => void;
   onEscapeClose?: boolean;
   onOverlayClose?: boolean;
 }
