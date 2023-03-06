@@ -6,4 +6,5 @@ export interface ModalProps {
   onClose: () => void;
   onEscapeClose?: boolean;
   onOverlayClose?: boolean;
+  lazy?: boolean;
 }

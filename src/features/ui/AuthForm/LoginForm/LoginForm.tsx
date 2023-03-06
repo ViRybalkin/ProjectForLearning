@@ -12,20 +12,21 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
     (event: FormEvent<HTMLFormElement>) => {
       onClose();
       event.preventDefault();
-      console.log(event.target);
     },
     [onClose]
   );
 
   return (
     <form className={classNames(cls.form)} name='login' onSubmit={onSubmit}>
-      <Input placeholder='user name' />
-      <Input placeholder='password' />
+      <div className={classNames(cls.inputsWrapper)}>
+        <Input fullWidth className='mb10' placeholder={t('userNameLogin')} />
+        <Input fullWidth placeholder={t('userNamePassword')} />
+      </div>
       <div className={classNames(cls.btnWrapper)}>
-        <Button theme='contained' type='submit'>
+        <Button data-testid='saveBtnId' theme='contained' type='submit'>
           {t('save')}
         </Button>
-        <Button theme='contained' onClick={onClose}>
+        <Button data-testid='closeBtnId' theme='contained' onClick={onClose}>
           {t('close')}
         </Button>
       </div>
@@ -33,4 +34,4 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
   );
 };
 
-export {LoginForm};
+export { LoginForm };

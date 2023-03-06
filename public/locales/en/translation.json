@@ -3,5 +3,7 @@
   "notFound": "Page not found",
   "login": "Login",
   "close": "Close",
-  "save": "Save"
+  "save": "Save",
+  "userNameLogin": "Enter user name",
+  "userNamePassword": "Enter user password"
 }

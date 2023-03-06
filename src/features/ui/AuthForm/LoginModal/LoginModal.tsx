@@ -6,7 +6,7 @@ import { LoginModalProps } from './LoginModal.types';
 const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
   return (
     <div>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal lazy isOpen={isOpen} onClose={onClose}>
         <LoginForm onClose={onClose} />
       </Modal>
     </div>

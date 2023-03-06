@@ -24,7 +24,9 @@ const NavBar = ({ className }: NavBarProps) => {
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
           </nav>
-          <Button onClick={onLogin}>{t('login', { ns: 'translation' })}</Button>
+          <Button data-testid="loginBtnId" onClick={onLogin}>
+            {t('login', { ns: 'translation' })}
+          </Button>
         </div>
       </header>
       <LoginModal isOpen={open} onClose={() => setOpen(false)} />
@@ -32,4 +34,4 @@ const NavBar = ({ className }: NavBarProps) => {
   );
 };
 
-export {NavBar};
+export { NavBar };

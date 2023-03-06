@@ -6,10 +6,15 @@ import userEvent from '@testing-library/user-event';
 describe('Тестирования модального окна', () => {
   const setIsOpenMock = jest.fn();
   const user = userEvent.setup();
-  const setup = (isOpen = true, onEscapeClose = true, onClickOutside = true) => {
+  const setup = (isOpen = true, onEscapeClose = true, onClickOutside = true, lazy = false) => {
     render(
       <JestProvider>
-        <Modal isOpen={isOpen} onClose={setIsOpenMock} onEscapeClose={onEscapeClose} onOverlayClose={onClickOutside}>
+        <Modal
+          lazy={lazy}
+          isOpen={isOpen}
+          onClose={setIsOpenMock}
+          onEscapeClose={onEscapeClose}
+          onOverlayClose={onClickOutside}>
           <p>someText</p>
         </Modal>
       </JestProvider>
@@ -76,5 +81,21 @@ describe('Тестирования модального окна', () => {
     await user.click(overlay);
 
     expect(setIsOpenMock).not.toBeCalled();
+  });
+
+  test('Если передан пропс lazy модалки не должно быть в дом дереве', () => {
+    setup(false, true, true, true);
+
+    const modal = screen.queryByTestId('modalTestId');
+
+    expect(modal).not.toBeInTheDocument();
+  });
+
+  test('Если не передан пропс lazy модалка должно быть в дом дереве', () => {
+    setup(true, true, true, true);
+
+    const modal = screen.getByTestId('modalTestId');
+
+    expect(modal).toBeInTheDocument();
   });
 });
