@@ -1,10 +1,19 @@
-import { MouseEvent, useCallback, useEffect } from 'react';
+import { MouseEvent, useCallback, useEffect, useState } from 'react';
 import { classNames } from 'app';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './modal.module.scss';
 import { ModalProps } from './Modal.types';
 
-const Modal = ({ isOpen, onClose, children, onEscapeClose = true, onOverlayClose = true }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  children,
+  onEscapeClose = true,
+  onOverlayClose = true,
+  lazy = false,
+}: ModalProps) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
   const closeHandler = useCallback(() => {
     onClose();
   }, [onClose]);
@@ -18,6 +27,12 @@ const Modal = ({ isOpen, onClose, children, onEscapeClose = true, onOverlayClose
     },
     [closeHandler]
   );
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen && onEscapeClose) {
@@ -39,6 +54,10 @@ const Modal = ({ isOpen, onClose, children, onEscapeClose = true, onOverlayClose
   const onContentClick = useCallback((e: MouseEvent) => {
     e.stopPropagation();
   }, []);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
