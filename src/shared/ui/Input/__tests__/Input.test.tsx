@@ -1,9 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import { Input, InputProps } from 'shared';
+import userEvent from '@testing-library/user-event';
 
 describe('тестирование компонента Input', () => {
-  const setup = (fullWidth?: boolean, size?: InputProps['size'], placeholder?: string, type?: InputProps['type']) => {
-    render(<Input fullWidth={fullWidth} size={size} placeholder={placeholder} type={type} />);
+  const user = userEvent.setup();
+  const setup = (
+    fullWidth?: boolean,
+    size?: InputProps['size'],
+    placeholder?: string,
+    type?: InputProps['type'],
+    onChange?: InputProps['onChange']
+  ) => {
+    render(<Input onChange={onChange} fullWidth={fullWidth} size={size} placeholder={placeholder} type={type} />);
   };
 
   test('если передан проп fullWidth Input должен содержать корректный класс', () => {
@@ -92,5 +100,15 @@ describe('тестирование компонента Input', () => {
     const input = screen.getByRole('textbox');
 
     expect(input).toHaveAttribute('type', 'text');
+  });
+
+  test('если передан onChange по изменению значения должна вызваться функция', async () => {
+    const onChange = jest.fn();
+    setup(undefined, undefined, undefined, undefined, onChange);
+
+    const input = screen.getByRole('textbox');
+    await user.type(input, '123');
+
+    expect(onChange).toHaveBeenCalledTimes(3);
   });
 });

@@ -1,6 +1,6 @@
 import { HTMLAttributes, HTMLInputTypeAttribute } from 'react';
 
-type InputAttr = Omit<HTMLAttributes<HTMLInputElement>, 'placeholder'>;
+type InputAttr = Omit<HTMLAttributes<HTMLInputElement>, 'placeholder' | 'onChange'>;
 type InputSize = 'small' | 'medium' | 'large';
 
 export interface InputProps extends InputAttr {
@@ -9,4 +9,5 @@ export interface InputProps extends InputAttr {
   size?: InputSize;
   fullWidth?: boolean;
   className?: string;
+  onChange?: (value: string) => void;
 }

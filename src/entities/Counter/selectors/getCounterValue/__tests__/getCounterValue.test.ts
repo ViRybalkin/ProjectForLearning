@@ -1,3 +1,4 @@
+import { AppStoreTypes } from 'app';
 import { getCounterValue } from '../getCounterValue';
 
 describe('тестирование функции getCounterValue', () => {
@@ -7,7 +8,7 @@ describe('тестирование функции getCounterValue', () => {
         value: 10,
       },
     };
-    const count = getCounterValue(state);
+    const count = getCounterValue(state as AppStoreTypes);
 
     expect(count).toEqual(state.counter.value);
   });
