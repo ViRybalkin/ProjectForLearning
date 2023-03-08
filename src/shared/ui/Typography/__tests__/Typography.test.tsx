@@ -17,7 +17,6 @@ describe('Тестирование компонента Typography', () => {
     setup();
 
     const typo = screen.getByTestId('typographyId');
-    screen.debug();
 
     expect(typo.tagName.toLowerCase()).toEqual('p');
   });
