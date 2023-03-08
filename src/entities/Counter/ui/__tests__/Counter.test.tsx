@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { JestProvider, StoreProvider } from 'app';
+import { AppStoreTypes, JestProvider, StoreProvider } from 'app';
 import { Counter } from '../Counter';
 
 describe('тестирование компонента Counter', () => {
@@ -8,7 +8,7 @@ describe('тестирование компонента Counter', () => {
     counter: {
       value: 10,
     },
-  };
+  } as AppStoreTypes;
   const user = userEvent.setup();
   const setup = () => {
     render(

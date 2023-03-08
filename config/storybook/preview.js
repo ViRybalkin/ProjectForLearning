@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { StoreProvider } from 'app';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18nStory';
 import '../../src/app/styles/index.scss';
@@ -22,8 +23,16 @@ export const globalTypes = {
     toolbar: {
       icon: 'circlehollow',
       items: [
-        { value: 'light', icon: 'circle', title: 'light' },
-        { value: 'dark', icon: 'circle', title: 'dark' },
+        {
+          value: 'light',
+          icon: 'circle',
+          title: 'light'
+        },
+        {
+          value: 'dark',
+          icon: 'circle',
+          title: 'dark'
+        },
       ],
       showName: true,
     },
@@ -34,8 +43,14 @@ export const globalTypes = {
     toolbar: {
       icon: 'globe',
       items: [
-        { value: 'en', title: 'English' },
-        { value: 'ru', title: 'Русский' },
+        {
+          value: 'en',
+          title: 'English'
+        },
+        {
+          value: 'ru',
+          title: 'Русский'
+        },
       ],
       showName: true,
     },
@@ -53,15 +68,17 @@ const WithI18next = (Story, { globals }) => {
   document.body.className = storyTheme;
 
   return (
-    <MemoryRouter>
-      <Suspense fallback={<div id="app">loading translations...</div>}>
-        <I18nextProvider i18n={i18n}>
-          <div className={`app ${storyTheme}`}>
-            <Story />
-          </div>
-        </I18nextProvider>
-      </Suspense>
-    </MemoryRouter>
+    <StoreProvider>
+      <MemoryRouter>
+        <Suspense fallback={<div id="app">loading translations...</div>}>
+          <I18nextProvider i18n={i18n}>
+            <div className={`app ${storyTheme}`}>
+              <Story/>
+            </div>
+          </I18nextProvider>
+        </Suspense>
+      </MemoryRouter>
+    </StoreProvider>
   );
 };
 

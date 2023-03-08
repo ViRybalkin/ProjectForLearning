@@ -3,7 +3,7 @@ import { Button, CustomLink } from 'shared';
 import { ThemeSwitcher } from 'widget';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
-import { LoginModal } from 'features/ui/AuthForm';
+import { LoginModal } from 'features/AuthByUserName';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
@@ -24,7 +24,7 @@ const NavBar = ({ className }: NavBarProps) => {
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
           </nav>
-          <Button data-testid="loginBtnId" onClick={onLogin}>
+          <Button data-testid='loginBtnId' onClick={onLogin}>
             {t('login', { ns: 'translation' })}
           </Button>
         </div>
