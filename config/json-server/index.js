@@ -18,16 +18,6 @@ server.use(async (req, res, next) => {
   next();
 });
 
-// проверка авторизации пользователя
-// eslint-disable-next-line consistent-return
-server.use(async (req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(403)
-      .json({ message: 'AUTHENTICATION_ERROR, maybe you forgot send auth token?' });
-  }
-  next();
-});
-
 // создание эндпоинта
 server.post('/login', (req, res) => {
   try {
@@ -55,6 +45,16 @@ server.post('/login', (req, res) => {
     return res.status(500)
       .json({ message: error });
   }
+});
+
+// проверка авторизации пользователя
+// eslint-disable-next-line consistent-return
+server.use(async (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(403)
+      .json({ message: 'AUTHENTICATION_ERROR, maybe you forgot send auth token?' });
+  }
+  next();
 });
 
 // использование ендпоинтов

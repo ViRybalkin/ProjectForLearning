@@ -4,15 +4,25 @@ import { ThemeSwitcher } from 'widget';
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsAuth, userAction } from 'entities/User';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
 const NavBar = ({ className }: NavBarProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
+  const isAuth = useSelector(getIsAuth);
+  const dispatch = useDispatch();
+
   const onLogin = useCallback(() => {
     setOpen(true);
   }, []);
+
+  const onLogout = useCallback(() => {
+    dispatch(userAction.logout());
+  }, [dispatch]);
+
   const { t } = useTranslation(['links', 'translation']);
 
   return (
@@ -24,9 +34,15 @@ const NavBar = ({ className }: NavBarProps) => {
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
           </nav>
-          <Button data-testid='loginBtnId' onClick={onLogin}>
-            {t('login', { ns: 'translation' })}
-          </Button>
+          {!isAuth ? (
+            <Button data-testid='loginBtnId' onClick={onLogin}>
+              {t('login', { ns: 'translation' })}
+            </Button>
+          ) : (
+            <Button data-testid='loginBtnId' onClick={onLogout}>
+              {t('logout', { ns: 'translation' })}
+            </Button>
+          )}
         </div>
       </header>
       <LoginModal isOpen={open} onClose={() => setOpen(false)} />

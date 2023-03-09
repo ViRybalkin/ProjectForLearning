@@ -2,6 +2,7 @@
   "languageBtn": "Русский",
   "notFound": "Page not found",
   "login": "Login",
+  "logout": "Logout",
   "close": "Close",
   "save": "Save",
   "userNameLogin": "Enter user name",
