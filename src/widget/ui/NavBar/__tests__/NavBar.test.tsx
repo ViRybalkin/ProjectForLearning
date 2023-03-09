@@ -3,11 +3,6 @@ import { JestProvider, StoreProvider } from 'app';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from '../NavBar';
 
-jest.mock('features/AuthByUserName/config/selector', () => ({
-  getUserName: jest.fn(),
-  getUserPassword: jest.fn(),
-}));
-
 describe('Тестирование компонента NavBar', () => {
   const user = userEvent.setup();
 

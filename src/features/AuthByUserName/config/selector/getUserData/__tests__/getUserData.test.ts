@@ -9,13 +9,13 @@ describe('Тестирование селектора getUserData', () => {
         password: '123',
       },
     };
-    const count = getUserData({
+    const result = getUserData({
       login: {
         username: 'name',
         password: '123',
       },
     } as AppStoreTypes);
 
-    expect(count).toEqual(state.login);
+    expect(result).toEqual(state.login);
   });
 })

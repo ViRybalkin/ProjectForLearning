@@ -1,15 +1,15 @@
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import webpack, {DefinePlugin, RuleSetRule} from 'webpack';
 import path from 'path';
-import { styleLoader } from '../build/loaders/styleLoader';
+import {styleLoader} from '../build/loaders/styleLoader';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({config}: { config: webpack.Configuration }) => {
   config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'));
   config.resolve.extensions.push('.ts', '.tsx');
 
   // eslint-disable-next-line no-param-reassign
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/i };
+      return {...rule, exclude: /\.svg$/i};
     }
 
     return rule;
@@ -20,6 +20,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
       __IS_DEV__: true,
     }),
   );
+  config.resolve.alias = {
+    'entities': path.resolve(__dirname, '../../src/entities')
+  }
 
   config.module.rules.push({
     test: /\.svg$/,

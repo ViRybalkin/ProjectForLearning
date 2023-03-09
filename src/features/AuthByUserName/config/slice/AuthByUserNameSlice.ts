@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {authByUserNameThunk} from "features/AuthByUserName/config/sercives";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {authByUserNameThunk} from "../services";
 import {AuthByUserNameTypes} from '../types';
 
 const initialState: AuthByUserNameTypes = {
@@ -13,17 +13,25 @@ export const authByUserNameSlice = createSlice({
   name: 'authByUserName',
   initialState,
   reducers: {
-    setUserName(state: AuthByUserNameTypes, action) {
-      state.username = action.payload;
+    setUserData(state: AuthByUserNameTypes, action: PayloadAction<AuthByUserNameTypes>) {
+      state.username = action.payload.username;
+      state.password = action.payload.password;
     },
-    setPassword(state: AuthByUserNameTypes, action) {
-      state.password = action.payload
-    }
   },
   extraReducers: (builder) => {
-    builder.addCase(authByUserNameThunk.fulfilled, (state, action) => {
-      console.log(state)
-    })
+    builder
+      .addCase(authByUserNameThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = ''
+      })
+      .addCase(authByUserNameThunk.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = '';
+      })
+      .addCase(authByUserNameThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
   }
 })
 
