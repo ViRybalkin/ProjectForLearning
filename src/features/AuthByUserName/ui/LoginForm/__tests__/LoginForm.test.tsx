@@ -1,7 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
-import { LoginForm } from 'features/AuthByUserName';
 import userEvent from '@testing-library/user-event';
 import { StoreProvider } from 'app';
+import LoginForm from '../LoginForm';
 
 describe('Тестирование формы логина', () => {
   const onClose = jest.fn();
