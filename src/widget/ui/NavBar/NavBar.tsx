@@ -45,7 +45,8 @@ const NavBar = ({ className }: NavBarProps) => {
           )}
         </div>
       </header>
-      <LoginModal isOpen={open} onClose={() => setOpen(false)} />
+
+      {!isAuth ? <LoginModal isOpen={open} onClose={() => setOpen(false)} /> : null}
     </>
   );
 };

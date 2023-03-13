@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useLayoutEffect } from 'react';
 import { Button, Input, Typography } from 'shared';
-import { classNames } from 'app';
+import { classNames, StoreWithReducerManager } from 'app';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
-import { authActions, authByUserNameThunk } from 'features';
+import { authByUserNameThunk } from 'features';
+import { authActions, authByUserNameReducer } from 'features/AuthByUserName/config/slice/AuthByUserNameSlice';
 import { getError, getIsLoading } from '../../config/selector';
 import cls from './LoginForm.module.scss';
 import { LoginFormProps, LoginFormTypes } from './LoginForm.types';
@@ -12,10 +13,18 @@ import { LoginFormProps, LoginFormTypes } from './LoginForm.types';
 const LoginForm = ({ onClose }: LoginFormProps) => {
   const { t } = useTranslation();
   const { handleSubmit, control } = useForm();
-
   const dispatch = useDispatch();
   const error = useSelector(getError);
   const isLoading = useSelector(getIsLoading);
+  const store = useStore() as StoreWithReducerManager;
+
+  useLayoutEffect(() => {
+    store.reducerManager.add('login', authByUserNameReducer);
+
+    return () => {
+      store.reducerManager.remove('login');
+    };
+  }, []);
 
   const onSubmit = useCallback(
     (data: LoginFormTypes) => {
@@ -59,4 +68,4 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
   );
 };
 
-export { LoginForm };
+export default LoginForm;

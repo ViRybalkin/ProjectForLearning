@@ -5,7 +5,7 @@ import {UserData} from "../types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData,
   { rejectValue: string }>(
-  'user/authByUserName',
+  'login/authByUserName',
   async (authData: UserData, thunkAPI) => {
     try {
       const {data} = await axios.post<UserSliceTypes>('http://localhost:8000/login', authData)
