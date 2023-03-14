@@ -1,8 +1,8 @@
-import React, { useCallback, useLayoutEffect } from 'react';
+import React, { useCallback } from 'react';
 import { Button, Input, Typography } from 'shared';
-import { classNames, StoreWithReducerManager } from 'app';
+import { classNames, DynamicComponent } from 'app';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import { authByUserNameThunk } from 'features';
 import { authActions, authByUserNameReducer } from 'features/AuthByUserName/config/slice/AuthByUserNameSlice';
@@ -16,15 +16,6 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
   const dispatch = useDispatch();
   const error = useSelector(getError);
   const isLoading = useSelector(getIsLoading);
-  const store = useStore() as StoreWithReducerManager;
-
-  useLayoutEffect(() => {
-    store.reducerManager.add('login', authByUserNameReducer);
-
-    return () => {
-      store.reducerManager.remove('login');
-    };
-  }, []);
 
   const onSubmit = useCallback(
     (data: LoginFormTypes) => {
@@ -40,31 +31,33 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
   );
 
   return (
-    <form className={classNames(cls.form)} onSubmit={handleSubmit(onSubmit)}>
-      <div className={classNames(cls.inputsWrapper)}>
-        <Controller
-          name='username'
-          control={control}
-          defaultValue=''
-          render={({ field }) => <Input fullWidth className='mb10' placeholder={t('userNameLogin')} {...field} />}
-        />
-        <Controller
-          name='password'
-          control={control}
-          defaultValue=''
-          render={({ field }) => <Input type='password' fullWidth placeholder={t('userNamePassword')} {...field} />}
-        />
-      </div>
-      {error ? <Typography error>{error}</Typography> : null}
-      <div className={classNames(cls.btnWrapper)}>
-        <Button disabled={isLoading} data-testid='saveBtnId' theme='contained' type='submit'>
-          {t('save')}
-        </Button>
-        <Button data-testid='closeBtnId' theme='contained' onClick={onClose}>
-          {t('close')}
-        </Button>
-      </div>
-    </form>
+    <DynamicComponent shouldRemoveAfterUnmount reducers={{ login: authByUserNameReducer }}>
+      <form className={classNames(cls.form)} onSubmit={handleSubmit(onSubmit)}>
+        <div className={classNames(cls.inputsWrapper)}>
+          <Controller
+            name='username'
+            control={control}
+            defaultValue=''
+            render={({ field }) => <Input fullWidth className='mb10' placeholder={t('userNameLogin')} {...field} />}
+          />
+          <Controller
+            name='password'
+            control={control}
+            defaultValue=''
+            render={({ field }) => <Input type='password' fullWidth placeholder={t('userNamePassword')} {...field} />}
+          />
+        </div>
+        {error ? <Typography error>{error}</Typography> : null}
+        <div className={classNames(cls.btnWrapper)}>
+          <Button disabled={isLoading} data-testid='saveBtnId' theme='contained' type='submit'>
+            {t('save')}
+          </Button>
+          <Button data-testid='closeBtnId' theme='contained' onClick={onClose}>
+            {t('close')}
+          </Button>
+        </div>
+      </form>
+    </DynamicComponent>
   );
 };
 
