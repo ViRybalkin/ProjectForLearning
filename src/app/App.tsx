@@ -1,13 +1,12 @@
 import './styles/index.scss';
-import { classNames } from 'app/helpers';
+import { classNames, useAppDispatch } from 'app';
 import { AppRouter } from 'shared/config';
 import { NavBar, SideBar } from 'widget/ui';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { userAction } from 'entities';
 
 export const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userAction.initUserData());

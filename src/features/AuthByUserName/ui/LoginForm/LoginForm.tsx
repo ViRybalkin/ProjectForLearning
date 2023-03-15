@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { Button, Input, Typography } from 'shared';
-import { classNames, DynamicComponent } from 'app';
+import { classNames, DynamicComponent, useAppDispatch } from 'app';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import { authByUserNameThunk } from 'features';
 import { authActions, authByUserNameReducer } from 'features/AuthByUserName/config/slice/AuthByUserNameSlice';
@@ -13,21 +13,24 @@ import { LoginFormProps, LoginFormTypes } from './LoginForm.types';
 const LoginForm = ({ onClose }: LoginFormProps) => {
   const { t } = useTranslation();
   const { handleSubmit, control } = useForm();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const error = useSelector(getError);
   const isLoading = useSelector(getIsLoading);
 
   const onSubmit = useCallback(
-    (data: LoginFormTypes) => {
+    async (data: LoginFormTypes) => {
       dispatch(
         authActions.setUserData({
           username: data.username,
           password: data.password,
         })
       );
-      dispatch(authByUserNameThunk({ username: data.username, password: data.password }));
+      const res = await dispatch(authByUserNameThunk({ username: data.username, password: data.password }));
+      if (res?.meta?.requestStatus === 'fulfilled') {
+        onClose();
+      }
     },
-    [dispatch]
+    [dispatch, onClose]
   );
 
   return (
@@ -40,7 +43,7 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
             defaultValue=''
             render={({ field }) => (
               <Input
-                data-testid="usernameInputId"
+                data-testid='usernameInputId'
                 fullWidth
                 className='mb10'
                 placeholder={t('userNameLogin')}
@@ -55,7 +58,7 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
             render={({ field }) => (
               <Input
                 type='password'
-                data-testid="passwordInputId"
+                data-testid='passwordInputId'
                 fullWidth
                 placeholder={t('userNamePassword')}
                 {...field}

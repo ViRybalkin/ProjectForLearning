@@ -1,7 +1,7 @@
 import * as Selectors from 'features/AuthByUserName/config/selector';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { StoreProvider } from 'app';
+import { JestProvider } from 'app';
 import LoginForm from '../LoginForm';
 
 const mockDispatch = jest.fn();
@@ -23,9 +23,9 @@ describe('Тестирование формы логина', () => {
 
   const setup = () => {
     render(
-      <StoreProvider>
+      <JestProvider>
         <LoginForm onClose={onClose} />
-      </StoreProvider>
+      </JestProvider>
     );
   };
 

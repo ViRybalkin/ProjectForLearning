@@ -1,10 +1,10 @@
-import { classNames } from 'app';
+import { classNames, useAppDispatch } from 'app';
 import { Button, CustomLink } from 'shared';
 import { ThemeSwitcher } from 'widget';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getIsAuth, userAction } from 'entities';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
@@ -13,7 +13,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const isAuth = useSelector(getIsAuth);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onLogin = useCallback(() => {
     setOpen(true);

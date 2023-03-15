@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { App, JestProvider, StoreProvider } from 'app';
+import { App, JestProvider } from 'app';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -11,11 +11,9 @@ jest.mock('react-redux', () => ({
 describe('Тестирование компонента App', () => {
   const setup = () => {
     render(
-      <StoreProvider>
-        <JestProvider>
-          <App />
-        </JestProvider>
-      </StoreProvider>
+      <JestProvider>
+        <App />
+      </JestProvider>
     );
   };
 

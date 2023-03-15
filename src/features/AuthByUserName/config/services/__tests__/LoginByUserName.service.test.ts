@@ -1,10 +1,9 @@
 import {authByUserNameThunk, UserData} from "features";
-import axios from "axios";
 import {userAction} from "entities";
+import {$api} from "shared/config/api";
 
-
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true)
+jest.mock('shared/config/api');
+const mockedAxios = jest.mocked($api, true)
 
 describe('Тестирование сервиса loginByUserName', () => {
   const requestData: UserData = {
@@ -12,9 +11,13 @@ describe('Тестирование сервиса loginByUserName', () => {
     password: 'password'
   };
   const responseData = {
-
     username: 'name',
     id: 'someId'
+  }
+
+  const extraData = {
+    api: mockedAxios,
+    navigate: jest.fn()
   }
 
   const dispatch = jest.fn();
@@ -29,7 +32,7 @@ describe('Тестирование сервиса loginByUserName', () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
     const action = authByUserNameThunk(requestData)
 
-    const res = await action(dispatch, getState, undefined);
+    const res = await action(dispatch, getState, extraData);
 
     expect(res.meta.requestStatus).toEqual('fulfilled')
   });
@@ -38,7 +41,7 @@ describe('Тестирование сервиса loginByUserName', () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
     const action = authByUserNameThunk(requestData)
 
-    await action(dispatch, getState, undefined);
+    await action(dispatch, getState, extraData);
 
     expect(dispatch).toHaveBeenCalledWith(userAction.setUserData({
       username: responseData.username,
@@ -53,7 +56,7 @@ describe('Тестирование сервиса loginByUserName', () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
     const action = authByUserNameThunk(requestData)
 
-    await action(dispatch, getState, undefined);
+    await action(dispatch, getState, extraData);
 
     expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
       username: responseData.username,
@@ -67,7 +70,7 @@ describe('Тестирование сервиса loginByUserName', () => {
     mockedAxios.post.mockReturnValue(Promise.reject(Error('some reason')))
     const action = authByUserNameThunk(requestData)
 
-    const res = await action(dispatch, getState, undefined);
+    const res = await action(dispatch, getState, extraData);
 
     expect(res.meta.requestStatus).toEqual('rejected')
     expect(localStorage.setItem).not.toHaveBeenCalled();
