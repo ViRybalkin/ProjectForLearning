@@ -38,13 +38,29 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
             name='username'
             control={control}
             defaultValue=''
-            render={({ field }) => <Input fullWidth className='mb10' placeholder={t('userNameLogin')} {...field} />}
+            render={({ field }) => (
+              <Input
+                data-testid="usernameInputId"
+                fullWidth
+                className='mb10'
+                placeholder={t('userNameLogin')}
+                {...field}
+              />
+            )}
           />
           <Controller
             name='password'
             control={control}
             defaultValue=''
-            render={({ field }) => <Input type='password' fullWidth placeholder={t('userNamePassword')} {...field} />}
+            render={({ field }) => (
+              <Input
+                type='password'
+                data-testid="passwordInputId"
+                fullWidth
+                placeholder={t('userNamePassword')}
+                {...field}
+              />
+            )}
           />
         </div>
         {error ? <Typography error>{error}</Typography> : null}

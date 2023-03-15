@@ -1,7 +1,21 @@
+import * as Selectors from 'entities/User/selectors';
 import { act, render, screen } from '@testing-library/react';
 import { JestProvider, StoreProvider } from 'app';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from '../NavBar';
+
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  // @ts-ignore
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => mockDispatch,
+}));
+
+jest.mock('entities/User/selectors', () => ({
+  // @ts-ignore
+  ...jest.requireActual('entities/User/selectors'),
+  __esModule: true,
+}));
 
 describe('Тестирование компонента NavBar', () => {
   const user = userEvent.setup();
@@ -10,11 +24,15 @@ describe('Тестирование компонента NavBar', () => {
     render(
       <StoreProvider>
         <JestProvider>
-          <NavBar />
+          <NavBar/>
         </JestProvider>
       </StoreProvider>
     );
   };
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
   test('Компонент должен отрендериться', () => {
     setup();
@@ -60,5 +78,27 @@ describe('Тестирование компонента NavBar', () => {
     const closeBtn = screen.getByTestId('closeBtnId');
 
     await user.click(closeBtn);
+  });
+
+  test('Если пользователь авторизован модальное окно должно отсутствовать', async () => {
+    jest.spyOn(Selectors, 'getIsAuth').mockImplementation(() => true);
+    setup();
+
+    const modal = screen.queryByTestId('modalTestId');
+
+    expect(modal).not.toBeInTheDocument();
+  });
+
+  test('Если пользователь авторизован нажатие на выйти должно вызвать функцию', async () => {
+    jest.spyOn(Selectors, 'getIsAuth').mockImplementation(() => true);
+    setup();
+
+    const logoutBtn = screen.getByTestId('logoutBtnId');
+
+    await act(async () => {
+      await user.click(logoutBtn);
+    });
+
+    expect(mockDispatch).toBeCalledWith({payload: undefined, type: 'user/logout'});
   });
 });
