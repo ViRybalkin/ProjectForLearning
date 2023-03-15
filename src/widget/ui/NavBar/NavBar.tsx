@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
-import { getIsAuth, userAction } from 'entities/User';
+import { getIsAuth, userAction } from 'entities';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
@@ -39,7 +39,7 @@ const NavBar = ({ className }: NavBarProps) => {
               {t('login', { ns: 'translation' })}
             </Button>
           ) : (
-            <Button data-testid='loginBtnId' onClick={onLogout}>
+            <Button data-testid='logoutBtnId' onClick={onLogout}>
               {t('logout', { ns: 'translation' })}
             </Button>
           )}
