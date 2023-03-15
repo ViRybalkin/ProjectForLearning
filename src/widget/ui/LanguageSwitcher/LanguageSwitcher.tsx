@@ -1,7 +1,8 @@
 import { Button, i18n } from 'shared';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = memo(() => {
   const { t } = useTranslation();
 
   const onChangeLanguage = () => {
@@ -12,6 +13,6 @@ const LanguageSwitcher = () => {
       {t('languageBtn')}
     </Button>
   );
-};
+});
 
 export { LanguageSwitcher };

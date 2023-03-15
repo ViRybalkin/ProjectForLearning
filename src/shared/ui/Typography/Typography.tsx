@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import React, { memo } from 'react';
 import { classNames } from 'app';
-import { TypographyProps } from './Typography.types';
 import cls from './Typography.module.scss';
+import { TypographyProps } from './Typography.types';
 
-const Typography: FC<TypographyProps> = ({ error, variant, children }) => {
+const Typography = memo(({ error, variant, children }: TypographyProps) => {
   const Component = error ? 'p' : variant || 'p';
 
   return (
-    <Component data-testid="typographyId" className={classNames(cls.typography, { [cls.error]: error })}>
+    <Component data-testid='typographyId' className={classNames(cls.typography, { [cls.error]: error })}>
       {children}
     </Component>
   );
-};
+});
 
 export { Typography };

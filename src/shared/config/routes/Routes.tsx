@@ -1,30 +1,36 @@
-import { PathRouteProps } from 'react-router/dist/lib/components';
-import { lazy } from 'react';
+import {PathRouteProps} from 'react-router/dist/lib/components';
+import {lazy} from 'react';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AboutPage = lazy(() => import('pages/About/About'));
+const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
-type Path = 'main' | 'about' | 'notFound'
+type Path = 'main' | 'about' | 'profile' | 'notFound'
 
 const routerPath: Record<Path, string> = {
   main: '/',
   about: '/about',
+  profile: '/profile',
   notFound: '*',
 };
 
 const routerConfig: Record<Path, PathRouteProps> = {
   main: {
     path: routerPath.main,
-    element: <MainPage />,
+    element: <MainPage/>,
   },
   about: {
     path: routerPath.about,
-    element: <AboutPage />,
+    element: <AboutPage/>,
+  },
+  profile: {
+    path: routerPath.profile,
+    element: <ProfilePage/>,
   },
   notFound: {
     path: routerPath.notFound,
-    element: <NotFoundPage />,
+    element: <NotFoundPage/>,
   },
 };
 
