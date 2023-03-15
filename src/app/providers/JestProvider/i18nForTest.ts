@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const ns = ['translation', 'about', 'error', 'links', 'mainPage'];
+const ns = ['translation', 'about', 'error', 'links', 'mainPage', 'profilePage'];
 // Для тестирования интернализации добавить нужные языки
 const supportedLngs = ['ru', 'en'];
 const resources = ns.reduce<Record<string, ResourceLanguage>>((acc, n) => {

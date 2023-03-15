@@ -2,8 +2,9 @@ import { Button } from 'shared';
 import { UseTheme } from 'app';
 import DarkMode from 'shared/assets/icons/dark-mode.svg';
 import LightMode from 'shared/assets/icons/light-mode.svg';
+import { memo } from 'react';
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = memo(() => {
   const { theme, onToggleTheme } = UseTheme();
   return (
     <Button data-testid='themeSwitcherId' theme='clear' onClick={onToggleTheme}>
@@ -14,6 +15,6 @@ const ThemeSwitcher = () => {
       )}
     </Button>
   );
-};
+});
 
 export { ThemeSwitcher };

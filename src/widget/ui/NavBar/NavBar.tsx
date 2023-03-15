@@ -2,14 +2,14 @@ import { classNames } from 'app';
 import { Button, CustomLink } from 'shared';
 import { ThemeSwitcher } from 'widget';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsAuth, userAction } from 'entities';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
-const NavBar = ({ className }: NavBarProps) => {
+const NavBar = memo(({ className }: NavBarProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const isAuth = useSelector(getIsAuth);
@@ -33,6 +33,7 @@ const NavBar = ({ className }: NavBarProps) => {
           <nav data-testid='navTagNavBarId' className={cls.btnWrapper}>
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
+            <CustomLink to='/profile' name={t('profile')} />
           </nav>
           {!isAuth ? (
             <Button data-testid='loginBtnId' onClick={onLogin}>
@@ -49,6 +50,6 @@ const NavBar = ({ className }: NavBarProps) => {
       {!isAuth ? <LoginModal isOpen={open} onClose={() => setOpen(false)} /> : null}
     </>
   );
-};
+});
 
 export { NavBar };

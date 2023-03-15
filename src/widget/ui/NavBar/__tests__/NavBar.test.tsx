@@ -24,7 +24,7 @@ describe('Тестирование компонента NavBar', () => {
     render(
       <StoreProvider>
         <JestProvider>
-          <NavBar/>
+          <NavBar />
         </JestProvider>
       </StoreProvider>
     );
@@ -47,7 +47,7 @@ describe('Тестирование компонента NavBar', () => {
 
     const navBar = screen.getAllByRole('link');
 
-    expect(navBar).toHaveLength(2);
+    expect(navBar).toHaveLength(3);
   });
 
   test('Нажатие на войти должно открыть модальное окно', async () => {
@@ -99,6 +99,6 @@ describe('Тестирование компонента NavBar', () => {
       await user.click(logoutBtn);
     });
 
-    expect(mockDispatch).toBeCalledWith({payload: undefined, type: 'user/logout'});
+    expect(mockDispatch).toBeCalledWith({ payload: undefined, type: 'user/logout' });
   });
 });
