@@ -1,6 +1,6 @@
 import * as Selectors from 'entities/User/selectors';
 import { act, render, screen } from '@testing-library/react';
-import { JestProvider, StoreProvider } from 'app';
+import { JestProvider } from 'app';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from '../NavBar';
 
@@ -22,11 +22,9 @@ describe('Тестирование компонента NavBar', () => {
 
   const setup = () => {
     render(
-      <StoreProvider>
-        <JestProvider>
-          <NavBar />
-        </JestProvider>
-      </StoreProvider>
+      <JestProvider>
+        <NavBar />
+      </JestProvider>
     );
   };
 

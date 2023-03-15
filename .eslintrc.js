@@ -64,6 +64,15 @@ module.exports = {
     'no-param-reassign': 'off',
     'consistent-return': 'off',
     'react/button-has-type': 'off',
+    'no-restricted-imports': 'off',
+    '@typescript-eslint/no-restricted-imports': [
+      'warn',
+      {
+        name: 'react-redux',
+        importNames: ['useDispatch'],
+        message: 'Use typed hooks `useAppDispatch` instead.',
+      },
+    ],
     'key-spacing': [
       'error',
       {

@@ -2,6 +2,7 @@ import {UserSliceTypes} from "entities";
 import {AuthByUserNameTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
+import {createReduxStore} from "app";
 
 export interface AppStoreTypes {
   user: UserSliceTypes,
@@ -20,3 +21,6 @@ export interface ReducerManagerTypes {
 export interface StoreWithReducerManager extends EnhancedStore<AppStoreTypes> {
   reducerManager: ReducerManagerTypes
 }
+
+export type RootState = ReturnType<typeof createReduxStore>['getState']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

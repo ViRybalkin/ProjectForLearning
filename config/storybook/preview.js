@@ -68,8 +68,8 @@ const WithI18next = (Story, { globals }) => {
   document.body.className = storyTheme;
 
   return (
-    <StoreProvider>
-      <MemoryRouter>
+    <MemoryRouter>
+      <StoreProvider>
         <Suspense fallback={<div id="app">loading translations...</div>}>
           <I18nextProvider i18n={i18n}>
             <div className={`app ${storyTheme}`}>
@@ -77,8 +77,8 @@ const WithI18next = (Story, { globals }) => {
             </div>
           </I18nextProvider>
         </Suspense>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </MemoryRouter>
   );
 };
 

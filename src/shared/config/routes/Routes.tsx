@@ -6,16 +6,16 @@ const AboutPage = lazy(() => import('pages/About/About'));
 const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
-type Path = 'main' | 'about' | 'profile' | 'notFound'
+export type Path = 'main' | 'about' | 'profile' | 'notFound'
 
-const routerPath: Record<Path, string> = {
+export const routerPath: Record<Path, string> = {
   main: '/',
   about: '/about',
   profile: '/profile',
   notFound: '*',
 };
 
-const routerConfig: Record<Path, PathRouteProps> = {
+export const routerConfig: Record<Path, PathRouteProps> = {
   main: {
     path: routerPath.main,
     element: <MainPage/>,
@@ -32,8 +32,4 @@ const routerConfig: Record<Path, PathRouteProps> = {
     path: routerPath.notFound,
     element: <NotFoundPage/>,
   },
-};
-
-export {
-  routerConfig, Path,
 };
