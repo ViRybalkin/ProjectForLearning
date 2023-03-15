@@ -23,7 +23,7 @@ module.exports = async () => {
     ],
     moduleNameMapper: {
       '\\.(scss)$': 'identity-obj-proxy',
-      'entities/(.*)': '<rootDir>/src/entities/',
+      'entities': '<rootDir>/src/entities/',
     },
     transform: {
       '^.+\\.tsx?$': 'babel-jest',

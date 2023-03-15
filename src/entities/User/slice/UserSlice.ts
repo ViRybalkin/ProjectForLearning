@@ -30,10 +30,10 @@ export const userSlice = createSlice({
       state.id = '';
       state.isAuth = false;
 
-      localStorage.removeItem('auth')
+      localStorage.removeItem('auth');
     },
   },
 });
 
 export const userAction = userSlice.actions;
-export const {reducer: userReducer} = userSlice;
+export const { reducer: userReducer } = userSlice;

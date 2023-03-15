@@ -47,4 +47,18 @@ describe('Тестирование компонента NavBar', () => {
 
     expect(modalFound).toBeInTheDocument();
   });
+
+  test('Нажатие на закрыть модального окна', async () => {
+    setup();
+
+    const loginBtn = screen.getByTestId('loginBtnId');
+
+    await act(async () => {
+      await user.click(loginBtn);
+    });
+
+    const closeBtn = screen.getByTestId('closeBtnId');
+
+    await user.click(closeBtn);
+  });
 });
