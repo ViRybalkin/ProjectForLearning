@@ -102,5 +102,6 @@ module.exports = {
   },
   globals: {
     __IS_DEV__: true,
+    __BASE_URL__: true,
   },
 };

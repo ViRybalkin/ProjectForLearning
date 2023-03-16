@@ -1,9 +1,9 @@
 import webpack from 'webpack';
-import { Plugins } from './plugins';
-import { Rules } from './rules';
-import { Extensions } from './Extensions';
-import { WebpackBuildOption } from './types';
-import { buildDevServer } from './buildDevServer';
+import {Plugins} from './plugins';
+import {Rules} from './rules';
+import {Extensions} from './Extensions';
+import {WebpackBuildOption} from './types';
+import {buildDevServer} from './buildDevServer';
 
 export const WebpackBuilder = (options: WebpackBuildOption): webpack.Configuration => ({
   mode: options.mode,
@@ -13,7 +13,7 @@ export const WebpackBuilder = (options: WebpackBuildOption): webpack.Configurati
     filename: '[name].[contenthash].js',
     clean: true,
   },
-  plugins: Plugins(options.path.html, options.isDev, options.isReport),
+  plugins: Plugins(options.path.html, options.isDev, options.isReport, options.baseUrl),
   module: {
     rules: Rules(options.isDev),
   },
