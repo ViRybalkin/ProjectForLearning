@@ -1,4 +1,4 @@
-import {UserSliceTypes} from "entities";
+import {ProfileTypes, UserSliceTypes} from "entities";
 import {AuthByUserNameTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
@@ -7,6 +7,7 @@ import {createReduxStore} from "app";
 export interface AppStoreTypes {
   user: UserSliceTypes,
   login?: AuthByUserNameTypes,
+  profile?: ProfileTypes,
 }
 
 export type AppStoreKeys = keyof AppStoreTypes
