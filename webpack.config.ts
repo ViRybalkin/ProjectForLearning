@@ -4,6 +4,7 @@ import { BuildEnvType, WebpackBuilder, WebpackBuildOption } from './config';
 export default (env: BuildEnvType) => {
   const mode = env.mode || 'development';
   const port = env.port || 3000;
+  const baseUrl = env.baseUrl || 'http://localhost:8000';
   const isDev = mode === 'development';
   const webpackAnalyze = env.report || false;
 
@@ -12,6 +13,7 @@ export default (env: BuildEnvType) => {
     port,
     isDev,
     isReport: webpackAnalyze,
+    baseUrl,
     path: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'dist'),
