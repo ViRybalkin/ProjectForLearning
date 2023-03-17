@@ -12,7 +12,7 @@ import { LoginFormProps, LoginFormTypes } from './LoginForm.types';
 
 const LoginForm = ({ onClose }: LoginFormProps) => {
   const { t } = useTranslation();
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control } = useForm<LoginFormTypes>();
   const dispatch = useAppDispatch();
   const error = useSelector(getError);
   const isLoading = useSelector(getIsLoading);

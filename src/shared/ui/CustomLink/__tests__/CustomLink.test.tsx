@@ -3,7 +3,7 @@ import { JestProvider } from 'app';
 import { CustomLink } from '../CustomLink';
 
 describe('Тестирование компонента CustomLink', () => {
-  const setup = (name?: string, to?: string, className?: string) => {
+  const setup = (className?: string, name = '', to = '') => {
     render(
       <JestProvider>
         <CustomLink to={to} className={className} name={name} />
@@ -28,7 +28,7 @@ describe('Тестирование компонента CustomLink', () => {
   });
 
   test('Если класс передан компонент должен содержать корректный класс', () => {
-    setup('', '', 'someClass');
+    setup('someClass', '', '');
 
     const customLink = screen.getByTestId('customLinkTestId');
 
@@ -38,7 +38,7 @@ describe('Тестирование компонента CustomLink', () => {
 
   test('Если name передан компонент должен содержать корректный текст', () => {
     const name = 'Название ссылки';
-    setup(name, '', 'someClass');
+    setup('', name, '');
 
     const linkName = screen.getByText(name);
 
@@ -47,7 +47,7 @@ describe('Тестирование компонента CustomLink', () => {
 
   test('Если to передан компонент должен содержать корректный аттрибут', () => {
     const link = '/someLink';
-    setup('', link, 'someClass');
+    setup('someClass', '', link);
 
     const customLink = screen.getByTestId('customLinkTestId');
 

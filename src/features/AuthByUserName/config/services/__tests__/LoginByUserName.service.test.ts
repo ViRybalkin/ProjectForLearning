@@ -74,6 +74,6 @@ describe('Тестирование сервиса loginByUserName', () => {
 
     expect(res.meta.requestStatus).toEqual('rejected')
     expect(localStorage.setItem).not.toHaveBeenCalled();
-    expect(dispatch).not.toHaveBeenCalledWith(userAction.setUserData())
+    expect(dispatch).not.toHaveBeenCalledWith(userAction.setUserData)
   });
 })

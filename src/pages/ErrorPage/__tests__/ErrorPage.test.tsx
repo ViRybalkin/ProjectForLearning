@@ -47,6 +47,7 @@ describe('Тестирование страницы ErrorPage', () => {
     // @ts-ignore
     location.reload = mock;
 
+    // @ts-ignore
     delete window.location;
     // @ts-ignore
     window.location = location;
