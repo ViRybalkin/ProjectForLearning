@@ -3,6 +3,8 @@ import {AuthByUserNameTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
 import {createReduxStore} from "app";
+import {AxiosInstance} from "axios";
+import {NavigateFunction} from "react-router/dist/lib/hooks";
 
 export interface AppStoreTypes {
   user: UserSliceTypes,
@@ -21,6 +23,11 @@ export interface ReducerManagerTypes {
 
 export interface StoreWithReducerManager extends EnhancedStore<AppStoreTypes> {
   reducerManager: ReducerManagerTypes
+}
+
+export interface ThunkExtraArgumentsTypes {
+  api: AxiosInstance;
+  navigate: NavigateFunction;
 }
 
 export type RootState = ReturnType<typeof createReduxStore>['getState']

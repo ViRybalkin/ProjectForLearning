@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {userAction, UserSliceTypes} from "entities";
 import {routerPath} from "shared";
+import {handleError} from "shared/config/helpers/error";
 import {ThunkConfigTypes, UserData} from "../types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfigTypes>(
@@ -15,12 +16,16 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
         id: data.id,
       }))
       localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id}))
-      navigate(routerPath.profile)
+      if (navigate) {
+        navigate(routerPath.profile)
+      }
 
       return data
     } catch (error) {
-      console.log(error);
-      return rejectWithValue(error.response.data.message)
+
+      const {data} = handleError(error)
+
+      return rejectWithValue(data.message)
     }
   }
 )

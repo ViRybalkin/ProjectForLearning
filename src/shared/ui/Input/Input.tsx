@@ -11,7 +11,7 @@ const Input = forwardRef(
 
     return (
       <input
-        className={classNames(cls.input, classes, [cls[size], cls[className]])}
+        className={classNames(cls.input, classes, [cls[size], className && cls[className]])}
         type={type}
         placeholder={placeholder}
         {...otherProps}

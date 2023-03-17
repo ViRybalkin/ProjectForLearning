@@ -4,7 +4,7 @@ import {ProfileTypes} from '../types/Profile.types'
 
 const initialState: ProfileTypes = {
   data: undefined,
-  error: '',
+  error: undefined,
   isLoading: false,
   readonly: true,
 };

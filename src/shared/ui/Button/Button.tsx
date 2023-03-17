@@ -9,7 +9,7 @@ const Button = memo(
       disabled={disabled}
       data-testid='buttonTestId'
       type={type}
-      className={classNames(cls.button, {}, [className, cls[theme], cls[size]])}
+      className={classNames(cls.button, {}, [className, theme && cls[theme], cls[size]])}
       {...otherProps}>
       {children}
     </button>

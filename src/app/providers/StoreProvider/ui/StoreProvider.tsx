@@ -6,7 +6,7 @@ import { StoreProviderTypes } from './StoreProvider.types';
 
 const StoreProvider = ({ children, initialState }: StoreProviderTypes) => {
   const navigate = useNavigate();
-  const store = createReduxStore(initialState, navigate);
+  const store = createReduxStore(navigate, initialState);
   return <Provider store={store}>{children}</Provider>;
 };
 

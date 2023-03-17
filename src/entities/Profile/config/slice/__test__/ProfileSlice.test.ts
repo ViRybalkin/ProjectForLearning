@@ -5,7 +5,7 @@ describe('Тестирование слайса Profile', () => {
     expect(ProfileReducer(undefined, {type: undefined})).toEqual(
       {
         data: undefined,
-        error: '',
+        error: undefined,
         isLoading: false,
         readonly: true,
       }

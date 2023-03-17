@@ -5,7 +5,7 @@ import {AuthByUserNameTypes} from '../types';
 const initialState: AuthByUserNameTypes = {
   username: '',
   password: '',
-  error: '',
+  error: undefined,
   isLoading: false,
 };
 

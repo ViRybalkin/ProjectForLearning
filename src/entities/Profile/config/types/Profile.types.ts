@@ -13,7 +13,7 @@ export interface ProfileDataTypes {
 
 export interface ProfileTypes {
   data?: ProfileDataTypes;
-  error: string;
+  error?: string;
   isLoading: boolean;
   readonly: boolean
 }

@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ProfileDataTypes} from "entities";
+import {handleError} from "shared/config/helpers/error";
 import {ProfileThunkConfig} from "../types/Profile.types";
 
 export const profileThunk = createAsyncThunk<ProfileDataTypes, void, ProfileThunkConfig>(
@@ -11,8 +12,10 @@ export const profileThunk = createAsyncThunk<ProfileDataTypes, void, ProfileThun
 
       return data
     } catch (error) {
-      console.log(error);
-      return rejectWithValue(error.response.data.message)
+
+      const {data} = handleError(error);
+      
+      return rejectWithValue(data.message)
     }
   }
 )

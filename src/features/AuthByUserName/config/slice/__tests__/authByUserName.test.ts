@@ -6,7 +6,7 @@ describe('Тестирование слайса authByUserName', () => {
       {
         username: '',
         password: '',
-        error: '',
+        error: undefined,
         isLoading: false,
       }
     )
@@ -16,11 +16,13 @@ describe('Тестирование слайса authByUserName', () => {
     const data = {
       username: 'name',
       password: 'password',
+      isLoading: false,
+      error: undefined,
     }
     expect(authByUserNameReducer(undefined, authActions.setUserData(data))).toEqual(
       {
         ...data,
-        error: '',
+        error: undefined,
         isLoading: false,
       }
     )
