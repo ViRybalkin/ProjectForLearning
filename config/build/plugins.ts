@@ -2,13 +2,17 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export const Plugins = (
   htmlPath: string,
   isDev: boolean,
   isReport: boolean,
   baseUrl: string
-): webpack.WebpackPluginInstance[] => [
+): webpack.WebpackPluginInstance[] => {
+
+  const plugins = [
+
   new HtmlWebpackPlugin({template: htmlPath}),
   new webpack.ProgressPlugin(),
   new MiniCssExtractPlugin({
@@ -23,4 +27,11 @@ export const Plugins = (
     openAnalyzer: !!isReport,
     analyzerMode: isReport ? 'server' : 'disabled',
   }),
-];
+  ];
+
+  if(isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin())
+  }
+
+  return plugins;
+}
