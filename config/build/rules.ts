@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import { styleLoader } from './loaders/styleLoader';
+import {styleLoader} from './loaders/styleLoader';
 
 export const Rules = (isDev: boolean): webpack.RuleSetRule[] => {
   const svgRules = {
@@ -19,14 +19,35 @@ export const Rules = (isDev: boolean): webpack.RuleSetRule[] => {
 
   const typescriptRules = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        }
+      }
+    ],
     exclude: /node_modules/,
   };
+
+  const refreshRule = {
+    test: /\.(js|jsx|tsx)$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: require.resolve('babel-loader'),
+          options: {
+            plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+          },
+        },
+      ],
+  }
 
   const sassRules = styleLoader(isDev);
   return [
     svgRules,
     fileRules,
+    refreshRule,
     typescriptRules,
     sassRules,
   ];
