@@ -3,8 +3,22 @@
   border: 1px solid var(--color-primary);
 }
 
+.avatarWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.inputsWrapper {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }

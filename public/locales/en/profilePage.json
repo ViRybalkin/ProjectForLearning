@@ -3,5 +3,12 @@
   "profileCardTitle": "Profile",
   "editBtn": "Edit",
   "firstNameLabel": "First Name",
-  "lastNameLabel": "Last Name"
+  "lastNameLabel": "Last Name",
+  "ageLabel": "Age",
+  "cityLabel": "City",
+  "usernameLabel": "Username",
+  "avatarLabel": "Avatar link",
+  "countryLabel": "Country",
+  "currencyLabel": "Currency",
+  "avatarAlt": "User avatar"
 }
