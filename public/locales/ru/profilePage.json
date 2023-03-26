@@ -3,5 +3,12 @@
   "profileCardTitle": "Профиль",
   "editBtn": "Редактировать",
   "firstNameLabel": "Имя",
-  "lastNameLabel": "Фамилия"
+  "lastNameLabel": "Фамилия",
+  "ageLabel": "Возраст",
+  "cityLabel": "Город",
+  "usernameLabel": "Имя пользователя",
+  "avatarLabel": "Ссылка на Аватар",
+  "countryLabel": "Страна",
+  "currencyLabel": "Валюта",
+  "avatarAlt": "Аватар пользователя"
 }

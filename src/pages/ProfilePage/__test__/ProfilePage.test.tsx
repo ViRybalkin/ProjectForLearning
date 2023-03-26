@@ -17,7 +17,7 @@ jest.mock('entities/Profile/config/selectors', () => ({
   __esModule: true,
 }));
 
-describe('Тестирование страницы MainPage', () => {
+describe('Тестирование страницы ProfilePage', () => {
   const setup = () => {
     render(
       <JestProvider>
