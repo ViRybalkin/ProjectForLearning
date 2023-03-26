@@ -1,6 +1,6 @@
 import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
 import {userReducer} from "entities"
-import {$api} from "shared";
+import {$api} from "shared/config/api/api";
 import {NavigateFunction} from "react-router/dist/lib/hooks";
 import {CombinedState, Reducer} from "redux";
 import {createReducerManager} from "./ReducerManager";

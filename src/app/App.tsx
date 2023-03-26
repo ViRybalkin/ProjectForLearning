@@ -1,6 +1,6 @@
 import './styles/index.scss';
 import { classNames, useAppDispatch } from 'app';
-import { AppRouter } from 'shared/config';
+import { AppRouter } from 'shared/config/routes/ui/AppRouter';
 import { NavBar, SideBar } from 'widget/ui';
 import { Suspense, useEffect } from 'react';
 import { userAction } from 'entities';
