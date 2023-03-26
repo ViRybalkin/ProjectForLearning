@@ -1,8 +1,8 @@
 import {authByUserNameThunk, UserData} from "features";
 import {userAction} from "entities";
-import {$api} from "shared/config/api";
+import {$api} from "shared/config/api/api";
 
-jest.mock('shared/config/api');
+jest.mock('shared/config/api/api');
 const mockedAxios = jest.mocked($api, true)
 
 describe('Тестирование сервиса loginByUserName', () => {

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {userAction, UserSliceTypes} from "entities";
-import {routerPath} from "shared";
+import {routerPath} from "shared/config/routes/Routes";
 import {handleError} from "shared/config/helpers/error";
 import {ThunkConfigTypes, UserData} from "../types";
 
