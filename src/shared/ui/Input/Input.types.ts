@@ -9,4 +9,5 @@ export interface InputProps extends InputAttr {
   size?: InputSize;
   fullWidth?: boolean;
   className?: string;
+  readonly?: boolean;
 }
