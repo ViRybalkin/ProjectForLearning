@@ -6,20 +6,20 @@ import { Controller, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import cls from './profileCard.module.scss';
 import { ProfileDataTypes } from '../../config';
-import { getError, getIsLoading, getProfileData } from '../../config/selectors';
+import { getError, getIsLoading } from '../../config/selectors';
+import { ProfileCardProps } from './ProfileCard.types';
 
-export const ProfileCard = () => {
+export const ProfileCard = ({ data, readonly }: ProfileCardProps) => {
   const { handleSubmit, control, setValue } = useForm<ProfileDataTypes>();
   const { t } = useTranslation('profilePage');
 
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  const profile = useSelector(getProfileData);
 
   useEffect(() => {
-    setValue('first', profile?.first || '');
-    setValue('lastname', profile?.lastname || '');
-  }, [profile, setValue]);
+    setValue('first', data?.first || '');
+    setValue('lastname', data?.lastname || '');
+  }, [data, setValue]);
 
   return (
     <div className={classNames(cls.profileCard)}>
@@ -32,13 +32,13 @@ export const ProfileCard = () => {
           name='first'
           defaultValue=''
           control={control}
-          render={({ field }) => <Input fullWidth placeholder={t('firstNameLabel')} {...field} />}
+          render={({ field }) => <Input fullWidth readonly={readonly} placeholder={t('firstNameLabel')} {...field} />}
         />
         <Controller
           name='lastname'
           defaultValue=''
           control={control}
-          render={({ field }) => <Input fullWidth placeholder={t('lastNameLabel')} {...field} />}
+          render={({ field }) => <Input fullWidth readonly={readonly} placeholder={t('lastNameLabel')} {...field} />}
         />
       </form>
     </div>
