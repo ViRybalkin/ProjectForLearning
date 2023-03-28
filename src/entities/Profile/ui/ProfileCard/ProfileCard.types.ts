@@ -10,6 +10,9 @@ export interface ProfileCardDataTypes {
 }
 
 export interface ProfileCardProps {
+  isLoading: boolean;
+  error?: string;
   data?: ProfileCardDataTypes;
   readonly?: boolean;
+  submitHandler: (data: ProfileCardDataTypes) => void;
 }

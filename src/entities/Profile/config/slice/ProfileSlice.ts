@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {profileThunk} from "entities";
+import {updateProfile} from "entities";
+import {getProfile} from "../service/getProfile/Profile.service";
 import {ProfileTypes} from '../types/Profile.types'
 
 const initialState: ProfileTypes = {
@@ -12,22 +13,39 @@ const initialState: ProfileTypes = {
 export const ProfileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly(state: ProfileTypes) {
+      state.readonly = !state.readonly
+    },
+    onCancel(state: ProfileTypes) {
+      state.readonly = !state.readonly;
+      state.error = undefined;
+    }
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(profileThunk.pending, (state) => {
+      .addCase(getProfile.pending, (state) => {
         state.isLoading = true;
         state.error = ''
       })
-      .addCase(profileThunk.fulfilled, (state,action) => {
+      .addCase(getProfile.fulfilled, (state,action) => {
         state.isLoading = false;
         state.error = '';
         state.data = action.payload;
         state.readonly = true;
       })
-      .addCase(profileThunk.rejected, (state, action) => {
+      .addCase(getProfile.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.isLoading = true;
+        state.error = ''
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload
+        state.readonly = true
       })
   }
 });

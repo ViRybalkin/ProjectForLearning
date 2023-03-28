@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
-import { Button, Input, Typography } from 'shared';
+import { Input, Loader, Typography } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'app';
 import { Controller, useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CountrySelect } from '../../../Country/ui/CountrySelect';
 import cls from './profileCard.module.scss';
 import { ProfileDataTypes } from '../../config';
-import { getError, getIsLoading } from '../../config/selectors';
 import { ProfileCardProps } from './ProfileCard.types';
 import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 
-export const ProfileCard = ({ data, readonly }: ProfileCardProps) => {
+export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }: ProfileCardProps) => {
   const { handleSubmit, control, setValue, watch } = useForm<ProfileDataTypes>();
   const { t } = useTranslation('profilePage');
 
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const onSubmit = (formData: ProfileDataTypes) => {
+    submitHandler(formData);
+  };
 
   const avatar = watch('avatar');
 
@@ -32,13 +31,28 @@ export const ProfileCard = ({ data, readonly }: ProfileCardProps) => {
     setValue('currency', data?.currency || '');
   }, [data, setValue]);
 
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.profileCard, {}, [cls.isLoading])}>
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.profileCard, {}, [cls.error])}>
+        <div className={classNames(cls.errorWrapper)}>
+          <Typography variant='h1'>Произошла ошибка</Typography>
+          <Typography variant='h3'>Попробуйте перезагузить страницу</Typography>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(cls.profileCard)}>
-      <div className={classNames(cls.title)}>
-        <Typography variant='h3'>{t('profileCardTitle')}</Typography>
-        <Button theme='contained'>{t('editBtn')}</Button>
-      </div>
-      <form>
+      <form id='hook-form' onSubmit={handleSubmit(onSubmit)}>
         {data?.avatar ? (
           <div className={classNames(cls.avatarWrapper)}>
             <Avatar size={150} src={avatar} alt={t('avatarAlt')} />
@@ -77,6 +91,7 @@ export const ProfileCard = ({ data, readonly }: ProfileCardProps) => {
         <div className={classNames(cls.inputsWrapper)}>
           <Controller
             name='age'
+            defaultValue={undefined}
             control={control}
             render={({ field }) => (
               <Input

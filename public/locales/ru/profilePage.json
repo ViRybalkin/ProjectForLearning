@@ -10,5 +10,7 @@
   "avatarLabel": "Ссылка на Аватар",
   "countryLabel": "Страна",
   "currencyLabel": "Валюта",
-  "avatarAlt": "Аватар пользователя"
+  "avatarAlt": "Аватар пользователя",
+  "save": "Сохранить",
+  "cancel": "Отменить"
 }

@@ -6,6 +6,10 @@ const AboutPage = lazy(() => import('pages/About/About'));
 const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
+interface RouterProps extends PathRouteProps {
+  isAuth?: boolean
+}
+
 export type Path = 'main' | 'about' | 'profile' | 'notFound'
 
 export const routerPath: Record<Path, string> = {
@@ -15,7 +19,7 @@ export const routerPath: Record<Path, string> = {
   notFound: '*',
 };
 
-export const routerConfig: Record<Path, PathRouteProps> = {
+export const routerConfig: Record<Path, RouterProps> = {
   main: {
     path: routerPath.main,
     element: <MainPage/>,
@@ -27,6 +31,7 @@ export const routerConfig: Record<Path, PathRouteProps> = {
   profile: {
     path: routerPath.profile,
     element: <ProfilePage/>,
+    isAuth: true,
   },
   notFound: {
     path: routerPath.notFound,

@@ -33,7 +33,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
           <nav data-testid='navTagNavBarId' className={cls.btnWrapper}>
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
-            <CustomLink to='/profile' name={t('profile')} />
+            {isAuth ? <CustomLink to='/profile' name={t('profile')} /> : null}
           </nav>
           {!isAuth ? (
             <Button data-testid='loginBtnId' onClick={onLogin}>

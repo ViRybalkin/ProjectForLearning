@@ -1,1 +1,2 @@
-export * from './Profile.service';
+export * from './getProfile';
+export * from './UpdateProfile';

@@ -9,4 +9,5 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size?: BtnSizes;
   type?: 'submit' | 'button';
   disabled?: boolean;
+  form?: string;
 }

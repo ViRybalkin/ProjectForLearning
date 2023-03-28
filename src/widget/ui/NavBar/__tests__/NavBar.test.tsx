@@ -45,7 +45,7 @@ describe('Тестирование компонента NavBar', () => {
 
     const navBar = screen.getAllByRole('link');
 
-    expect(navBar).toHaveLength(3);
+    expect(navBar).toHaveLength(2);
   });
 
   test('Нажатие на войти должно открыть модальное окно', async () => {
