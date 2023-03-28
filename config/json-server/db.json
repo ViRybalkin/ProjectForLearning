@@ -23,11 +23,11 @@
   "profile": {
     "first": "Виталий",
     "lastname": "Рыбалкин",
-    "age": 26,
-    "currency": "RUB",
-    "country": "Russia",
+    "age": "26",
     "city": "Saint-Petersburg",
     "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+    "country": "Russia",
+    "currency": "RUB"
   }
 }

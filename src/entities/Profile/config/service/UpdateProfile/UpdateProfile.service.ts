@@ -1,13 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ProfileDataTypes} from "entities";
 import {handleError} from "shared/config/helpers/error";
-import {ProfileThunkConfig} from "../types/Profile.types";
+import {ProfileThunkConfig} from "../../types/Profile.types";
 
-export const profileThunk = createAsyncThunk<ProfileDataTypes, void, ProfileThunkConfig>(
-  'profile/profileThunk',
+export const updateProfile = createAsyncThunk<ProfileDataTypes, ProfileDataTypes, ProfileThunkConfig>(
+  'profile/updateProfile',
   async (payload , {extra: {api}, rejectWithValue}) => {
     try {
-      const {data} = await api.get<ProfileDataTypes>('/profile')
+      const {data} = await api.put<ProfileDataTypes>('/profile', payload)
 
 
       return data

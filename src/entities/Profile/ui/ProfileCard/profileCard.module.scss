@@ -10,10 +10,21 @@
   margin-bottom: 20px;
 }
 
-.title {
+.isLoading,
+.error {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-error);
+}
+
+.errorWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .inputsWrapper {

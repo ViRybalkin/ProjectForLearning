@@ -10,5 +10,7 @@
   "avatarLabel": "Avatar link",
   "countryLabel": "Country",
   "currencyLabel": "Currency",
-  "avatarAlt": "User avatar"
+  "avatarAlt": "User avatar",
+  "save": "Save",
+  "cancel": "Cancel"
 }
