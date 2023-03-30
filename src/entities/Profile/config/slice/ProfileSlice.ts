@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {updateProfile} from "entities";
-import {getProfile} from "../service/getProfile/Profile.service";
+import {getProfile} from "../../config/service/GetProfile";
 import {ProfileTypes} from '../types/Profile.types'
 
 const initialState: ProfileTypes = {
@@ -26,11 +26,10 @@ export const ProfileSlice = createSlice({
     builder
       .addCase(getProfile.pending, (state) => {
         state.isLoading = true;
-        state.error = ''
+        state.error = undefined
       })
       .addCase(getProfile.fulfilled, (state,action) => {
         state.isLoading = false;
-        state.error = '';
         state.data = action.payload;
         state.readonly = true;
       })
@@ -40,12 +39,17 @@ export const ProfileSlice = createSlice({
       })
       .addCase(updateProfile.pending, (state) => {
         state.isLoading = true;
-        state.error = ''
+        state.validationError = undefined
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
+        state.isLoading = false;
+        state.validationError = action.payload;
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload
         state.readonly = true
+        state.validationError = undefined
       })
   }
 });

@@ -8,11 +8,13 @@ import {
   getProfile,
   getProfileData,
   getProfileReadOnly,
+  getValidationErrors,
   ProfileCard,
   ProfileDataTypes,
   ProfileReducer,
   updateProfile,
 } from 'entities';
+import { Typography } from 'shared';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {
@@ -30,7 +32,7 @@ const ProfilePage = () => {
   const isLoading = useSelector(getIsLoading);
   const isReadOnly = useSelector(getProfileReadOnly);
   const error = useSelector(getError);
-
+  const validationError = useSelector(getValidationErrors);
   const onSubmitHandler = (data: ProfileDataTypes) => {
     dispatch(updateProfile(data));
   };
@@ -39,6 +41,13 @@ const ProfilePage = () => {
     <DynamicComponent reducers={reducer}>
       <div data-testid='profilePageTestId'>{t('title')}</div>
       <ProfileHeader isEditDisabled={Boolean(error)} />
+      {validationError?.map((errorText) => {
+        return (
+          <Typography variant='h2' align='center'>
+            {t(errorText)}
+          </Typography>
+        );
+      })}
       <ProfileCard
         submitHandler={onSubmitHandler}
         isLoading={isLoading || false}
