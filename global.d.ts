@@ -19,3 +19,4 @@ declare module '*.jpg';
 
 declare const __IS_DEV__: boolean;
 declare const __BASE_URL__: string;
+declare const __PROJECT__: 'development' | 'storybook' | 'jest';

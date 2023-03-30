@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import NotFound from './NotFound';
 
@@ -8,6 +8,4 @@ export default {
   component: NotFound,
 } as ComponentMeta<typeof NotFound>;
 
-const Template: ComponentStory<typeof NotFound> = (args) => <NotFound />;
-
-export const Primary = Template.bind({});
+export const Template: ComponentStory<typeof NotFound> = (args) => <NotFound />;

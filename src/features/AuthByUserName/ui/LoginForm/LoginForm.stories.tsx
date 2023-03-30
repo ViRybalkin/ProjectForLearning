@@ -8,4 +8,4 @@ export default {
   component: LoginForm,
 } as ComponentMeta<typeof LoginForm>;
 
-export const DefaultButton: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+export const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;

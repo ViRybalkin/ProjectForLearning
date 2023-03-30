@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CustomLink } from './CustomLink';
 
 export default {
@@ -17,4 +17,4 @@ export default {
   },
 } as ComponentMeta<typeof CustomLink>;
 
-export const DefaultButton: ComponentStory<typeof CustomLink> = (args) => <CustomLink {...args} />;
+export const Template: ComponentStory<typeof CustomLink> = (args) => <CustomLink {...args} />;

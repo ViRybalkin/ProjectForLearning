@@ -14,6 +14,7 @@ export default (env: BuildEnvType) => {
     isDev,
     isReport: webpackAnalyze,
     baseUrl,
+    project: 'frontend',
     path: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'dist'),

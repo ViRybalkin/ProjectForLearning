@@ -27,4 +27,4 @@ export default {
   },
 } as ComponentMeta<typeof Input>;
 
-export const DefaultInput: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+export const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;

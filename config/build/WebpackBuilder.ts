@@ -13,7 +13,7 @@ export const WebpackBuilder = (options: WebpackBuildOption): webpack.Configurati
     filename: '[name].[contenthash].js',
     clean: true,
   },
-  plugins: Plugins(options.path.html, options.isDev, options.isReport, options.baseUrl),
+  plugins: Plugins(options),
   module: {
     rules: Rules(options.isDev),
   },

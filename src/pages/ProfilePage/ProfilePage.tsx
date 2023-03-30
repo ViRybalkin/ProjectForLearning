@@ -25,7 +25,9 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    dispatch(getProfile());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(getProfile());
+    }
   }, [dispatch]);
 
   const profile = useSelector(getProfileData);
@@ -43,7 +45,7 @@ const ProfilePage = () => {
       <ProfileHeader isEditDisabled={Boolean(error)} />
       {validationError?.map((errorText) => {
         return (
-          <Typography variant='h2' align='center'>
+          <Typography key={errorText} variant='h2' align='center'>
             {t(errorText)}
           </Typography>
         );

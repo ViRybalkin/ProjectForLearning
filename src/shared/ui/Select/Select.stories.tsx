@@ -37,11 +37,10 @@ export default {
       control: { type: 'radio' },
       defaultValue: 'small',
     },
+    options: {
+      defaultValue: options,
+    },
   },
 } as ComponentMeta<typeof Select>;
 
-const Primary: ComponentStory<typeof Select> = (args) => <Select {...args} />;
-export const Default = Primary.bind({});
-Default.args = {
-  options,
-};
+export const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
