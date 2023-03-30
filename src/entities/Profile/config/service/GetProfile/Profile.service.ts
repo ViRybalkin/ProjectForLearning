@@ -3,7 +3,7 @@ import {ProfileDataTypes} from "entities";
 import {handleError} from "shared/config/helpers/error";
 import {ProfileThunkConfig} from "../../types/Profile.types";
 
-export const getProfile = createAsyncThunk<ProfileDataTypes, void, ProfileThunkConfig>(
+export const getProfile = createAsyncThunk<ProfileDataTypes, void, ProfileThunkConfig<string>>(
   'profile/profileThunk',
   async (payload , {extra: {api}, rejectWithValue}) => {
     try {
@@ -12,6 +12,9 @@ export const getProfile = createAsyncThunk<ProfileDataTypes, void, ProfileThunkC
 
       return data
     } catch (error) {
+      if(error instanceof Error) {
+        return rejectWithValue(error.message)
+      }
 
       const {data} = handleError(error);
       

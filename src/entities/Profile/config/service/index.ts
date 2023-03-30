@@ -1,2 +1,2 @@
-export * from './getProfile';
+export * from './GetProfile';
 export * from './UpdateProfile';
