@@ -1,12 +1,26 @@
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME, ThemeContext } from 'app';
+import { LOCAL_STORAGE_THEME, ThemeContext, ThemeTypes } from 'app';
 
 export const UseTheme = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   document.body.className = theme || 'light';
   const onToggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    let newTheme: ThemeTypes;
+
+    switch (theme) {
+      case 'dark':
+        newTheme = 'light';
+        break;
+      case 'light':
+        newTheme = 'orange';
+        break;
+      case 'orange':
+        newTheme = 'dark';
+        break;
+      default:
+        newTheme = 'light';
+    }
     document.body.className = newTheme;
     if (setTheme) {
       setTheme(newTheme);
