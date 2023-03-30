@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ErrorPage from './ErrorPage';
 
@@ -22,6 +22,4 @@ export default {
   },
 } as ComponentMeta<typeof ErrorPage>;
 
-const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args} />;
-
-export const Primary = Template.bind({});
+export const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args} />;

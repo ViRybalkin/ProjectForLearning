@@ -8,6 +8,4 @@ export default {
   component: ProfilePage,
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
-
-export const Primary = Template.bind({});
+export const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;

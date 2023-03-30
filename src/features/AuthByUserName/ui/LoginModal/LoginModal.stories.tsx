@@ -14,4 +14,4 @@ export default {
   },
 } as ComponentMeta<typeof LoginModal>;
 
-export const DefaultLoginModal: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...args} />;
+export const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...args} />;

@@ -17,7 +17,8 @@ module.exports = async () => {
     },
     globals: {
       __IS_DEV__: true,
-      __BASE_URL__: true,
+      __BASE_URL__: '',
+      __PROJECT__: 'jest',
     },
     setupFilesAfterEnv: [
       '<rootDir>/config/jest/setupTest.ts',

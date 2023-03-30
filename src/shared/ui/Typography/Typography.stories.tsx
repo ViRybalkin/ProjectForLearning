@@ -14,4 +14,4 @@ export default {
   },
 } as ComponentMeta<typeof Typography>;
 
-export const Default: ComponentStory<typeof Typography> = (args) => <Typography {...args} />;
+export const Template: ComponentStory<typeof Typography> = (args) => <Typography {...args} />;

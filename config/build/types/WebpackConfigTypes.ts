@@ -12,6 +12,7 @@ export type WebpackBuildOption = {
   port: number;
   isReport: boolean;
   baseUrl: string;
+  project: 'frontend' | 'storybook' | 'jest'
 }
 
 export type BuildEnvType = {

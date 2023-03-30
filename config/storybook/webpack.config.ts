@@ -19,8 +19,9 @@ export default ({config}: { config: webpack.Configuration }) => {
 
   config?.plugins?.push(
     new DefinePlugin({
-      __IS_DEV__: true,
-      __BASE_URL__: true,
+      __IS_DEV__: JSON.stringify(true),
+      __BASE_URL__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook'),
     }),
   );
   config.resolve!.alias = {
