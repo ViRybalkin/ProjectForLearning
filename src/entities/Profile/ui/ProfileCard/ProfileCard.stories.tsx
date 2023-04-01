@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import AvatarImg from 'assets/img/storybook.jpg';
+import AvatarImg from 'shared/assets/img/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 import { ProfileCardDataTypes } from './ProfileCard.types';
 

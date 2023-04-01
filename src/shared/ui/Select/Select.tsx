@@ -13,7 +13,11 @@ const Select = forwardRef(
     return (
       <div className={classNames('', classes)}>
         {label ? <Typography>{label}</Typography> : null}
-        <select className={classNames('', classes, [cls[size]])} disabled={readonly} {...otherProps}>
+        <select
+          data-testid="selectId"
+          className={classNames('', classes, [cls[size]])}
+          disabled={readonly}
+          {...otherProps}>
           {options.map((el) => (
             <option key={el.value} value={el.value}>
               {el.content}
