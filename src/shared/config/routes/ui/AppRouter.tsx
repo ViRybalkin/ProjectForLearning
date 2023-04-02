@@ -1,20 +1,32 @@
-import {memo, Suspense} from 'react';
+import React, {memo, Suspense, useCallback} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {PageLoader} from 'widget';
 import {useSelector} from "react-redux";
 import {getIsAuth} from "entities";
-import {routerConfig} from '../Routes';
+import {Loader} from "shared";
+import {PrivateRoute} from "shared/config/routes/ui/PrivateRoute";
+import {routerConfig, RouterProps} from '../Routes';
 
 const AppRouter = memo(() => {
   const isAuth = useSelector(getIsAuth);
-  const filteredRoutes = Object.values(routerConfig).filter((el) => {
-    return !(el.isAuth && !isAuth);
 
-  })
+  const RouteWithWrapper = useCallback((route: RouterProps) => {
+    const element = (
+      <Suspense fallback={<Loader/>}>{route.element}</Suspense>
+    )
+    return (
+      <Route
+        key={route.path}
+        element={route.isAuth ? <PrivateRoute isAuth={isAuth}>{element}</PrivateRoute> : element}
+        path={route.path}/>
+    )
+  }, [isAuth])
+
+
   return (
     <Suspense fallback={<PageLoader/>}>
       <Routes>
-        {filteredRoutes.map((rout) => <Route key={rout.path} element={rout.element} path={rout.path}/>)}
+        {Object.values(routerConfig).map(RouteWithWrapper)}
       </Routes>
     </Suspense>
   )

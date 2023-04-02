@@ -6,12 +6,14 @@ import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
 import { getIsAuth, userAction } from 'entities';
+import { useNavigate } from 'react-router-dom';
+import { routerPath } from 'shared/config/routes/Routes';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 
 const NavBar = memo(({ className }: NavBarProps) => {
   const [open, setOpen] = useState<boolean>(false);
-
+  const navigate = useNavigate();
   const isAuth = useSelector(getIsAuth);
   const dispatch = useAppDispatch();
 
@@ -21,6 +23,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
 
   const onLogout = useCallback(() => {
     dispatch(userAction.logout());
+    navigate(routerPath.main);
   }, [dispatch]);
 
   const { t } = useTranslation(['links', 'translation']);
