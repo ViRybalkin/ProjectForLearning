@@ -8,6 +8,7 @@ const initialState: ProfileTypes = {
   error: undefined,
   isLoading: false,
   readonly: true,
+  validationError: undefined,
 };
 
 export const ProfileSlice = createSlice({
@@ -28,7 +29,7 @@ export const ProfileSlice = createSlice({
         state.isLoading = true;
         state.error = undefined
       })
-      .addCase(getProfile.fulfilled, (state,action) => {
+      .addCase(getProfile.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
         state.readonly = true;
@@ -55,4 +56,4 @@ export const ProfileSlice = createSlice({
 });
 
 export const ProfileAction = ProfileSlice.actions;
-export const { reducer: ProfileReducer } = ProfileSlice;
+export const {reducer: ProfileReducer} = ProfileSlice;

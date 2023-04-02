@@ -2,9 +2,13 @@ import {authByUserNameThunk, UserData} from "features";
 import {userAction} from "entities";
 import {$api} from "shared/config/api/api";
 
-jest.mock('shared/config/api/api');
+const errorResponse = {data: {message: 'error'}}
 const mockedAxios = jest.mocked($api, true)
+jest.mock('shared/config/api/api');
 
+jest.mock('shared/config/helpers/error', () => ({
+  handleError: jest.fn().mockReturnValue(errorResponse),
+}));
 describe('Тестирование сервиса loginByUserName', () => {
   const requestData: UserData = {
     username: 'name',
@@ -67,7 +71,8 @@ describe('Тестирование сервиса loginByUserName', () => {
   test('если запрос вернул 500 статус должен быть rejected', async () => {
     jest.spyOn(Storage.prototype, 'setItem');
     Storage.prototype.setItem = jest.fn();
-    mockedAxios.post.mockReturnValue(Promise.reject(Error('some reason')))
+    // eslint-disable-next-line prefer-promise-reject-errors
+    mockedAxios.post.mockReturnValue(Promise.reject(errorResponse))
     const action = authByUserNameThunk(requestData)
 
     const res = await action(dispatch, getState, extraData);

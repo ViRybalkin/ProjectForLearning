@@ -22,11 +22,9 @@ export const authByUserNameSlice = createSlice({
     builder
       .addCase(authByUserNameThunk.pending, (state) => {
         state.isLoading = true;
-        state.error = ''
       })
       .addCase(authByUserNameThunk.fulfilled, (state) => {
         state.isLoading = false;
-        state.error = '';
       })
       .addCase(authByUserNameThunk.rejected, (state, action) => {
         state.isLoading = false;
