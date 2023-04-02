@@ -6,7 +6,7 @@ const AboutPage = lazy(() => import('pages/About/About'));
 const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
-interface RouterProps extends PathRouteProps {
+export interface RouterProps extends PathRouteProps {
   isAuth?: boolean
 }
 

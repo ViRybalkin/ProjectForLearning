@@ -91,7 +91,7 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
         <div className={classNames(cls.inputsWrapper)}>
           <Controller
             name='age'
-            defaultValue={undefined}
+            defaultValue={0}
             control={control}
             render={({ field }) => (
               <Input

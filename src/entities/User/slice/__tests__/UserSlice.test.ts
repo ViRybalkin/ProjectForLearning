@@ -6,6 +6,7 @@ describe('Тестирование слайса authByUserName', () => {
       username: '',
       id: '',
       isAuth: false,
+      _inited: false,
     });
   });
 
@@ -14,6 +15,7 @@ describe('Тестирование слайса authByUserName', () => {
       username: 'name',
       id: 'someId',
       isAuth: true,
+      _inited: false,
     };
     expect(userReducer(undefined, userAction.setUserData(data))).toEqual(data);
   });
@@ -23,6 +25,7 @@ describe('Тестирование слайса authByUserName', () => {
       username: '',
       id: '',
       isAuth: false,
+      _inited: false,
     });
   });
 
@@ -39,6 +42,7 @@ describe('Тестирование слайса authByUserName', () => {
       username: 'name',
       id: 'someId',
       isAuth: true,
+      _inited: true,
     });
   });
 
@@ -49,6 +53,7 @@ describe('Тестирование слайса authByUserName', () => {
       username: '',
       id: '',
       isAuth: false,
+      _inited: true,
     });
   });
 });

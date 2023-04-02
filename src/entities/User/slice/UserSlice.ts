@@ -5,6 +5,7 @@ const initialState: UserSliceTypes = {
   username: '',
   id: '',
   isAuth: false,
+  _inited: false,
 };
 
 export const userSlice = createSlice({
@@ -24,6 +25,7 @@ export const userSlice = createSlice({
         state.id = authData.id;
         state.isAuth = true;
       }
+      state._inited = true;
     },
     logout(state: UserSliceTypes) {
       state.username = '';
