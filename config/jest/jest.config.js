@@ -46,7 +46,8 @@ module.exports = async () => {
       '!**/.eslintrc.js',
       '!**/.stylelintrc.js',
       '!**/*.config.{js,ts}',
-      '!**/config/**',
+      '!config/**',
+      '!**/providers/**',
       '!**/*.stories.tsx',
     ],
   };
