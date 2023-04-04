@@ -1,4 +1,4 @@
-import {ProfileTypes, UserSliceTypes} from "entities";
+import {ArticleDetailsReducerType, ProfileTypes, UserSliceTypes} from "entities";
 import {AuthByUserNameTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
@@ -10,6 +10,7 @@ export interface AppStoreTypes {
   user: UserSliceTypes,
   login?: AuthByUserNameTypes,
   profile?: ProfileTypes,
+  articleDetails?: ArticleDetailsReducerType
 }
 
 export type AppStoreKeys = keyof AppStoreTypes
@@ -28,6 +29,11 @@ export interface StoreWithReducerManager extends EnhancedStore<AppStoreTypes> {
 export interface ThunkExtraArgumentsTypes {
   api: AxiosInstance;
   navigate: NavigateFunction;
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T;
+  extra: ThunkExtraArgumentsTypes;
 }
 
 export type RootState = ReturnType<typeof createReduxStore>['getState']
