@@ -1,10 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ProfileDataTypes} from "entities";
+import {ThunkConfig} from "app";
 import {validateProfile} from "../ValidationErrors/ValidationErrors.service";
-import {ProfileThunkConfig, ValidationErrorsType} from "../../types/Profile.types";
+import {ValidationErrorsType} from "../../types/Profile.types";
 
 export const updateProfile =
-  createAsyncThunk<ProfileDataTypes, ProfileDataTypes, ProfileThunkConfig<Array<ValidationErrorsType>>>(
+  createAsyncThunk<ProfileDataTypes, ProfileDataTypes, ThunkConfig<Array<ValidationErrorsType>>>(
     'profile/updateProfile',
     async (payload, {extra: {api}, rejectWithValue}) => {
 

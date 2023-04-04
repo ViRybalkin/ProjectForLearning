@@ -1,13 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {handleError} from "shared/config/helpers/error";
+import {ArticleDetailsDataType} from "entities";
 import {ThunkConfig} from "app";
-import {ProfileDataTypes} from "../../types/Profile.types";
+import {handleError} from "shared/config/helpers/error";
 
-export const getProfile = createAsyncThunk<ProfileDataTypes, void, ThunkConfig<string>>(
-  'profile/profileThunk',
+export const getArticleDetails = createAsyncThunk<ArticleDetailsDataType, string, ThunkConfig<string>>(
+  'articleDetails/articleThunk',
   async (payload, {extra: {api}, rejectWithValue}) => {
     try {
-      const {data} = await api.get<ProfileDataTypes>('/profile')
+      const {data} = await api.get<ArticleDetailsDataType>('/articles', {params: {id: payload}})
 
 
       return data
