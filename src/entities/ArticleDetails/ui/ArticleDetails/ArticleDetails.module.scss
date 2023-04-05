@@ -1,0 +1,19 @@
+.errorWrapper {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-error);
+}
+
+.loadingWrapper {
+  height: 100%;
+
+  &__avatar {
+    margin: 0 auto 20px;
+  }
+
+  &__mb20 {
+    margin-bottom: 20px;
+  }
+}
