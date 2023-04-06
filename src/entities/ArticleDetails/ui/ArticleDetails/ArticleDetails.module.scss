@@ -17,3 +17,23 @@
     margin-bottom: 20px;
   }
 }
+
+.block {
+  margin-bottom: 50px;
+}
+
+.avatar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.blockWithIcon {
+  display: flex;
+  gap: 10px;
+}
+
+.mainInfoBlock {
+  margin-bottom: 30px;
+}
