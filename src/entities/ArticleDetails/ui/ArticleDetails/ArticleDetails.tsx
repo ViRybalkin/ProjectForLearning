@@ -62,7 +62,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
     <DynamicComponent shouldRemoveAfterUnmount reducers={reducer}>
       {articleData ? (
         <>
-          <div className={cls.mainInfoBlock}>
+          <div data-testid="articleDetailsId" className={cls.mainInfoBlock}>
             <div className={cls.avatar}>
               <Avatar src={articleData?.img} alt={articleData.img} size={200} />
             </div>
