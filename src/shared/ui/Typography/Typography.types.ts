@@ -8,4 +8,5 @@ export interface TypographyProps {
   error?: boolean;
   variant?: VariantsTypes;
   align?: alignTypes;
+  classname?: string;
 }

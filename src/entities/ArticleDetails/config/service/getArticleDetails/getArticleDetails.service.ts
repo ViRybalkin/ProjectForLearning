@@ -7,7 +7,7 @@ export const getArticleDetails = createAsyncThunk<ArticleDetailsDataType, string
   'articleDetails/articleThunk',
   async (payload, {extra: {api}, rejectWithValue}) => {
     try {
-      const {data} = await api.get<ArticleDetailsDataType>('/articles', {params: {id: payload}})
+      const {data} = await api.get<ArticleDetailsDataType>(`/articles/${payload}`)
 
 
       return data

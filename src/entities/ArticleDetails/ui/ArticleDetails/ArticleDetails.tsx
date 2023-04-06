@@ -1,16 +1,21 @@
 import React, { memo, useEffect } from 'react';
 import { classNames, DynamicComponent, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
-import { Typography } from 'shared';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { Avatar, Icon, Skeleton, Typography } from 'shared';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { ArticleDetailsReducer, getArticleDetails } from '../../config';
-import { getArticleDetailsError, getArticleDetailsIsLoading } from '../../config/selectors';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../config/selectors';
 import { ArticleDetailsProps } from './ArticleDetails.types';
 import cls from './ArticleDetails.module.scss';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
   const dispatch = useAppDispatch();
   const error = useSelector(getArticleDetailsError);
+  const articleData = useSelector(getArticleDetailsData);
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const reducer = {
     articleDetails: ArticleDetailsReducer,
@@ -45,9 +50,52 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
     );
   }
 
+  if (error) {
+    return (
+      <div data-testid='ArticleDetailsErrorId' className={classNames(cls.errorWrapper)}>
+        <Typography variant='h1'>{error}</Typography>
+      </div>
+    );
+  }
+
   return (
     <DynamicComponent shouldRemoveAfterUnmount reducers={reducer}>
-      article details {articleId}
+      {articleData ? (
+        <>
+          <div className={cls.mainInfoBlock}>
+            <div className={cls.avatar}>
+              <Avatar src={articleData?.img} alt={articleData.img} size={200} />
+            </div>
+            <Typography variant='h1'>{articleData.title}</Typography>
+            <Typography variant='h2'>{articleData.subtitle}</Typography>
+            <div className={cls.blockWithIcon}>
+              <Icon width={20} height={20} Svg={EyeIcon} />
+              <Typography variant='h3'>{articleData.views}</Typography>
+            </div>
+            <div className={cls.blockWithIcon}>
+              <Icon width={20} height={20} Svg={CalendarIcon} />
+              <Typography variant='h3'>{articleData.createdAt}</Typography>
+            </div>
+          </div>
+          {articleData?.blocks &&
+            articleData?.blocks.map((el) => {
+              if (el.type === 'CODE') {
+                return <ArticleCodeBlock classname={cls.block} key={el.id} text={el.code} />;
+              }
+              if (el.type === 'TEXT') {
+                return (
+                  <ArticleTextBlock classname={cls.block} key={el.id} title={el.title} paragraphs={el.paragraphs} />
+                );
+              }
+              if (el.type === 'IMAGE') {
+                return (
+                  <ArticleImageBlock classname={cls.block} key={el.id} title={el.title} alt={el.src} img={el.src} />
+                );
+              }
+              return null;
+            })}
+        </>
+      ) : null}
     </DynamicComponent>
   );
 });

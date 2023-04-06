@@ -7,6 +7,8 @@ interface ArticleDetailsBLockBase {
 
 interface ArticleDetailsImageBlock extends ArticleDetailsBLockBase {
   type: 'IMAGE';
+  src: string;
+  title: string;
 }
 
 interface ArticleDetailsTextBlock extends ArticleDetailsBLockBase {
@@ -18,11 +20,9 @@ interface ArticleDetailsTextBlock extends ArticleDetailsBLockBase {
 interface ArticleDetailsCodeBlock extends ArticleDetailsBLockBase {
   type: 'CODE';
   code: string;
-  src: string;
-  title: string;
 }
 
-type ArticleBlock = ArticleDetailsImageBlock | ArticleDetailsCodeBlock | ArticleDetailsTextBlock;
+export type ArticleBlock = ArticleDetailsImageBlock | ArticleDetailsCodeBlock | ArticleDetailsTextBlock;
 
 type ArticleType = 'IT' | 'SCIENCE'
 
