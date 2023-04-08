@@ -9,7 +9,7 @@ const Typography = memo(({ error, variant, children, align, classname }: Typogra
   return (
     <Component
       data-testid='typographyId'
-      className={classNames(cls.typography, { [cls.error]: error }, [cls.align, classname])}>
+      className={classNames(cls.typography, { [cls.error]: error }, [align && cls[align], classname])}>
       {children}
     </Component>
   );
