@@ -2,9 +2,10 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {userAction, UserSliceTypes} from "entities";
 import {routerPath} from "shared/config/routes/Routes";
 import {handleError} from "shared/config/helpers/error";
-import {ThunkConfigTypes, UserData} from "../types";
+import {ThunkConfig} from "app";
+import {UserData} from "../types";
 
-export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfigTypes>(
+export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfig<string>>(
   'login/authByUserName',
   async (authData: UserData, {extra: {api, navigate}, rejectWithValue, dispatch}) => {
     try {

@@ -5,12 +5,14 @@ import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
 import {createReduxStore} from "app";
 import {AxiosInstance} from "axios";
 import {NavigateFunction} from "react-router/dist/lib/hooks";
+import {ArticleDetailsCommentTypes} from "pages/ArticlesDetailsPage/config";
 
 export interface AppStoreTypes {
   user: UserSliceTypes,
   login?: AuthByUserNameTypes,
   profile?: ProfileTypes,
   articleDetails?: ArticleDetailsReducerType
+  articleDetailsComments?: ArticleDetailsCommentTypes
 }
 
 export type AppStoreKeys = keyof AppStoreTypes

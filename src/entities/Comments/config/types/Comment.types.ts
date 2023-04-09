@@ -6,6 +6,6 @@ interface UserData {
 
 export interface Comment {
   id: string
-  user: UserData,
-  comment: string
+  user?: UserData,
+  comment?: string
 }

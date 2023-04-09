@@ -11,7 +11,9 @@ export const ArticleTextBlock = memo(({ paragraphs, title, classname }: ArticleT
         {title}
       </Typography>
       {paragraphs.map((el) => (
-        <Typography classname={cls.paragraph}>{el}</Typography>
+        <Typography key={el} classname={cls.paragraph}>
+          {el}
+        </Typography>
       ))}
     </div>
   );

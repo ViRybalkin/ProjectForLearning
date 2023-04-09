@@ -1,51 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArticleDetails } from 'entities';
 import { useParams } from 'react-router-dom';
 import { Typography } from 'shared';
 import { CommentList } from 'entities/Comments/ui';
 import { useTranslation } from 'react-i18next';
+import { DynamicComponent, useAppDispatch } from 'app';
+import { useSelector } from 'react-redux';
+import { getCommentsByArticleId } from './config/service/ArticleDetailsComments.service';
 import cls from './ArticlesDetailsPage.module.scss';
+import { ArticleDetailsCommentsReducer, commentSelector } from './config/slice/ArticleDetailsCommentsSlice';
+import { getCommentError, getCommentIsLoading } from './config/selectors';
+
+const reducer = {
+  articleDetailsComments: ArticleDetailsCommentsReducer,
+};
 
 const ArticlesDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useTranslation('articlesDetails');
-  const comments = [
-    {
-      id: '1',
-      comment: 'comment 1',
-      user: {
-        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
-        username: 'username1',
-        id: '1',
-      },
-    },
-    {
-      id: '2',
-      comment: 'comment 2',
-      user: {
-        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
-        username: 'username2',
-        id: '2',
-      },
-    },
-    {
-      id: '3',
-      comment: 'comment 3',
-      user: {
-        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
-        username: 'username3',
-        id: '3',
-      },
-    },
-  ];
+  const comments = useSelector(commentSelector.selectAll);
+  const error = useSelector(getCommentError);
+  const isLoading = useSelector(getCommentIsLoading);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (id) {
+      dispatch(getCommentsByArticleId(id));
+    }
+  }, [dispatch, id]);
+
   return (
-    <div>
+    <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
       <ArticleDetails articleId={id} />
       <Typography classname={cls.commentTitle} variant='h2'>
         {t('commentTitle')}
       </Typography>
-      <CommentList comments={comments} />
-    </div>
+      <CommentList comments={comments} error={error} isLoading={isLoading} />
+    </DynamicComponent>
   );
 };
 
