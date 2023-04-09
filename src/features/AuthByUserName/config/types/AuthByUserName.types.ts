@@ -1,5 +1,3 @@
-import {ThunkExtraArgumentsTypes} from "app";
-
 export interface AuthByUserNameTypes {
   password: string;
   username: string;
@@ -10,9 +8,4 @@ export interface AuthByUserNameTypes {
 export interface UserData {
   username: string;
   password: string
-}
-
-export interface ThunkConfigTypes {
-  rejectValue: string;
-  extra: ThunkExtraArgumentsTypes;
 }
