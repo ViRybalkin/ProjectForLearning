@@ -20,7 +20,7 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
 
   if (isLoading) {
     return (
-      <div className={cls.commentWrapper}>
+      <div className={cls.commentWrapper} data-testid='commentListLoading'>
         <div className={cls.commentWrapper__userInfo}>
           <Skeleton width={50} height={50} borderRadius='50%' />
           <Skeleton width={100} height={20} />
