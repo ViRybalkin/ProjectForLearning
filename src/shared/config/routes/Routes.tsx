@@ -9,46 +9,46 @@ const ArticlesDetailsPage = lazy(() => import('pages/ArticlesDetailsPage/Article
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
 export interface RouterProps extends PathRouteProps {
-  isAuth?: boolean
+    isAuth?: boolean
 }
 
 export type Path = 'main' | 'about' | 'profile' | 'articlesPage' | 'articlesDetailsPage' | 'notFound'
 
 export const routerPath: Record<Path, string> = {
-  main: '/',
-  about: '/about',
-  profile: '/profile',
-  articlesPage: '/articles',
-  articlesDetailsPage: '/articles/',
-  notFound: '*',
+    main: '/',
+    about: '/about',
+    profile: '/profile/',
+    articlesPage: '/articles',
+    articlesDetailsPage: '/articles/',
+    notFound: '*',
 };
 
 export const routerConfig: Record<Path, RouterProps> = {
-  main: {
-    path: routerPath.main,
-    element: <MainPage/>,
-  },
-  about: {
-    path: routerPath.about,
-    element: <AboutPage/>,
-  },
-  profile: {
-    path: routerPath.profile,
-    element: <ProfilePage/>,
-    isAuth: true,
-  },
-  articlesPage: {
-    path: routerPath.articlesPage,
-    element: <ArticlesPage/>,
-    isAuth: true,
-  },
-  articlesDetailsPage: {
-    path: `${routerPath.articlesDetailsPage}:id`,
-    element: <ArticlesDetailsPage/>,
-    isAuth: true,
-  },
-  notFound: {
-    path: routerPath.notFound,
-    element: <NotFoundPage/>,
-  },
+    main: {
+        path: routerPath.main,
+        element: <MainPage/>,
+    },
+    about: {
+        path: routerPath.about,
+        element: <AboutPage/>,
+    },
+    profile: {
+        path: `${routerPath.profile}:profileId`,
+        element: <ProfilePage/>,
+        isAuth: true,
+    },
+    articlesPage: {
+        path: routerPath.articlesPage,
+        element: <ArticlesPage/>,
+        isAuth: true,
+    },
+    articlesDetailsPage: {
+        path: `${routerPath.articlesDetailsPage}:id`,
+        element: <ArticlesDetailsPage/>,
+        isAuth: true,
+    },
+    notFound: {
+        path: routerPath.notFound,
+        element: <NotFoundPage/>,
+    },
 };

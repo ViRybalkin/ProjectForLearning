@@ -6,27 +6,27 @@ import {ThunkConfig} from "app";
 import {UserData} from "../types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfig<string>>(
-  'login/authByUserName',
-  async (authData: UserData, {extra: {api, navigate}, rejectWithValue, dispatch}) => {
-    try {
-      const {data} = await api.post<UserSliceTypes>('/login', authData)
+    'login/authByUserName',
+    async (authData: UserData, {extra: {api, navigate}, rejectWithValue, dispatch}) => {
+        try {
+            const {data} = await api.post<UserSliceTypes>('/login', authData)
 
-      dispatch(userAction.setUserData({
-        isAuth: true,
-        username: data.username,
-        id: data.id,
-      }))
-      localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id}))
-      if (navigate) {
-        navigate(routerPath.profile)
-      }
+            dispatch(userAction.setUserData({
+                isAuth: true,
+                username: data.username,
+                id: data.id,
+            }))
+            localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id}))
+            if (navigate) {
+                navigate(`${routerPath.profile}${data.id}`)
+            }
 
-      return data
-    } catch (error) {
+            return data
+        } catch (error) {
 
-      const {data} = handleError(error)
+            const {data} = handleError(error)
 
-      return rejectWithValue(data.message)
+            return rejectWithValue(data.message)
+        }
     }
-  }
 )
