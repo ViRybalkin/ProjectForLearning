@@ -2,9 +2,9 @@ import React, { memo, useCallback } from 'react';
 import { classNames, useAppDispatch } from 'app';
 import { Button, Typography } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { ProfileAction } from 'entities';
+import { getUser, ProfileAction } from 'entities';
 import { useSelector } from 'react-redux';
-import { getProfileReadOnly } from 'entities/Profile/config/selectors';
+import { getProfileData, getProfileReadOnly } from 'entities/Profile/config/selectors';
 import cls from './ProfileHeader.module.scss';
 import { ProfileHeaderProps } from './ProfileHeader.types';
 
@@ -13,6 +13,10 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
 
   const dispatch = useAppDispatch();
   const isReadOnly = useSelector(getProfileReadOnly);
+  const user = useSelector(getUser);
+  const profile = useSelector(getProfileData);
+
+  const isCanEdit = user?.id === profile?.id;
 
   const onEditHandler = useCallback(() => {
     dispatch(ProfileAction.setReadonly());
@@ -25,20 +29,24 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
   return (
     <div className={classNames(cls.title)}>
       <Typography variant='h1'>{t('profileCardTitle')}</Typography>
-      {isReadOnly ? (
-        <Button theme='contained' disabled={isEditDisabled} onClick={onEditHandler}>
-          {t('editBtn')}
-        </Button>
-      ) : (
+      {isCanEdit ? (
         <div>
-          <Button type='submit' form='hook-form' theme='contained'>
-            {t('save')}
-          </Button>
-          <Button theme='contained' onClick={onCancelHandler}>
-            {t('cancel')}
-          </Button>
+          {isReadOnly ? (
+            <Button theme='contained' disabled={isEditDisabled} onClick={onEditHandler}>
+              {t('editBtn')}
+            </Button>
+          ) : (
+            <div>
+              <Button type='submit' form='hook-form' theme='contained'>
+                {t('save')}
+              </Button>
+              <Button theme='contained' onClick={onCancelHandler}>
+                {t('cancel')}
+              </Button>
+            </div>
+          )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 });

@@ -1,6 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
 import { JestProvider, StoreProvider } from 'app';
 import * as Selectors from 'entities/Profile/config/selectors';
+import * as UserSelectors from 'entities/User/selectors';
 import userEvent from '@testing-library/user-event';
 import { ProfileHeader } from '../ProfileHeader';
 
@@ -9,6 +10,30 @@ jest.mock('entities/Profile/config/selectors', () => ({
   ...jest.requireActual('entities/Profile/config/selectors'),
   __esModule: true,
 }));
+
+jest.mock('entities/User/selectors', () => ({
+  // @ts-ignore
+  ...jest.requireActual('entities/User/selectors'),
+  __esModule: true,
+}));
+
+const profile = {
+  id: '1',
+  first: 'first',
+  lastname: 'lastname',
+  currency: 'currency',
+  country: 'country',
+  city: 'city',
+  username: 'username',
+  avatar: 'avatar',
+  age: 1,
+};
+
+const userData = {
+  username: 'username',
+  id: '1',
+  isAuth: true,
+};
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -31,6 +56,8 @@ describe('Тестирование компонента ProfileHeader', () => {
 
   test('Если isReadOnly то кнопка редактирования должна быть видна', () => {
     jest.spyOn(Selectors, 'getProfileReadOnly').mockImplementation(() => true);
+    jest.spyOn(Selectors, 'getProfileData').mockImplementation(() => profile);
+    jest.spyOn(UserSelectors, 'getUser').mockImplementation(() => userData);
     setup();
 
     const editBtn = screen.getByRole('button');
