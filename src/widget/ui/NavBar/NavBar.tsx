@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
-import { getIsAuth, userAction } from 'entities';
+import { getIsAuth, getUser, userAction } from 'entities';
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
 import { NavBarProps } from './NavBar.types';
@@ -15,6 +15,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const navigate = useNavigate();
   const isAuth = useSelector(getIsAuth);
+  const user = useSelector(getUser);
   const dispatch = useAppDispatch();
 
   const onLogin = useCallback(() => {
@@ -36,7 +37,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
           <nav data-testid='navTagNavBarId' className={cls.btnWrapper}>
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
-            {isAuth ? <CustomLink to='/profile' name={t('profile')} /> : null}
+            {isAuth ? <CustomLink to={`profile/${user?.id}`} name={t('profile')} /> : null}
             {isAuth ? <CustomLink to='/articles' name={t('articles')} /> : null}
           </nav>
           {!isAuth ? (

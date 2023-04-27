@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
   getError,
   getIsLoading,
@@ -18,6 +19,7 @@ import { Typography } from 'shared';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {
+  const { profileId } = useParams();
   const { t } = useTranslation('profilePage');
   const dispatch = useAppDispatch();
   const reducer = {
@@ -25,10 +27,10 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(getProfile());
+    if (__PROJECT__ !== 'storybook' && profileId) {
+      dispatch(getProfile(profileId));
     }
-  }, [dispatch]);
+  }, [dispatch, profileId]);
 
   const profile = useSelector(getProfileData);
   const isLoading = useSelector(getIsLoading);

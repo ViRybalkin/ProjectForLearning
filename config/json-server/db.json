@@ -94,16 +94,37 @@
       "id": "1",
       "userId": "1",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "username": "user",
+      "password": "123123",
+      "id": "2",
+      "userId": "2",
+      "avatar": "https://w0.peakpx.com/wallpaper/165/445/HD-wallpaper-neon-mask-hacker-hackers-lonely-hacker-neon-mask.jpg"
     }
   ],
-  "profile": {
-    "first": "Виталий",
-    "lastname": "Рыбалкин",
-    "age": "26",
-    "city": "Saint-Petersburg",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
-    "country": "Russia",
-    "currency": "RUB"
-  }
+  "profile": [
+    {
+      "id": 1,
+      "first": "Виталий",
+      "lastname": "Рыбалкин",
+      "age": "26",
+      "city": "Saint-Petersburg",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+      "country": "Russia",
+      "currency": "RUB"
+    },
+    {
+      "id": 2,
+      "first": "Андрей",
+      "lastname": "Столеров",
+      "age": "34",
+      "city": "Almaty",
+      "username": "admin",
+      "avatar": "https://w0.peakpx.com/wallpaper/165/445/HD-wallpaper-neon-mask-hacker-hackers-lonely-hacker-neon-mask.jpg",
+      "country": "Kazahstan",
+      "currency": "USD"
+    }
+  ]
 }
