@@ -4,6 +4,7 @@ import { UserSliceTypes } from './UserSlice.types';
 const initialState: UserSliceTypes = {
   username: '',
   id: '',
+  avatar: '',
   isAuth: false,
   _inited: false,
 };
@@ -15,6 +16,7 @@ export const userSlice = createSlice({
     setUserData(state: UserSliceTypes, action: PayloadAction<UserSliceTypes>) {
       state.username = action.payload.username;
       state.id = action.payload.id;
+      state.avatar = action.payload.avatar;
       state.isAuth = action.payload.isAuth;
     },
     initUserData(state: UserSliceTypes) {
@@ -23,6 +25,7 @@ export const userSlice = createSlice({
         const authData: UserSliceTypes = JSON.parse(data);
         state.username = authData.username;
         state.id = authData.id;
+        state.avatar = authData.avatar;
         state.isAuth = true;
       }
       state._inited = true;
@@ -30,6 +33,7 @@ export const userSlice = createSlice({
     logout(state: UserSliceTypes) {
       state.username = '';
       state.id = '';
+      state.avatar = '';
       state.isAuth = false;
 
       localStorage.removeItem('auth');

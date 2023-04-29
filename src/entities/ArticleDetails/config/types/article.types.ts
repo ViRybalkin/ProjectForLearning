@@ -1,25 +1,27 @@
+import {UserSliceTypes} from "entities";
+
 type ArticleBlockType = 'TEXT' | 'IMAGE' | 'CODE';
 
 interface ArticleDetailsBLockBase {
-  id: string;
-  type: ArticleBlockType,
+    id: string;
+    type: ArticleBlockType,
 }
 
 interface ArticleDetailsImageBlock extends ArticleDetailsBLockBase {
-  type: 'IMAGE';
-  src: string;
-  title: string;
+    type: 'IMAGE';
+    src: string;
+    title: string;
 }
 
-interface ArticleDetailsTextBlock extends ArticleDetailsBLockBase {
-  type: 'TEXT';
-  title: string;
-  paragraphs: Array<string>;
+export interface ArticleDetailsTextBlock extends ArticleDetailsBLockBase {
+    type: 'TEXT';
+    title: string;
+    paragraphs: Array<string>;
 }
 
 interface ArticleDetailsCodeBlock extends ArticleDetailsBLockBase {
-  type: 'CODE';
-  code: string;
+    type: 'CODE';
+    code: string;
 }
 
 export type ArticleBlock = ArticleDetailsImageBlock | ArticleDetailsCodeBlock | ArticleDetailsTextBlock;
@@ -27,19 +29,20 @@ export type ArticleBlock = ArticleDetailsImageBlock | ArticleDetailsCodeBlock | 
 type ArticleType = 'IT' | 'SCIENCE'
 
 export interface ArticleDetailsDataType {
-  id: string;
-  title: string;
-  subtitle: string;
-  img: string;
-  views: number,
-  createdAt: string
-  type: Array<ArticleType>,
-  blocks: Array<ArticleBlock>
+    id: string;
+    title: string;
+    subtitle: string;
+    img: string;
+    views: number;
+    createdAt: string;
+    user: UserSliceTypes;
+    type: Array<ArticleType>;
+    blocks: Array<ArticleBlock>;
 }
 
 
 export interface ArticleDetailsReducerType {
-  isLoading: boolean;
-  data?: ArticleDetailsDataType;
-  error?: string;
+    isLoading: boolean;
+    data?: ArticleDetailsDataType;
+    error?: string;
 }
