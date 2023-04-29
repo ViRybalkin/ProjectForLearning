@@ -12,7 +12,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) => {
   const { t } = useTranslation('articlesDetails');
-  const types = article.type.join(', ');
+  const types = article.type.join(' ');
   const articleTextBlock = article.blocks.find((el) => el.type === 'TEXT') as ArticleDetailsTextBlock;
   const navigate = useNavigate();
 
@@ -22,57 +22,53 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
 
   if (view === 'BIG') {
     return (
-      <div className={classNames('', {}, [cls[view]])}>
-        <Card>
-          <div className={cls.header}>
-            <div className={cls.userInfo}>
-              <Avatar src={article.user.avatar} alt={article.img} size={35} />
-              <Typography>{article.user.username}</Typography>
-            </div>
-            <Typography>{article.createdAt}</Typography>
+      <Card classname={classNames('', {}, [cls[view]])}>
+        <div className={cls.header}>
+          <div className={cls.userInfo}>
+            <Avatar src={article.user.avatar} alt={article.img} size={35} />
+            <Typography>{article.user.username}</Typography>
           </div>
-          <Typography variant='h2' classname={cls.articleTitle}>
-            {article.title}
-          </Typography>
-          <div className={cls.types}>{types}</div>
-          <img src={article.img} alt={article.img} className={cls.img} />
-          {articleTextBlock ? (
-            <ArticleTextBlock
-              classname={cls.articleText}
-              title={articleTextBlock.title}
-              paragraphs={articleTextBlock.paragraphs}
-            />
-          ) : null}
-          <div className={cls.footer}>
-            <Button theme='contained' onClick={onOpenArticleClick}>
-              {t('readMore')}
-            </Button>
-            <div className={cls.blockWithIcon}>
-              <Typography>{article.views}</Typography>
-              <Icon width={20} height={20} Svg={EyeIcon} />
-            </div>
-          </div>
-        </Card>
-      </div>
-    );
-  }
-
-  return (
-    <div className={classNames('', {}, [cls[view]])}>
-      <Card onClick={onOpenArticleClick}>
-        <div className={cls.imgWrapper}>
-          <img src={article.img} className={cls.img} alt={article.img} />
-          <Typography classname={cls.date}>{article.createdAt}</Typography>
+          <Typography>{article.createdAt}</Typography>
         </div>
-        <div className={cls.infoWrapper}>
-          <div>{types}</div>
+        <Typography variant='h2' classname={cls.articleTitle}>
+          {article.title}
+        </Typography>
+        <div className={cls.types}>{types}</div>
+        <img src={article.img} alt={article.img} className={cls.img} />
+        {articleTextBlock ? (
+          <ArticleTextBlock
+            classname={cls.articleText}
+            title={articleTextBlock.title}
+            paragraphs={articleTextBlock.paragraphs}
+          />
+        ) : null}
+        <div className={cls.footer}>
+          <Button theme='contained' onClick={onOpenArticleClick}>
+            {t('readMore')}
+          </Button>
           <div className={cls.blockWithIcon}>
             <Typography>{article.views}</Typography>
             <Icon width={20} height={20} Svg={EyeIcon} />
           </div>
         </div>
-        <Typography classname={cls.articleTitle}>{article.title}</Typography>
       </Card>
-    </div>
+    );
+  }
+
+  return (
+    <Card onClick={onOpenArticleClick} classname={classNames('', {}, [cls[view]])}>
+      <div className={cls.imgWrapper}>
+        <img src={article.img} className={cls.img} alt={article.img} />
+        <Typography classname={cls.date}>{article.createdAt}</Typography>
+      </div>
+      <div className={cls.infoWrapper}>
+        <div>{types}</div>
+        <div className={cls.blockWithIcon}>
+          <Typography>{article.views}</Typography>
+          <Icon width={20} height={20} Svg={EyeIcon} />
+        </div>
+      </div>
+      <Typography classname={cls.articleTitle}>{article.title}</Typography>
+    </Card>
   );
 });
