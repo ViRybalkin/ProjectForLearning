@@ -12,11 +12,12 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
             const {data} = await api.post<UserSliceTypes>('/login', authData)
 
             dispatch(userAction.setUserData({
+                avatar: data.avatar,
                 isAuth: true,
                 username: data.username,
                 id: data.id,
             }))
-            localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id}))
+            localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id, avatar: data.avatar}))
             if (navigate) {
                 navigate(`${routerPath.profile}${data.id}`)
             }
