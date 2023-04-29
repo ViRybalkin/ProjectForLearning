@@ -1,5 +1,7 @@
 {
   "commentTitle": "Комментарии",
   "commentsNotFound": "Комментарии отсутствуют",
-  "addNewComment": "Введите текст комментария"
+  "addNewComment": "Введите текст комментария",
+  "backToArticleList": "Назад к списку постов",
+  "readMore": "Читать далее..."
 }

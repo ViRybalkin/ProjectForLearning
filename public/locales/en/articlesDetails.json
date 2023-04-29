@@ -1,5 +1,7 @@
 {
   "commentTitle": "Comments",
   "commentsNotFound": "Comments not found",
-  "addNewComment": "Enter comment text"
+  "addNewComment": "Enter comment text",
+  "backToArticleList": "Back to article list",
+  "readMore": "Read more..."
 }

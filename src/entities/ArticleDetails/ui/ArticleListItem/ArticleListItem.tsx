@@ -4,12 +4,14 @@ import { classNames } from 'app';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItemProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 import { ArticleDetailsTextBlock } from '../../config/types/article.types';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) => {
+  const { t } = useTranslation('articlesDetails');
   const types = article.type.join(', ');
   const articleTextBlock = article.blocks.find((el) => el.type === 'TEXT') as ArticleDetailsTextBlock;
   const navigate = useNavigate();
@@ -43,7 +45,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
           ) : null}
           <div className={cls.footer}>
             <Button theme='contained' onClick={onOpenArticleClick}>
-              Читать далее...
+              {t('readMore')}
             </Button>
             <div className={cls.blockWithIcon}>
               <Typography>{article.views}</Typography>

@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect } from 'react';
 import { ArticleDetails } from 'entities';
-import { useParams } from 'react-router-dom';
-import { Typography } from 'shared';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, Typography } from 'shared';
 import { CommentList } from 'entities/Comments/ui';
 import { useTranslation } from 'react-i18next';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
 import { AddCommentForm, AddCommentFormTypes } from 'features';
+import { routerPath } from 'shared/config/routes/Routes';
 import cls from './ArticlesDetailsPage.module.scss';
 import { getCommentError, getCommentIsLoading } from './config/selectors';
 import {
@@ -26,6 +27,11 @@ const ArticlesDetailsPage = () => {
   const comments = useSelector(commentSelector.selectAll);
   const error = useSelector(getCommentError);
   const isLoading = useSelector(getCommentIsLoading);
+  const navigate = useNavigate();
+
+  const backToArticleList = useCallback(() => {
+    navigate(routerPath.articlesPage);
+  }, [navigate]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -43,6 +49,9 @@ const ArticlesDetailsPage = () => {
 
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
+      <Button theme="contained" onClick={backToArticleList}>
+        {t('backToArticleList')}
+      </Button>
       <ArticleDetails articleId={id} />
       <Typography classname={cls.commentTitle} variant='h2'>
         {t('commentTitle')}
