@@ -33,7 +33,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
         <Typography variant='h2' classname={cls.articleTitle}>
           {article.title}
         </Typography>
-        <div className={cls.types}>{types}</div>
+        <Typography classname={cls.types}>{types}</Typography>
         <img src={article.img} alt={article.img} className={cls.img} />
         {articleTextBlock ? (
           <ArticleTextBlock
@@ -62,7 +62,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
         <Typography classname={cls.date}>{article.createdAt}</Typography>
       </div>
       <div className={cls.infoWrapper}>
-        <div>{types}</div>
+        <Typography>{types}</Typography>
         <div className={cls.blockWithIcon}>
           <Typography>{article.views}</Typography>
           <Icon width={20} height={20} Svg={EyeIcon} />
