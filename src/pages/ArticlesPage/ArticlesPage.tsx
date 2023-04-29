@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleList } from 'entities';
+import { ArticleDetailsDataType, ArticleList } from 'entities';
 
 const articles = [
   {
@@ -13,6 +13,7 @@ const articles = [
       username: 'admin',
       avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
       id: '1',
+      isAuth: false,
     },
     type: ['IT', 'TEXT', 'TEXT', 'SCIENCE'],
     blocks: [
@@ -76,12 +77,12 @@ const articles = [
       },
     ],
   },
-];
+] as Array<ArticleDetailsDataType>;
 
 const ArticlesPage = () => {
   return (
     <div>
-      <ArticleList articles={articles} />
+      <ArticleList isLoading={false} articles={articles} />
     </div>
   );
 };

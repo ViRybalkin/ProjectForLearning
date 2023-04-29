@@ -73,6 +73,7 @@ module.exports = {
         message: 'Use typed hooks `useAppDispatch` instead.',
       },
     ],
+    'react/no-array-index-key': 'off',
     'key-spacing': [
       'error',
       {
