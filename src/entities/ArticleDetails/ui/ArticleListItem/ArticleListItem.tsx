@@ -16,6 +16,13 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
   const articleTextBlock = article.blocks.find((el) => el.type === 'TEXT') as ArticleDetailsTextBlock;
   const navigate = useNavigate();
 
+  const blockWithIcon = (
+    <div className={cls.blockWithIcon}>
+      <Typography>{article.views}</Typography>
+      <Icon width={20} height={20} Svg={EyeIcon} />
+    </div>
+  );
+
   const onOpenArticleClick = useCallback(() => {
     navigate(routerPath.articlesDetailsPage + article.id);
   }, [article.id, navigate]);
@@ -46,10 +53,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
           <Button theme='contained' onClick={onOpenArticleClick}>
             {t('readMore')}
           </Button>
-          <div className={cls.blockWithIcon}>
-            <Typography>{article.views}</Typography>
-            <Icon width={20} height={20} Svg={EyeIcon} />
-          </div>
+          {blockWithIcon}
         </div>
       </Card>
     );
@@ -63,10 +67,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
       </div>
       <div className={cls.infoWrapper}>
         <Typography>{types}</Typography>
-        <div className={cls.blockWithIcon}>
-          <Typography>{article.views}</Typography>
-          <Icon width={20} height={20} Svg={EyeIcon} />
-        </div>
+        {blockWithIcon}
       </div>
       <Typography classname={cls.articleTitle}>{article.title}</Typography>
     </Card>

@@ -5,6 +5,7 @@ describe('Тестирование слайса authByUserName', () => {
     expect(userReducer(undefined, { type: undefined })).toEqual({
       username: '',
       id: '',
+      avatar: '',
       isAuth: false,
       _inited: false,
     });
@@ -14,6 +15,7 @@ describe('Тестирование слайса authByUserName', () => {
     const data = {
       username: 'name',
       id: 'someId',
+      avatar: 'avatar',
       isAuth: true,
       _inited: false,
     };
@@ -24,6 +26,7 @@ describe('Тестирование слайса authByUserName', () => {
     expect(userReducer(undefined, userAction.logout())).toEqual({
       username: '',
       id: '',
+      avatar: '',
       isAuth: false,
       _inited: false,
     });
@@ -52,6 +55,7 @@ describe('Тестирование слайса authByUserName', () => {
     expect(userReducer(undefined, userAction.initUserData())).toEqual({
       username: '',
       id: '',
+      avatar: '',
       isAuth: false,
       _inited: true,
     });
