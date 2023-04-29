@@ -5,7 +5,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-export const ArticleList = memo(({ articles, isLoading, view = 'SMALL' }: ArticleListProps) => {
+export const ArticleList = memo(({ articles, isLoading, view = 'BIG' }: ArticleListProps) => {
   const skeletonLength = new Array(view === 'SMALL' ? 9 : 3).fill(0);
 
   const posts = new Array(16).fill(0).map((el) => ({
