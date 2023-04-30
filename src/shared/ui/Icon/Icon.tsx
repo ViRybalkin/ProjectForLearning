@@ -8,6 +8,7 @@ export const Icon = memo(({ Svg, width, height, onClick, classname }: IconProps)
     <Svg
       width={width}
       height={height}
+      data-testid="svgIconId"
       className={classNames(cls.icon, { [cls.clickable]: Boolean(onClick) }, [classname])}
       onClick={onClick}
     />

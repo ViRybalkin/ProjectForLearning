@@ -24,8 +24,10 @@ const ArticlesPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getArticleList());
-    dispatch(ArticleListAction.initArticleListView);
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(getArticleList());
+      dispatch(ArticleListAction.initArticleListView);
+    }
   }, [dispatch]);
 
   const onViewClickHandler = useCallback(
