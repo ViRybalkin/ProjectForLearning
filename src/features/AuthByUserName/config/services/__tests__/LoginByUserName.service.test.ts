@@ -7,78 +7,80 @@ const mockedAxios = jest.mocked($api, true)
 jest.mock('shared/config/api/api');
 
 jest.mock('shared/config/helpers/error', () => ({
-  handleError: jest.fn().mockReturnValue(errorResponse),
+    handleError: jest.fn().mockReturnValue(errorResponse),
 }));
 describe('Тестирование сервиса loginByUserName', () => {
-  const requestData: UserData = {
-    username: 'name',
-    password: 'password'
-  };
-  const responseData = {
-    username: 'name',
-    id: 'someId'
-  }
+    const requestData: UserData = {
+        username: 'name',
+        password: 'password'
+    };
+    const responseData = {
+        username: 'name',
+        id: 'someId',
+        avatar: 'avatar'
+    }
 
-  const extraData = {
-    api: mockedAxios,
-    navigate: jest.fn()
-  }
+    const extraData = {
+        api: mockedAxios,
+        navigate: jest.fn()
+    }
 
-  const dispatch = jest.fn();
-  const getState = jest.fn();
+    const dispatch = jest.fn();
+    const getState = jest.fn();
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  })
+    beforeEach(() => {
+        jest.clearAllMocks();
+    })
 
 
-  test('статус запроса должен быть корректным', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
-    const action = authByUserNameThunk(requestData)
+    test('статус запроса должен быть корректным', async () => {
+        mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
+        const action = authByUserNameThunk(requestData)
 
-    const res = await action(dispatch, getState, extraData);
+        const res = await action(dispatch, getState, extraData);
 
-    expect(res.meta.requestStatus).toEqual('fulfilled')
-  });
+        expect(res.meta.requestStatus).toEqual('fulfilled')
+    });
 
-  test('если запрос вернул 200 данные должны быть корректны', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
-    const action = authByUserNameThunk(requestData)
+    test('если запрос вернул 200 данные должны быть корректны', async () => {
+        mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
+        const action = authByUserNameThunk(requestData)
 
-    await action(dispatch, getState, extraData);
+        await action(dispatch, getState, extraData);
 
-    expect(dispatch).toHaveBeenCalledWith(userAction.setUserData({
-      username: responseData.username,
-      id: responseData.id,
-      isAuth: true,
-    }))
-  })
+        expect(dispatch).toHaveBeenCalledWith(userAction.setUserData({
+            username: responseData.username,
+            id: responseData.id,
+            avatar: responseData.avatar,
+            isAuth: true,
+        }))
+    })
 
-  test('если запрос вернул 200 localStorage должен засетить корректные данные', async () => {
-    jest.spyOn(Storage.prototype, 'setItem');
-    Storage.prototype.setItem = jest.fn();
-    mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
-    const action = authByUserNameThunk(requestData)
+    test('если запрос вернул 200 localStorage должен засетить корректные данные', async () => {
+        jest.spyOn(Storage.prototype, 'setItem');
+        Storage.prototype.setItem = jest.fn();
+        mockedAxios.post.mockReturnValue(Promise.resolve({data: responseData}))
+        const action = authByUserNameThunk(requestData)
 
-    await action(dispatch, getState, extraData);
+        await action(dispatch, getState, extraData);
 
-    expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
-      username: responseData.username,
-      id: responseData.id,
-    }))
-  });
+        expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
+            username: responseData.username,
+            id: responseData.id,
+        }))
+    });
 
-  test('если запрос вернул 500 статус должен быть rejected', async () => {
-    jest.spyOn(Storage.prototype, 'setItem');
-    Storage.prototype.setItem = jest.fn();
-    // eslint-disable-next-line prefer-promise-reject-errors
-    mockedAxios.post.mockReturnValue(Promise.reject(errorResponse))
-    const action = authByUserNameThunk(requestData)
+    test('если запрос вернул 500 статус должен быть rejected', async () => {
+        jest.spyOn(Storage.prototype, 'setItem');
+        Storage.prototype.setItem = jest.fn();
+        // eslint-disable-next-line prefer-promise-reject-errors
+        mockedAxios.post.mockReturnValue(Promise.reject(errorResponse))
+        const action = authByUserNameThunk(requestData)
 
-    const res = await action(dispatch, getState, extraData);
+        const res = await action(dispatch, getState, extraData);
 
-    expect(res.meta.requestStatus).toEqual('rejected')
-    expect(localStorage.setItem).not.toHaveBeenCalled();
-    expect(dispatch).not.toHaveBeenCalledWith(userAction.setUserData)
-  });
+        expect(res.meta.requestStatus).toEqual('rejected')
+        expect(localStorage.setItem).not.toHaveBeenCalled();
+        expect(dispatch).not.toHaveBeenCalledWith(userAction.setUserData)
+    });
 })

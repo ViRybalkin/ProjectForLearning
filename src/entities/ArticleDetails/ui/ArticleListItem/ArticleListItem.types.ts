@@ -1,13 +1,11 @@
-import { ArticleDetailsDataType } from '../../config/types/article.types';
-
-type View = 'BIG' | 'SMALL';
+import { ArticleDetailsDataType, ArticleListView } from '../../config/types/article.types';
 
 export interface ArticleListItemProps {
   article: ArticleDetailsDataType;
-  view: View;
+  view: ArticleListView;
 }
 
 export interface ArticleListItemSkeletonProps {
-  view: View;
+  view: ArticleListView;
   classname?: string;
 }

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { LOCAL_STORAGE_KEY } from 'shared';
 import { UserSliceTypes } from './UserSlice.types';
 
 const initialState: UserSliceTypes = {
@@ -20,7 +21,7 @@ export const userSlice = createSlice({
       state.isAuth = action.payload.isAuth;
     },
     initUserData(state: UserSliceTypes) {
-      const data = localStorage.getItem('auth');
+      const data = localStorage.getItem(LOCAL_STORAGE_KEY.auth);
       if (data) {
         const authData: UserSliceTypes = JSON.parse(data);
         state.username = authData.username;
@@ -36,7 +37,7 @@ export const userSlice = createSlice({
       state.avatar = '';
       state.isAuth = false;
 
-      localStorage.removeItem('auth');
+      localStorage.removeItem(LOCAL_STORAGE_KEY.auth);
     },
   },
 });
