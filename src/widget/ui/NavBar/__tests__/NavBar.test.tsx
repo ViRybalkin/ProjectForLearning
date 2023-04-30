@@ -1,4 +1,4 @@
-import * as Selectors from 'entities/User/selectors';
+import * as Selectors from 'entities/';
 import { act, render, screen } from '@testing-library/react';
 import { JestProvider } from 'app';
 import userEvent from '@testing-library/user-event';
@@ -11,9 +11,18 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-jest.mock('entities/User/selectors', () => ({
+const userData = {
+  username: 'username',
+  id: '1',
+  avatar: 'avatar',
+  isAuth: true,
+};
+
+jest.mock('entities', () => ({
+  getIsAuth: jest.fn().mockImplementation(() => false),
+  getUser: jest.fn().mockImplementation(() => userData),
   // @ts-ignore
-  ...jest.requireActual('entities/User/selectors'),
+  ...jest.requireActual('entities'),
   __esModule: true,
 }));
 
