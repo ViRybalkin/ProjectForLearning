@@ -1,16 +1,23 @@
 import React, { memo } from 'react';
 import { classNames } from 'app';
+import { Typography } from 'shared';
 import { ArticleListProps } from './ArticleList.types';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-export const ArticleList = memo(({ articles, isLoading, view = 'BIG' }: ArticleListProps) => {
+export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: ArticleListProps) => {
   const skeletonLength = new Array(view === 'SMALL' ? 9 : 3).fill(0);
 
-  const posts = new Array(16).fill(0).map((el) => ({
-    ...articles[0],
-  }));
+  if (error) {
+    return (
+      <div className={cls.errorWrapper}>
+        <Typography align='center' variant='h1'>
+          {error}
+        </Typography>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -23,7 +30,7 @@ export const ArticleList = memo(({ articles, isLoading, view = 'BIG' }: ArticleL
   }
   return (
     <div className={classNames('', {}, [cls[view]])}>
-      {articles.length > 0 ? posts.map((el) => <ArticleListItem view={view} article={el} />) : null}
+      {articles.length > 0 ? articles.map((el) => <ArticleListItem key={el.id} view={view} article={el} />) : null}
     </div>
   );
 });

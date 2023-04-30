@@ -3,6 +3,7 @@ import {userAction, UserSliceTypes} from "entities";
 import {routerPath} from "shared/config/routes/Routes";
 import {handleError} from "shared/config/helpers/error";
 import {ThunkConfig} from "app";
+import {LOCAL_STORAGE_KEY} from "shared";
 import {UserData} from "../types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfig<string>>(
@@ -17,7 +18,11 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
                 username: data.username,
                 id: data.id,
             }))
-            localStorage.setItem('auth', JSON.stringify({username: data.username, id: data.id, avatar: data.avatar}))
+            localStorage.setItem(LOCAL_STORAGE_KEY.auth, JSON.stringify({
+                username: data.username,
+                id: data.id,
+                avatar: data.avatar
+            }))
             if (navigate) {
                 navigate(`${routerPath.profile}${data.id}`)
             }

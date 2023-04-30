@@ -46,3 +46,5 @@ export interface ArticleDetailsReducerType {
     data?: ArticleDetailsDataType;
     error?: string;
 }
+
+export type ArticleListView = 'SMALL' | 'BIG';
