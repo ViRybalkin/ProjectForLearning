@@ -33,6 +33,7 @@ const userData = {
   username: 'username',
   id: '1',
   isAuth: true,
+  avatar: '',
 };
 
 const mockDispatch = jest.fn();

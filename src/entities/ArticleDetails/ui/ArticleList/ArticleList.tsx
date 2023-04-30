@@ -11,7 +11,7 @@ export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: A
 
   if (error) {
     return (
-      <div className={cls.errorWrapper}>
+      <div data-testid='articleListErrorId' className={cls.errorWrapper}>
         <Typography align='center' variant='h1'>
           {error}
         </Typography>
@@ -21,7 +21,7 @@ export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: A
 
   if (isLoading) {
     return (
-      <div className={cls[view]}>
+      <div data-testid='articleListSkeletonId' className={cls[view]}>
         {skeletonLength.map((el, index) => (
           <ArticleListItemSkeleton key={index} view={view} />
         ))}
@@ -29,7 +29,7 @@ export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: A
     );
   }
   return (
-    <div className={classNames('', {}, [cls[view]])}>
+    <div data-testid='articleListId' className={classNames('', {}, [cls[view]])}>
       {articles.length > 0 ? articles.map((el) => <ArticleListItem key={el.id} view={view} article={el} />) : null}
     </div>
   );

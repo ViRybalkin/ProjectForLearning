@@ -30,7 +30,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
   if (view === 'BIG') {
     return (
       <Card classname={classNames('', {}, [cls[view]])}>
-        <div className={cls.header}>
+        <div data-testid='articleListItemBig' className={cls.header}>
           <div className={cls.userInfo}>
             <Avatar src={article.user.avatar} alt={article.img} size={35} />
             <Typography>{article.user.username}</Typography>
@@ -61,7 +61,7 @@ export const ArticleListItem = memo(({ article, view }: ArticleListItemProps) =>
 
   return (
     <Card onClick={onOpenArticleClick} classname={classNames('', {}, [cls[view]])}>
-      <div className={cls.imgWrapper}>
+      <div data-testid='articleListItemSmall' className={cls.imgWrapper}>
         <img src={article.img} className={cls.img} alt={article.img} />
         <Typography classname={cls.date}>{article.createdAt}</Typography>
       </div>
