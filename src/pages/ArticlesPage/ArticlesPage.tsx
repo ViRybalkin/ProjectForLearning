@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
-import { ArticleList } from 'entities';
+import React, { useCallback, useEffect } from 'react';
+import { ArticleList, ArticleListView } from 'entities';
 import { useSelector } from 'react-redux';
 import { DynamicComponent, useAppDispatch } from 'app';
-import { getArticleListView } from 'pages/ArticlesPage/config/selectors/getArticleListVIew/getArticleListView';
-import { getArticleListError } from 'pages/ArticlesPage/config/selectors/getArticleListError/getArticleListError';
-import { getArticleList } from './config/service/getArticles.service';
-import { ArticleListAction, ArticleListReducer, articleListSelector } from './config/slice/articlesSlice';
-import { getArticleListIsLoading } from './config/selectors/getArticleListIsLoading';
+import { ViewSelector } from 'features';
+import {
+  ArticleListAction,
+  ArticleListReducer,
+  articleListSelector,
+  getArticleList,
+  getArticleListError,
+  getArticleListIsLoading,
+  getArticleListView,
+} from './config';
 
 const reducer = {
   articleList: ArticleListReducer,
@@ -18,15 +23,21 @@ const ArticlesPage = () => {
   const articleListView = useSelector(getArticleListView);
   const dispatch = useAppDispatch();
 
-  console.log(error);
-
   useEffect(() => {
     dispatch(getArticleList());
     dispatch(ArticleListAction.initArticleListView);
   }, [dispatch]);
 
+  const onViewClickHandler = useCallback(
+    (view: ArticleListView) => {
+      dispatch(ArticleListAction.setArticleListView(view));
+    },
+    [dispatch]
+  );
+
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
+      <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
       <ArticleList view={articleListView} isLoading={isLoading} articles={articles} error={error} />
     </DynamicComponent>
   );
