@@ -111,7 +111,6 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: true,
             }
         )
-        // expect(ArticleListReducer(state, action)).toEqual(1)
     });
 
     test('articleSlice rejected должен изменить данные', () => {
@@ -133,4 +132,50 @@ describe('Тестирование слайса articleSlice', () => {
                 isLoading: false,
             })
     });
+
+    test('Вызов setPage должен изменить стейт', () => {
+        expect(ArticleListReducer(undefined, ArticleListAction.setPage(10))).toEqual(
+            {
+                error: '',
+                isLoading: false,
+                entities: {},
+                ids: [],
+                hasMore: false,
+                page: 10,
+                limit: 9,
+                view: 'SMALL'
+            }
+        )
+    })
+
+    test('если view равен small limit равен 9', () => {
+        expect(ArticleListReducer(undefined, ArticleListAction.setArticleListView('SMALL'))).toEqual(
+            {
+                error: '',
+                isLoading: false,
+                entities: {},
+                ids: [],
+                hasMore: false,
+                page: 1,
+                limit: 9,
+                view: 'SMALL'
+            }
+        )
+    });
+
+    test('если view равен big limit равен 4', () => {
+        ArticleListReducer(undefined, ArticleListAction.setArticleListView('BIG'));
+        expect(ArticleListReducer(undefined, ArticleListAction.initArticleListView())).toEqual(
+            {
+                error: '',
+                isLoading: false,
+                entities: {},
+                ids: [],
+                hasMore: false,
+                page: 1,
+                limit: 4,
+                view: 'BIG'
+            }
+        )
+    })
 })
