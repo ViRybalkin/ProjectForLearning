@@ -19,7 +19,10 @@ export const ArticleListSlice = createSlice({
         isLoading: false,
         error: '',
         view: 'SMALL',
+        page: 1,
+        limit: 9,
         ids: [],
+        hasMore: false,
         entities: {},
     }),
     reducers: {
@@ -27,10 +30,14 @@ export const ArticleListSlice = createSlice({
             state.view = action.payload;
             localStorage.setItem(LOCAL_STORAGE_KEY.articleView, action.payload)
         },
+        setPage: (state, action) => {
+            state.page = action.payload
+        },
         initArticleListView: (state) => {
             const articleListView = localStorage.getItem(LOCAL_STORAGE_KEY.articleView)
             if (articleListView) {
                 state.view = articleListView as ArticleListView;
+                state.limit = articleListView === 'SMALL' ? 9 : 4;
             }
         }
     },
@@ -42,7 +49,8 @@ export const ArticleListSlice = createSlice({
             })
             .addCase(getArticleList.fulfilled, (state, action: PayloadAction<Array<ArticleDetailsDataType>>) => {
                 state.isLoading = false;
-                articleListAdapter.setAll(state, action.payload);
+                articleListAdapter.setMany(state, action.payload);
+                state.hasMore = action.payload.length > 0
             })
             .addCase(getArticleList.rejected, (state, action) => {
                 state.isLoading = false;

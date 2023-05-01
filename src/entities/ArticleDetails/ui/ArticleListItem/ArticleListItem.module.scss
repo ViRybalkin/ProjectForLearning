@@ -1,6 +1,10 @@
 .BIG {
   margin-bottom: 30px;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   .header {
     display: flex;
     align-items: center;

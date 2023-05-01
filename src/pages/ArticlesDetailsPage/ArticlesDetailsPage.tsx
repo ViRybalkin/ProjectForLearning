@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { ArticleDetails } from 'entities';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Typography } from 'shared';
+import { Button, Page, Typography } from 'shared';
 import { CommentList } from 'entities/Comments/ui';
 import { useTranslation } from 'react-i18next';
 import { DynamicComponent, useAppDispatch } from 'app';
@@ -49,15 +49,17 @@ const ArticlesDetailsPage = () => {
 
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
-      <Button theme="contained" onClick={backToArticleList}>
-        {t('backToArticleList')}
-      </Button>
-      <ArticleDetails articleId={id} />
-      <Typography classname={cls.commentTitle} variant='h2'>
-        {t('commentTitle')}
-      </Typography>
-      <AddCommentForm submitHandler={(form) => addNewCommentHandler(form)} />
-      <CommentList comments={comments} error={error} isLoading={isLoading} />
+      <Page>
+        <Button theme='contained' onClick={backToArticleList}>
+          {t('backToArticleList')}
+        </Button>
+        <ArticleDetails articleId={id} />
+        <Typography classname={cls.commentTitle} variant='h2'>
+          {t('commentTitle')}
+        </Typography>
+        <AddCommentForm submitHandler={(form) => addNewCommentHandler(form)} />
+        <CommentList comments={comments} error={error} isLoading={isLoading} />
+      </Page>
     </DynamicComponent>
   );
 };

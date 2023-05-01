@@ -10,6 +10,9 @@ describe('Тестирование слайса articleSlice', () => {
                 error: '',
                 view: 'SMALL',
                 ids: [],
+                limit: 9,
+                page: 1,
+                hasMore: false,
                 entities: {},
             }
         )
@@ -22,6 +25,9 @@ describe('Тестирование слайса articleSlice', () => {
                 isLoading: false,
                 entities: {},
                 ids: [],
+                hasMore: false,
+                page: 1,
+                limit: 9,
                 view: 'BIG'
             }
         )
@@ -35,6 +41,9 @@ describe('Тестирование слайса articleSlice', () => {
                 isLoading: false,
                 entities: {},
                 ids: [],
+                hasMore: false,
+                page: 1,
+                limit: 9,
                 view: 'BIG'
             }
         )
@@ -51,6 +60,9 @@ describe('Тестирование слайса articleSlice', () => {
                 isLoading: false,
                 entities: {},
                 ids: [],
+                hasMore: false,
+                page: 1,
+                limit: 4,
                 view: 'BIG'
             }
         )
@@ -82,8 +94,11 @@ describe('Тестирование слайса articleSlice', () => {
 
         const state = {
             isLoading: true,
-            data: undefined,
-        };
+            entities: {
+                "1": articleListMocks[0]
+            },
+            ids: ['1'],
+        }
 
         // @ts-ignore
         expect(ArticleListReducer(state, action)).toEqual(
@@ -93,7 +108,10 @@ describe('Тестирование слайса articleSlice', () => {
                 },
                 ids: ['1'],
                 isLoading: false,
-            })
+                hasMore: true,
+            }
+        )
+        // expect(ArticleListReducer(state, action)).toEqual(1)
     });
 
     test('articleSlice rejected должен изменить данные', () => {

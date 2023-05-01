@@ -19,18 +19,16 @@ export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: A
     );
   }
 
-  if (isLoading) {
-    return (
-      <div data-testid='articleListSkeletonId' className={cls[view]}>
-        {skeletonLength.map((el, index) => (
-          <ArticleListItemSkeleton key={index} view={view} />
-        ))}
-      </div>
-    );
-  }
   return (
     <div data-testid='articleListId' className={classNames('', {}, [cls[view]])}>
-      {articles.length > 0 ? articles.map((el) => <ArticleListItem key={el.id} view={view} article={el} />) : null}
+      {articles.length > 0 && articles.map((el) => <ArticleListItem key={el.id} view={view} article={el} />)}
+      {isLoading && (
+        <div data-testid='articleListSkeletonId' className={cls[view]}>
+          {skeletonLength.map((el, index) => (
+            <ArticleListItemSkeleton key={index} view={view} />
+          ))}
+        </div>
+      )}
     </div>
   );
 });

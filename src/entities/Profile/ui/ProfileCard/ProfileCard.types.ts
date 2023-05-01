@@ -1,4 +1,5 @@
 export interface ProfileCardDataTypes {
+  id: string;
   first: string;
   lastname: string;
   currency: string;

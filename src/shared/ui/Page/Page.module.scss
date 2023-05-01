@@ -1,0 +1,6 @@
+.page {
+  flex: 1;
+  padding: 16px;
+  height: calc(100vh - var(--nav-bar-height));
+  overflow: auto;
+}

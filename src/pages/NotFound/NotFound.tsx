@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'app';
+import { Page } from 'shared';
 import cls from './notFound.module.scss';
 
 const NotFound = () => {
   const { t } = useTranslation();
   return (
-    <div data-testid="NotFoundTestId" className={classNames(cls.notFound)}>
+    <Page testId="NotFoundTestId" classname={cls.notFound}>
       <h1>{t('notFound')}</h1>
-    </div>
+    </Page>
   );
 };
 
