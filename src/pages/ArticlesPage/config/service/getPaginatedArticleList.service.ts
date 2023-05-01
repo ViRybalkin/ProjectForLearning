@@ -18,7 +18,7 @@ export const getPaginatedArticleListService = createAsyncThunk<
         const page = getArticleListPage(getState());
         const hasMore = getArticleListHasMore(getState());
         const isLoading = getArticleListIsLoading(getState());
-
+        
         if (!isLoading && hasMore && page) {
             dispatch(ArticleListAction.setPage(page + 1));
             dispatch(getArticleList(page + 1))

@@ -38,7 +38,6 @@ describe('Тестирование сервиса getArticles', () => {
         const action = getArticleList(1)
 
         const res = await action(dispatch, getState, extraData);
-        console.log(res);
 
         expect(res.meta.requestStatus).toEqual('fulfilled')
     });

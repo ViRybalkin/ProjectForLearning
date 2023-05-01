@@ -11,7 +11,6 @@ import {
   getArticleList,
   getArticleListError,
   getArticleListIsLoading,
-  getArticleListPage,
   getArticleListView,
   getPaginatedArticleListService,
 } from './config';
@@ -24,7 +23,6 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticleListIsLoading);
   const error = useSelector(getArticleListError);
   const articleListView = useSelector(getArticleListView);
-  const page = useSelector(getArticleListPage);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const ArticlesPage = () => {
 
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
-      <Page onScrollEnd={() => onNextPageHandler()}>
+      <Page testId='articlePageId' onScrollEnd={() => onNextPageHandler()}>
         <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
         <ArticleList view={articleListView} isLoading={isLoading} articles={articles} error={error} />
       </Page>
