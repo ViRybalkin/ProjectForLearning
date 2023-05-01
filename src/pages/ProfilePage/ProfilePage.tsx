@@ -15,7 +15,7 @@ import {
   ProfileReducer,
   updateProfile,
 } from 'entities';
-import { Typography } from 'shared';
+import { Page, Typography } from 'shared';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {
@@ -43,22 +43,24 @@ const ProfilePage = () => {
 
   return (
     <DynamicComponent reducers={reducer}>
-      <div data-testid='profilePageTestId'>{t('title')}</div>
-      <ProfileHeader isEditDisabled={Boolean(error)} />
-      {validationError?.map((errorText) => {
-        return (
-          <Typography key={errorText} variant='h2' align='center'>
-            {t(errorText)}
-          </Typography>
-        );
-      })}
-      <ProfileCard
-        submitHandler={onSubmitHandler}
-        isLoading={isLoading || false}
-        error={error}
-        readonly={isReadOnly}
-        data={profile}
-      />
+      <Page>
+        <div data-testid='profilePageTestId'>{t('title')}</div>
+        <ProfileHeader isEditDisabled={Boolean(error)} />
+        {validationError?.map((errorText) => {
+          return (
+            <Typography key={errorText} variant='h2' align='center'>
+              {t(errorText)}
+            </Typography>
+          );
+        })}
+        <ProfileCard
+          submitHandler={onSubmitHandler}
+          isLoading={isLoading || false}
+          error={error}
+          readonly={isReadOnly}
+          data={profile}
+        />
+      </Page>
     </DynamicComponent>
   );
 };

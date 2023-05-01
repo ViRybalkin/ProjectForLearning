@@ -1,6 +1,7 @@
 import React from 'react';
 import { classNames } from 'app';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared';
 import { ErrorPageProps } from './ErrorPage.types';
 import cls from './errorPage.module.scss';
 
@@ -9,7 +10,7 @@ const ErrorPage = ({ errorName, errorMessage, errorInfo }: ErrorPageProps) => {
 
   const onReload = () => window.location.reload();
   return (
-    <div className={classNames(cls.errorPage)}>
+    <Page classname={cls.errorPage}>
       <div className={classNames(cls.errorInfoWrapper)}>
         <h1 className={classNames(cls.errorText)}>{t('errorTitle')}</h1>
         <h2 className={classNames(cls.errorText)}>
@@ -24,7 +25,7 @@ const ErrorPage = ({ errorName, errorMessage, errorInfo }: ErrorPageProps) => {
           {t('reloadBtn')}
         </button>
       </div>
-    </div>
+    </Page>
   );
 };
 
