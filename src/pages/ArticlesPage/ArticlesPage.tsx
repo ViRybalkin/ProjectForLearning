@@ -3,7 +3,8 @@ import { ArticleList, ArticleListView } from 'entities';
 import { useSelector } from 'react-redux';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { ViewSelector } from 'features';
-import { Page, useInitialEffect } from 'shared';
+import { useInitialEffect } from 'shared';
+import { Page } from 'widget';
 import {
   ArticleListAction,
   ArticleListReducer,

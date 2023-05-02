@@ -2,12 +2,14 @@ import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
 import {userReducer} from "entities"
 import {$api} from "shared/config/api/api";
 import {CombinedState, Reducer} from "redux";
+import {getScrollPositionReducer} from "features";
 import {createReducerManager} from "./ReducerManager";
 import {AppStoreTypes, ThunkExtraArgumentsTypes} from "./AppStore.types";
 
 export const createReduxStore = (preloadedState?: AppStoreTypes) => {
     const rootReducers: ReducersMapObject<AppStoreTypes> = {
         user: userReducer,
+        getPosition: getScrollPositionReducer,
     }
 
     const reducerManager = createReducerManager(rootReducers)
