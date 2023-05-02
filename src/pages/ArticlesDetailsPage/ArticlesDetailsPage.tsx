@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { ArticleDetails, ArticleDetailsReducer } from 'entities';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Page, Typography } from 'shared';
+import { Button, Typography } from 'shared';
+import { Page } from 'widget';
 import { CommentList } from 'entities/Comments/ui';
 import { useTranslation } from 'react-i18next';
 import { DynamicComponent, useAppDispatch } from 'app';

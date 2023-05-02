@@ -1,7 +1,7 @@
 import React from 'react';
 import { classNames } from 'app';
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared';
+import { Page } from 'widget';
 import { ErrorPageProps } from './ErrorPage.types';
 import cls from './errorPage.module.scss';
 

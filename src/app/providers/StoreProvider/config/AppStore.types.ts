@@ -1,5 +1,5 @@
 import {ArticleDetailsReducerType, ProfileTypes, UserSliceTypes} from "entities";
-import {AddCommentFormSliceTypes, AuthByUserNameTypes} from "features";
+import {AddCommentFormSliceTypes, AuthByUserNameTypes, GetScrollPositionTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
 import {createReduxStore} from "app";
@@ -9,6 +9,7 @@ import {ArticleListTypes} from "pages/ArticlesPage/config/types/articles.types";
 
 export interface AppStoreTypes {
     user: UserSliceTypes;
+    getPosition: GetScrollPositionTypes;
     login?: AuthByUserNameTypes;
     profile?: ProfileTypes;
     articleDetails?: ArticleDetailsReducerType;

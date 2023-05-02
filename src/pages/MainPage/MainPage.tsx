@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { Page, Typography } from 'shared';
+import { Typography } from 'shared';
+import { Page } from 'widget';
 
 const MainPage = () => {
   const { t } = useTranslation('mainPage');
   return (
-    <Page testId="mainPageTestId">
+    <Page testId='mainPageTestId'>
       <Typography>{t('title')}</Typography>
     </Page>
   );

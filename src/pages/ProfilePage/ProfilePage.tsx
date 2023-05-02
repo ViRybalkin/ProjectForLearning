@@ -15,7 +15,8 @@ import {
   ProfileReducer,
   updateProfile,
 } from 'entities';
-import { Page, Typography, useInitialEffect } from 'shared';
+import { Typography, useInitialEffect } from 'shared';
+import { Page } from 'widget';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {
