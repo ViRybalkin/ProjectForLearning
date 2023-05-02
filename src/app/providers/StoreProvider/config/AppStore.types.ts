@@ -4,7 +4,6 @@ import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
 import {createReduxStore} from "app";
 import {AxiosInstance} from "axios";
-import {NavigateFunction} from "react-router/dist/lib/hooks";
 import {ArticleDetailsCommentTypes} from "pages/ArticlesDetailsPage/config";
 import {ArticleListTypes} from "pages/ArticlesPage/config/types/articles.types";
 
@@ -33,7 +32,6 @@ export interface StoreWithReducerManager extends EnhancedStore<AppStoreTypes> {
 
 export interface ThunkExtraArgumentsTypes {
     api: AxiosInstance;
-    navigate: NavigateFunction;
 }
 
 export interface ThunkConfig<T> {

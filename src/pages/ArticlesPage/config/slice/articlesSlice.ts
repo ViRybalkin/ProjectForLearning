@@ -24,6 +24,7 @@ export const ArticleListSlice = createSlice({
         ids: [],
         hasMore: false,
         entities: {},
+        _inited: false,
     }),
     reducers: {
         setArticleListView: (state, action) => {
@@ -50,7 +51,8 @@ export const ArticleListSlice = createSlice({
             .addCase(getArticleList.fulfilled, (state, action: PayloadAction<Array<ArticleDetailsDataType>>) => {
                 state.isLoading = false;
                 articleListAdapter.setMany(state, action.payload);
-                state.hasMore = action.payload.length > 0
+                state.hasMore = action.payload.length > 0;
+                state._inited = true;
             })
             .addCase(getArticleList.rejected, (state, action) => {
                 state.isLoading = false;

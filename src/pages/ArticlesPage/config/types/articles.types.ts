@@ -8,4 +8,5 @@ export interface ArticleListTypes extends EntityState<ArticleDetailsDataType> {
     page: number;
     limit: number;
     hasMore: boolean;
+    _inited: boolean;
 }
