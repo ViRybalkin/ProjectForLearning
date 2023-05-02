@@ -10,6 +10,7 @@ import {
   articleListSelector,
   getArticleList,
   getArticleListError,
+  getArticleListInited,
   getArticleListIsLoading,
   getArticleListView,
   getPaginatedArticleListService,
@@ -23,14 +24,15 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticleListIsLoading);
   const error = useSelector(getArticleListError);
   const articleListView = useSelector(getArticleListView);
+  const inited = useSelector(getArticleListInited);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
+    if (__PROJECT__ !== 'storybook' && !inited) {
       dispatch(ArticleListAction.initArticleListView());
       dispatch(getArticleList(1));
     }
-  }, [dispatch]);
+  }, []);
 
   const onNextPageHandler = useCallback(() => {
     dispatch(getPaginatedArticleListService());
@@ -44,7 +46,7 @@ const ArticlesPage = () => {
   );
 
   return (
-    <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
+    <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount={false}>
       <Page testId='articlePageId' onScrollEnd={() => onNextPageHandler()}>
         <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
         <ArticleList view={articleListView} isLoading={isLoading} articles={articles} error={error} />

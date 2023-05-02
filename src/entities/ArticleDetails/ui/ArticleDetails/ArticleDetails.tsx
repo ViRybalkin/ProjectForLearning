@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useLayoutEffect } from 'react';
 import { classNames, DynamicComponent, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
 import { Avatar, Icon, Skeleton, Typography } from 'shared';
@@ -21,11 +21,11 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
     articleDetails: ArticleDetailsReducer,
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (articleId) {
       dispatch(getArticleDetails(articleId));
     }
-  }, [articleId, dispatch]);
+  }, []);
 
   if (error) {
     return (
@@ -59,7 +59,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
   }
 
   return (
-    <DynamicComponent shouldRemoveAfterUnmount reducers={reducer}>
+    <DynamicComponent reducers={reducer}>
       {articleData ? (
         <>
           <div data-testid='articleDetailsId' className={cls.mainInfoBlock}>

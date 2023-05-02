@@ -3,19 +3,21 @@ import { useStore } from 'react-redux';
 import { AppStoreKeys, StoreWithReducerManager } from 'app';
 import { DynamicComponentProps } from './DynamicComponent.types';
 
-const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount = false }: DynamicComponentProps) => {
+const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount = true }: DynamicComponentProps) => {
   const store = useStore() as StoreWithReducerManager;
 
   useLayoutEffect(() => {
-    Object.entries(reducers).forEach(([key, reduce]) => {
-      store.reducerManager.add(key as AppStoreKeys, reduce);
-
-      if (shouldRemoveAfterUnmount) {
-        return () => {
-          store.reducerManager.remove(key as AppStoreKeys);
-        };
-      }
+    Object.entries(reducers).forEach(([key, reducer]) => {
+      store.reducerManager.add(key as AppStoreKeys, reducer);
     });
+
+    return () => {
+      if (shouldRemoveAfterUnmount) {
+        Object.entries(reducers).forEach(([key, reducer]) => {
+          store.reducerManager.remove(key as AppStoreKeys);
+        });
+      }
+    };
   }, []);
 
   return <div>{children}</div>;
