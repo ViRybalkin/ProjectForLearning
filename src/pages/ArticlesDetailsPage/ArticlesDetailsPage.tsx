@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { ArticleDetails } from 'entities';
+import { ArticleDetails, ArticleDetailsReducer } from 'entities';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Page, Typography } from 'shared';
 import { CommentList } from 'entities/Comments/ui';
@@ -19,6 +19,7 @@ import {
 
 const reducer = {
   articleDetailsComments: ArticleDetailsCommentsReducer,
+  articleDetails: ArticleDetailsReducer,
 };
 
 const ArticlesDetailsPage = () => {
