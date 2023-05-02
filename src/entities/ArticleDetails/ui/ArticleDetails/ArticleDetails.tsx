@@ -1,10 +1,10 @@
 import React, { memo, useLayoutEffect } from 'react';
-import { classNames, DynamicComponent, useAppDispatch } from 'app';
+import { classNames, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
 import { Avatar, Icon, Skeleton, Typography } from 'shared';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { ArticleDetailsReducer, getArticleDetails } from '../../config';
+import { getArticleDetails } from '../../config';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../config/selectors';
 import { ArticleDetailsProps } from './ArticleDetails.types';
 import cls from './ArticleDetails.module.scss';
@@ -17,15 +17,12 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
   const error = useSelector(getArticleDetailsError);
   const articleData = useSelector(getArticleDetailsData);
   const isLoading = useSelector(getArticleDetailsIsLoading);
-  const reducer = {
-    articleDetails: ArticleDetailsReducer,
-  };
 
   useLayoutEffect(() => {
     if (articleId) {
       dispatch(getArticleDetails(articleId));
     }
-  }, []);
+  }, [articleId, dispatch]);
 
   if (error) {
     return (
@@ -59,7 +56,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
   }
 
   return (
-    <DynamicComponent reducers={reducer}>
+    <div>
       {articleData ? (
         <>
           <div data-testid='articleDetailsId' className={cls.mainInfoBlock}>
@@ -96,6 +93,6 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
             })}
         </>
       ) : null}
-    </DynamicComponent>
+    </div>
   );
 });

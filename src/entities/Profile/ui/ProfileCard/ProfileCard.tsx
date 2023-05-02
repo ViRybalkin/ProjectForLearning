@@ -15,7 +15,13 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
   const { t } = useTranslation('profilePage');
 
   const onSubmit = (formData: ProfileDataTypes) => {
-    submitHandler(formData);
+    if (data?.id) {
+      const editData = {
+        ...formData,
+        id: data.id,
+      };
+      submitHandler(editData);
+    }
   };
 
   const avatar = watch('avatar');
