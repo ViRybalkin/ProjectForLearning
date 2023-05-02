@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { ArticleList, ArticleListView } from 'entities';
 import { useSelector } from 'react-redux';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { ViewSelector } from 'features';
-import { Page } from 'shared';
+import { Page, useInitialEffect } from 'shared';
 import {
   ArticleListAction,
   ArticleListReducer,
@@ -27,12 +27,12 @@ const ArticlesPage = () => {
   const inited = useSelector(getArticleListInited);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook' && !inited) {
+  useInitialEffect(() => {
+    if (!inited) {
       dispatch(ArticleListAction.initArticleListView());
       dispatch(getArticleList(1));
     }
-  }, []);
+  });
 
   const onNextPageHandler = useCallback(() => {
     dispatch(getPaginatedArticleListService());

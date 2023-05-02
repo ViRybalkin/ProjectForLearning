@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
@@ -15,7 +15,7 @@ import {
   ProfileReducer,
   updateProfile,
 } from 'entities';
-import { Page, Typography } from 'shared';
+import { Page, Typography, useInitialEffect } from 'shared';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {
@@ -26,11 +26,11 @@ const ProfilePage = () => {
     profile: ProfileReducer,
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook' && profileId) {
+  useInitialEffect(() => {
+    if (profileId) {
       dispatch(getProfile(profileId));
     }
-  }, [dispatch, profileId]);
+  });
 
   const profile = useSelector(getProfileData);
   const isLoading = useSelector(getIsLoading);
