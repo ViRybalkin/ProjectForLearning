@@ -14,6 +14,7 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 hasMore: false,
                 entities: {},
+                _inited: false,
             }
         )
     })
@@ -28,7 +29,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 1,
                 limit: 9,
-                view: 'BIG'
+                view: 'BIG',
+                _inited: false
             }
         )
     });
@@ -44,7 +46,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 1,
                 limit: 9,
-                view: 'BIG'
+                view: 'BIG',
+                _inited: false
             }
         )
 
@@ -63,7 +66,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 1,
                 limit: 4,
-                view: 'BIG'
+                view: 'BIG',
+                _inited: false
             }
         )
         expect(localStorage.getItem).toHaveBeenCalledWith("articleView");
@@ -109,6 +113,7 @@ describe('Тестирование слайса articleSlice', () => {
                 ids: ['1'],
                 isLoading: false,
                 hasMore: true,
+                _inited: true,
             }
         )
     });
@@ -143,7 +148,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 10,
                 limit: 9,
-                view: 'SMALL'
+                view: 'SMALL',
+                _inited: false
             }
         )
     })
@@ -158,7 +164,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 1,
                 limit: 9,
-                view: 'SMALL'
+                view: 'SMALL',
+                _inited: false
             }
         )
     });
@@ -174,7 +181,8 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 page: 1,
                 limit: 4,
-                view: 'BIG'
+                view: 'BIG',
+                _inited: false
             }
         )
     })
