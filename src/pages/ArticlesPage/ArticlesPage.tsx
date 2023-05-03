@@ -5,13 +5,12 @@ import { DynamicComponent, useAppDispatch } from 'app';
 import { ViewSelector } from 'features';
 import { useInitialEffect } from 'shared';
 import { Page } from 'widget';
+import { articlePageInitialEffect } from 'pages/ArticlesPage/config/service/articlePageInitialEffect.service';
 import {
   ArticleListAction,
   ArticleListReducer,
   articleListSelector,
-  getArticleList,
   getArticleListError,
-  getArticleListInited,
   getArticleListIsLoading,
   getArticleListView,
   getPaginatedArticleListService,
@@ -25,14 +24,10 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticleListIsLoading);
   const error = useSelector(getArticleListError);
   const articleListView = useSelector(getArticleListView);
-  const inited = useSelector(getArticleListInited);
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    if (!inited) {
-      dispatch(ArticleListAction.initArticleListView());
-      dispatch(getArticleList(1));
-    }
+    dispatch(articlePageInitialEffect());
   });
 
   const onNextPageHandler = useCallback(() => {
