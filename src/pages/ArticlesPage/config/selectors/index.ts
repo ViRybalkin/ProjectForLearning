@@ -5,3 +5,7 @@ export * from './getArticleListPage';
 export * from './getArticleListLimit'
 export * from './getArticleListHasMore';
 export * from './getArticleListInited'
+export * from './getArticleListType'
+export * from './getArticleListSearch'
+export * from './getArticleListSortDirection'
+export * from './getArticleListSortField'

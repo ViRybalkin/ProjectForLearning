@@ -13,7 +13,7 @@ export const articlePageInitialEffect = createAsyncThunk<
 
         if (!inited) {
             dispatch(ArticleListAction.initArticleListView());
-            dispatch(getArticleList(1));
+            dispatch(getArticleList({}));
         }
 
     }
