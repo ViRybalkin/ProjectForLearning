@@ -4,12 +4,32 @@ import {ArticleListAction, getArticleList, getArticleListInited} from "../../con
 
 export const articlePageInitialEffect = createAsyncThunk<
     void,
-    void,
+    URLSearchParams,
     ThunkConfig<string>
 >(
     'article/articlePageInitialEffect',
-    async (_, {getState, dispatch}) => {
+    async (searchParams: URLSearchParams, {getState, dispatch}) => {
         const inited = getArticleListInited(getState());
+        const search = searchParams.get('search');
+        const sortDirection = searchParams.get('sortDirection');
+        const sortField = searchParams.get('sortField');
+        const type = searchParams.get('type');
+
+        if (search) {
+            dispatch(ArticleListAction.setSearchValue(search));
+        }
+
+        if (sortDirection) {
+            dispatch(ArticleListAction.setSortDirection(sortDirection));
+        }
+
+        if (sortField) {
+            dispatch(ArticleListAction.setSortField(sortField));
+        }
+
+        if (type) {
+            dispatch(ArticleListAction.setType(type));
+        }
 
         if (!inited) {
             dispatch(ArticleListAction.initArticleListView());
