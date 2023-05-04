@@ -27,10 +27,7 @@ const Input = forwardRef(
         {label ? <Typography>{label}</Typography> : null}
         <input
           readOnly={readonly}
-          className={classNames(cls.input, { ...classes, [cls.readonly]: readonly }, [
-            cls[size],
-            className && cls[className],
-          ])}
+          className={classNames(cls.input, { ...classes, [cls.readonly]: readonly }, [cls[size], className])}
           type={type}
           placeholder={placeholder}
           {...otherProps}

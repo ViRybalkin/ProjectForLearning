@@ -3,5 +3,12 @@
   "commentsNotFound": "Комментарии отсутствуют",
   "addNewComment": "Введите текст комментария",
   "backToArticleList": "Назад к списку постов",
-  "readMore": "Читать далее..."
+  "readMore": "Читать далее...",
+  "articleSortFiled": "Сортировать по",
+  "searchInput": "Поиск...",
+  "sortFieldViews": "Просмотры",
+  "sortFieldTitle": "Заголовок",
+  "sortFieldDate": "Дата создания",
+  "ascSortDirection": "Возрастание",
+  "descSortDirection": "Убывание"
 }

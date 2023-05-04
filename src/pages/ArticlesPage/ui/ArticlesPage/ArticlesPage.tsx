@@ -1,20 +1,19 @@
 import React, { useCallback } from 'react';
-import { ArticleList, ArticleListView } from 'entities';
+import { ArticleList } from 'entities';
 import { useSelector } from 'react-redux';
 import { DynamicComponent, useAppDispatch } from 'app';
-import { ViewSelector } from 'features';
-import { useInitialEffect } from 'shared';
+import { TabItem, useDebounce, useInitialEffect } from 'shared';
 import { Page } from 'widget';
-import { articlePageInitialEffect } from 'pages/ArticlesPage/config/service/articlePageInitialEffect.service';
 import {
-  ArticleListAction,
   ArticleListReducer,
   articleListSelector,
+  articlePageInitialEffect,
   getArticleListError,
   getArticleListIsLoading,
   getArticleListView,
   getPaginatedArticleListService,
-} from './config';
+} from '../../config';
+import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 
 const reducer = {
   articleList: ArticleListReducer,
@@ -34,17 +33,33 @@ const ArticlesPage = () => {
     dispatch(getPaginatedArticleListService());
   }, [dispatch]);
 
-  const onViewClickHandler = useCallback(
-    (view: ArticleListView) => {
-      dispatch(ArticleListAction.setArticleListView(view));
-    },
-    [dispatch]
-  );
+  const onFiledChangeHandler = useCallback((value: string) => {
+    console.log(value);
+  }, []);
+
+  const onDirectionChangeHandler = useCallback((value: string) => {
+    console.log(value);
+  }, []);
+
+  const onSearchChangeHandler = useCallback((value: string) => {
+    console.log(value);
+  }, []);
+
+  const onTabChangeHandler = useCallback((tab: TabItem) => {
+    console.log(tab);
+  }, []);
+
+  const debouncedSearchHandler = useDebounce(onSearchChangeHandler, 500);
 
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount={false}>
       <Page testId='articlePageId' onScrollEnd={() => onNextPageHandler()}>
-        <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
+        <ArticlesFilters
+          onTabChange={onTabChangeHandler}
+          onFieldChange={onFiledChangeHandler}
+          onDirectionChange={onDirectionChangeHandler}
+          onSearchChange={debouncedSearchHandler}
+        />
         <ArticleList view={articleListView} isLoading={isLoading} articles={articles} error={error} />
       </Page>
     </DynamicComponent>

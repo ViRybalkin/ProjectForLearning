@@ -32,8 +32,8 @@ export const ViewSelector = memo(({ view, onViewClick }: ViewSelectorProps) => {
           <Button key={el.view} style={{ fill: 'blue' }} theme='clear' onClick={() => onViewClickHandler(el.view)}>
             <Icon
               Svg={el.icon}
-              height={20}
-              width={20}
+              height={30}
+              width={30}
               classname={classNames('', { [cls.notSelected]: view !== el.view })}
             />
           </Button>
