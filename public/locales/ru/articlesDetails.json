@@ -10,5 +10,9 @@
   "sortFieldTitle": "Заголовок",
   "sortFieldDate": "Дата создания",
   "ascSortDirection": "Возрастание",
-  "descSortDirection": "Убывание"
+  "descSortDirection": "Убывание",
+  "typeBusiness": "Бизнес",
+  "typeMechanic": "Механика",
+  "typeAll": "Все статьи",
+  "typeIt": "Айти"
 }

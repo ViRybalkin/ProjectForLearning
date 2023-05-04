@@ -70,18 +70,22 @@ export const ArticlesFilters = memo(() => {
     [debouncedFetchData, dispatch, setValue]
   );
 
-  const tabs = [
+  const types = [
     {
       value: 'all',
-      content: 'Все стать',
+      content: t('typeAll'),
     },
     {
       value: 'IT',
-      content: 'IT',
+      content: t('typeIt'),
     },
     {
-      value: 'KEK',
-      content: 'KEK',
+      value: 'BUSINESS',
+      content: t('typeBusiness'),
+    },
+    {
+      value: 'MECHANICS',
+      content: t('typeMechanic'),
     },
   ];
 
@@ -106,7 +110,7 @@ export const ArticlesFilters = memo(() => {
           />
         )}
       />
-      <Tabs onTabChange={onTabChangeHandler} tabs={tabs} value={type} />
+      <Tabs onTabChange={onTabChangeHandler} tabs={types} value={type} />
     </div>
   );
 });

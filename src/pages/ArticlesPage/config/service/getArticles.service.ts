@@ -31,7 +31,7 @@ export const getArticleList = createAsyncThunk<Array<ArticleDetailsDataType>, ge
                     _sort: sortField,
                     _order: sortDirection,
                     q: search?.length ? search : undefined,
-                    type: type === 'all' ? undefined : type,
+                    type_like: type === 'all' ? undefined : type,
                 }
             })
             return data
