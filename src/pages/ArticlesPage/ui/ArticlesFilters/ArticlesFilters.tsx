@@ -1,76 +1,112 @@
 import React, { FormEvent, memo, useCallback } from 'react';
 import { ViewSelector } from 'features';
 import { ArticleListView, ArticleSortList } from 'entities';
-import { ArticleListAction, getArticleListView } from 'pages/ArticlesPage/config';
+import { ArticleListAction, getArticleList, getArticleListView } from 'pages/ArticlesPage/config';
 import { useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
-import { Input, Tabs } from 'shared';
+import { Input, TabItem, Tabs, useDebounce } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
 import cls from './ArticlesFilters.module.scss';
-import { ArticleFiltersProps } from '../../config/types/ArticleFilters.types';
+import { getArticleListType } from '../../config';
 
-export const ArticlesFilters = memo(
-  ({ onFieldChange, onDirectionChange, onSearchChange, onTabChange }: ArticleFiltersProps) => {
-    const { t } = useTranslation('articlesDetails');
-    const dispatch = useAppDispatch();
-    const articleListView = useSelector(getArticleListView);
-    const { handleSubmit, control, setValue, watch } = useForm();
+export const ArticlesFilters = memo(() => {
+  const { t } = useTranslation('articlesDetails');
+  const dispatch = useAppDispatch();
+  const articleListView = useSelector(getArticleListView);
+  const type = useSelector(getArticleListType);
+  const { control, setValue } = useForm();
 
-    const onViewClickHandler = useCallback(
-      (view: ArticleListView) => {
-        dispatch(ArticleListAction.setArticleListView(view));
-      },
-      [dispatch]
-    );
+  const fetchData = useCallback(() => {
+    dispatch(getArticleList({ replace: true }));
+  }, [dispatch]);
 
-    const onSearchChangeHandler = useCallback(
-      (e: FormEvent<HTMLInputElement>) => {
-        const { value } = e.currentTarget;
-        setValue('search', value);
-        onSearchChange(value);
-      },
-      [onSearchChange, setValue]
-    );
+  const debouncedFetchData = useDebounce(() => fetchData(), 500);
 
-    const tabs = [
-      {
-        value: 'all',
-        content: 'Все стать',
-      },
-      {
-        value: 'IT',
-        content: 'IT',
-      },
-      {
-        value: 'KEK',
-        content: 'KEK',
-      },
-    ];
+  const onFiledChangeHandler = useCallback(
+    (value: string) => {
+      dispatch(ArticleListAction.setSortField(value));
+      dispatch(ArticleListAction.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
 
-    return (
-      <div className={cls.filtersWrapper}>
-        <div className={cls.sortView}>
-          <ArticleSortList onDirectionChange={onDirectionChange} onFieldChange={onFieldChange} />
-          <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
-        </div>
-        <Controller
-          name='search'
-          control={control}
-          defaultValue=''
-          render={({ field }) => (
-            <Input
-              className={cls.filtersWrapper}
-              fullWidth
-              size='medium'
-              placeholder={t('searchInput')}
-              {...field}
-              onChange={onSearchChangeHandler}
-            />
-          )}
-        />
-        <Tabs onTabChange={onTabChange} tabs={tabs} value='IT' />
+  const onDirectionChangeHandler = useCallback(
+    (value: string) => {
+      dispatch(ArticleListAction.setSortDirection(value));
+      dispatch(ArticleListAction.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
+  const onTabChangeHandler = useCallback(
+    (tab: TabItem) => {
+      dispatch(ArticleListAction.setType(tab.value));
+      dispatch(ArticleListAction.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
+  const onViewClickHandler = useCallback(
+    (view: ArticleListView) => {
+      dispatch(ArticleListAction.setArticleListView(view));
+      dispatch(ArticleListAction.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData]
+  );
+
+  const onSearchChangeHandler = useCallback(
+    (e: FormEvent<HTMLInputElement>) => {
+      const { value } = e.currentTarget;
+      setValue('search', value);
+      dispatch(ArticleListAction.setSearchValue(value));
+      dispatch(ArticleListAction.setPage(1));
+      debouncedFetchData();
+    },
+    [debouncedFetchData, dispatch, setValue]
+  );
+
+  const tabs = [
+    {
+      value: 'all',
+      content: 'Все стать',
+    },
+    {
+      value: 'IT',
+      content: 'IT',
+    },
+    {
+      value: 'KEK',
+      content: 'KEK',
+    },
+  ];
+
+  return (
+    <div className={cls.filtersWrapper}>
+      <div className={cls.sortView}>
+        <ArticleSortList onDirectionChange={onDirectionChangeHandler} onFieldChange={onFiledChangeHandler} />
+        <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
       </div>
-    );
-  }
-);
+      <Controller
+        name='search'
+        control={control}
+        defaultValue=''
+        render={({ field }) => (
+          <Input
+            className={cls.filtersWrapper}
+            fullWidth
+            size='medium'
+            placeholder={t('searchInput')}
+            {...field}
+            onChange={onSearchChangeHandler}
+          />
+        )}
+      />
+      <Tabs onTabChange={onTabChangeHandler} tabs={tabs} value={type} />
+    </div>
+  );
+});

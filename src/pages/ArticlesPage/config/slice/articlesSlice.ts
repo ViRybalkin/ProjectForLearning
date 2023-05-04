@@ -1,4 +1,4 @@
-import {createEntityAdapter, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createEntityAdapter, createSlice} from '@reduxjs/toolkit';
 import {ArticleDetailsDataType, ArticleListView} from "entities";
 import {AppStoreTypes} from "app";
 import {LOCAL_STORAGE_KEY} from "shared";
@@ -24,6 +24,10 @@ export const ArticleListSlice = createSlice({
         ids: [],
         hasMore: false,
         entities: {},
+        sortDirection: 'asc',
+        sortField: 'views',
+        search: '',
+        type: 'all',
         _inited: false,
     }),
     reducers: {
@@ -33,6 +37,18 @@ export const ArticleListSlice = createSlice({
         },
         setPage: (state, action) => {
             state.page = action.payload
+        },
+        setSortDirection: (state, action) => {
+            state.sortDirection = action.payload;
+        },
+        setSortField: (state, action) => {
+            state.sortField = action.payload;
+        },
+        setSearchValue: (state, action) => {
+            state.search = action.payload;
+        },
+        setType: (state, action) => {
+            state.type = action.payload;
         },
         initArticleListView: (state) => {
             const articleListView = localStorage.getItem(LOCAL_STORAGE_KEY.articleView)
@@ -48,8 +64,12 @@ export const ArticleListSlice = createSlice({
                 state.isLoading = true;
                 state.error = undefined
             })
-            .addCase(getArticleList.fulfilled, (state, action: PayloadAction<Array<ArticleDetailsDataType>>) => {
+            .addCase(getArticleList.fulfilled, (state, action) => {
                 state.isLoading = false;
+                if (action.meta.arg.replace) {
+                    articleListAdapter.setAll(state, action.payload);
+
+                }
                 articleListAdapter.setMany(state, action.payload);
                 state.hasMore = action.payload.length > 0;
                 state._inited = true;

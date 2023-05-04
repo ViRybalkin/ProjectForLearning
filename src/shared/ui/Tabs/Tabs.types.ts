@@ -7,6 +7,6 @@ export interface TabItem {
 
 export interface TabsProps {
   tabs: Array<TabItem>;
-  value: string;
+  value?: string;
   onTabChange: (tab: TabItem) => void;
 }
