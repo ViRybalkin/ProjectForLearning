@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {handleError} from "shared";
+import {addQueryParams, handleError} from "shared";
 import {ThunkConfig} from "app";
 import {ArticleDetailsDataType} from "entities";
 import {
@@ -22,6 +22,9 @@ export const getArticleList = createAsyncThunk<Array<ArticleDetailsDataType>, ge
             const sortDirection = getArticleListSortDirection(getState());
             const sortField = getArticleListSortField(getState());
             const page = getArticleListPage(getState());
+
+            addQueryParams({sortDirection, sortField, type, search})
+
 
             const {data} = await api.get('/articles', {
                 params: {

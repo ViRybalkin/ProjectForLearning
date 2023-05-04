@@ -1,14 +1,13 @@
 import React, { FormEvent, memo, useCallback } from 'react';
 import { ViewSelector } from 'features';
 import { ArticleListView, ArticleSortList } from 'entities';
-import { ArticleListAction, getArticleList, getArticleListView } from 'pages/ArticlesPage/config';
 import { useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
 import { Input, TabItem, Tabs, useDebounce } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
+import { ArticleListAction, getArticleList, getArticleListType, getArticleListView } from '../../config';
 import cls from './ArticlesFilters.module.scss';
-import { getArticleListType } from '../../config';
 
 export const ArticlesFilters = memo(() => {
   const { t } = useTranslation('articlesDetails');

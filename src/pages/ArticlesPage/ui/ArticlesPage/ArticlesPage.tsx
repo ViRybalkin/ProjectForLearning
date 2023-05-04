@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { ArticleList } from 'entities';
+import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { DynamicComponent, useAppDispatch } from 'app';
 import { useInitialEffect } from 'shared';
@@ -24,9 +25,10 @@ const ArticlesPage = () => {
   const error = useSelector(getArticleListError);
   const articleListView = useSelector(getArticleListView);
   const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
 
   useInitialEffect(() => {
-    dispatch(articlePageInitialEffect());
+    dispatch(articlePageInitialEffect(searchParams));
   });
 
   const onNextPageHandler = useCallback(() => {
