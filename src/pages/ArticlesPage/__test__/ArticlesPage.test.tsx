@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { JestProvider } from 'app';
 import userEvent from '@testing-library/user-event';
-import ArticlesPage from '../ArticlesPage';
+import ArticlesPage from '../ui/ArticlesPage/ArticlesPage';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
