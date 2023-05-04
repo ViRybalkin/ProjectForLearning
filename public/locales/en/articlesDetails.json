@@ -10,5 +10,9 @@
   "sortFieldTitle": "Title",
   "sortFieldDate": "Create at",
   "ascSortDirection": "ASC",
-  "descSortDirection": "DESC"
+  "descSortDirection": "DESC",
+  "typeBusiness": "Business",
+  "typeMechanic": "Mechanic",
+  "typeAll": "All",
+  "typeIt": "It"
 }
