@@ -15,6 +15,11 @@ describe('Тестирование слайса articleSlice', () => {
                 hasMore: false,
                 entities: {},
                 _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
+
             }
         )
     })
@@ -30,7 +35,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 limit: 9,
                 view: 'BIG',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
     });
@@ -47,7 +56,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 limit: 9,
                 view: 'BIG',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
 
@@ -67,7 +80,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 limit: 4,
                 view: 'BIG',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
         expect(localStorage.getItem).toHaveBeenCalledWith("articleView");
@@ -93,7 +110,12 @@ describe('Тестирование слайса articleSlice', () => {
     test('articleSlice fulfilled должен изменить данные', () => {
         const action = {
             type: getArticleList.fulfilled.type,
-            payload: articleListMocks
+            payload: articleListMocks,
+            meta: {
+                arg: {
+                    replace: true,
+                }
+            }
         };
 
         const state = {
@@ -149,7 +171,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 10,
                 limit: 9,
                 view: 'SMALL',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
     })
@@ -165,7 +191,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 limit: 9,
                 view: 'SMALL',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
     });
@@ -182,7 +212,11 @@ describe('Тестирование слайса articleSlice', () => {
                 page: 1,
                 limit: 4,
                 view: 'BIG',
-                _inited: false
+                _inited: false,
+                search: '',
+                sortDirection: 'asc',
+                sortField: 'views',
+                type: 'all',
             }
         )
     })

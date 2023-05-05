@@ -39,7 +39,7 @@ describe('Тестирование сервиса getPaginatedArticleList', () =
 
         await action(dispatch, getState, extraData);
 
-        expect(getArticleList).toHaveBeenCalledWith(3);
+        expect(getArticleList).toHaveBeenCalledWith({});
         expect(ArticleListAction.setPage).toHaveBeenCalledWith(3);
     });
 

@@ -9,6 +9,14 @@ jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: () => mockDispatch,
 }));
+
+const mockArticlePageInitialEffect = jest.fn();
+jest.mock('../config', () => ({
+  // @ts-ignore
+  ...jest.requireActual('../config'),
+  articlePageInitialEffect: () => mockArticlePageInitialEffect,
+}));
+
 describe('Тестирование страницы articlePage', () => {
   const intersectionObserverMock = () => ({
     observe: () => null,
@@ -28,10 +36,7 @@ describe('Тестирование страницы articlePage', () => {
   test('рендер должен сделать вызов экшенов', () => {
     setup();
 
-    expect(mockDispatch).toHaveBeenCalledWith({
-      payload: undefined,
-      type: 'articleComments/initArticleListView',
-    });
+    expect(mockDispatch).toHaveBeenCalledWith(mockArticlePageInitialEffect);
   });
 
   test('нажатие на иконку вида постов должно вызвать функцию setArticleListView', async () => {
