@@ -2,7 +2,7 @@ import {$api} from "shared/config/api/api";
 import * as ErrorHelper from "shared/config/helpers/error";
 import {articleListMocks} from "app/__mocks__";
 import {getArticleList} from "../getArticles.service";
-import * as Selector from '../../selectors/getArticleListLimit'
+import * as Selector from '../../selectors'
 
 const errorResponse = {data: {message: 'error'}}
 const mockedAxios = jest.mocked($api, true)
@@ -12,9 +12,9 @@ jest.mock('shared/config/helpers/error', () => ({
     handleError: jest.fn().mockReturnValue(errorResponse),
 }));
 
-jest.mock('../../selectors/getArticleListLimit', () => ({
+jest.mock('../../selectors', () => ({
     // @ts-ignore
-    ...jest.requireActual('../../selectors/getArticleListLimit'),
+    ...jest.requireActual('../../selectors'),
     __esModule: true,
 }));
 describe('Тестирование сервиса getArticles', () => {
@@ -29,13 +29,18 @@ describe('Тестирование сервиса getArticles', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        jest.spyOn(Selector, 'getArticleListLimit').mockReturnValue(9);
+        jest.spyOn(Selector, 'getArticleListType').mockReturnValue('all');
+        jest.spyOn(Selector, 'getArticleListSearch').mockReturnValue('search');
+        jest.spyOn(Selector, 'getArticleListSortDirection').mockReturnValue('asc');
+        jest.spyOn(Selector, 'getArticleListSortField').mockReturnValue('views');
+        jest.spyOn(Selector, 'getArticleListPage').mockReturnValue(2);
     })
 
 
     test('статус запроса должен быть корректным', async () => {
-        jest.spyOn(Selector, 'getArticleListLimit').mockReturnValue(9);
         mockedAxios.get.mockReturnValue(Promise.resolve({data: articleListMocks}))
-        const action = getArticleList(1)
+        const action = getArticleList({})
 
         const res = await action(dispatch, getState, extraData);
 
@@ -44,7 +49,7 @@ describe('Тестирование сервиса getArticles', () => {
 
     test('если запрос вернул 200 данные должны быть корректны', async () => {
         mockedAxios.get.mockReturnValue(Promise.resolve({data: articleListMocks}))
-        const action = getArticleList(1)
+        const action = getArticleList({})
 
         const res = await action(dispatch, getState, extraData);
 
@@ -54,7 +59,7 @@ describe('Тестирование сервиса getArticles', () => {
 
     test('если запрос вернул 500 статус должен быть rejected', async () => {
         mockedAxios.get.mockReturnValue(Promise.reject(Error('some reason')))
-        const action = getArticleList(1)
+        const action = getArticleList({})
 
         const res = await action(dispatch, getState, extraData);
 
@@ -64,7 +69,7 @@ describe('Тестирование сервиса getArticles', () => {
     test('если запрос вернул 500 handleError Error должен быть вызван', async () => {
         // eslint-disable-next-line prefer-promise-reject-errors
         mockedAxios.get.mockReturnValue(Promise.reject(errorResponse))
-        const action = getArticleList(1)
+        const action = getArticleList({})
 
         await action(dispatch, getState, extraData);
 
