@@ -6,6 +6,9 @@ import {createReduxStore} from "app";
 import {AxiosInstance} from "axios";
 import {ArticleDetailsCommentTypes} from "pages/ArticlesDetailsPage/config";
 import {ArticleListTypes} from "pages/ArticlesPage/config/types/articles.types";
+import {
+    ArticleDetailsRecommendationTypes
+} from "pages/ArticlesDetailsPage/config/types/ArticleDetailsRecommendation.types";
 
 export interface AppStoreTypes {
     user: UserSliceTypes;
@@ -14,8 +17,10 @@ export interface AppStoreTypes {
     profile?: ProfileTypes;
     articleDetails?: ArticleDetailsReducerType;
     articleDetailsComments?: ArticleDetailsCommentTypes;
+    articleDetailsRecommendation?: ArticleDetailsRecommendationTypes;
     addCommentForm?: AddCommentFormSliceTypes;
     articleList?: ArticleListTypes;
+
 }
 
 export type AppStoreKeys = keyof AppStoreTypes

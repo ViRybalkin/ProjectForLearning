@@ -6,7 +6,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: ArticleListProps) => {
+export const ArticleList = memo(({ articles, isLoading, error, classname, view = 'BIG' }: ArticleListProps) => {
   const skeletonLength = new Array(view === 'SMALL' ? 9 : 3).fill(0);
 
   if (error) {
@@ -20,7 +20,7 @@ export const ArticleList = memo(({ articles, isLoading, error, view = 'BIG' }: A
   }
 
   return (
-    <div data-testid='articleListId' className={classNames('', {}, [cls[view]])}>
+    <div data-testid='articleListId' className={classNames('', {}, [cls[view], classname])}>
       {articles.length > 0 && articles.map((el) => <ArticleListItem key={el.id} view={view} article={el} />)}
       {isLoading && (
         <div data-testid='articleListSkeletonId' className={cls[view]}>
