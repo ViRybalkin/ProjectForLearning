@@ -11,3 +11,4 @@ export * from './Icon';
 export * from './Skeleton';
 export * from './Card';
 export * from './Tabs';
+export * from './AppLink';

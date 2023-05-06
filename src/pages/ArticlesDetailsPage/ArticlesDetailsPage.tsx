@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { ArticleDetails, ArticleDetailsReducer, ArticleList } from 'entities';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Typography } from 'shared';
+import { useParams } from 'react-router-dom';
+import { AppLink, Button, Typography } from 'shared';
 import { Page } from 'widget';
 import { CommentList } from 'entities/Comments/ui';
 import { useTranslation } from 'react-i18next';
@@ -41,11 +41,6 @@ const ArticlesDetailsPage = () => {
   const recommendationIsLoading = useSelector(getRecommendationIsLoading);
   const error = useSelector(getCommentError);
   const isLoading = useSelector(getCommentIsLoading);
-  const navigate = useNavigate();
-
-  const backToArticleList = useCallback(() => {
-    navigate(routerPath.articlesPage);
-  }, [navigate]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -65,9 +60,9 @@ const ArticlesDetailsPage = () => {
   return (
     <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount>
       <Page>
-        <Button theme='contained' onClick={backToArticleList}>
-          {t('backToArticleList')}
-        </Button>
+        <AppLink to={routerPath.articlesPage}>
+          <Button theme='contained'>{t('backToArticleList')}</Button>
+        </AppLink>
         <ArticleDetails articleId={id} />
         <Typography classname={cls.commentTitle} variant='h2'>
           {t('recommendationTitle')}
@@ -75,6 +70,7 @@ const ArticlesDetailsPage = () => {
         <ArticleList
           articles={recommendation}
           view='SMALL'
+          target='_blank'
           isLoading={recommendationIsLoading}
           error={recommendationError}
           classname={cls.recommendation}
