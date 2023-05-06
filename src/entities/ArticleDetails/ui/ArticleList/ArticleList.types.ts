@@ -5,4 +5,5 @@ export interface ArticleListProps {
   isLoading?: boolean;
   error?: string;
   view?: ArticleListView;
+  classname?: string;
 }
