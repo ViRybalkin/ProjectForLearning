@@ -20,6 +20,8 @@ export default (env: BuildEnvType) => {
       output: path.resolve(__dirname, 'dist'),
       html: path.resolve(__dirname, 'public', 'index.html'),
       src: path.resolve(__dirname, 'src'),
+      toLocale: path.resolve(__dirname, 'dist', 'locales'),
+      fromLocale: path.resolve(__dirname, 'public', 'locales'),
     },
   };
 
