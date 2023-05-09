@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { JestProvider } from 'app';
-import About from 'pages/About/About';
+import About from '../About';
 
 describe('Тестирование страницы about', () => {
   const setup = () => {

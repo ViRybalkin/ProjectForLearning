@@ -1,7 +1,7 @@
-import * as Selectors from 'features/AuthByUserName/config/selector';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { JestProvider } from 'app';
+import * as Selectors from '../../../config/selector';
 import LoginForm from '../LoginForm';
 
 const mockDispatch = jest.fn();

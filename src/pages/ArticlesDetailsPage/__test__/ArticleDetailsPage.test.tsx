@@ -1,21 +1,21 @@
-import {render, screen} from "@testing-library/react";
-import ArticlesDetailsPage from "pages/ArticlesDetailsPage/ArticlesDetailsPage";
-import {JestProvider} from "app";
+import { render, screen } from '@testing-library/react';
+import { JestProvider } from 'app';
+import ArticlesDetailsPage from '../ArticlesDetailsPage';
 
 describe('Тестирование страницы ArticleDetailsPage', () => {
-    const setup = () => {
-        render(
-            <JestProvider>
-                <ArticlesDetailsPage/>
-            </JestProvider>
-        )
-    }
+  const setup = () => {
+    render(
+      <JestProvider>
+        <ArticlesDetailsPage />
+      </JestProvider>
+    );
+  };
 
-    test('Тайтл должен отобразится', () => {
-        setup();
+  test('Тайтл должен отобразится', () => {
+    setup();
 
-        const title = screen.getByText('Comments');
+    const title = screen.getByText('Comments');
 
-        expect(title).toBeInTheDocument();
-    })
+    expect(title).toBeInTheDocument();
+  });
 });

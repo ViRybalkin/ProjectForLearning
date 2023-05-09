@@ -1,8 +1,8 @@
 import {$api} from "shared/config/api/api";
-import * as Service from 'pages/ArticlesDetailsPage/config/service/ArticleDetailsComments.service'
 import * as Selectors from 'entities/ArticleDetails/config/selectors'
 import {ArticleDetailsMock} from "app/__mocks__";
 import * as ErrorHelper from "shared/config/helpers/error";
+import * as Service from '../ArticleDetailsComments.service'
 import {addCommentFormService} from "../AddCommentForm.service";
 
 const errorResponse = {data: {message: 'error'}}

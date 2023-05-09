@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { JestProvider } from 'app';
-import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import * as Selectors from 'entities/Profile/config/selectors';
+import ProfilePage from '../ProfilePage';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({

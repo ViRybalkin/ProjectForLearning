@@ -19,6 +19,7 @@ export const useInfinityScroll = ({callback, triggerRef, wrapperRef}: useInfinit
         if (callback) {
 
 
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             observer = new IntersectionObserver(([entry]) => {
                 if (entry.isIntersecting) {
                     callback();

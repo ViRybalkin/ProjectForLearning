@@ -25,7 +25,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
   const onLogout = useCallback(() => {
     dispatch(userAction.logout());
     navigate(routerPath.main);
-  }, [dispatch]);
+  }, [dispatch, navigate]);
 
   const { t } = useTranslation(['links', 'translation']);
 
