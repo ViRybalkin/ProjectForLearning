@@ -2,7 +2,7 @@ import {$api} from "shared/config/api/api";
 import * as Selectors from 'entities/ArticleDetails/config/selectors'
 import {ArticleDetailsMock} from "app/__mocks__";
 import * as ErrorHelper from "shared/config/helpers/error";
-import * as Service from '../ArticleDetailsComments.service'
+import * as Service from '../../service'
 import {addCommentFormService} from "../AddCommentForm.service";
 
 const errorResponse = {data: {message: 'error'}}
@@ -69,7 +69,7 @@ describe('Тестирование сервиса addCommentFormService', () => 
         mockedAxios.post.mockReturnValue(Promise.resolve({data: 'somedata'}))
         const action = addCommentFormService('comment')
 
-        const res = await action(dispatch, getState, extraData);
+        await action(dispatch, getState, extraData);
 
         expect(Service.getCommentsByArticleId).toHaveBeenCalledWith(ArticleDetailsMock.id)
     })
