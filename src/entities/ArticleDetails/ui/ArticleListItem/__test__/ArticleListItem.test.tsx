@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { articleListMocks } from 'app/__mocks__';
 import { ArticleListView } from 'entities';
 import { JestProvider } from 'app';
@@ -39,27 +39,19 @@ describe('Тестирование компонента ArticleList', () => {
     expect(block).toBeInTheDocument();
   });
 
-  test('Нажатие на читать далее должно вызвать функцию useNavigate с правильными данными', async () => {
+  test('Кнопка читать далее должна иметь корректный урл', async () => {
     setup('BIG');
 
-    const btn = screen.getByTestId('buttonTestId');
+    const link = screen.getAllByTestId('appLinkId')[0];
 
-    await act(async () => {
-      await user.click(btn);
-    });
-
-    expect(mockedUsedNavigate).toBeCalledWith(routerPath.articlesDetailsPage + articleListMocks[0].id);
+    expect(link).toHaveAttribute('href', routerPath.articlesDetailsPage + articleListMocks[0].id);
   });
 
-  test('Нажатие на пост должно вызвать функцию useNavigate с правильными данными', async () => {
+  test('Пост должен иметь корректный урл', () => {
     setup('SMALL');
 
-    const btn = screen.getByTestId('articleListItemSmall');
+    const link = screen.getAllByTestId('appLinkId')[0];
 
-    await act(async () => {
-      await user.click(btn);
-    });
-
-    expect(mockedUsedNavigate).toBeCalledWith(routerPath.articlesDetailsPage + articleListMocks[0].id);
+    expect(link).toHaveAttribute('href', routerPath.articlesDetailsPage + articleListMocks[0].id);
   });
 });
