@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { JestProvider } from 'app';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import userEvent from '@testing-library/user-event';
+import ErrorPage from '../ErrorPage';
 
 describe('Тестирование страницы ErrorPage', () => {
   const errorName = 'Error';

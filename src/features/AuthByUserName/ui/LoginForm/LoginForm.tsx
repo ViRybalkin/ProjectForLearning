@@ -4,9 +4,7 @@ import { classNames, DynamicComponent, useAppDispatch } from 'app';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
-import { authByUserNameThunk } from 'features';
-import { authActions, authByUserNameReducer } from 'features/AuthByUserName/config/slice/AuthByUserNameSlice';
-import { getError, getIsLoading } from '../../config/selector';
+import { authActions, authByUserNameReducer, authByUserNameThunk, getError, getIsLoading } from '../../config';
 import cls from './LoginForm.module.scss';
 import { LoginFormProps, LoginFormTypes } from './LoginForm.types';
 

@@ -17,7 +17,7 @@ module.exports = {
     sourceType: 'module',
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks'],
+  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks', 'for-fsd-path'],
   rules: {
     'react/jsx-filename-extension': [
       'off',
@@ -74,6 +74,7 @@ module.exports = {
       },
     ],
     'react/no-array-index-key': 'off',
+    'for-fsd-path/path-checker': 'error',
     'key-spacing': [
       'error',
       {

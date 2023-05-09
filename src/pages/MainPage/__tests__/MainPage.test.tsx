@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { JestProvider } from 'app';
-import MainPage from 'pages/MainPage/MainPage';
+import MainPage from '../MainPage';
 
 describe('Тестирование страницы MainPage', () => {
   const setup = () => {

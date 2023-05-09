@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Skeleton, Typography } from 'shared';
 import { useTranslation } from 'react-i18next';
-import cls from 'entities/Comments/ui/CommentCard/CommentCard.module.scss';
+import cls from './CommentList.module.scss';
 import { CommentListProps } from './CommentList.types';
 import { CommentCard } from '../CommentCard/CommentCard';
 

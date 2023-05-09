@@ -1,8 +1,8 @@
 import React, { FormEvent, memo, useCallback } from 'react';
-import { ArticleSortListProps } from 'entities/ArticlesSortList/config/types';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared';
 import { Controller, useForm } from 'react-hook-form';
+import { ArticleSortListProps } from '../config';
 import cls from './ArticleListSort.module.scss';
 
 export const ArticleSortList = memo(({ onFieldChange, onDirectionChange }: ArticleSortListProps) => {

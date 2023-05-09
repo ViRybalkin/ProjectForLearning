@@ -1,11 +1,11 @@
+import {$api} from "shared/config/api/api";
 import {
     ArticleListAction,
     getArticleList,
     getArticleListHasMore,
     getArticleListPage,
     getPaginatedArticleListService
-} from "pages/ArticlesPage/config";
-import {$api} from "shared/config/api/api";
+} from "../../index";
 import * as Selector from '../../selectors'
 
 const mockedAxios = jest.mocked($api, true)

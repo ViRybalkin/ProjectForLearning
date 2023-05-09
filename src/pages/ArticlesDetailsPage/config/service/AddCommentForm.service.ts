@@ -3,7 +3,7 @@ import {handleError} from "shared/config/helpers/error";
 import {ThunkConfig} from "app";
 import {getArticleDetailsData} from "entities/ArticleDetails/config/selectors";
 import {getUser} from "entities";
-import {getCommentsByArticleId} from "pages/ArticlesDetailsPage/config/service/ArticleDetailsComments.service";
+import {getCommentsByArticleId} from "../service";
 
 export const addCommentFormService = createAsyncThunk<string, string, ThunkConfig<string>>(
     'articleDetails/AddCommentForm',
