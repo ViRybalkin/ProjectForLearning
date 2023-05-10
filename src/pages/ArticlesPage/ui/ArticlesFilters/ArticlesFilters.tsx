@@ -3,7 +3,7 @@ import { ViewSelector } from 'features';
 import { ArticleListView, ArticleSortList } from 'entities';
 import { useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
-import { Input, TabItem, Tabs, useDebounce } from 'shared';
+import { HStack, Input, TabItem, Tabs, useDebounce } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
 import { ArticleListAction, getArticleList, getArticleListType, getArticleListView } from '../../config';
@@ -90,9 +90,11 @@ export const ArticlesFilters = memo(() => {
 
   return (
     <div className={cls.filtersWrapper}>
-      <div className={cls.sortView}>
-        <ArticleSortList onDirectionChange={onDirectionChangeHandler} onFieldChange={onFiledChangeHandler} />
-        <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
+      <div>
+        <HStack justify='between' align="end" classname={cls.sortView}>
+          <ArticleSortList onDirectionChange={onDirectionChangeHandler} onFieldChange={onFiledChangeHandler} />
+          <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
+        </HStack>
       </div>
       <Controller
         name='search'

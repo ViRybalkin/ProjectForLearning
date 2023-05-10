@@ -1,5 +1,5 @@
 import { classNames, useAppDispatch } from 'app';
-import { Button, CustomLink } from 'shared';
+import { Button, CustomLink, HStack } from 'shared';
 import { ThemeSwitcher } from 'widget';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
@@ -33,13 +33,13 @@ const NavBar = memo(({ className }: NavBarProps) => {
     <>
       <header data-testid='navBarId' className={classNames(cls.navBar, {}, [className])}>
         <ThemeSwitcher />
-        <div className={classNames(cls.btnWrapper)}>
-          <nav data-testid='navTagNavBarId' className={cls.btnWrapper}>
+        <HStack>
+          <HStack data-testid='navTagNavBarId'>
             <CustomLink to='/' name={t('main')} />
             <CustomLink to='/about' name={t('about')} />
             {isAuth ? <CustomLink to={`profile/${user?.id}`} name={t('profile')} /> : null}
             {isAuth ? <CustomLink to='/articles' name={t('articles')} /> : null}
-          </nav>
+          </HStack>
           {!isAuth ? (
             <Button data-testid='loginBtnId' onClick={onLogin}>
               {t('login', { ns: 'translation' })}
@@ -49,7 +49,7 @@ const NavBar = memo(({ className }: NavBarProps) => {
               {t('logout', { ns: 'translation' })}
             </Button>
           )}
-        </div>
+        </HStack>
       </header>
 
       {!isAuth ? <LoginModal isOpen={open} onClose={() => setOpen(false)} /> : null}

@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
-import { classNames, useAppDispatch } from 'app';
-import { Button, Typography } from 'shared';
+import { useAppDispatch } from 'app';
+import { Button, HStack, Typography } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { getUser, ProfileAction } from 'entities';
 import { useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.title)}>
+    <HStack justify='between' classname={cls.title}>
       <Typography variant='h1'>{t('profileCardTitle')}</Typography>
       {isCanEdit ? (
         <div>
@@ -36,17 +36,17 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
               {t('editBtn')}
             </Button>
           ) : (
-            <div>
+            <HStack gap="10">
               <Button type='submit' form='hook-form' theme='contained'>
                 {t('save')}
               </Button>
               <Button theme='contained' onClick={onCancelHandler}>
                 {t('cancel')}
               </Button>
-            </div>
+            </HStack>
           )}
         </div>
       ) : null}
-    </div>
+    </HStack>
   );
 });

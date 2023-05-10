@@ -18,7 +18,7 @@ const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount = true 
         });
       }
     };
-  }, [reducers, shouldRemoveAfterUnmount, store.reducerManager]);
+  }, []);
 
   return <div>{children}</div>;
 };

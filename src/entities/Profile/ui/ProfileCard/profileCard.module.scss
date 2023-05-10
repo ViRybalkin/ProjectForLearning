@@ -4,9 +4,6 @@
 }
 
 .avatarWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -19,17 +16,6 @@
   color: var(--color-error);
 }
 
-.errorWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .inputsWrapper {
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
 }

@@ -1,8 +1,5 @@
 .errorWrapper {
   min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid var(--color-error);
 }
 
@@ -23,15 +20,7 @@
 }
 
 .avatar {
-  display: flex;
-  width: 100%;
-  justify-content: center;
   margin-bottom: 50px;
-}
-
-.blockWithIcon {
-  display: flex;
-  gap: 10px;
 }
 
 .mainInfoBlock {
