@@ -1,7 +1,7 @@
 import React, { memo, useLayoutEffect } from 'react';
 import { classNames, useAppDispatch } from 'app';
 import { useSelector } from 'react-redux';
-import { Avatar, Icon, Skeleton, Typography } from 'shared';
+import { Avatar, HStack, Icon, Skeleton, Typography } from 'shared';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { getArticleDetails } from '../../config';
@@ -49,9 +49,9 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
 
   if (error) {
     return (
-      <div data-testid='ArticleDetailsErrorId' className={classNames(cls.errorWrapper)}>
+      <HStack data-testid='ArticleDetailsErrorId' classname={classNames(cls.errorWrapper)}>
         <Typography variant='h1'>{error}</Typography>
-      </div>
+      </HStack>
     );
   }
 
@@ -60,19 +60,19 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
       {articleData ? (
         <>
           <div data-testid='articleDetailsId' className={cls.mainInfoBlock}>
-            <div className={cls.avatar}>
+            <HStack fullWidth classname={cls.avatar}>
               <Avatar src={articleData?.img} alt={articleData.img} size={200} />
-            </div>
+            </HStack>
             <Typography variant='h1'>{articleData.title}</Typography>
             <Typography variant='h2'>{articleData.subtitle}</Typography>
-            <div className={cls.blockWithIcon}>
+            <HStack gap='10' justify='start'>
               <Icon width={20} height={20} Svg={EyeIcon} />
               <Typography variant='h3'>{articleData.views}</Typography>
-            </div>
-            <div className={cls.blockWithIcon}>
+            </HStack>
+            <HStack gap='10' justify='start'>
               <Icon width={20} height={20} Svg={CalendarIcon} />
               <Typography variant='h3'>{articleData.createdAt}</Typography>
-            </div>
+            </HStack>
           </div>
           {articleData?.blocks &&
             articleData?.blocks.map((el) => {

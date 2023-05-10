@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import { Card } from 'shared';
+import { Card, HStack } from 'shared';
 import { TabItem, TabsProps } from './Tabs.types';
 import cls from './Tabs.module.scss';
 
@@ -12,7 +12,7 @@ export const Tabs = memo(({ tabs, value, onTabChange }: TabsProps) => {
   );
 
   return (
-    <div className={cls.tabsWrapper}>
+    <HStack gap='10' justify="start">
       {tabs.map((tab) => {
         return (
           <Card
@@ -24,6 +24,6 @@ export const Tabs = memo(({ tabs, value, onTabChange }: TabsProps) => {
           </Card>
         );
       })}
-    </div>
+    </HStack>
   );
 });

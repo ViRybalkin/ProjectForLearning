@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import ListView from 'shared/assets/icons/list-view.svg';
 import TableView from 'shared/assets/icons/table-view.svg';
-import { Button, Icon } from 'shared';
+import { Button, HStack, Icon } from 'shared';
 import { ArticleListView } from 'entities';
 import { classNames } from 'app';
 import { ViewSelectorProps, ViewsList } from '../../config/types/ViewSelector.types';
@@ -26,7 +26,7 @@ export const ViewSelector = memo(({ view, onViewClick }: ViewSelectorProps) => {
     [onViewClick]
   );
   return (
-    <div className={cls.viewSelectorWrapper}>
+    <HStack justify="start" gap="10">
       {views.map((el) => {
         return (
           <Button key={el.view} style={{ fill: 'blue' }} theme='clear' onClick={() => onViewClickHandler(el.view)}>
@@ -39,6 +39,6 @@ export const ViewSelector = memo(({ view, onViewClick }: ViewSelectorProps) => {
           </Button>
         );
       })}
-    </div>
+    </HStack>
   );
 });

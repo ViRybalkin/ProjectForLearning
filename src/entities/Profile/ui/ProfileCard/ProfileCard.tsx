@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Input, Loader, Typography } from 'shared';
+import React, { memo, useEffect } from 'react';
+import { HStack, Input, Loader, Typography, VStack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'app';
 import { Controller, useForm } from 'react-hook-form';
@@ -10,7 +10,7 @@ import { ProfileDataTypes } from '../../config';
 import { ProfileCardProps } from './ProfileCard.types';
 import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 
-export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }: ProfileCardProps) => {
+export const ProfileCard = memo(({ data, readonly, isLoading, error, submitHandler }: ProfileCardProps) => {
   const { handleSubmit, control, setValue, watch } = useForm<ProfileDataTypes>();
   const { t } = useTranslation('profilePage');
 
@@ -48,10 +48,10 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
   if (error) {
     return (
       <div className={classNames(cls.profileCard, {}, [cls.error])}>
-        <div className={classNames(cls.errorWrapper)}>
+        <VStack gap='10'>
           <Typography variant='h1'>Произошла ошибка</Typography>
           <Typography variant='h3'>Попробуйте перезагузить страницу</Typography>
-        </div>
+        </VStack>
       </div>
     );
   }
@@ -60,11 +60,11 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
     <div className={classNames(cls.profileCard)}>
       <form id='hook-form' onSubmit={handleSubmit(onSubmit)}>
         {data?.avatar ? (
-          <div className={classNames(cls.avatarWrapper)}>
+          <HStack classname={classNames(cls.avatarWrapper)}>
             <Avatar size={150} src={avatar} alt={t('avatarAlt')} />
-          </div>
+          </HStack>
         ) : null}
-        <div className={classNames(cls.inputsWrapper)}>
+        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
           <Controller
             name='first'
             defaultValue=''
@@ -93,8 +93,8 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
               />
             )}
           />
-        </div>
-        <div className={classNames(cls.inputsWrapper)}>
+        </HStack>
+        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
           <Controller
             name='age'
             defaultValue={0}
@@ -118,8 +118,8 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
               <Input label={t('cityLabel')} fullWidth readonly={readonly} placeholder={t('cityLabel')} {...field} />
             )}
           />
-        </div>
-        <div className={classNames(cls.inputsWrapper)}>
+        </HStack>
+        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
           <Controller
             name='username'
             defaultValue=''
@@ -142,8 +142,8 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
               <Input label={t('avatarLabel')} fullWidth readonly={readonly} placeholder={t('avatarLabel')} {...field} />
             )}
           />
-        </div>
-        <div className={classNames(cls.inputsWrapper)}>
+        </HStack>
+        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
           <Controller
             name='country'
             defaultValue=''
@@ -156,8 +156,8 @@ export const ProfileCard = ({ data, readonly, isLoading, error, submitHandler }:
             control={control}
             render={({ field }) => <CurrencySelect readonly={readonly} {...field} />}
           />
-        </div>
+        </HStack>
       </form>
     </div>
   );
-};
+});
