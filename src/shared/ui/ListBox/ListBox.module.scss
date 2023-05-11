@@ -1,4 +1,5 @@
 .listBox {
+  position: relative;
 }
 
 .button {
@@ -7,6 +8,7 @@
 }
 
 .options {
+  position: absolute;
   background: var(--bg-listBox);
   z-index: 10000;
   border-radius: 5px;
@@ -14,7 +16,7 @@
 }
 
 .item {
-  padding: 10px 20px;
+  padding: 10px 10px;
 
   &:disabled {
     color: grey;
@@ -23,6 +25,11 @@
 
 .active {
   background: var(--color-secondary);
+}
+
+.unavailable {
+  opacity: 0.8;
+  color: grey;
 }
 
 .fullWidth {

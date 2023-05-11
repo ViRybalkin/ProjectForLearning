@@ -11,7 +11,7 @@ import { ProfileCardProps } from './ProfileCard.types';
 import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 
 export const ProfileCard = memo(({ data, readonly, isLoading, error, submitHandler }: ProfileCardProps) => {
-  const { handleSubmit, control, setValue, watch } = useForm<ProfileDataTypes>();
+  const { handleSubmit, control, setValue, watch, getValues } = useForm<ProfileDataTypes>();
   const { t } = useTranslation('profilePage');
 
   const onSubmit = (formData: ProfileDataTypes) => {
@@ -25,6 +25,8 @@ export const ProfileCard = memo(({ data, readonly, isLoading, error, submitHandl
   };
 
   const avatar = watch('avatar');
+  const { currency } = getValues();
+  const { country } = getValues();
 
   useEffect(() => {
     setValue('first', data?.first || '');

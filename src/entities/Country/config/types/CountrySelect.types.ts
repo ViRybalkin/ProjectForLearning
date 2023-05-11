@@ -1,3 +1,5 @@
 export interface CountrySelectProps {
-  readonly?: boolean;
+    readonly?: boolean;
+    onChange: (e: string) => void;
+    value: string
 }
