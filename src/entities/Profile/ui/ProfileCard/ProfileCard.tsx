@@ -25,8 +25,6 @@ export const ProfileCard = memo(({ data, readonly, isLoading, error, submitHandl
   };
 
   const avatar = watch('avatar');
-  const { currency } = getValues();
-  const { country } = getValues();
 
   useEffect(() => {
     setValue('first', data?.first || '');
