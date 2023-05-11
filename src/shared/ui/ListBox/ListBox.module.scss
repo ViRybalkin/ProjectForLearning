@@ -1,0 +1,42 @@
+.listBox {
+}
+
+.button {
+  display: flex;
+  align-items: center;
+}
+
+.options {
+  background: var(--bg-listBox);
+  z-index: 10000;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px var(--bg-listBox);
+}
+
+.item {
+  padding: 10px 20px;
+
+  &:disabled {
+    color: grey;
+  }
+}
+
+.active {
+  background: var(--color-secondary);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.small {
+  height: 25px;
+}
+
+.medium {
+  height: 35px;
+}
+
+.large {
+  height: 50px;
+}
