@@ -8,9 +8,10 @@ export interface OptionType {
 
 export interface ListBoxProps {
   options: Array<OptionType>;
+  onChange: (e: string) => void;
+  value: string;
   readonly?: boolean;
   label?: string;
   fullWidth?: boolean;
   size?: ListBoxSize;
-  onChange: (e: string) => void;
 }

@@ -1,27 +1,40 @@
 import React, { forwardRef } from 'react';
-import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
+import { ListBox } from 'shared';
 import { CurrencySelectProps } from '../../config';
+import cls from './CurrencySelect.module.scss';
 
-const CurrencySelect = forwardRef(({ readonly, ...otherProps }: CurrencySelectProps, ref) => {
+const CurrencySelect = forwardRef(({ readonly, onChange, value, ...otherProps }: CurrencySelectProps, ref) => {
   const { t } = useTranslation('profilePage');
 
   const options = [
     {
       value: 'RUB',
-      content: 'RUB',
+      id: 'RUB',
     },
     {
       value: 'USD',
-      content: 'USD',
+      id: 'USD',
     },
     {
       value: 'EUR',
-      content: 'EUR',
+      id: 'EUR',
     },
   ];
 
-  return <Select label={t('currencyLabel')} options={options} fullWidth readonly={readonly} {...otherProps} />;
+  return (
+    <div className={cls.select}>
+      <ListBox
+        onChange={onChange}
+        label={t('currencyLabel')}
+        options={options}
+        fullWidth
+        value={value}
+        readonly={readonly}
+        {...otherProps}
+      />
+    </div>
+  );
 });
 
 export { CurrencySelect };
