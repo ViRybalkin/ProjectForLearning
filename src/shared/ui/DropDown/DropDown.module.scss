@@ -26,11 +26,38 @@
   all: unset;
 
   cursor: pointer;
-  padding: 5px 5px;
+  padding: 10px 10px;
   background: transparent;
   color: var(--color-primary)
 }
 
 .active {
   color: var(--color-secondary);
+}
+
+.topLeft {
+  bottom: 100%;
+  right: 0;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.center {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
