@@ -5,7 +5,7 @@ const layer = process.argv[2];
 const slice = capitalizeFirstChar(process.argv[3]);
 const layers = ['features', 'entities', 'pages'];
 
-if (!layer && !layers[layer]) {
+if (!layer || !layers.includes(layer)) {
   throw new Error(`Укажите слой ${layers.join(' или ')}`);
 }
 
