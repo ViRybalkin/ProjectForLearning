@@ -1,13 +1,15 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ArticleDetailsDataType} from "entities";
+module.exports = (slice, serviceName) => {
+  const typesName = `${slice}Types`;
+  return `import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "app";
 import {handleError} from "shared";
+import {${typesName}} from "../types";
 
-export const getArticleDetails = createAsyncThunk<ArticleDetailsDataType, string, ThunkConfig<string>>(
-    'articleDetails/articleThunk',
+export const ${serviceName} = createAsyncThunk<${typesName}, string, ThunkConfig<string>>(
+    '${slice}/${serviceName}',
     async (payload, {extra: {api}, rejectWithValue}) => {
         try {
-            const {data} = await api.get<ArticleDetailsDataType>(`/articles/${payload}`)
+            const {data} = await api.get<${typesName}>('')
 
 
             return data
@@ -21,4 +23,5 @@ export const getArticleDetails = createAsyncThunk<ArticleDetailsDataType, string
             return rejectWithValue(data.message)
         }
     }
-)
+)`;
+};
