@@ -23,7 +23,8 @@
     "loki:ci": "npx loki --requireReference --reactUri  file:./storybook-static",
     "visual:report": "npm run visual:report:json && npm run visual:report:html",
     "visual:report:json": "node config/generate-visual-json-report.js",
-    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "generator:layer": "node generator/layerGenerator.js"
   },
   "author": "",
   "license": "ISC",
