@@ -8,8 +8,15 @@ const selectorsTemplate = require('./selectorsTemplate');
 const testTemplate = require('./testTemplate');
 
 module.exports = (layer, slice) => {
+  /**
+   * @param {string} segments - Название папок и вложенности
+   * @description Функция для генерации пути
+   */
   const resolveConfigPath = (...segments) => rootDir('src', layer, slice, 'config', ...segments);
 
+  /**
+   * @description Создание структуры
+   */
   const createConfigStructure = () => {
     try {
       fs.mkdirSync(resolveConfigPath());
@@ -22,6 +29,9 @@ module.exports = (layer, slice) => {
     }
   };
 
+  /**
+   * @description Создание слайса
+   */
   const createReduxSlice = () => {
     try {
       const sliceName = `${slice}Slice`;
@@ -36,6 +46,9 @@ module.exports = (layer, slice) => {
     }
   };
 
+  /**
+   * @description Создание типов
+   */
   const createTypes = () => {
     try {
       const typeName = `${slice}Types`;
@@ -65,6 +78,9 @@ module.exports = (layer, slice) => {
     }
   };
 
+  /**
+   * @description Создание селектора
+   */
   const createSelectors = () => {
     try {
       const selectorName = `get${slice}`;
@@ -87,5 +103,9 @@ module.exports = (layer, slice) => {
   createService();
   createTypes();
   createSelectors();
+
+  /**
+   * @description Создание publicApi для сегмента config
+   */
   fs.writeFileSync(resolveConfigPath('index.ts'), publicApiTemplate(['types', 'slice', 'selectors']));
 };
