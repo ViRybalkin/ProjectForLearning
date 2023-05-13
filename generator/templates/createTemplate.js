@@ -14,7 +14,22 @@ module.exports = (layer, slice) => {
     throw new Error(`Слайс ${slice} уже существует`);
   }
 
+  /**
+   * @param {string} layer - Слой
+   * @param {number} slice - Слайс
+   * @description Создание сегмента Config
+   */
   createConfig(layer, slice);
+
+  /**
+   * @param {string} layer - Слой
+   * @param {number} slice - Слайс
+   * @description Создание сегмента Ui
+   */
   createUi(layer, slice);
+
+  /**
+   * @description Создание publicApi для слайса
+   */
   fs.writeFileSync(rootDir('src', layer, slice, 'index.ts'), publicApiTemplate(['ui', 'config']));
 };

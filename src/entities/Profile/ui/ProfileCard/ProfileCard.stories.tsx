@@ -5,6 +5,7 @@ import { ProfileCard } from './ProfileCard';
 import { ProfileCardDataTypes } from './ProfileCard.types';
 
 const data: ProfileCardDataTypes = {
+  id: '1',
   country: 'Russia',
   lastname: 'Фамилия',
   age: 22,
