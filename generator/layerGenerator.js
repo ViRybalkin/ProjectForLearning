@@ -13,4 +13,9 @@ if (!slice) {
   throw new Error(`Название слайса для слоя ${layer}`);
 }
 
-createTemplate(layer, slice);
+try {
+  createTemplate(layer, slice);
+  console.info(`Слайс ${slice} успешно создан в слое ${layer}🎆🎆🎆🎆🎆🎆🎆`);
+} catch (e) {
+  throw new Error(e);
+}
