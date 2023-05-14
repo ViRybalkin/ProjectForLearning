@@ -62,7 +62,7 @@ module.exports = (componentName) => {
   const createComponentStories = () => {
     try {
       const storiesNameWithExtension = `${componentName}.stories.tsx`;
-      fs.writeFileSync(resolveUiPath(storiesNameWithExtension), storiesTemplate(componentName, componentName));
+      fs.writeFileSync(resolveUiPath(storiesNameWithExtension), storiesTemplate('shared', componentName));
     } catch (e) {
       throw new Error(`Не удалось создать сторис для компонента ${componentName}`);
     }

@@ -1,8 +1,8 @@
 import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
 import {userReducer} from "entities"
-import {$api} from "shared/config/api/api";
 import {CombinedState, Reducer} from "redux";
 import {getScrollPositionReducer} from "features";
+import {$api, rtkApi} from "shared";
 import {createReducerManager} from "./ReducerManager";
 import {AppStoreTypes, ThunkExtraArgumentsTypes} from "./AppStore.types";
 
@@ -10,6 +10,7 @@ export const createReduxStore = (preloadedState?: AppStoreTypes) => {
     const rootReducers: ReducersMapObject<AppStoreTypes> = {
         user: userReducer,
         getPosition: getScrollPositionReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -26,7 +27,7 @@ export const createReduxStore = (preloadedState?: AppStoreTypes) => {
             thunk: {
                 extraArgument: extraArgs
             }
-        }),
+        }).concat(rtkApi.middleware),
     })
 
     // @ts-ignore

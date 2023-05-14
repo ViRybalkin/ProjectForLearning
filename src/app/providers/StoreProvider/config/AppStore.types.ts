@@ -9,10 +9,12 @@ import {ArticleListTypes} from "pages/ArticlesPage/config/types/articles.types";
 import {
     ArticleDetailsRecommendationTypes
 } from "pages/ArticlesDetailsPage/config/types/ArticleDetailsRecommendation.types";
+import {rtkApi} from "shared";
 
 export interface AppStoreTypes {
     user: UserSliceTypes;
     getPosition: GetScrollPositionTypes;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
     login?: AuthByUserNameTypes;
     profile?: ProfileTypes;
     articleDetails?: ArticleDetailsReducerType;
