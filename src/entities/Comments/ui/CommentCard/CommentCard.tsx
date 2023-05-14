@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import { Avatar, Button, Typography } from 'shared';
+import { Avatar, Button, HStack, Typography, VStack } from 'shared';
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
 import { CommentCardProps } from './CommentCard.types';
@@ -13,14 +13,14 @@ export const CommentCard = memo(({ comment }: CommentCardProps) => {
   }, [comment.user?.id, navigate]);
 
   return (
-    <div className={cls.commentWrapper}>
+    <VStack gap='20' align='start' classname={cls.commentWrapper}>
       <Button onClick={onUserClick} className={cls.buttonColor} theme='clear'>
-        <div className={cls.commentWrapper__userInfo}>
+        <HStack gap='10'>
           {comment.user?.avatar ? <Avatar src={comment.user?.avatar} alt={comment.user?.avatar} size={30} /> : null}
           <Typography>{comment.user?.username}</Typography>
-        </div>
+        </HStack>
       </Button>
       <Typography>{comment.comment}</Typography>
-    </div>
+    </VStack>
   );
 });

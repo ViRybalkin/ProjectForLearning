@@ -10,7 +10,7 @@ export const Dropdown = memo(({ items, buttonItem, position = 'bottomLeft' }: Dr
     <Menu as='div' className={cls.dropdown}>
       <Menu.Button className={cls.button}>{buttonItem}</Menu.Button>
       <Menu.Items className={classNames(cls.items, {}, [cls[position]])}>
-        {items.map((item) => {
+        {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
             <button className={classNames(cls.item, { [cls.active]: active })} onClick={item.onClick}>
               {item.content}
@@ -18,13 +18,13 @@ export const Dropdown = memo(({ items, buttonItem, position = 'bottomLeft' }: Dr
           );
           if (item.href) {
             return (
-              <Menu.Item disabled={item.disabled} as={AppLink} to={item.href}>
+              <Menu.Item key={index} disabled={item.disabled} as={AppLink} to={item.href}>
                 {content}
               </Menu.Item>
             );
           }
           return (
-            <Menu.Item disabled={item.disabled} as={Fragment}>
+            <Menu.Item key={index} disabled={item.disabled} as={Fragment}>
               {content}
             </Menu.Item>
           );

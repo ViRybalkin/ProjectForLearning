@@ -1,24 +1,15 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ArticleDetailsDataType} from "entities";
-import {ThunkConfig} from "app";
-import {handleError} from "shared";
 
-export const getArticleDetails = createAsyncThunk<ArticleDetailsDataType, string, ThunkConfig<string>>(
-    'articleDetails/articleThunk',
-    async (payload, {extra: {api}, rejectWithValue}) => {
-        try {
-            const {data} = await api.get<ArticleDetailsDataType>(`/articles/${payload}`)
+import {rtkApi} from "shared/config/api/rtkApi";
 
+const getArticleDetails = rtkApi.injectEndpoints({
+    endpoints: (build) => ({
+        getArticleDetails: build.query<ArticleDetailsDataType, string>({
+            query: (articleId) => ({
+                url: `/articles/${articleId}`,
+            }),
+        }),
+    }),
+})
 
-            return data
-        } catch (error) {
-            if (error instanceof Error) {
-                return rejectWithValue(error.message)
-            }
-
-            const {data} = handleError(error);
-
-            return rejectWithValue(data.message)
-        }
-    }
-)
+export const {useGetArticleDetailsQuery} = getArticleDetails;

@@ -1,11 +1,9 @@
-import React, { memo, useLayoutEffect } from 'react';
-import { classNames, useAppDispatch } from 'app';
-import { useSelector } from 'react-redux';
+import React, { memo } from 'react';
+import { classNames } from 'app';
 import { Avatar, HStack, Icon, Skeleton, Typography } from 'shared';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { getArticleDetails } from '../../config';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../config/selectors';
+import { useGetArticleDetailsQuery } from '../../config';
 import { ArticleDetailsProps } from './ArticleDetails.types';
 import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
@@ -13,16 +11,8 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
-  const dispatch = useAppDispatch();
-  const error = useSelector(getArticleDetailsError);
-  const articleData = useSelector(getArticleDetailsData);
-  const isLoading = useSelector(getArticleDetailsIsLoading);
-
-  useLayoutEffect(() => {
-    if (articleId) {
-      dispatch(getArticleDetails(articleId));
-    }
-  }, [articleId, dispatch]);
+  const { data: articleData, isLoading, error: errorProto } = useGetArticleDetailsQuery(articleId);
+  const error = JSON.stringify(errorProto);
 
   if (error) {
     return (

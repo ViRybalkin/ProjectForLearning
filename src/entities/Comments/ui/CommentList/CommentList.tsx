@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Skeleton, Typography } from 'shared';
+import { Skeleton, Typography, VStack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import cls from './CommentList.module.scss';
 import { CommentListProps } from './CommentList.types';
@@ -20,13 +20,13 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
 
   if (isLoading) {
     return (
-      <div className={cls.commentWrapper} data-testid='commentListLoading'>
-        <div className={cls.commentWrapper__userInfo}>
+      <VStack classname={cls.loadingWrapper} align='start' gap='10' data-testid='commentListLoading'>
+        <VStack gap='10' align='start'>
           <Skeleton width={50} height={50} borderRadius='50%' />
           <Skeleton width={100} height={20} />
-        </div>
+        </VStack>
         <Skeleton width='100%' height={60} />
-      </div>
+      </VStack>
     );
   }
 
