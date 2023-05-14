@@ -107,5 +107,5 @@ module.exports = (layer, slice) => {
   /**
    * @description Создание publicApi для сегмента config
    */
-  fs.writeFileSync(resolveConfigPath('index.ts'), publicApiTemplate(['types', 'slice', 'selectors']));
+  fs.writeFileSync(resolveConfigPath('index.ts'), publicApiTemplate(['service', 'slice', 'selectors']));
 };

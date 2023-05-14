@@ -1,15 +1,11 @@
 import {ArticleDetailsReducerType, ProfileTypes, UserSliceTypes} from "entities";
-import {AddCommentFormSliceTypes, AuthByUserNameTypes, GetScrollPositionTypes} from "features";
+import {AuthByUserNameTypes, GetScrollPositionTypes} from "features";
 import {CombinedState, Reducer, ReducersMapObject} from "redux";
 import {AnyAction, EnhancedStore} from "@reduxjs/toolkit";
 import {createReduxStore} from "app";
 import {AxiosInstance} from "axios";
-import {ArticleDetailsCommentTypes} from "pages/ArticlesDetailsPage/config";
 import {ArticleListTypes} from "pages/ArticlesPage/config/types/articles.types";
-import {
-    ArticleDetailsRecommendationTypes
-} from "pages/ArticlesDetailsPage/config/types/ArticleDetailsRecommendation.types";
-import {rtkApi} from "shared";
+import {rtkApi} from "shared/config/api/rtkApi";
 
 export interface AppStoreTypes {
     user: UserSliceTypes;
@@ -18,9 +14,6 @@ export interface AppStoreTypes {
     login?: AuthByUserNameTypes;
     profile?: ProfileTypes;
     articleDetails?: ArticleDetailsReducerType;
-    articleDetailsComments?: ArticleDetailsCommentTypes;
-    articleDetailsRecommendation?: ArticleDetailsRecommendationTypes;
-    addCommentForm?: AddCommentFormSliceTypes;
     articleList?: ArticleListTypes;
 
 }

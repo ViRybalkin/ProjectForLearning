@@ -5,7 +5,7 @@ const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AboutPage = lazy(() => import('pages/About/About'));
 const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
 const ArticlesPage = lazy(() => import('pages/ArticlesPage/ui/ArticlesPage/ArticlesPage'));
-const ArticlesDetailsPage = lazy(() => import('pages/ArticlesDetailsPage/ArticlesDetailsPage'));
+const ArticlesDetailsPage = lazy(() => import('pages/ArticlesDetailsPage/ui/ArticlesDetailsPage'));
 const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
 
 export interface RouterProps extends PathRouteProps {

@@ -1,0 +1,3 @@
+describe('Тестирование RecommendationList', () => {
+    test('')
+});
