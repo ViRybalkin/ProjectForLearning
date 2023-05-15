@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
-import { getIsAuth, getUser, userAction } from 'entities';
+import { getIsAdmin, getIsAuth, getIsManager, getUser, userAction } from 'entities';
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
 import { NavBarProps } from './NavBar.types';
@@ -16,6 +16,8 @@ export const NavBar = memo(({ className }: NavBarProps) => {
   const navigate = useNavigate();
   const isAuth = useSelector(getIsAuth);
   const user = useSelector(getUser);
+  const isAdmin = useSelector(getIsAdmin);
+  const isManager = useSelector(getIsManager);
   const dispatch = useAppDispatch();
 
   const onLogin = useCallback(() => {
@@ -29,6 +31,8 @@ export const NavBar = memo(({ className }: NavBarProps) => {
 
   const { t } = useTranslation(['links', 'translation', 'profilePage']);
 
+  const adminPageEnable = isAdmin || isManager;
+
   return (
     <>
       <header data-testid='navBarId' className={classNames(cls.navBar, {}, [className])}>
@@ -41,8 +45,16 @@ export const NavBar = memo(({ className }: NavBarProps) => {
             <Dropdown
               buttonItem={<Avatar size={40} alt={user?.avatar} src={user?.avatar} />}
               items={[
+                ...(adminPageEnable
+                  ? [
+                      {
+                        content: t('admin', { ns: 'links' }),
+                        href: routerPath.adminPage,
+                      },
+                    ]
+                  : []),
                 {
-                  content: t('profileCardTitle', { ns: 'profilePage' }),
+                  content: t('profile', { ns: 'links' }),
                   href: `profile/${user?.id}`,
                 },
                 {

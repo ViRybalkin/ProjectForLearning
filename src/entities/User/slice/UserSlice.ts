@@ -19,6 +19,7 @@ export const userSlice = createSlice({
       state.id = action.payload.id;
       state.avatar = action.payload.avatar;
       state.isAuth = action.payload.isAuth;
+      state.roles = action.payload.roles;
     },
     initUserData(state: UserSliceTypes) {
       const data = localStorage.getItem(LOCAL_STORAGE_KEY.auth);
@@ -27,6 +28,7 @@ export const userSlice = createSlice({
         state.username = authData.username;
         state.id = authData.id;
         state.avatar = authData.avatar;
+        state.roles = authData.roles;
         state.isAuth = true;
       }
       state._inited = true;
@@ -36,6 +38,7 @@ export const userSlice = createSlice({
       state.id = '';
       state.avatar = '';
       state.isAuth = false;
+      state.roles = undefined;
 
       localStorage.removeItem(LOCAL_STORAGE_KEY.auth);
     },
