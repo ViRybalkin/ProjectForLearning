@@ -16,11 +16,13 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
                 isAuth: true,
                 username: data.username,
                 id: data.id,
+                roles: data.roles,
             }))
             localStorage.setItem(LOCAL_STORAGE_KEY.auth, JSON.stringify({
                 username: data.username,
                 id: data.id,
                 avatar: data.avatar,
+                roles: data.roles,
             }))
 
             return data
