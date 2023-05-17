@@ -1,3 +1,0 @@
-describe('Тестирование ArticleDetailsComments', () => {
-    test('')
-});
