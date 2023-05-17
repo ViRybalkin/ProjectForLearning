@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { routerPath } from 'shared/config/routes/Routes';
-import { AppLink, Button } from 'shared';
+import { Button } from 'shared/ui/Button';
+import { AppLink } from 'shared/ui/AppLink';
 import { useTranslation } from 'react-i18next';
 
 export const ArticleDetailsHeader = memo(() => {

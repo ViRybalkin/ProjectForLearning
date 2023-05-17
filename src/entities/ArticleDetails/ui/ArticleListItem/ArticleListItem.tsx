@@ -1,6 +1,11 @@
 import React, { memo } from 'react';
-import { AppLink, Avatar, Button, Card, Icon, Typography } from 'shared';
-import { classNames } from 'app';
+import { Button } from 'shared/ui/Button';
+import { Typography } from 'shared/ui/Typography';
+import { Icon } from 'shared/ui/Icon';
+import { Card } from 'shared/ui/Card';
+import { AppLink } from 'shared/ui/AppLink';
+import { Avatar } from 'shared/ui/Avatar';
+import { classNames } from 'shared/config/helpers/classNames';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { routerPath } from 'shared/config/routes/Routes';
 import { useTranslation } from 'react-i18next';

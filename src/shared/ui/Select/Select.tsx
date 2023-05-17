@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { classNames } from 'app';
-import { Typography } from 'shared';
+import { classNames } from 'shared/config/helpers/classNames';
+import { Typography } from 'shared/ui/Typography';
 import { SelectProps } from './Select.types';
 import cls from './Select.module.scss';
 
@@ -14,7 +14,7 @@ const Select = forwardRef(
       <div className={classNames('', classes)}>
         {label ? <Typography>{label}</Typography> : null}
         <select
-          data-testid="selectId"
+          data-testid='selectId'
           className={classNames('', classes, [cls[size]])}
           disabled={readonly}
           {...otherProps}>

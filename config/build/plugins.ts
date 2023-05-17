@@ -4,7 +4,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import {WebpackBuildOption} from "./types";
+
 
 export const Plugins = ({
                             path,
@@ -31,7 +33,13 @@ export const Plugins = ({
             openAnalyzer: isReport,
             analyzerMode: isReport ? 'server' : 'disabled',
         }),
-        new CopyPlugin({patterns: [{from: path.fromLocale, to: path.toLocale}]})
+        new CopyPlugin({patterns: [{from: path.fromLocale, to: path.toLocale}]}),
+
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+            cwd: process.cwd(),
+        })
     ];
 
     if (isDev) {

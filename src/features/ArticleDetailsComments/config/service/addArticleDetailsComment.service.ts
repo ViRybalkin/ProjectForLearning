@@ -1,4 +1,4 @@
-import {Comment} from "entities";
+import {Comment} from "entities/Comments";
 import {rtkApi} from "shared/config/api/rtkApi";
 import {AddCommentPayloadTypes} from "../types/ArticleDetailsCommentsTypes.types";
 

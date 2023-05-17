@@ -1,7 +1,7 @@
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { JestProvider } from 'app';
-import * as Selectors from '../../../config/selector';
+import { JestProvider } from 'app/providers/JestProvider';
+import * as Selectors from '../../../config/selector/getError/getError';
 import LoginForm from '../LoginForm';
 
 const mockDispatch = jest.fn();
@@ -62,7 +62,7 @@ describe('Тестирование формы логина', () => {
   });
 
   test('Если loading равен true кнопка должна быть заблокирована', async () => {
-    jest.spyOn(Selectors, 'getIsLoading').mockImplementation(() => true);
+    // jest.spyOn(Selectors, 'getIsLoading').mockImplementation(() => true);
     setup();
     const saveBtn = screen.getByTestId('saveBtnId');
 

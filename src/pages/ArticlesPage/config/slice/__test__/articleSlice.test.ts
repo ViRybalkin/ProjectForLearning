@@ -1,4 +1,4 @@
-import {articleListMocks} from "app/__mocks__";
+import {articleListMocks} from "__mocks__";
 import {getArticleList} from "../../service/getArticles.service";
 import {ArticleListAction, ArticleListReducer} from "../articlesSlice";
 

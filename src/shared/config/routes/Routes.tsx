@@ -1,6 +1,6 @@
 import {PathRouteProps} from 'react-router/dist/lib/components';
 import {lazy} from 'react';
-import {RolesTypes} from "entities";
+import {RolesTypes} from "entities/User";
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AboutPage = lazy(() => import('pages/About/About'));

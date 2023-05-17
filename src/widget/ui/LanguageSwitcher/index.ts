@@ -1,1 +1,3 @@
-export * from './LanguageSwitcher';
+import { LanguageSwitcher } from './LanguageSwitcher';
+
+export { LanguageSwitcher };

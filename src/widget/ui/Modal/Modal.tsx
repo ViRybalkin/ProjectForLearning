@@ -1,5 +1,5 @@
 import { MouseEvent, useCallback, useEffect, useState } from 'react';
-import { classNames } from 'app';
+import { classNames } from 'shared/config/helpers/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './modal.module.scss';
 import { ModalProps } from './Modal.types';

@@ -1,5 +1,7 @@
 import React, { memo, useCallback } from 'react';
-import { Button, HStack, Input } from 'shared';
+import { Button } from 'shared/ui/Button';
+import { HStack } from 'shared/ui/HStack';
+import { Input } from 'shared/ui/Input';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import cls from './AddCommentForm.module.scss';

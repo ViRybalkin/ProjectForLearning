@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { JestProvider } from 'app';
+import { JestProvider } from 'app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
 import ArticlesPage from '../ui/ArticlesPage/ArticlesPage';
 

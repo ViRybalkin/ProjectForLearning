@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
-import { Skeleton, Typography, VStack } from 'shared';
+import { Skeleton } from 'shared/ui/Skeleton';
+import { VStack } from 'shared/ui/VStack';
+import { Typography } from 'shared/ui/Typography';
 import { useTranslation } from 'react-i18next';
 import cls from './CommentList.module.scss';
 import { CommentListProps } from './CommentList.types';

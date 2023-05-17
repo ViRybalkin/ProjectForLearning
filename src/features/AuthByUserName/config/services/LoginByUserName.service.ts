@@ -1,9 +1,9 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {userAction, UserSliceTypes} from "entities";
+import {userAction, UserSliceTypes} from "entities/User";
 import {handleError} from "shared/config/helpers/error";
-import {ThunkConfig} from "app";
-import {LOCAL_STORAGE_KEY} from "shared";
-import {UserData} from "../types";
+import {ThunkConfig} from "app/providers/StoreProvider";
+import {LOCAL_STORAGE_KEY} from "shared/constants/localStorageKey";
+import {UserData} from "../types/AuthByUserName.types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfig<string>>(
     'login/authByUserName',

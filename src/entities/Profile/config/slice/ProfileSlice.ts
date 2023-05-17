@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {updateProfile} from "entities";
-import {getProfile} from "../../config/service/GetProfile";
+import {updateProfile} from "../service/UpdateProfile/UpdateProfile.service";
+import {getProfile} from "../service/GetProfile/Profile.service";
 import {ProfileTypes} from '../types/Profile.types'
 
 const initialState: ProfileTypes = {

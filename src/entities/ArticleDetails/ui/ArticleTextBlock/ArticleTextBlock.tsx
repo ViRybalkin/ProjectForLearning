@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import { Typography } from 'shared';
-import { classNames } from 'app';
+import { Typography } from 'shared/ui/Typography';
+import { classNames } from 'shared/config/helpers/classNames';
 import { ArticleTextBlockProps } from './ArticleTextBlock.types';
 import cls from './ArticleTextBlock.module.scss';
 

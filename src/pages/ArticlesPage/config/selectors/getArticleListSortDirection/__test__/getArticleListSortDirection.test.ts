@@ -1,4 +1,4 @@
-import {AppStoreTypes} from "app";
+import {AppStoreTypes} from "app/providers/StoreProvider";
 import {getArticleListSortDirection} from "../getArticleListSortDirection";
 
 describe('Тестирование селектора getArticleListSortDirection', () => {

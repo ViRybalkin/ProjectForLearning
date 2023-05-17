@@ -1,6 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ThunkConfig} from "app";
-import {ArticleListAction, getArticleList, getArticleListInited} from "../../config";
+import {ThunkConfig} from "app/providers/StoreProvider";
+import {ArticleListAction} from "../../config/slice/articlesSlice";
+import {getArticleList} from "../../config/service/getArticles.service";
+import {getArticleListInited} from "../../config/selectors/getArticleListInited/getArticleListInited";
 
 export const articlePageInitialEffect = createAsyncThunk<
     void,

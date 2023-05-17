@@ -1,11 +1,12 @@
 import './styles/index.scss';
-import { classNames, useAppDispatch } from 'app';
 import { AppRouter } from 'shared/config/routes/ui/AppRouter';
-import { NavBar, SideBar } from 'widget/ui';
+import { SideBar } from 'widget/ui/SideBar';
+import { NavBar } from 'widget/ui/NavBar';
 import { Suspense, useEffect } from 'react';
-import { userAction } from 'entities';
+import { getInited, userAction } from 'entities/User';
 import { useSelector } from 'react-redux';
-import { getInited } from 'entities/User/selectors/getInited';
+import { classNames } from 'shared/config/helpers/classNames';
+import { useAppDispatch } from './providers/StoreProvider';
 
 export const App = () => {
   const dispatch = useAppDispatch();

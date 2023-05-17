@@ -1,5 +1,6 @@
 import React, { memo, useCallback } from 'react';
-import { Card, HStack } from 'shared';
+import { Card } from '../Card';
+import { HStack } from '../HStack';
 import { TabItem, TabsProps } from './Tabs.types';
 import cls from './Tabs.module.scss';
 
@@ -12,7 +13,7 @@ export const Tabs = memo(({ tabs, value, onTabChange }: TabsProps) => {
   );
 
   return (
-    <HStack gap='10' justify="start">
+    <HStack gap='10' justify='start'>
       {tabs.map((tab) => {
         return (
           <Card

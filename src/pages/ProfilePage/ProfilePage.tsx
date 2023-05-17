@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DynamicComponent, useAppDispatch } from 'app';
+import { DynamicComponent } from 'app/providers/DynamicComponent';
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
@@ -14,9 +15,10 @@ import {
   ProfileDataTypes,
   ProfileReducer,
   updateProfile,
-} from 'entities';
-import { Typography, useInitialEffect } from 'shared';
-import { Page } from 'widget';
+} from 'entities/Profile';
+import { Typography } from 'shared/ui/Typography';
+import { useInitialEffect } from 'shared/config/helpers/useInitialEffect';
+import { Page } from 'widget/ui/Page';
 import { ProfileHeader } from './ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {

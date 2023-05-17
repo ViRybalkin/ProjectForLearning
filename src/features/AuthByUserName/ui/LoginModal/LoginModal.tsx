@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { Modal } from 'widget';
-import { Loader } from 'shared';
+import { Modal } from 'widget/ui/Modal';
+import { Loader } from 'shared/ui/Loader';
 import { LoginModalProps } from './LoginModal.types';
 
 const LoginForm = lazy(() => import('../LoginForm/LoginForm'));

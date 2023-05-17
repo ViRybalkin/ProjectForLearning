@@ -1,5 +1,5 @@
-import {AuthByUserNameTypes} from "features";
 import {createSelector} from "@reduxjs/toolkit";
-import {getUserData} from "../getUserData";
+import {AuthByUserNameTypes} from "../../types/AuthByUserName.types";
+import {getUserData} from "../getUserData/getUserData";
 
 export const getError = createSelector(getUserData, (state?: AuthByUserNameTypes) => state?.error);

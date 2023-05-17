@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Comment, CommentList } from 'entities';
-import { JestProvider } from 'app';
+import { JestProvider } from 'app/providers/JestProvider';
+import { CommentList } from '../CommentList';
+import { Comment } from '../../../config/types/Comment.types';
 
 const commentList = [
   {

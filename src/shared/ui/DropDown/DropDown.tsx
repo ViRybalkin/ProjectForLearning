@@ -1,7 +1,7 @@
 import { Menu } from '@headlessui/react';
 import { Fragment, memo } from 'react';
-import { AppLink } from 'shared';
-import { classNames } from 'app';
+import { classNames } from '../../config/helpers/classNames';
+import { AppLink } from '../AppLink';
 import { DropDownProps } from './DropDown.types';
 import cls from './DropDown.module.scss';
 

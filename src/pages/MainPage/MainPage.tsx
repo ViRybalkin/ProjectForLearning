@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Typography } from 'shared';
-import { Page } from 'widget';
+import { Typography } from 'shared/ui/Typography';
+import { Page } from 'widget/ui/Page';
 
 const MainPage = () => {
   const { t } = useTranslation('mainPage');

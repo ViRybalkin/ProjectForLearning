@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { classNames } from 'app';
 import { memo } from 'react';
+import { classNames } from '../../config/helpers/classNames';
 import cls from './customLink.module.scss';
 import { CustomLinkProps } from './CustomLink.types';
 

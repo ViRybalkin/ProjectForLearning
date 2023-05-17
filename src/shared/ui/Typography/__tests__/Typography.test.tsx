@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Typography } from 'shared';
+import { Typography } from '../Typography';
 import { TypographyProps } from '../Typography.types';
 
 const variants = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'];

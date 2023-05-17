@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
-import { Card, Skeleton } from 'shared';
-import { classNames } from 'app';
+import { Card } from 'shared/ui/Card';
+import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from 'shared/config/helpers/classNames';
 import { ArticleListItemSkeletonProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 

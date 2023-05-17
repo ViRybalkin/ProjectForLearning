@@ -1,6 +1,9 @@
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { App, ErrorBoundary, StoreProvider, ThemeProvider } from 'app';
+import { StoreProvider } from 'app/providers/StoreProvider';
+import { ThemeProvider } from 'app/providers/ThemeProviders';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { App } from 'app/App';
 import 'shared/config/i18n/i18nConfig';
 
 render(
