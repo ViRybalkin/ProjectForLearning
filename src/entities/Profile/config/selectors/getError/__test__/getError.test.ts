@@ -1,19 +1,19 @@
-import {AppStoreTypes} from "app";
+import {AppStoreTypes} from "app/providers/StoreProvider";
 import {getError} from "../getError";
 
 describe('Тестирование селектора getError', () => {
-  test('getError должен вернуть корректные данные', () => {
-    const state = {
-      profile: {
-        error: 'text error'
-      },
-    };
-    const result = getError({
-      profile: {
-        error: 'text error'
-      },
-    } as AppStoreTypes);
+    test('getError должен вернуть корректные данные', () => {
+        const state = {
+            profile: {
+                error: 'text error'
+            },
+        };
+        const result = getError({
+            profile: {
+                error: 'text error'
+            },
+        } as AppStoreTypes);
 
-    expect(result).toEqual(state.profile.error);
-  });
+        expect(result).toEqual(state.profile.error);
+    });
 })

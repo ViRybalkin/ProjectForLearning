@@ -1,7 +1,8 @@
 import { act, render, screen } from '@testing-library/react';
-import { JestProvider, StoreProvider } from 'app';
-import * as Selectors from 'entities/Profile/config/selectors';
-import * as UserSelectors from 'entities/User/selectors';
+import { StoreProvider } from 'app/providers/StoreProvider';
+import { JestProvider } from 'app/providers/JestProvider';
+import * as Selectors from 'entities/Profile/config/selectors/getProfileReadonly/getProfileReadOnly';
+import * as UserSelectors from 'entities/User/config/selectors/getUser/getUser';
 import userEvent from '@testing-library/user-event';
 import { ProfileHeader } from '../ProfileHeader';
 
@@ -57,7 +58,7 @@ describe('Тестирование компонента ProfileHeader', () => {
 
   test('Если isReadOnly то кнопка редактирования должна быть видна', () => {
     jest.spyOn(Selectors, 'getProfileReadOnly').mockImplementation(() => true);
-    jest.spyOn(Selectors, 'getProfileData').mockImplementation(() => profile);
+    // jest.spyOn(Selectors, 'getProfileData').mockImplementation(() => profile);
     jest.spyOn(UserSelectors, 'getUser').mockImplementation(() => userData);
     setup();
 

@@ -1,4 +1,4 @@
-import {UserSliceTypes} from "entities";
+import {UserSliceTypes} from "entities/User";
 
 type ArticleBlockType = 'TEXT' | 'IMAGE' | 'CODE';
 

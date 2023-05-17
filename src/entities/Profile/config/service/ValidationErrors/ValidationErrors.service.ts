@@ -1,24 +1,24 @@
-import {ProfileDataTypes, ValidationErrorsType} from "entities";
+import {ProfileDataTypes, ValidationErrorsType} from "../../types/Profile.types";
 
 export const validateProfile = (profileData?: ProfileDataTypes) => {
-  const errors: ValidationErrorsType[] = []
+    const errors: ValidationErrorsType[] = []
 
-  if (!profileData) {
-    errors.push("NO_DATA")
-  }
+    if (!profileData) {
+        errors.push("NO_DATA")
+    }
 
 
-  if (!profileData?.lastname || !profileData?.first) {
-    errors.push("INCORRECT_USER_DATA");
-  }
+    if (!profileData?.lastname || !profileData?.first) {
+        errors.push("INCORRECT_USER_DATA");
+    }
 
-  if (!profileData?.age || !Number(profileData?.age)) {
-    errors.push("INCORRECT_AGE")
-  }
+    if (!profileData?.age || !Number(profileData?.age)) {
+        errors.push("INCORRECT_AGE")
+    }
 
-  if (!profileData?.country) {
-    errors.push("INCORRECT_COUNTRY")
-  }
+    if (!profileData?.country) {
+        errors.push("INCORRECT_COUNTRY")
+    }
 
-  return errors;
+    return errors;
 }

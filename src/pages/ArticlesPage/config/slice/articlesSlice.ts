@@ -1,7 +1,7 @@
 import {createEntityAdapter, createSlice} from '@reduxjs/toolkit';
-import {ArticleDetailsDataType, ArticleListView} from "entities";
-import {AppStoreTypes} from "app";
-import {LOCAL_STORAGE_KEY} from "shared";
+import {ArticleDetailsDataType, ArticleListView} from "entities/ArticleDetails";
+import {AppStoreTypes} from "app/providers/StoreProvider";
+import {LOCAL_STORAGE_KEY} from "shared/constants/localStorageKey";
 import {getArticleList} from "../service/getArticles.service";
 import {ArticleListTypes} from "../types/articles.types";
 

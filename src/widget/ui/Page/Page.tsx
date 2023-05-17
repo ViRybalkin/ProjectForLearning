@@ -1,9 +1,12 @@
 import React, { memo, MutableRefObject, UIEvent, useRef } from 'react';
-import { AppStoreTypes, classNames, useAppDispatch } from 'app';
-import { useInfinityScroll, useInitialEffect, useThrottle } from 'shared';
-import { getScroll, getScrollPositionAction } from 'features';
+import { AppStoreTypes, useAppDispatch } from 'app/providers/StoreProvider';
+import { useThrottle } from 'shared/config/helpers/useThrottle';
+import { useInitialEffect } from 'shared/config/helpers/useInitialEffect';
+import { useInfinityScroll } from 'shared/config/helpers/useInfinityScroll';
+import { getScroll, getScrollPositionAction } from 'features/getScrollPosition';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { classNames } from 'shared/config/helpers/classNames';
 import cls from './Page.module.scss';
 import { PageProps } from './Page.types';
 

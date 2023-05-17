@@ -1,1 +1,1 @@
-export * from './DynamicComponent';
+export * from './ui/DynamicComponent';

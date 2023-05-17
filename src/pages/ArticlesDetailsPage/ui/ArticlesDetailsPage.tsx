@@ -1,8 +1,9 @@
 import React from 'react';
-import { ArticleDetails } from 'entities';
+import { ArticleDetails } from 'entities/ArticleDetails';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widget';
-import { ArticleDetailsComments, RecommendationList } from 'features';
+import { Page } from 'widget/ui/Page';
+import { RecommendationList } from 'features/RecommendationList';
+import { ArticleDetailsComments } from 'features/ArticleDetailsComments';
 import { ArticleDetailsHeader } from './components';
 
 const ArticlesDetailsPage = () => {

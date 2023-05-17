@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared';
-import { CountrySelectProps } from '../../config';
+import { ListBox } from 'shared/ui/ListBox';
+import { CountrySelectProps } from '../../config/types/CountrySelect.types';
 import cls from './CountrySelect.module.scss';
 
 const CountrySelect = forwardRef(({ readonly, onChange, value, ...otherProps }: CountrySelectProps, ref) => {

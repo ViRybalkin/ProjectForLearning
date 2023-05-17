@@ -1,13 +1,18 @@
-import { classNames, useAppDispatch } from 'app';
-import { Avatar, Button, CustomLink, Dropdown, HStack } from 'shared';
-import { ThemeSwitcher } from 'widget';
+import { useAppDispatch } from 'app/providers/StoreProvider';
+import { CustomLink } from 'shared/ui/CustomLink';
+import { Dropdown } from 'shared/ui/DropDown';
+import { Button } from 'shared/ui/Button';
+import { Avatar } from 'shared/ui/Avatar';
+import { HStack } from 'shared/ui/HStack';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
-import { getIsAdmin, getIsAuth, getIsManager, getUser, userAction } from 'entities';
+import { getIsAdmin, getIsAuth, getIsManager, getUser, userAction } from 'entities/User';
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
+import { classNames } from 'shared/config/helpers/classNames';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
 

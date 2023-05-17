@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { JestProvider } from 'app';
-import { Modal } from 'widget';
+import { JestProvider } from 'app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
+import { Modal } from '../Modal';
 
 describe('Тестирования модального окна', () => {
   const setIsOpenMock = jest.fn();

@@ -1,8 +1,8 @@
 import {$api} from "shared/config/api/api";
 import * as ErrorHelper from "shared/config/helpers/error";
-import {articleListMocks} from "app/__mocks__";
+import {articleListMocks} from "__mocks__";
 import {getArticleList} from "../getArticles.service";
-import * as Selector from '../../selectors'
+// import * as Selector from '../../selectors'
 
 const errorResponse = {data: {message: 'error'}}
 const mockedAxios = jest.mocked($api, true)
@@ -27,15 +27,15 @@ describe('Тестирование сервиса getArticles', () => {
     const dispatch = jest.fn();
     const getState = jest.fn();
 
-    beforeEach(() => {
-        jest.clearAllMocks();
-        jest.spyOn(Selector, 'getArticleListLimit').mockReturnValue(9);
-        jest.spyOn(Selector, 'getArticleListType').mockReturnValue('all');
-        jest.spyOn(Selector, 'getArticleListSearch').mockReturnValue('search');
-        jest.spyOn(Selector, 'getArticleListSortDirection').mockReturnValue('asc');
-        jest.spyOn(Selector, 'getArticleListSortField').mockReturnValue('views');
-        jest.spyOn(Selector, 'getArticleListPage').mockReturnValue(2);
-    })
+    // beforeEach(() => {
+    //     jest.clearAllMocks();
+    //     jest.spyOn(Selector, 'getArticleListLimit').mockReturnValue(9);
+    //     jest.spyOn(Selector, 'getArticleListType').mockReturnValue('all');
+    //     jest.spyOn(Selector, 'getArticleListSearch').mockReturnValue('search');
+    //     jest.spyOn(Selector, 'getArticleListSortDirection').mockReturnValue('asc');
+    //     jest.spyOn(Selector, 'getArticleListSortField').mockReturnValue('views');
+    //     jest.spyOn(Selector, 'getArticleListPage').mockReturnValue(2);
+    // })
 
 
     test('статус запроса должен быть корректным', async () => {

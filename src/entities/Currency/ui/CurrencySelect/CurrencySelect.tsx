@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared';
+import { ListBox } from 'shared/ui/ListBox';
 import { CurrencySelectProps } from '../../config';
 import cls from './CurrencySelect.module.scss';
 

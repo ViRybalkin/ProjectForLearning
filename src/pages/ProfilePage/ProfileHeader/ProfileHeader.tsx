@@ -1,10 +1,12 @@
 import React, { memo, useCallback } from 'react';
-import { useAppDispatch } from 'app';
-import { Button, HStack, Typography } from 'shared';
+import { useAppDispatch } from 'app/providers/StoreProvider';
+import { Button } from 'shared/ui/Button';
+import { HStack } from 'shared/ui/HStack';
+import { Typography } from 'shared/ui/Typography';
 import { useTranslation } from 'react-i18next';
-import { getUser, ProfileAction } from 'entities';
+import { getUser } from 'entities/User';
+import { getProfileData, getProfileReadOnly, ProfileAction } from 'entities/Profile';
 import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadOnly } from 'entities/Profile/config/selectors';
 import cls from './ProfileHeader.module.scss';
 import { ProfileHeaderProps } from './ProfileHeader.types';
 
@@ -36,7 +38,7 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
               {t('editBtn')}
             </Button>
           ) : (
-            <HStack gap="10">
+            <HStack gap='10'>
               <Button type='submit' form='hook-form' theme='contained'>
                 {t('save')}
               </Button>

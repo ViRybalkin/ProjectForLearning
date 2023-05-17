@@ -1,9 +1,13 @@
 import React, { memo } from 'react';
-import { classNames } from 'app';
-import { Avatar, HStack, Icon, Skeleton, Typography } from 'shared';
+import { classNames } from 'shared/config/helpers/classNames';
+import { Avatar } from 'shared/ui/Avatar';
+import { HStack } from 'shared/ui/HStack';
+import { Icon } from 'shared/ui/Icon';
+import { Skeleton } from 'shared/ui/Skeleton';
+import { Typography } from 'shared/ui/Typography';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { useGetArticleDetailsQuery } from '../../config';
+import { useGetArticleDetailsQuery } from '../../config/service/getArticleDetails/getArticleDetails.service';
 import { ArticleDetailsProps } from './ArticleDetails.types';
 import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';

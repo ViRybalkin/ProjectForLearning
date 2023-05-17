@@ -1,19 +1,17 @@
 import React, { useCallback } from 'react';
-import { ArticleList } from 'entities';
+import { ArticleList } from 'entities/ArticleDetails';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { DynamicComponent, useAppDispatch } from 'app';
-import { useInitialEffect } from 'shared';
-import { Page } from 'widget';
-import {
-  ArticleListReducer,
-  articleListSelector,
-  articlePageInitialEffect,
-  getArticleListError,
-  getArticleListIsLoading,
-  getArticleListView,
-  getPaginatedArticleListService,
-} from '../../config';
+import { DynamicComponent } from 'app/providers/DynamicComponent';
+import { useAppDispatch } from 'app/providers/StoreProvider';
+import { useInitialEffect } from 'shared/config/helpers/useInitialEffect';
+import { Page } from 'widget/ui/Page';
+import { getArticleListIsLoading } from '../../config/selectors/getArticleListIsLoading/getArticleListIsLoading';
+import { ArticleListReducer, articleListSelector } from '../../config/slice/articlesSlice';
+import { getArticleListError } from '../../config/selectors/getArticleListError/getArticleListError';
+import { articlePageInitialEffect } from '../../config/service/articlePageInitialEffect.service';
+import { getArticleListView } from '../../config/selectors/getArticleListVIew/getArticleListView';
+import { getPaginatedArticleListService } from '../../config/service/getPaginatedArticleList.service';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 
 const reducer = {

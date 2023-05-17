@@ -1,5 +1,5 @@
 import {AnyAction, combineReducers, Reducer, ReducersMapObject,} from '@reduxjs/toolkit';
-import {AppStoreKeys, AppStoreTypes, ReducerManagerTypes} from "app";
+import {AppStoreKeys, AppStoreTypes, ReducerManagerTypes} from "./AppStore.types";
 
 export function createReducerManager(initialReducers: ReducersMapObject<AppStoreTypes>): ReducerManagerTypes {
     const reducers = {...initialReducers}

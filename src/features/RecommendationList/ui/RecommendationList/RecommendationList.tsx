@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, VStack } from 'shared';
-import { ArticleList } from 'entities';
+import { VStack } from 'shared/ui/VStack';
+import { Typography } from 'shared/ui/Typography';
+import { ArticleList } from 'entities/ArticleDetails';
 import cls from './RecommendationList.module.scss';
-import { useGetRecommendationListQuery } from '../../config/service';
+import { useGetRecommendationListQuery } from '../../config/service/getRecommendationList.service';
 
 export const RecommendationList = memo(() => {
   const { t } = useTranslation('articlesDetails');

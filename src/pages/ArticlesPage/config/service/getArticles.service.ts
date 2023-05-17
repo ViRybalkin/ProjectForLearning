@@ -1,16 +1,15 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {addQueryParams, handleError} from "shared";
-import {ThunkConfig} from "app";
-import {ArticleDetailsDataType} from "entities";
-import {
-    getArticleListLimit,
-    getArticleListPage,
-    getArticleListProps,
-    getArticleListSearch,
-    getArticleListSortDirection,
-    getArticleListSortField,
-    getArticleListType
-} from "../index";
+import {handleError} from "shared/config/helpers/error";
+import {addQueryParams} from "shared/config/helpers/addQueryParams";
+import {ThunkConfig} from "app/providers/StoreProvider";
+import {ArticleDetailsDataType} from "entities/ArticleDetails";
+import {getArticleListType} from "../selectors/getArticleListType/getArticleListType";
+import {getArticleListSortField} from "../selectors/getArticleListSortField/getArticleListSortField";
+import {getArticleListSortDirection} from "../selectors/getArticleListSortDirection/getArticleListSortDirection";
+import {getArticleListSearch} from "../selectors/getArticleListSearch/getArticleListSearch";
+import {getArticleListLimit} from "../selectors/getArticleListLimit/getArticleListLimit";
+import {getArticleListPage} from "../selectors/getArticleListPage/getArticleListPage";
+import {getArticleListProps} from "../types/articles.types";
 
 export const getArticleList = createAsyncThunk<Array<ArticleDetailsDataType>, getArticleListProps, ThunkConfig<string>>(
     'article/getArticles',

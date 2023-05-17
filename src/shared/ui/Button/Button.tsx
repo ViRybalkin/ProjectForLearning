@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'app';
+import { classNames } from '../../config/helpers/classNames';
 import cls from './button.module.scss';
 import { ButtonProps } from './Button.types';
 

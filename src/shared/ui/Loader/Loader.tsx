@@ -1,9 +1,9 @@
-import React from 'react';
-import { classNames } from 'app';
+import React, { memo } from 'react';
+import { classNames } from 'shared/config/helpers/classNames';
 import cls from './loader.module.scss';
 import { LoaderProps } from './Loader.types';
 
-const Loader = ({ className }: LoaderProps) => {
+export const Loader = memo(({ className }: LoaderProps) => {
   return (
     <div data-testid='loaderTestId' className={classNames(cls.ldsRing, {}, [className])}>
       <div />
@@ -12,6 +12,4 @@ const Loader = ({ className }: LoaderProps) => {
       <div />
     </div>
   );
-};
-
-export { Loader };
+});

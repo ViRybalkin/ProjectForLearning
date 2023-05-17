@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Loader } from 'shared';
+import { Loader } from '../Loader';
 
 describe('Тестирование компонента Loader', () => {
   const setup = (className?: string) => {

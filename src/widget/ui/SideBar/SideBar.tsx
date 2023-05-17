@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
-import { classNames } from 'app';
-import { Button } from 'shared';
+import { classNames } from 'shared/config/helpers/classNames';
+import { Button } from 'shared/ui/Button';
 import DoubleArrowLeft from 'shared/assets/icons/double-arrow-left.svg';
 import DoubleArrowRight from 'shared/assets/icons/double-arrow-right.svg';
-import { LanguageSwitcher } from 'widget';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 import { SideBarProps } from './SideBar.types';
 import cls from './SideBar.module.scss';
 
@@ -19,7 +19,7 @@ const SideBar = ({ className }: SideBarProps) => {
       data-testid='sideBarTestId'
       className={classNames(cls.navBar, { [cls.collapsed]: isCollapsed }, [className])}>
       <LanguageSwitcher />
-      <Button data-testid="toggleSideBarBtn" theme='clear' className={cls.collapseBtn} onClick={onToggle}>
+      <Button data-testid='toggleSideBarBtn' theme='clear' className={cls.collapseBtn} onClick={onToggle}>
         {isCollapsed ? (
           <DoubleArrowRight data-testid='DoubleArrowRight' fill='#fff' width={30} height={30} />
         ) : (

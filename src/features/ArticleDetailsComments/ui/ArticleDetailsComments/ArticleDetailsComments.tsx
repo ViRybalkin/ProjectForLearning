@@ -1,12 +1,14 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography } from 'shared';
-import { AddCommentForm, CommentList, getUser } from 'entities';
-import { AddCommentFormTypes } from 'entities/AddCommentForm/ui/AddCommentForm.types';
+import { Typography } from 'shared/ui/Typography';
+import { AddCommentForm, AddCommentFormTypes } from 'entities/AddCommentForm';
+import { CommentList } from 'entities/Comments';
+import { getUser } from 'entities/User';
 import { useSelector } from 'react-redux';
 import cls from './ArticleDetailsComments.module.scss';
 import { ArticleDetailsCommentsProps } from './ArticleDetailsComments.types';
-import { useAddArticleDetailsCommentMutation, useGetArticleDetailsCommentsQuery } from '../../config';
+import { useAddArticleDetailsCommentMutation } from '../../config/service/addArticleDetailsComment.service';
+import { useGetArticleDetailsCommentsQuery } from '../../config/service/getArticleDetailsComments.service';
 
 export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsCommentsProps) => {
   const { t } = useTranslation('articlesDetails');

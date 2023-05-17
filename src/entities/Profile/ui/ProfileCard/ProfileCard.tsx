@@ -1,12 +1,16 @@
 import React, { memo, useEffect } from 'react';
-import { HStack, Input, Loader, Typography, VStack } from 'shared';
+import { Loader } from 'shared/ui/Loader';
+import { Typography } from 'shared/ui/Typography';
+import { VStack } from 'shared/ui/VStack';
+import { HStack } from 'shared/ui/HStack';
+import { Input } from 'shared/ui/Input';
+import { Avatar } from 'shared/ui/Avatar';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'app';
+import { classNames } from 'shared/config/helpers/classNames';
 import { Controller, useForm } from 'react-hook-form';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { CountrySelect } from '../../../Country/ui/CountrySelect';
+import { CountrySelect } from '../../../Country/ui/CountrySelect/CountrySelect';
 import cls from './profileCard.module.scss';
-import { ProfileDataTypes } from '../../config';
+import { ProfileDataTypes } from '../../config/types/Profile.types';
 import { ProfileCardProps } from './ProfileCard.types';
 import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 

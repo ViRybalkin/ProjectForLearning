@@ -1,1 +1,1 @@
-export * from './CustomLink';
+export { CustomLink } from './CustomLink';

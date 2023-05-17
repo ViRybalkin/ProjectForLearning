@@ -1,6 +1,6 @@
 import React, {memo, useMemo} from 'react';
 import {Navigate} from 'react-router-dom';
-import {getUserRoles} from "entities";
+import {getUserRoles} from "entities/User";
 import {useSelector} from "react-redux";
 import {routerPath} from "../../../config/routes/Routes";
 import {PrivateRouteProps} from "./PrivateRoute.types";

@@ -1,1 +1,1 @@
-export * from './JestProvider';
+export * from './ui/JestProvider';

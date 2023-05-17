@@ -1,11 +1,11 @@
-import { Button } from 'shared';
-import { UseTheme } from 'app';
+import { Button } from 'shared/ui/Button';
+import { UseTheme } from 'app/providers/ThemeProviders';
 import DarkMode from 'shared/assets/icons/dark-mode.svg';
 import LightMode from 'shared/assets/icons/light-mode.svg';
 import OrangeMode from 'shared/assets/icons/orange-mode.svg';
 import { memo } from 'react';
 
-const ThemeSwitcher = memo(() => {
+export const ThemeSwitcher = memo(() => {
   const { theme, onToggleTheme } = UseTheme();
 
   return (
@@ -16,5 +16,3 @@ const ThemeSwitcher = memo(() => {
     </Button>
   );
 });
-
-export { ThemeSwitcher };

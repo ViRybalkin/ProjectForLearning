@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { ViewSelector } from 'features';
-import { ArticleListView } from 'entities';
 import userEvent from '@testing-library/user-event';
+import { ArticleListView } from 'entities/ArticleDetails';
+import { ViewSelector } from '../ViewSelector';
 
 describe('Тестирования компонента VIewSelector', () => {
   const onViewClick = jest.fn();

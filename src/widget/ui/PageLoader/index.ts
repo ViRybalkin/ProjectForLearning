@@ -1,1 +1,3 @@
-export * from './PageLoader';
+import { PageLoader } from './PageLoader';
+
+export { PageLoader };

@@ -1,4 +1,4 @@
-import {AppStoreTypes} from "app";
+import {AppStoreTypes} from "app/providers/StoreProvider";
 import {getArticleListType} from "../getArticleListType";
 
 describe('Тестирование селектора getArticleListType', () => {

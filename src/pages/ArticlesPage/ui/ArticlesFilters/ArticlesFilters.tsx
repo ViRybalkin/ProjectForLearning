@@ -1,12 +1,19 @@
 import React, { FormEvent, memo, useCallback } from 'react';
-import { ViewSelector } from 'features';
-import { ArticleListView, ArticleSortList } from 'entities';
-import { useAppDispatch } from 'app';
+import { ViewSelector } from 'features/ViewSelector';
+import { ArticleSortList } from 'entities/ArticlesSortList';
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useSelector } from 'react-redux';
-import { HStack, Input, TabItem, Tabs, useDebounce } from 'shared';
+import { HStack } from 'shared/ui/HStack';
+import { Input } from 'shared/ui/Input';
+import { TabItem, Tabs } from 'shared/ui/Tabs';
+import { useDebounce } from 'shared/config/helpers/useDebounce';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
-import { ArticleListAction, getArticleList, getArticleListType, getArticleListView } from '../../config';
+import { ArticleListView } from 'entities/ArticleDetails';
+import { getArticleListType } from '../../config/selectors/getArticleListType/getArticleListType';
+import { getArticleListView } from '../../config/selectors/getArticleListVIew/getArticleListView';
+import { ArticleListAction } from '../../config/slice/articlesSlice';
+import { getArticleList } from '../../config/service/getArticles.service';
 import cls from './ArticlesFilters.module.scss';
 
 export const ArticlesFilters = memo(() => {
@@ -91,7 +98,7 @@ export const ArticlesFilters = memo(() => {
   return (
     <div className={cls.filtersWrapper}>
       <div>
-        <HStack justify='between' align="end" classname={cls.sortView}>
+        <HStack justify='between' align='end' classname={cls.sortView}>
           <ArticleSortList onDirectionChange={onDirectionChangeHandler} onFieldChange={onFiledChangeHandler} />
           <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
         </HStack>

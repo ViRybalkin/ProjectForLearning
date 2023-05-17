@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { classNames } from 'app';
+import { classNames } from 'shared/config/helpers/classNames';
 import cls from './Typography.module.scss';
 import { TypographyProps } from './Typography.types';
 

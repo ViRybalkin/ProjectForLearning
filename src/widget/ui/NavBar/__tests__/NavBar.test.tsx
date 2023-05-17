@@ -1,6 +1,6 @@
-import * as Selectors from 'entities/';
+import * as Selectors from 'entities/User';
 import { act, render, screen } from '@testing-library/react';
-import { JestProvider } from 'app';
+import { JestProvider } from 'app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
 import { NavBar } from '../NavBar';
 
