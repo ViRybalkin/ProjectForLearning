@@ -4,7 +4,6 @@
 
 .button {
   all: unset;
-
   cursor: pointer;
   background: transparent;
   color: var(--color-primary)
@@ -24,9 +23,8 @@
 
 .item {
   all: unset;
-
   cursor: pointer;
-  padding: 10px 10px;
+  padding: 10px;
   background: transparent;
   color: var(--color-primary)
 }

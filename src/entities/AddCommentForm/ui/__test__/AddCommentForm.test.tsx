@@ -1,3 +1,0 @@
-describe('Тестирование AddCommentForm', () => {
-    test('')
-});
