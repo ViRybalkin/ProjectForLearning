@@ -12,6 +12,7 @@ import { getIsAdmin, getIsAuth, getIsManager, getUser, userAction } from 'entiti
 import { useNavigate } from 'react-router-dom';
 import { routerPath } from 'shared/config/routes/Routes';
 import { classNames } from 'shared/config/helpers/classNames';
+import { NotificationButton } from 'features/NotificationButton';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { NavBarProps } from './NavBar.types';
 import cls from './navBar.module.scss';
@@ -47,27 +48,30 @@ export const NavBar = memo(({ className }: NavBarProps) => {
           <CustomLink to='/about' name={t('about')} />
           {isAuth ? <CustomLink to='/articles' name={t('articles')} /> : null}
           {isAuth ? (
-            <Dropdown
-              buttonItem={<Avatar size={40} alt={user?.avatar} src={user?.avatar} />}
-              items={[
-                ...(adminPageEnable
-                  ? [
-                      {
-                        content: t('admin', { ns: 'links' }),
-                        href: routerPath.adminPage,
-                      },
-                    ]
-                  : []),
-                {
-                  content: t('profile', { ns: 'links' }),
-                  href: `profile/${user?.id}`,
-                },
-                {
-                  content: t('logout', { ns: 'translation' }),
-                  onClick: onLogout,
-                },
-              ]}
-            />
+            <HStack gap='10'>
+              <NotificationButton />
+              <Dropdown
+                buttonItem={<Avatar size={40} alt={user?.avatar} src={user?.avatar} />}
+                items={[
+                  ...(adminPageEnable
+                    ? [
+                        {
+                          content: t('admin', { ns: 'links' }),
+                          href: routerPath.adminPage,
+                        },
+                      ]
+                    : []),
+                  {
+                    content: t('profile', { ns: 'links' }),
+                    href: `profile/${user?.id}`,
+                  },
+                  {
+                    content: t('logout', { ns: 'translation' }),
+                    onClick: onLogout,
+                  },
+                ]}
+              />
+            </HStack>
           ) : (
             <Button data-testid='loginBtnId' onClick={onLogin}>
               {t('login', { ns: 'translation' })}

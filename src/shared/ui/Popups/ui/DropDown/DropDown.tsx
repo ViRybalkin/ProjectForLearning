@@ -3,17 +3,16 @@ import { Fragment, memo } from 'react';
 import { classNames } from '../../../../config/helpers/classNames';
 import { AppLink } from '../../../AppLink';
 import { DropDownProps } from './DropDown.types';
-import cls from './DropDown.module.scss';
 import popupsCls from '../../styles/Popups.module.scss';
 
 export const Dropdown = memo(({ items, buttonItem, position = 'bottomLeft' }: DropDownProps) => {
   return (
     <Menu as='div' className={popupsCls.popups}>
-      <Menu.Button className={cls.button}>{buttonItem}</Menu.Button>
-      <Menu.Items className={classNames(popupsCls.items, {}, [popupsCls[position], cls.items])}>
+      <Menu.Button className={popupsCls.button}>{buttonItem}</Menu.Button>
+      <Menu.Items className={classNames(popupsCls.items, {}, [popupsCls[position], popupsCls.verticalItems])}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (
-            <button className={classNames(cls.item, { [popupsCls.active]: active })} onClick={item.onClick}>
+            <button className={classNames(popupsCls.item, { [popupsCls.active]: active })} onClick={item.onClick}>
               {item.content}
             </button>
           );
