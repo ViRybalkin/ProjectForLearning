@@ -6,6 +6,25 @@
       "author": "typicode"
     }
   ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Первое уведомление",
+      "description": "Описание первого уведомления",
+      "href": "https://google.com/"
+    },
+    {
+      "id": "2",
+      "title": "Второе уведомление",
+      "description": "Описание второго уведомления",
+      "href": "https://google.com/"
+    },
+    {
+      "id": "3",
+      "title": "Третье уведомление",
+      "description": "Описание третьего уведомления"
+    }
+  ],
   "comments": [
     {
       "id": "1",

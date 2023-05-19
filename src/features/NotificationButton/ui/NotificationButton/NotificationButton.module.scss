@@ -1,0 +1,26 @@
+.itemLength {
+  &:before {
+    content: attr(data-content);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-notification);
+    color: white;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.notification {
+  min-height: 60px;
+  max-height: 100px;
+  width: 200px;
+}
+
+.icon {
+  fill: var(--color-link)
+}
