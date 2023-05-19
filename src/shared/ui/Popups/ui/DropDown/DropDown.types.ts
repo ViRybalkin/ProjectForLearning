@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-
-export type MenuPosition = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'center';
+import { PopupsPosition } from '../../types/Popups.types';
 
 export interface DropDownItem {
   content: ReactNode;
@@ -12,5 +11,5 @@ export interface DropDownItem {
 export interface DropDownProps {
   items: Array<DropDownItem>;
   buttonItem: ReactNode;
-  position?: MenuPosition;
+  position?: PopupsPosition;
 }

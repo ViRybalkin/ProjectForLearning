@@ -1,16 +1,9 @@
-.listBox {
-  position: relative;
-}
-
 .button {
   display: flex;
   align-items: center;
 }
 
 .options {
-  position: absolute;
-  background: var(--bg-listBox);
-  z-index: 10000;
   border-radius: 5px;
   box-shadow: 4px 4px 4px var(--bg-listBox);
 }
@@ -21,10 +14,6 @@
   &:disabled {
     color: grey;
   }
-}
-
-.active {
-  background: var(--color-secondary);
 }
 
 .unavailable {
