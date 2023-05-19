@@ -1,0 +1,40 @@
+.popups {
+  position: relative;
+}
+
+.active {
+  color: var(--color-secondary);
+}
+
+.items {
+  position: absolute;
+  background: var(--bg-listBox);
+  z-index: 10000;
+}
+
+.topLeft {
+  bottom: 100%;
+  right: 0;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.center {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

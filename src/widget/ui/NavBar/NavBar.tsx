@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'app/providers/StoreProvider';
 import { CustomLink } from 'shared/ui/CustomLink';
-import { Dropdown } from 'shared/ui/DropDown';
+import { Dropdown } from 'shared/ui/Popups';
 import { Button } from 'shared/ui/Button';
 import { Avatar } from 'shared/ui/Avatar';
 import { HStack } from 'shared/ui/HStack';

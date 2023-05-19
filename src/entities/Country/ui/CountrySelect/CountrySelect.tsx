@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared/ui/ListBox';
+import { ListBox } from 'shared/ui/Popups';
 import { CountrySelectProps } from '../../config/types/CountrySelect.types';
 import cls from './CountrySelect.module.scss';
 
