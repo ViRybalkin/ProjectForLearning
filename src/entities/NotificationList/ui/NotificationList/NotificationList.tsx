@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/VStack';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { classNames } from 'shared/config/helpers/classNames';
@@ -7,7 +6,6 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { NotificationListProps } from './NotificationList.types';
 
 export const NotificationList = memo(({ items, isLoading, classname }: NotificationListProps) => {
-  const { t } = useTranslation();
   if (isLoading) {
     return (
       <VStack gap='8'>
@@ -20,7 +18,7 @@ export const NotificationList = memo(({ items, isLoading, classname }: Notificat
 
   return (
     <VStack gap='8'>
-      {items.map((item) => (
+      {items?.map((item) => (
         <NotificationItem classname={classNames('', {}, [classname])} item={item} />
       ))}
     </VStack>
