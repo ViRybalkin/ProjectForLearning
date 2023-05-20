@@ -85,18 +85,4 @@ module.exports = (componentName) => {
   createComponentStyle();
   createComponentStories();
   createComponentTest();
-
-  /**
-   * @description Добавление компонента в publicApi слоя shared
-   */
-  fs.appendFile(
-    resolveUiPath(rootDir('src', 'shared', 'ui', 'index.ts')),
-    publicApiTemplate([componentName]),
-    (err) => {
-      if (err) {
-        throw new Error(`Не удалось добавить компонент ${componentName} в publicApi слоя shared`);
-      }
-      console.log(`Компонент ${componentName} успешно добавлен в publicApi слоя shared`);
-    }
-  );
 };

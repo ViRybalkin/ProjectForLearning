@@ -31,14 +31,5 @@ module.exports = (layer, slice) => {
   /**
    * @description Создание publicApi для слайса
    */
-  fs.writeFileSync(rootDir('src', layer, slice, 'index.ts'), publicApiTemplate(['ui', 'config']));
-  /**
-   * @description Добавление слайса в publicApi слоя
-   */
-  fs.appendFile(rootDir('src', layer, 'index.ts'), publicApiTemplate([slice]), (err) => {
-    if (err) {
-      throw new Error(`Не удалось добавить слайс ${slice} в publicApi слоя ${layer}`);
-    }
-    console.log(`Cлайс ${slice} успешно добавлен в publicApi слоя ${layer}`);
-  });
+  fs.writeFileSync(rootDir('src', layer, slice, 'index.ts'), publicApiTemplate(['ui', slice, slice]));
 };
