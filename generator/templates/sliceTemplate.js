@@ -5,7 +5,7 @@ module.exports = (slice) => {
   const serviceName = `get${slice}`;
 
   return `import {createSlice} from '@reduxjs/toolkit';
-import {${serviceName}} from "../service";
+import {${serviceName}} from "../service/${serviceName}.service";
 import {${typesName}} from "../types/${typeNameImport}";
 
 const initialState: ${typesName} = {

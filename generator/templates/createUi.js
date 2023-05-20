@@ -33,8 +33,6 @@ module.exports = (layer, slice) => {
 
       fs.mkdirSync(resolveUiPath(slice));
       fs.writeFileSync(resolveUiPath(slice, componentNameWithExtension), componentTemplate(slice));
-
-      fs.writeFileSync(resolveUiPath(slice, `index.ts`), publicApiTemplate([slice]));
     } catch (e) {
       throw new Error(`Не удалось создать компонент для слайса ${slice}`);
     }
@@ -94,9 +92,4 @@ module.exports = (layer, slice) => {
   createComponentTypes();
   createComponentStories();
   createComponentTest();
-
-  /**
-   * @description Создание publicApi для сегмента ui
-   */
-  fs.writeFileSync(resolveUiPath(`index.ts`), publicApiTemplate([slice]));
 };

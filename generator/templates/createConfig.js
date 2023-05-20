@@ -38,7 +38,6 @@ module.exports = (layer, slice) => {
       const sliceNameWithExtension = `${sliceName}.ts`;
 
       fs.writeFileSync(resolveConfigPath('slice', sliceNameWithExtension), sliceTemplate(slice));
-      fs.writeFileSync(resolveConfigPath('slice', `index.ts`), publicApiTemplate([sliceName]));
       fs.mkdirSync(resolveConfigPath('slice', '__test__'));
       fs.writeFileSync(resolveConfigPath('slice', `__test__`, `${sliceName}.test.ts`), testTemplate(sliceName));
     } catch (e) {
@@ -55,7 +54,6 @@ module.exports = (layer, slice) => {
       const typeNameWithExtension = `${typeName}.types.ts`;
 
       fs.writeFileSync(resolveConfigPath('types', typeNameWithExtension), typesTemplate(typeName));
-      fs.writeFileSync(resolveConfigPath('types', `index.ts`), publicApiTemplate([`${typeName}.types`]));
     } catch (e) {
       throw new Error(`Не удалось создать типы redux store для слайса ${slice}`);
     }
@@ -67,7 +65,6 @@ module.exports = (layer, slice) => {
       const serviceNameWithExtension = `${serviceName}.service.ts`;
 
       fs.writeFileSync(resolveConfigPath('service', serviceNameWithExtension), serviceTemplate(slice, serviceName));
-      fs.writeFileSync(resolveConfigPath('service', `index.ts`), publicApiTemplate([`${serviceName}.service`]));
       fs.mkdirSync(resolveConfigPath('service', '__test__'));
       fs.writeFileSync(
         resolveConfigPath('service', `__test__`, `${serviceName}.service.test.ts`),
@@ -87,7 +84,6 @@ module.exports = (layer, slice) => {
       const selectorNameWithExtension = `${selectorName}.ts`;
 
       fs.writeFileSync(resolveConfigPath('selectors', selectorNameWithExtension), selectorsTemplate(selectorName));
-      fs.writeFileSync(resolveConfigPath('selectors', `index.ts`), publicApiTemplate([selectorName]));
       fs.mkdirSync(resolveConfigPath('selectors', '__test__'));
       fs.writeFileSync(
         resolveConfigPath('selectors', `__test__`, `${selectorName}.test.ts`),
@@ -103,9 +99,4 @@ module.exports = (layer, slice) => {
   createService();
   createTypes();
   createSelectors();
-
-  /**
-   * @description Создание publicApi для сегмента config
-   */
-  fs.writeFileSync(resolveConfigPath('index.ts'), publicApiTemplate(['service', 'slice', 'selectors']));
 };

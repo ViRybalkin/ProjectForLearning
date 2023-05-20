@@ -1,7 +1,3 @@
-module.exports = (exportedFile) => {
-  return exportedFile
-    .map((file) => {
-      return `export * from './${file}';`;
-    })
-    .join('\n');
+module.exports = (name) => {
+  return `export * from './${name.join('/')}';`;
 };
