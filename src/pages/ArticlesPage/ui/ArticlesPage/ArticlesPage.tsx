@@ -6,11 +6,11 @@ import { DynamicComponent } from 'app/providers/DynamicComponent';
 import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/config/helpers/useInitialEffect';
 import { Page } from 'widget/ui/Page';
-import { getArticleListIsLoading } from '../../config/selectors/getArticleListIsLoading/getArticleListIsLoading';
+import { getArticleListIsLoading } from '../../config/selectors/getArticleListIsLoading';
 import { ArticleListReducer, articleListSelector } from '../../config/slice/articlesSlice';
-import { getArticleListError } from '../../config/selectors/getArticleListError/getArticleListError';
+import { getArticleListError } from '../../config/selectors/getArticleListError';
 import { articlePageInitialEffect } from '../../config/service/articlePageInitialEffect.service';
-import { getArticleListView } from '../../config/selectors/getArticleListVIew/getArticleListView';
+import { getArticleListView } from '../../config/selectors/getArticleListView';
 import { getPaginatedArticleListService } from '../../config/service/getPaginatedArticleList.service';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 

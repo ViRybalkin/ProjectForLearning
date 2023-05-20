@@ -2,9 +2,9 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "app/providers/StoreProvider";
 import {ArticleListAction} from "../../config/slice/articlesSlice";
 import {getArticleList} from "../../config/service/getArticles.service";
-import {getArticleListIsLoading,} from "../../config/selectors/getArticleListIsLoading/getArticleListIsLoading";
-import {getArticleListHasMore,} from "../../config/selectors/getArticleListHasMore/getArticleListHasMore";
-import {getArticleListPage} from "../../config/selectors/getArticleListPage/getArticleListPage";
+import {getArticleListIsLoading,} from "../selectors/getArticleListIsLoading";
+import {getArticleListHasMore,} from "../selectors/getArticleListHasMore";
+import {getArticleListPage} from "../selectors/getArticleListPage";
 
 export const getPaginatedArticleListService = createAsyncThunk<
     void,

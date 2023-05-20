@@ -2,14 +2,14 @@ import {PathRouteProps} from 'react-router/dist/lib/components';
 import {lazy} from 'react';
 import {RolesTypes} from "entities/User";
 
-const MainPage = lazy(() => import('pages/MainPage/MainPage'));
+const MainPage = lazy(() => import('pages/MainPage/ui/MainPage/MainPage'));
 const AboutPage = lazy(() => import('pages/About/About'));
-const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
+const ProfilePage = lazy(() => import('pages/ProfilePage/ui/ProfilePage/ProfilePage'));
 const ArticlesPage = lazy(() => import('pages/ArticlesPage/ui/ArticlesPage/ArticlesPage'));
 const ArticlesDetailsPage = lazy(() => import('pages/ArticlesDetailsPage/ui/ArticlesDetailsPage'));
 const AdminPage = lazy(() => import('pages/AdminPage/ui/AdminPage/AdminPage'));
 const ForbiddenPage = lazy(() => import('pages/ForbiddenPage/ui/ForbiddenPage/ForbiddenPage'));
-const NotFoundPage = lazy(() => import('pages/NotFound/NotFound'));
+const NotFoundPage = lazy(() => import('pages/NotFound/ui/NotFoundPage/NotFound'));
 
 export interface RouterProps extends PathRouteProps {
     isAuth?: boolean;
