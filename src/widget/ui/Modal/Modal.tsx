@@ -1,7 +1,8 @@
 import { MouseEvent, useCallback, useEffect, useState } from 'react';
 import { classNames } from 'shared/config/helpers/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
-import cls from './modal.module.scss';
+import { Overlay } from 'shared/ui/Overlay';
+import cls from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 
 const Modal = ({
@@ -62,11 +63,11 @@ const Modal = ({
   return (
     <Portal>
       <div data-testid='modalTestId' className={classNames(cls.modal, { [cls.opened]: isOpen })}>
-        <div data-testid='overlayTestId' onClick={onOverlayClick} className={classNames(cls.overlay)}>
+        <Overlay testId='overlayTestId' onClick={onOverlayClick}>
           <div onClick={onContentClick} className={classNames(cls.content)}>
             {children}
           </div>
-        </div>
+        </Overlay>
       </div>
     </Portal>
   );
