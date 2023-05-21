@@ -24,3 +24,13 @@
 .icon {
   fill: var(--color-link)
 }
+
+.mobileItemLength {
+  position: relative;
+}
+
+.mobileNotification {
+  min-height: 60px;
+  max-height: 100px;
+  width: 100%;
+}
