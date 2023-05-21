@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Modal } from 'widget/ui/Modal';
+import { Modal } from 'shared/ui/Modal';
 import { Loader } from 'shared/ui/Loader';
 import { LoginModalProps } from './LoginModal.types';
 
