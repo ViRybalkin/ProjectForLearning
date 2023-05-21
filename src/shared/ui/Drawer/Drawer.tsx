@@ -1,56 +1,19 @@
-import React, { memo, MouseEvent, useCallback, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { memo } from 'react';
+import { useModal } from 'shared/config/helpers/useModal';
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { classNames } from '../../config/helpers/classNames';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../Overlay';
 
 export const Drawer = memo(
   ({ isOpen, onClose, children, onEscapeClose = true, onOverlayClose = true, lazy = false }: DrawerProps) => {
-    const { t } = useTranslation();
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    const closeHandler = useCallback(() => {
-      onClose();
-    }, [onClose]);
-
-    const onEscapePress = useCallback(
-      (e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          closeHandler();
-        }
-      },
-      [closeHandler]
-    );
-
-    useEffect(() => {
-      if (isOpen) {
-        setIsMounted(true);
-      }
-    }, [isOpen]);
-
-    useEffect(() => {
-      if (isOpen && onEscapeClose) {
-        window.addEventListener('keydown', onEscapePress);
-      }
-      return () => window.removeEventListener('keydown', onEscapePress);
-    }, [isOpen, onEscapeClose, onEscapePress]);
-
-    const onOverlayClick = useCallback(
-      (e: MouseEvent) => {
-        if (onOverlayClose) {
-          e.preventDefault();
-          closeHandler();
-        }
-      },
-      [closeHandler, onOverlayClose]
-    );
-
-    const onContentClick = useCallback((e: MouseEvent) => {
-      e.stopPropagation();
-    }, []);
+    const { onOverlayClick, onContentClick, isMounted } = useModal({
+      onClose,
+      isOpen,
+      onEscapeClose,
+      onOverlayClose,
+    });
 
     if (lazy && !isMounted) {
       return null;
