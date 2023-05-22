@@ -10,10 +10,10 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-jest.mock('entities/Profile/config/selectors', () => ({
+jest.mock('entities/Profile', () => ({
   getProfileData: jest.fn(),
   // @ts-ignore
-  ...jest.requireActual('entities/Profile/config/selectors'),
+  ...jest.requireActual('entities/Profile'),
   __esModule: true,
 }));
 

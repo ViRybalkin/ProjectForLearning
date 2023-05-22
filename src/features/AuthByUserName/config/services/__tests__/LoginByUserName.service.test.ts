@@ -68,6 +68,7 @@ describe('Тестирование сервиса loginByUserName', () => {
         expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
             username: responseData.username,
             id: responseData.id,
+            avatar: responseData.avatar,
         }))
     });
 
