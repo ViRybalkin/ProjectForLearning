@@ -6,15 +6,15 @@ import * as UserSelectors from 'entities/User/config/selectors/getUser';
 import userEvent from '@testing-library/user-event';
 import { ProfileHeader } from '../ProfileHeader';
 
-jest.mock('entities/Profile/config/selectors', () => ({
+jest.mock('entities/Profile', () => ({
   // @ts-ignore
-  ...jest.requireActual('entities/Profile/config/selectors'),
+  ...jest.requireActual('entities/Profile'),
   __esModule: true,
 }));
 
-jest.mock('entities/User/selectors', () => ({
+jest.mock('entities/User', () => ({
   // @ts-ignore
-  ...jest.requireActual('entities/User/selectors'),
+  ...jest.requireActual('entities/User'),
   __esModule: true,
 }));
 

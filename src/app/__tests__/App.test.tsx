@@ -10,10 +10,10 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-jest.mock('entities/User/selectors/getInited', () => ({
+jest.mock('entities/User', () => ({
   getInited: jest.fn().mockReturnValue(true),
   // @ts-ignore
-  ...jest.requireActual('entities/User/selectors/getInited'),
+  ...jest.requireActual('entities/User'),
   __esModule: true,
 }));
 
