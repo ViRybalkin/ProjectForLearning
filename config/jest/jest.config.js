@@ -1,12 +1,19 @@
 module.exports = async () => {
     return {
-        verbose: true,
+        verbose: false,
         cacheDirectory: '<rootDir>/node_modules/.cache/jest-cache',
         coverageDirectory: '<rootDir>/coverage',
         rootDir: '../../',
-        coverageReporters: ['clover', 'json', 'lcov', 'text', 'text-summary'],
+        reporters: [
+            "default",
+            ["jest-html-reporters", {
+                publicPath: "./config/jest/html-report",
+                filename: "report.html",
+                openReport: true,
+                includeConsoleLog: true,
+            }]
+        ],
         coveragePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/public/', '<rootDir>/node_modules/'],
-        collectCoverage: true,
         coverageThreshold: {
             global: {
                 branches: 80,
@@ -25,7 +32,6 @@ module.exports = async () => {
         ],
         moduleNameMapper: {
             '\\.(scss)$': 'identity-obj-proxy',
-            // 'entities': '<rootDir>/src/entities/',
             '^entities/(.*)$': '<rootDir>/src/entities/$1',
         },
         transform: {

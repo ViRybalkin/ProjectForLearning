@@ -91,6 +91,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "29.4.3",
+    "jest-html-reporters": "^3.1.4",
     "jest-transformer-svg": "2.0.0",
     "json-server": "0.17.0",
     "loki": "0.31.0",
