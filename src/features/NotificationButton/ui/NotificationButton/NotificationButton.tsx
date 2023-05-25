@@ -7,6 +7,7 @@ import { MobileComponent } from 'shared/ui/MobileComponent';
 import { DesktopComponent } from 'shared/ui/DesktopComponent';
 import { Drawer } from 'shared/ui/Drawer';
 import { classNames } from 'shared/config/helpers/classNames';
+import { AnimationProvider } from 'shared/providers/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 import { useGetNotificationsQuery } from '../../config/service/getNotifications.service';
 
@@ -36,9 +37,11 @@ export const NotificationButton = memo(() => {
       <MobileComponent classname={cls.mobileItemLength}>
         <div data-content={childrenLength} className={cls.itemLength}>
           {Button}
-          <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <NotificationList classname={cls.mobileNotification} items={data} isLoading={isLoading} />
-          </Drawer>
+          <AnimationProvider>
+            <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+              <NotificationList classname={cls.mobileNotification} items={data} isLoading={isLoading} />
+            </Drawer>
+          </AnimationProvider>
         </div>
       </MobileComponent>
     </div>
