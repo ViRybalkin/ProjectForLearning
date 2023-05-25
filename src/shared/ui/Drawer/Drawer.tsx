@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect } from 'react';
-import { a, config, useSpring } from '@react-spring/web';
-import { useDrag } from '@use-gesture/react';
+import { useAnimationContext } from 'shared/providers/AnimationProvider';
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -9,8 +8,9 @@ import { Overlay } from '../Overlay';
 
 const height = window.innerHeight - 100;
 
-export const Drawer = memo(({ isOpen, onClose, children }: DrawerProps) => {
-  const [{ y }, api] = useSpring(() => ({ y: height }));
+export const DrawerContext = memo(({ isOpen, onClose, children }: DrawerProps) => {
+  const { Spring, Gesture } = useAnimationContext();
+  const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
@@ -26,12 +26,12 @@ export const Drawer = memo(({ isOpen, onClose, children }: DrawerProps) => {
     api.start({
       y: height,
       immediate: false,
-      config: { ...config.stiff, velocity },
+      config: { ...Spring.config.stiff, velocity },
       onResolve: onClose,
     });
   };
 
-  const bind = useDrag(
+  const bind = Gesture.useDrag(
     ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
       if (my < -70) cancel();
 
@@ -63,14 +63,24 @@ export const Drawer = memo(({ isOpen, onClose, children }: DrawerProps) => {
     <Portal>
       <div data-testid='modalTestId' className={classNames(cls.drawer, { [cls.opened]: isOpen })}>
         <Overlay testId='overlayTestId' onClick={() => close()} classname={cls.overlay}>
-          <a.div
+          <Spring.a.div
             style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
             className={classNames(cls.content)}
             {...bind()}>
             {children}
-          </a.div>
+          </Spring.a.div>
         </Overlay>
       </div>
     </Portal>
   );
+});
+
+export const Drawer = memo((props: DrawerProps) => {
+  const { isLoaded } = useAnimationContext();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  return <DrawerContext {...props} />;
 });
