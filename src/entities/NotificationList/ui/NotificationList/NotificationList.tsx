@@ -19,7 +19,7 @@ export const NotificationList = memo(({ items, isLoading, classname }: Notificat
   return (
     <VStack gap='8'>
       {items?.map((item) => (
-        <NotificationItem classname={classNames('', {}, [classname])} item={item} />
+        <NotificationItem key={item.id} classname={classNames('', {}, [classname])} item={item} />
       ))}
     </VStack>
   );
