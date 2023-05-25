@@ -1,4 +1,4 @@
-import {AppStoreTypes} from "app/providers/StoreProvider";
+import {AppStoreTypes} from "@/app/providers/StoreProvider";
 import {getError} from "../getError";
 
 describe('Тестирование селектора getError', () => {

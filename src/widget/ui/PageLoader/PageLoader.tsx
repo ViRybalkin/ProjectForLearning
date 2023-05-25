@@ -1,6 +1,6 @@
 import React from 'react';
-import { Loader } from 'shared/ui/Loader';
-import { classNames } from 'shared/config/helpers/classNames';
+import { Loader } from '@/shared/ui/Loader';
+import { classNames } from '@/shared/config/helpers/classNames';
 import cls from './PageLoader.module.scss';
 
 const PageLoader = () => {

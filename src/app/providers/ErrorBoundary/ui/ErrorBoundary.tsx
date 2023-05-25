@@ -1,7 +1,7 @@
 import React, { ErrorInfo, lazy, Suspense } from 'react';
 import { ErrorBoundaryProps, ErrorBoundaryState } from './ErrorBoundary.types';
 
-const ErrorPage = lazy(() => import('pages/ErrorPage/ui/ErrorPage/ErrorPage'));
+const ErrorPage = lazy(() => import('@/pages/ErrorPage/ui/ErrorPage/ErrorPage'));
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {

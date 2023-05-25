@@ -1,13 +1,13 @@
 import React, { memo, useState } from 'react';
-import { Popover } from 'shared/ui/Popups';
-import { NotificationList } from 'entities/NotificationList';
-import { Icon } from 'shared/ui/Icon';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { MobileComponent } from 'shared/ui/MobileComponent';
-import { DesktopComponent } from 'shared/ui/DesktopComponent';
-import { Drawer } from 'shared/ui/Drawer';
-import { classNames } from 'shared/config/helpers/classNames';
-import { AnimationProvider } from 'shared/providers/AnimationProvider';
+import { Popover } from '@/shared/ui/Popups';
+import { NotificationList } from '@/entities/NotificationList';
+import { Icon } from '@/shared/ui/Icon';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import { MobileComponent } from '@/shared/ui/MobileComponent';
+import { DesktopComponent } from '@/shared/ui/DesktopComponent';
+import { Drawer } from '@/shared/ui/Drawer';
+import { classNames } from '@/shared/config/helpers/classNames';
+import { AnimationProvider } from '@/shared/providers/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 import { useGetNotificationsQuery } from '../../config/service/getNotifications.service';
 

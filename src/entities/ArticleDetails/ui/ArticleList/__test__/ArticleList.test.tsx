@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { articleListMocks } from '__mocks__';
-import { ArticleListView } from 'entities/ArticleDetails';
-import { JestProvider } from 'app/providers/JestProvider';
+import { articleListMocks } from '@/__mocks__';
+import { ArticleListView } from '@/entities/ArticleDetails';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { ArticleList } from '../ArticleList';
 
 describe('Тестирование компонента ArticleList', () => {

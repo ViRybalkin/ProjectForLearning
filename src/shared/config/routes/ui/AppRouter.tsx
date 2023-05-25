@@ -1,8 +1,8 @@
 import React, {memo, Suspense, useCallback} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import {PageLoader} from 'widget/ui/PageLoader';
+import {PageLoader} from '@/widget/ui/PageLoader';
 import {useSelector} from "react-redux";
-import {getIsAuth} from "entities/User";
+import {getIsAuth} from "@/entities/User";
 import {Loader} from "../../../ui/Loader";
 import {PrivateRoute} from "../ui/PrivateRoute";
 import {routerConfig, RouterProps} from '../Routes';

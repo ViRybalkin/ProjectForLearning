@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "isolatedModules": true,
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "exclude": ["node_modules" ,"storybook-static", "config/jest"],

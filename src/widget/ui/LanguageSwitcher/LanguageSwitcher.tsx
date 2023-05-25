@@ -1,7 +1,7 @@
-import { Button } from 'shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { i18n } from 'shared/config/i18n/i18nConfig';
+import { i18n } from '@/shared/config/i18n/i18nConfig';
 
 const LanguageSwitcher = memo(() => {
   const { t } = useTranslation();

@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Typography } from 'shared/ui/Typography';
-import { AppLink } from 'shared/ui/AppLink';
-import { VStack } from 'shared/ui/VStack';
+import { Card } from '@/shared/ui/Card';
+import { Typography } from '@/shared/ui/Typography';
+import { AppLink } from '@/shared/ui/AppLink';
+import { VStack } from '@/shared/ui/VStack';
 import { NotificationItemProps } from './NotificationItem.types';
 
 export const NotificationItem = memo(({ item, classname }: NotificationItemProps) => {

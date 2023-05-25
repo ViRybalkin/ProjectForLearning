@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { classNames } from 'shared/config/helpers/classNames';
-import { Typography } from 'shared/ui/Typography';
+import { classNames } from '@/shared/config/helpers/classNames';
+import { Typography } from '@/shared/ui/Typography';
 import { SelectProps } from './Select.types';
 import cls from './Select.module.scss';
 

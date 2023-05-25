@@ -32,7 +32,7 @@ module.exports = async () => {
         ],
         moduleNameMapper: {
             '\\.(scss)$': 'identity-obj-proxy',
-            '^entities/(.*)$': '<rootDir>/src/entities/$1',
+            '^@/(.*)$': '<rootDir>/src/$1',
         },
         transform: {
             '^.+\\.tsx?$': 'babel-jest',

@@ -1,4 +1,4 @@
-import {$api} from "shared/config/api/api";
+import {$api} from "@/shared/config/api/api";
 
 const mockedAxios = jest.mocked($api, true)
 jest.mock('../getArticles.service');

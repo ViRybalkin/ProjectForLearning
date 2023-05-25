@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ThunkConfig} from "app/providers/StoreProvider";
+import {ThunkConfig} from "@/app/providers/StoreProvider";
 import {ProfileDataTypes, ValidationErrorsType} from "../../types/Profile.types";
 import {validateProfile} from "../ValidationErrors/ValidationErrors.service";
 

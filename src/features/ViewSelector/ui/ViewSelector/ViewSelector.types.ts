@@ -1,4 +1,4 @@
-import { ArticleListView } from 'entities/ArticleDetails';
+import { ArticleListView } from '@/entities/ArticleDetails';
 import React from 'react';
 
 export interface ViewSelectorProps {

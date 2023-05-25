@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { VStack } from 'shared/ui/VStack';
-import { Typography } from 'shared/ui/Typography';
-import { ArticleList } from 'entities/ArticleDetails';
+import { VStack } from '@/shared/ui/VStack';
+import { Typography } from '@/shared/ui/Typography';
+import { ArticleList } from '@/entities/ArticleDetails';
 import cls from './RecommendationList.module.scss';
 import { useGetRecommendationListQuery } from '../../config/service/getRecommendationList.service';
 

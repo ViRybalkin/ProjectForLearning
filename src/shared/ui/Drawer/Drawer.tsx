@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect } from 'react';
-import { useAnimationContext } from 'shared/providers/AnimationProvider';
+import { useAnimationContext } from '@/shared/providers/AnimationProvider';
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';

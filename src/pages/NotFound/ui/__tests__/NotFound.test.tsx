@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { JestProvider } from 'app/providers/JestProvider';
+import { JestProvider } from '@/app/providers/JestProvider';
 import NotFound from '../NotFoundPage/NotFound';
 
 describe('Тестирование страницы NotFound', () => {

@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
-import { classNames } from 'shared/config/helpers/classNames';
-import { Button } from 'shared/ui/Button';
-import DoubleArrowLeft from 'shared/assets/icons/double-arrow-left.svg';
-import DoubleArrowRight from 'shared/assets/icons/double-arrow-right.svg';
+import { classNames } from '@/shared/config/helpers/classNames';
+import { Button } from '@/shared/ui/Button';
+import DoubleArrowLeft from '@/shared/assets/icons/double-arrow-left.svg';
+import DoubleArrowRight from '@/shared/assets/icons/double-arrow-right.svg';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { SideBarProps } from './SideBar.types';
 import cls from './SideBar.module.scss';

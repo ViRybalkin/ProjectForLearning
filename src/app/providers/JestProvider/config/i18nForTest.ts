@@ -24,7 +24,6 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: 'en',
-        debug: false,
         defaultNS: 'translation',
         supportedLngs,
         resources,

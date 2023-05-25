@@ -1,5 +1,5 @@
 import {ReactElement} from "react";
-import {RolesTypes} from "entities/User";
+import {RolesTypes} from "@/entities/User";
 
 export interface PrivateRouteProps {
     children: ReactElement;

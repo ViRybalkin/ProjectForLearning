@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
-import { HStack } from 'shared/ui/HStack';
-import { Typography } from 'shared/ui/Typography';
-import { VStack } from 'shared/ui/VStack';
-import { Button } from 'shared/ui/Button';
-import { Avatar } from 'shared/ui/Avatar';
+import { HStack } from '@/shared/ui/HStack';
+import { Typography } from '@/shared/ui/Typography';
+import { VStack } from '@/shared/ui/VStack';
+import { Button } from '@/shared/ui/Button';
+import { Avatar } from '@/shared/ui/Avatar';
 import { useNavigate } from 'react-router-dom';
-import { routerPath } from 'shared/config/routes/Routes';
+import { routerPath } from '@/shared/config/routes/Routes';
 import { CommentCardProps } from './CommentCard.types';
 import cls from './CommentCard.module.scss';
 

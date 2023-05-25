@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
-import ListView from 'shared/assets/icons/list-view.svg';
-import TableView from 'shared/assets/icons/table-view.svg';
-import { Button } from 'shared/ui/Button';
-import { HStack } from 'shared/ui/HStack';
-import { Icon } from 'shared/ui/Icon';
-import { ArticleListView } from 'entities/ArticleDetails';
-import { classNames } from 'shared/config/helpers/classNames';
+import ListView from '@/shared/assets/icons/list-view.svg';
+import TableView from '@/shared/assets/icons/table-view.svg';
+import { Button } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/HStack';
+import { Icon } from '@/shared/ui/Icon';
+import { ArticleListView } from '@/entities/ArticleDetails';
+import { classNames } from '@/shared/config/helpers/classNames';
 import { ViewSelectorProps, ViewsList } from './ViewSelector.types';
 import cls from './ViewSelector.module.scss';
 

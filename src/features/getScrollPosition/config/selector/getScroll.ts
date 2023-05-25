@@ -1,5 +1,5 @@
 import {createSelector} from "@reduxjs/toolkit";
-import {AppStoreTypes} from "app/providers/StoreProvider";
+import {AppStoreTypes} from "@/app/providers/StoreProvider";
 import {getScrollPosition} from "./getScrollPosition";
 
 export const getScroll = createSelector(getScrollPosition, (state: AppStoreTypes, path: string) => path,
