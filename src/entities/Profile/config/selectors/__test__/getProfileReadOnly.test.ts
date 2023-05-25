@@ -1,4 +1,4 @@
-import {AppStoreTypes} from "app/providers/StoreProvider";
+import {AppStoreTypes} from "@/app/providers/StoreProvider";
 import {getProfileReadOnly} from "../getProfileReadOnly";
 
 describe('Тестирование селектора getProfileReadOnly', () => {

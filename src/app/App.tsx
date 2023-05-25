@@ -1,11 +1,11 @@
 import './styles/index.scss';
-import { AppRouter } from 'shared/config/routes/ui/AppRouter';
-import { SideBar } from 'widget/ui/SideBar';
-import { NavBar } from 'widget/ui/NavBar';
+import { AppRouter } from '@/shared/config/routes/ui/AppRouter';
+import { SideBar } from '@/widget/ui/SideBar';
+import { NavBar } from '@/widget/ui/NavBar';
 import { Suspense, useEffect } from 'react';
-import { getInited, userAction } from 'entities/User';
+import { getInited, userAction } from '@/entities/User';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/config/helpers/classNames';
+import { classNames } from '@/shared/config/helpers/classNames';
 import { useAppDispatch } from './providers/StoreProvider';
 
 export const App = () => {

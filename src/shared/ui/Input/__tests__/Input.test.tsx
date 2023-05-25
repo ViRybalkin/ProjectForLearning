@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Input, InputProps } from 'shared/ui/Input';
+import { Input, InputProps } from '@/shared/ui/Input';
 import userEvent from '@testing-library/user-event';
 
 describe('тестирование компонента Input', () => {

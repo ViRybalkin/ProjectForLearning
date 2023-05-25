@@ -1,8 +1,8 @@
 import { act, render, screen } from '@testing-library/react';
-import { StoreProvider } from 'app/providers/StoreProvider';
-import { JestProvider } from 'app/providers/JestProvider';
-import * as Selectors from 'entities/Profile/config/selectors/getProfileReadOnly';
-import * as UserSelectors from 'entities/User/config/selectors/getUser';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { JestProvider } from '@/app/providers/JestProvider';
+import * as Selectors from '@/entities/Profile/config/selectors/getProfileReadOnly';
+import * as UserSelectors from '@/entities/User/config/selectors/getUser';
 import userEvent from '@testing-library/user-event';
 import { ProfileHeader } from '../ProfileHeader';
 

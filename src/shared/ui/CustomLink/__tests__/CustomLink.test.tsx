@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { JestProvider } from 'app/providers/JestProvider';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { CustomLink } from '../CustomLink';
 
 describe('Тестирование компонента CustomLink', () => {

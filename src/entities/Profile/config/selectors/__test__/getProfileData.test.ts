@@ -1,4 +1,4 @@
-import {AppStoreTypes} from "app/providers/StoreProvider";
+import {AppStoreTypes} from "@/app/providers/StoreProvider";
 import {getProfileData} from "../getProfileData";
 
 describe('Тестирование селектора getIsLoading', () => {

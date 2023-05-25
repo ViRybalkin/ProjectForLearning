@@ -1,9 +1,9 @@
 import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
-import {userReducer} from "entities/User"
+import {userReducer} from "@/entities/User"
 import {CombinedState, Reducer} from "redux";
-import {getScrollPositionReducer} from "features/getScrollPosition";
-import {rtkApi} from "shared/config/api/rtkApi";
-import {$api} from "shared/config/api/api";
+import {getScrollPositionReducer} from "@/features/getScrollPosition";
+import {rtkApi} from "@/shared/config/api/rtkApi";
+import {$api} from "@/shared/config/api/api";
 import {createReducerManager} from "./ReducerManager";
 import {AppStoreTypes, ThunkExtraArgumentsTypes} from "./AppStore.types";
 

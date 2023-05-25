@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/config/helpers/classNames';
-import { Typography } from 'shared/ui/Typography';
+import { classNames } from '@/shared/config/helpers/classNames';
+import { Typography } from '@/shared/ui/Typography';
 import { ArticleListProps } from './ArticleList.types';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';

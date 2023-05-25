@@ -1,8 +1,8 @@
-import { Button } from 'shared/ui/Button';
-import { UseTheme } from 'app/providers/ThemeProviders';
-import DarkMode from 'shared/assets/icons/dark-mode.svg';
-import LightMode from 'shared/assets/icons/light-mode.svg';
-import OrangeMode from 'shared/assets/icons/orange-mode.svg';
+import { Button } from '@/shared/ui/Button';
+import { UseTheme } from '@/app/providers/ThemeProviders';
+import DarkMode from '@/shared/assets/icons/dark-mode.svg';
+import LightMode from '@/shared/assets/icons/light-mode.svg';
+import OrangeMode from '@/shared/assets/icons/orange-mode.svg';
 import { memo } from 'react';
 
 export const ThemeSwitcher = memo(() => {

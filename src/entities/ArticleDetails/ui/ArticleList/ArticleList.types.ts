@@ -1,4 +1,4 @@
-import { ArticleDetailsDataType, ArticleListView } from 'entities/ArticleDetails';
+import { ArticleDetailsDataType, ArticleListView } from '@/entities/ArticleDetails';
 import { HTMLAttributeAnchorTarget } from 'react';
 
 export interface ArticleListProps {

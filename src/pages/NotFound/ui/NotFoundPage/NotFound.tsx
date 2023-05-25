@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'widget/ui/Page';
+import { Page } from '@/widget/ui/Page';
 import cls from './notFound.module.scss';
 
 const NotFound = () => {

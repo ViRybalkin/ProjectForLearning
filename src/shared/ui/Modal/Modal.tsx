@@ -1,4 +1,4 @@
-import { classNames } from 'shared/config/helpers/classNames';
+import { classNames } from '@/shared/config/helpers/classNames';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { useModal } from '../../config/helpers/useModal';

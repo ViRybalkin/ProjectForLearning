@@ -1,4 +1,4 @@
-import { ArticleDetailsDataType } from 'entities/ArticleDetails';
+import { ArticleDetailsDataType } from '@/entities/ArticleDetails';
 
 export const ArticleDetailsMock: ArticleDetailsDataType = {
   title: 'title',

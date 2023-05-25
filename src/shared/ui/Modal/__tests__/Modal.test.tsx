@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { JestProvider } from 'app/providers/JestProvider';
+import { JestProvider } from '@/app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
 import { Modal } from '../Modal';
 

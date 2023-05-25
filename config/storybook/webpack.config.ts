@@ -25,8 +25,7 @@ export default ({config}: { config: webpack.Configuration }) => {
         }),
     );
     config.resolve!.alias = {
-        'entities': path.resolve(__dirname, '../../src/entities'),
-        'shared': path.resolve(__dirname, '../../src/shared')
+        '@': path.resolve(__dirname, '..', '..', 'src'),
     }
 
     config?.module?.rules?.push({

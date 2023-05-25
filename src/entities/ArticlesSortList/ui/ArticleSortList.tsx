@@ -1,6 +1,6 @@
 import React, { FormEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select';
+import { Select } from '@/shared/ui/Select';
 import { Controller, useForm } from 'react-hook-form';
 import { ArticleSortListProps } from './ArticleSortList.types';
 import cls from './ArticleListSort.module.scss';

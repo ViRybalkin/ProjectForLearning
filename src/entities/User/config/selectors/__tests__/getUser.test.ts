@@ -1,4 +1,4 @@
-import {AppStoreTypes} from 'app/providers/StoreProvider';
+import {AppStoreTypes} from '@/app/providers/StoreProvider';
 import {getUser} from '../getUser';
 
 describe('Тестирование селектора getUser', () => {

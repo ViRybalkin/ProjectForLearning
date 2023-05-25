@@ -1,4 +1,4 @@
-import {$api} from "shared/config/api/api";
+import {$api} from "@/shared/config/api/api";
 
 const errorResponse = {data: {message: 'error'}}
 

@@ -1,5 +1,5 @@
 import {EntityState} from "@reduxjs/toolkit";
-import {ArticleDetailsDataType, ArticleListView} from "entities/ArticleDetails";
+import {ArticleDetailsDataType, ArticleListView} from "@/entities/ArticleDetails";
 
 export interface ArticleListTypes extends EntityState<ArticleDetailsDataType> {
     error?: string;
