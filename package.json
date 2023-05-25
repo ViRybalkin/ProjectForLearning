@@ -118,7 +118,9 @@
     "webpack-dev-server": "4.7.4"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.2",
     "@reduxjs/toolkit": "1.8.0",
+    "@use-gesture/react": "^10.2.27",
     "axios": "0.26.1",
     "i18next": "21.6.11",
     "i18next-browser-languagedetector": "6.1.3",
