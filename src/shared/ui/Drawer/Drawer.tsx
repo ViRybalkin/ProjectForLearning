@@ -8,7 +8,7 @@ import { Overlay } from '../Overlay';
 
 const height = window.innerHeight - 100;
 
-export const DrawerContext = memo(({ isOpen, onClose, children }: DrawerProps) => {
+const DrawerContext = ({ isOpen, onClose, children }: DrawerProps) => {
   const { Spring, Gesture } = useAnimationContext();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
@@ -73,9 +73,9 @@ export const DrawerContext = memo(({ isOpen, onClose, children }: DrawerProps) =
       </div>
     </Portal>
   );
-});
+};
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerProto = (props: DrawerProps) => {
   const { isLoaded } = useAnimationContext();
 
   if (!isLoaded) {
@@ -83,4 +83,12 @@ export const Drawer = memo((props: DrawerProps) => {
   }
 
   return <DrawerContext {...props} />;
+};
+
+export const Drawer = memo((props: DrawerProps) => {
+  return (
+    <AnimationProvider>
+      <DrawerProto {...props} />
+    </AnimationProvider>
+  );
 });
