@@ -37,11 +37,9 @@ export const NotificationButton = memo(() => {
       <MobileComponent classname={cls.mobileItemLength}>
         <div data-content={childrenLength} className={cls.itemLength}>
           {Button}
-          <AnimationProvider>
-            <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              <NotificationList classname={cls.mobileNotification} items={data} isLoading={isLoading} />
-            </Drawer>
-          </AnimationProvider>
+          <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <NotificationList classname={cls.mobileNotification} items={data} isLoading={isLoading} />
+          </Drawer>
         </div>
       </MobileComponent>
     </div>
