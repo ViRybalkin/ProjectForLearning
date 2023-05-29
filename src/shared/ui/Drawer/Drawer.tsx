@@ -5,6 +5,7 @@ import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { classNames } from '@/shared/helpers/classNames';
 import { Overlay } from '../Overlay';
+import { AnimationProvider } from '../../providers/AnimationProvider';
 
 const height = window.innerHeight - 100;
 

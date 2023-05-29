@@ -1,0 +1,12 @@
+.starRating {
+  color: var(--color-primary);
+  fill: none;
+}
+
+.hovered {
+  fill: var(--color-primary);
+}
+
+.selected {
+  cursor: auto;
+}
