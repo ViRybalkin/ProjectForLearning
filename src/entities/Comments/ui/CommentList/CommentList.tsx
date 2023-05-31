@@ -12,7 +12,7 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
 
   if (error) {
     return (
-      <div>
+      <div >
         <Typography align='center' variant='h1'>
           {error}
         </Typography>
@@ -22,7 +22,7 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
 
   if (isLoading) {
     return (
-      <VStack classname={cls.loadingWrapper} align='start' gap='10' data-testid='commentListLoading'>
+      <VStack fullWidth classname={cls.loadingWrapper} align='start' gap='10' data-testid='commentListLoading'>
         <VStack gap='10' align='start'>
           <Skeleton width={50} height={50} borderRadius='50%' />
           <Skeleton width={100} height={20} />
@@ -33,12 +33,12 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
   }
 
   return (
-    <div>
+    <VStack fullWidth>
       {comments.length ? (
         comments.map((el) => <CommentCard key={el.id} comment={el} />)
       ) : (
         <Typography>{t('commentsNotFound')}</Typography>
       )}
-    </div>
+    </VStack>
   );
 });

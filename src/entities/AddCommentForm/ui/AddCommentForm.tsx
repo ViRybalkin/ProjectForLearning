@@ -17,7 +17,7 @@ export const AddCommentForm = memo(({ submitHandler }: AddCommentFormProps) => {
   }, [getValues, setValue, submitHandler]);
 
   return (
-    <HStack gap='20' justify='between' classname={cls.addCommentWrapper}>
+    <HStack fullWidth gap='20' justify='between' classname={cls.addCommentWrapper}>
       <Controller
         name='newComment'
         defaultValue=''

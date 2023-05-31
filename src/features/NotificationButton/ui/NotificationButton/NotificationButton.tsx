@@ -11,7 +11,7 @@ import cls from './NotificationButton.module.scss';
 import { useGetNotificationsQuery } from '../../config/service/getNotifications.service';
 
 export const NotificationButton = memo(() => {
-  const { data, isLoading } = useGetNotificationsQuery(undefined, { pollingInterval: 5000 });
+  const { data, isLoading } = useGetNotificationsQuery(undefined, { pollingInterval: 50000 });
   const childrenLength = data?.length ? String(data.length) : '';
   const [isOpen, setIsOpen] = useState(false);
 

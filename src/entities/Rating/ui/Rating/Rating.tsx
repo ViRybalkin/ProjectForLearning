@@ -10,10 +10,10 @@ import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { VStack } from '@/shared/ui/VStack';
 
-export const Rating = memo(({ ratingTitle, feedbackTitle, onAccept, hasFeedback = false }: RatingProps) => {
+export const Rating = memo(({ ratingTitle, feedbackTitle, onAccept, rate = 0, hasFeedback = false }: RatingProps) => {
   const { t } = useTranslation('articlesDetails');
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [starCount, setStarCount] = useState<number>(0);
+  const [starCount, setStarCount] = useState<number>(rate);
   const [feedback, setFeedback] = useState<string>('');
 
   const onStarSelect = useCallback(
@@ -22,26 +22,25 @@ export const Rating = memo(({ ratingTitle, feedbackTitle, onAccept, hasFeedback 
       if (hasFeedback) {
         setIsOpen(true);
       }
-      onAccept(count);
     },
-    [hasFeedback, onAccept]
+    [hasFeedback]
   );
 
   const onAcceptHandler = useCallback(() => {
     onAccept(starCount, feedback);
     setIsOpen(false);
-  }, [feedback]);
+  }, [feedback, onAccept, starCount]);
 
   const onCancelHandler = useCallback(() => {
     setIsOpen(false);
     onAccept(starCount);
-  }, []);
+  }, [onAccept, starCount]);
 
   return (
-    <div>
-      <VStack classname={cls.rating} gap='20'>
+    <>
+      <VStack fullWidth classname={cls.rating} gap='20'>
         <Typography variant='h3'>{ratingTitle}</Typography>
-        <StarRating onSelect={(count) => onStarSelect(count)} size={30} selectedStar={0} starNumber={5} />
+        <StarRating onSelect={(count) => onStarSelect(count)} size={30} selectedStar={starCount} />
       </VStack>
       <Modal isOpen={isOpen} onClose={() => setIsOpen((prevState) => !prevState)}>
         <VStack gap='10'>
@@ -61,6 +60,6 @@ export const Rating = memo(({ ratingTitle, feedbackTitle, onAccept, hasFeedback 
           </HStack>
         </VStack>
       </Modal>
-    </div>
+    </>
   );
 });

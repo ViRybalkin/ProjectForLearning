@@ -13,6 +13,7 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
+import { VStack } from '@/shared/ui/VStack';
 
 export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
   const { data: articleData, isLoading, error: errorProto } = useGetArticleDetailsQuery(articleId);
@@ -28,7 +29,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
 
   if (isLoading) {
     return (
-      <div data-testid='ArticleDetailsSkeletonId' className={classNames(cls.loadingWrapper)}>
+      <VStack fullWidth data-testid='ArticleDetailsSkeletonId' classname={classNames(cls.loadingWrapper)}>
         <Skeleton className={cls.loadingWrapper__avatar} height={200} width={200} borderRadius={100} />
         <Skeleton className={cls.loadingWrapper__mb20} height={20} width={500} borderRadius={5} />
         <Skeleton className={cls.loadingWrapper__mb20} height={20} width={400} borderRadius={5} />
@@ -37,7 +38,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
         <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
         <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
         <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
-      </div>
+      </VStack>
     );
   }
 

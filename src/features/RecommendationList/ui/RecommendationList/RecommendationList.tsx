@@ -13,7 +13,7 @@ export const RecommendationList = memo(() => {
   const errorMessage = JSON.stringify(error);
 
   return (
-    <VStack gap='8' align='start'>
+    <VStack fullWidth gap='8' align='start'>
       <Typography variant='h2'>{t('recommendationTitle')}</Typography>
       <ArticleList
         articles={articles || []}
