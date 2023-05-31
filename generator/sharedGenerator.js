@@ -1,15 +1,26 @@
+const inquirer = require('inquirer');
 const capitalizeFirstChar = require('./capitalizeFirstChar');
 const createSharedComponent = require('./templates/createSharedComponent');
 
-const sharedComponent = capitalizeFirstChar(process.argv[2]);
-
-if (!sharedComponent) {
-  throw new Error('Укажите название компонента');
-}
-
 try {
-  createSharedComponent(sharedComponent);
-  console.info(`Компонент ${sharedComponent} успешно создан в слое shared`);
+  inquirer
+    .prompt([
+      {
+        name: 'componentName',
+        message: 'Введите название компонента',
+        type: 'input',
+        filter(val) {
+          return capitalizeFirstChar(val);
+        },
+      },
+    ])
+    .then((answers) => {
+      const { componentName } = answers;
+
+      createSharedComponent(componentName);
+
+      console.info(`Компонент ${componentName} успешно создан в слое shared 🎆🎆🎆🎆🎆🎆🎆`);
+    });
 } catch (e) {
   throw new Error(e);
 }
