@@ -57,6 +57,12 @@
       "comment": "Новый комментарий",
       "postId": "1",
       "userId": "2"
+    },
+    {
+      "postId": "2",
+      "userId": "1",
+      "comment": "комментарий",
+      "id": "Mmbk7Qm"
     }
   ],
   "articles": [
@@ -612,6 +618,28 @@
       "avatar": "https://w0.peakpx.com/wallpaper/165/445/HD-wallpaper-neon-mask-hacker-hackers-lonely-hacker-neon-mask.jpg",
       "country": "Kazahstan",
       "currency": "USD"
+    }
+  ],
+  "rating": [
+    {
+      "id": "1",
+      "userId": "1",
+      "articleId": "1",
+      "rate": 3,
+      "feedback": "feedback"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "articleId": "2",
+      "rate": 2,
+      "feedback": "feedback"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 4,
+      "id": "tHKjCj7"
     }
   ]
 }

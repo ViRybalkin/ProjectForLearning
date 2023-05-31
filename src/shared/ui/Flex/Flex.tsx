@@ -11,7 +11,7 @@ export const Flex = memo(
     justify = 'center',
     align = 'center',
     direction = 'column',
-    fullWidth = true,
+    fullWidth = false,
   }: FlexProps) => {
     const classes = [
       classname,
@@ -21,6 +21,6 @@ export const Flex = memo(
       gap && cls[`gap__${gap}`],
     ];
 
-    return <div className={classNames(cls.flex, { max: fullWidth }, classes)}>{children}</div>;
+    return <div className={classNames(cls.flex, { [cls.fullWidth]: fullWidth }, classes)}>{children}</div>;
   }
 );

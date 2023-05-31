@@ -17,9 +17,9 @@ export const CommentCard = memo(({ comment }: CommentCardProps) => {
   }, [comment.user?.id, navigate]);
 
   return (
-    <VStack gap='20' align='start' classname={cls.commentWrapper}>
+    <VStack fullWidth gap='20' align='start' classname={cls.commentWrapper}>
       <Button onClick={onUserClick} className={cls.buttonColor} theme='clear'>
-        <HStack gap='10'>
+        <HStack fullWidth gap='10'>
           {comment.user?.avatar ? <Avatar src={comment.user?.avatar} alt={comment.user?.avatar} size={30} /> : null}
           <Typography>{comment.user?.username}</Typography>
         </HStack>

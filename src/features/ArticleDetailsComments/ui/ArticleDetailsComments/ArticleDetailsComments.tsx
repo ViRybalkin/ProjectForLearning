@@ -9,6 +9,7 @@ import cls from './ArticleDetailsComments.module.scss';
 import { ArticleDetailsCommentsProps } from './ArticleDetailsComments.types';
 import { useAddArticleDetailsCommentMutation } from '../../config/service/addArticleDetailsComment.service';
 import { useGetArticleDetailsCommentsQuery } from '../../config/service/getArticleDetailsComments.service';
+import { VStack } from '@/shared/ui/VStack';
 
 export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsCommentsProps) => {
   const { t } = useTranslation('articlesDetails');
@@ -26,12 +27,12 @@ export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsComment
     [addComment]
   );
   return (
-    <>
+    <VStack fullWidth>
       <Typography classname={cls.commentTitle} variant='h2'>
         {t('commentTitle')}
       </Typography>
       <AddCommentForm submitHandler={(form) => addNewCommentHandler(form)} />
       <CommentList comments={comments || []} error={errorMessage} isLoading={isLoading} />
-    </>
+    </VStack>
   );
 });
