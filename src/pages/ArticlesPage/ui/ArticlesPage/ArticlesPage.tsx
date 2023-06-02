@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import { ArticleList } from '@/entities/ArticleDetails';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ArticleList } from '@/entities/ArticleDetails';
 import { DynamicComponent } from '@/app/providers/DynamicComponent';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/config/helpers/useInitialEffect';

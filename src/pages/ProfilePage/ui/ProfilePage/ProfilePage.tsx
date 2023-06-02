@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DynamicComponent } from '@/app/providers/DynamicComponent';
-import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { DynamicComponent } from '@/app/providers/DynamicComponent';
+import { useAppDispatch } from '@/app/providers/StoreProvider';
 import {
   getError,
   getIsLoading,

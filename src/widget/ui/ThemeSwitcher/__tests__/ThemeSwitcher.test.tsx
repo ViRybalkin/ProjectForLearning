@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { JestProvider } from '@/app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 
 describe('Тестирование компонента NavBar', () => {

@@ -1,7 +1,7 @@
-import * as Selectors from '@/entities/User';
 import { act, render, screen } from '@testing-library/react';
-import { JestProvider } from '@/app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
+import * as Selectors from '@/entities/User';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { NavBar } from '../NavBar';
 
 const mockDispatch = jest.fn();

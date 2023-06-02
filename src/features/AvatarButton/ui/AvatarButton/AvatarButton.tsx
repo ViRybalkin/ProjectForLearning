@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import { routerPath } from '@/shared/config/routes/Routes';
-import { useSelector } from 'react-redux';
 import { getIsAdmin, getIsManager, getUser, userAction } from '@/entities/User';
-import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 
 export const AvatarButton = memo(() => {

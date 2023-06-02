@@ -1,15 +1,15 @@
 import React, { memo, useCallback } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { Input } from '@/shared/ui/Input';
-import { Controller, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import cls from './AddCommentForm.module.scss';
 import { AddCommentFormProps, AddCommentFormTypes } from './AddCommentForm.types';
 
 export const AddCommentForm = memo(({ submitHandler }: AddCommentFormProps) => {
   const { t } = useTranslation('articlesDetails');
-  const { setValue, control, getValues, watch } = useForm<AddCommentFormTypes>();
+  const { setValue, control, getValues } = useForm<AddCommentFormTypes>();
   const onSubmit = useCallback(() => {
     const comment = getValues('newComment');
     submitHandler({ newComment: comment });

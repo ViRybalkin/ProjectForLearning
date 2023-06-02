@@ -74,7 +74,9 @@ module.exports = {
       },
     ],
     'react/no-array-index-key': 'off',
-    'for-fsd-path/path-checker': 'error',
+    'for-fsd-path/path-checker': [
+      'error', {alias: '@'},
+    ],
     'key-spacing': [
       'error',
       {

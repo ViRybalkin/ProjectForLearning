@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
 import { Typography } from '@/shared/ui/Typography';
 import { Icon } from '@/shared/ui/Icon';
@@ -8,7 +9,6 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { classNames } from '@/shared/config/helpers/classNames';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { routerPath } from '@/shared/config/routes/Routes';
-import { useTranslation } from 'react-i18next';
 import { ArticleListItemProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 import { ArticleDetailsTextBlock } from '../../config/types/article.types';

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import { JestProvider } from '@/app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { Modal } from '../Modal';
 
 describe('Тестирования модального окна', () => {

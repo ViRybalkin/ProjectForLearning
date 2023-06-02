@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { Controller, useForm } from 'react-hook-form';
 import { Input } from '@/shared/ui/Input';
 import { Typography } from '@/shared/ui/Typography';
 import { Button } from '@/shared/ui/Button';
 import { DynamicComponent } from '@/app/providers/DynamicComponent';
 import { classNames } from '@/shared/config/helpers/classNames';
 import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { Controller, useForm } from 'react-hook-form';
 import { getIsLoading } from '../../config/selector/getIsLoading';
 import { getError } from '../../config/selector/getError';
 import { authActions, authByUserNameReducer } from '../../config/slice/AuthByUserNameSlice';

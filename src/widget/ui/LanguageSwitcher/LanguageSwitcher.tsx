@@ -1,6 +1,6 @@
-import { Button } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { Button } from '@/shared/ui/Button';
 import { i18n } from '@/shared/config/i18n/i18nConfig';
 
 const LanguageSwitcher = memo(() => {
