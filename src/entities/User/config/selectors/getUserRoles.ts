@@ -1,5 +1,5 @@
-import {AppStoreTypes} from '@/app/providers/StoreProvider';
 import {createSelector} from '@reduxjs/toolkit';
+import {AppStoreTypes} from '@/app/providers/StoreProvider';
 
 export const getUserRoles = (state: AppStoreTypes) => state?.user.roles;
 

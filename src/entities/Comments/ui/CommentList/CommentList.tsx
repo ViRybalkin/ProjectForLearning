@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { VStack } from '@/shared/ui/VStack';
 import { Typography } from '@/shared/ui/Typography';
-import { useTranslation } from 'react-i18next';
 import cls from './CommentList.module.scss';
 import { CommentListProps } from './CommentList.types';
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -12,7 +12,7 @@ export const CommentList = memo(({ comments, isLoading, error }: CommentListProp
 
   if (error) {
     return (
-      <div className={cls.errorWrapper}>
+      <div>
         <Typography align='center' variant='h1'>
           {error}
         </Typography>

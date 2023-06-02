@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArticleDetails } from '@/entities/ArticleDetails';
 import { useParams } from 'react-router-dom';
+import { ArticleDetails } from '@/entities/ArticleDetails';
 import { Page } from '@/widget/ui/Page';
 import { RecommendationList } from '@/features/RecommendationList';
 import { ArticleDetailsComments } from '@/features/ArticleDetailsComments';

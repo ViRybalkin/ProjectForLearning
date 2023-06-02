@@ -32,7 +32,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.17.5",
+    "@babel/core": "7.18.6",
     "@babel/plugin-transform-runtime": "7.21.4",
     "@babel/plugin-transform-typescript": "7.21.3",
     "@babel/preset-env": "7.16.11",
@@ -78,7 +78,7 @@
     "eslint": "8.10.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-for-fsd-path": "0.0.6",
+    "eslint-plugin-for-fsd-path": "1.0.0",
     "eslint-plugin-i18next": "5.1.2",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jsx-a11y": "6.5.1",
@@ -120,7 +120,7 @@
     "typescript-plugin-css-modules": "5.0.1",
     "vite": "4.3.8",
     "vite-plugin-svgr": "^3.2.0",
-    "webpack": "5.69.1",
+    "webpack": "5.76.0",
     "webpack-bundle-analyzer": "4.5.0",
     "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.7.4"

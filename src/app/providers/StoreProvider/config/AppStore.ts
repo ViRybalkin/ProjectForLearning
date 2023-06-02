@@ -1,6 +1,6 @@
 import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
-import {userReducer} from "@/entities/User"
 import {CombinedState, Reducer} from "redux";
+import {userReducer} from "@/entities/User"
 import {getScrollPositionReducer} from "@/features/getScrollPosition";
 import {rtkApi} from "@/shared/config/api/rtkApi";
 import {$api} from "@/shared/config/api/api";

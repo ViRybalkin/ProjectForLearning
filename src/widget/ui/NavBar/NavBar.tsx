@@ -1,10 +1,10 @@
+import { useTranslation } from 'react-i18next';
+import { memo, useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { CustomLink } from '@/shared/ui/CustomLink';
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useState } from 'react';
 import { LoginModal } from '@/features/AuthByUserName';
-import { useSelector } from 'react-redux';
 import { getIsAuth } from '@/entities/User';
 import { classNames } from '@/shared/config/helpers/classNames';
 import { NotificationButton } from '@/features/NotificationButton';

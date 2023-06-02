@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { articleListMocks } from '@/__mocks__';
-import { ArticleListView } from '@/entities/ArticleDetails';
-import { JestProvider } from '@/app/providers/JestProvider';
 import userEvent from '@testing-library/user-event';
+import { articleListMocks } from '@/__mocks__';
+import { ArticleListView } from '../../../config/types/article.types';
+import { JestProvider } from '@/app/providers/JestProvider';
 import { routerPath } from '@/shared/config/routes/Routes';
 import { ArticleListItem } from '../ArticleListItem';
 

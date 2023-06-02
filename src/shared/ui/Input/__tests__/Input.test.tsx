@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Input, InputProps } from '@/shared/ui/Input';
 import userEvent from '@testing-library/user-event';
+import { Input } from '../Input';
+import { InputProps } from '../Input.types';
 
 describe('тестирование компонента Input', () => {
   const user = userEvent.setup();

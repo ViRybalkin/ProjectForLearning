@@ -1,13 +1,13 @@
 import React, { FormEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from '@/shared/ui/Select';
 import { Controller, useForm } from 'react-hook-form';
+import { Select } from '@/shared/ui/Select';
 import { ArticleSortListProps } from './ArticleSortList.types';
 import cls from './ArticleListSort.module.scss';
 
 export const ArticleSortList = memo(({ onFieldChange, onDirectionChange }: ArticleSortListProps) => {
   const { t } = useTranslation('articlesDetails');
-  const { handleSubmit, control, setValue, watch } = useForm();
+  const { control, setValue } = useForm();
 
   const fieldOptions = [
     {

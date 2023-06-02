@@ -1,12 +1,12 @@
 import React, { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { Typography } from '@/shared/ui/Typography';
-import { useTranslation } from 'react-i18next';
 import { getUser } from '@/entities/User';
 import { getProfileData, getProfileReadOnly, ProfileAction } from '@/entities/Profile';
-import { useSelector } from 'react-redux';
 import cls from './ProfileHeader.module.scss';
 import { ProfileHeaderProps } from './ProfileHeader.types';
 

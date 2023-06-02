@@ -1,5 +1,5 @@
-import { ArticleListView } from '@/entities/ArticleDetails';
 import React from 'react';
+import { ArticleListView } from '@/entities/ArticleDetails';
 
 export interface ViewSelectorProps {
   view?: ArticleListView;
