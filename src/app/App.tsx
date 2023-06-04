@@ -1,8 +1,8 @@
 import './styles/index.scss';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { SideBar } from 'src/widget/SideBar';
-import { NavBar } from 'src/widget/NavBar';
+import { SideBar } from '@/widget/SideBar';
+import { NavBar } from '@/widget/NavBar';
 import { AppRouter } from '@/shared/config/routes/ui/AppRouter';
 import { getInited, userAction } from '@/entities/User';
 import { classNames } from '@/shared/config/helpers/classNames';
