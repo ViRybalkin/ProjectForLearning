@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Page } from 'src/widget/Page';
+import { Page } from '@/widget/Page';
 import { DynamicComponent } from '@/app/providers/DynamicComponent';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import {

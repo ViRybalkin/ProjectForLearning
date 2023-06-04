@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Page } from 'src/widget/Page';
+import { Page } from '@/widget/Page';
 import { ArticleList } from '@/entities/ArticleDetails';
 import { DynamicComponent } from '@/app/providers/DynamicComponent';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
