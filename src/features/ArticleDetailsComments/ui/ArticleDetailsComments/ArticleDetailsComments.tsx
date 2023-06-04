@@ -22,6 +22,7 @@ export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsComment
       addComment({ comment: form.newComment, postId: articleId, userId: userData?.id });
       refetch();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [addComment]
   );
   return (

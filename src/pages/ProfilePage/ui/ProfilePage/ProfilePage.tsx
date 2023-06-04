@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Page } from 'src/widget/Page';
 import { DynamicComponent } from '@/app/providers/DynamicComponent';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import {
@@ -18,7 +19,6 @@ import {
 } from '@/entities/Profile';
 import { Typography } from '@/shared/ui/Typography';
 import { useInitialEffect } from '@/shared/config/helpers/useInitialEffect';
-import { Page } from '@/widget/ui/Page';
 import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'src/widget/Page';
 import { classNames } from '@/shared/config/helpers/classNames';
-import { Page } from '@/widget/ui/Page';
 import { ErrorPageProps } from './ErrorPage.types';
 import cls from './errorPage.module.scss';
 

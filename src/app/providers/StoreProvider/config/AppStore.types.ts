@@ -6,7 +6,7 @@ import {UserSliceTypes} from "@/entities/User";
 import {ArticleDetailsReducerType} from "@/entities/ArticleDetails";
 import {AuthByUserNameTypes} from "@/features/AuthByUserName";
 import {GetScrollPositionTypes} from "@/features/getScrollPosition";
-import {ArticleListTypes} from "@/pages/ArticlesPage/config/types/articles.types";
+import {ArticleListTypes} from "@/pages/ArticlesPage";
 import {rtkApi} from "@/shared/config/api/rtkApi";
 import {createReduxStore} from "../config/AppStore";
 

@@ -15,11 +15,12 @@ export const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount 
 
     return () => {
       if (shouldRemoveAfterUnmount) {
-        Object.entries(reducers).forEach(([key, reducer]) => {
+        Object.entries(reducers).forEach(([key]) => {
           store.reducerManager.remove(key as AppStoreKeys);
         });
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div>{children}</div>;
