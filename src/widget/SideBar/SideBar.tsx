@@ -19,7 +19,7 @@ const SideBar = ({ className }: SideBarProps) => {
       data-testid='sideBarTestId'
       className={classNames(cls.navBar, { [cls.collapsed]: isCollapsed }, [className])}>
       <LanguageSwitcher />
-      <Button data-testid='toggleSideBarBtn' theme='clear' className={cls.collapseBtn} onClick={onToggle}>
+      <Button data-testid='toggleSideBarBtn' theme='clear' onClick={onToggle}>
         {isCollapsed ? (
           <DoubleArrowRight data-testid='DoubleArrowRight' fill='#fff' width={30} height={30} />
         ) : (
