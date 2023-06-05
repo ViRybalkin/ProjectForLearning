@@ -1,6 +1,6 @@
 import { Menu } from '@headlessui/react';
 import { Fragment, memo } from 'react';
-import { classNames } from '../../../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { AppLink } from '../../../AppLink';
 import { DropDownProps } from './DropDown.types';
 import popupsCls from '../../styles/Popups.module.scss';

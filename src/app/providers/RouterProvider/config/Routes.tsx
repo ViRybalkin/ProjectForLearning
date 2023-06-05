@@ -1,6 +1,8 @@
 import {PathRouteProps} from 'react-router/dist/lib/components';
 import {lazy} from 'react';
 import {RolesTypes} from "@/entities/User";
+import {Path} from "@/shared/types";
+import {routerPath} from "@/shared/constants";
 
 const MainPage = lazy(() => import('@/pages/MainPage/ui/MainPage/MainPage'));
 const AboutPage = lazy(() => import('@/pages/About/About'));
@@ -15,27 +17,6 @@ export interface RouterProps extends PathRouteProps {
     isAuth?: boolean;
     roles?: Array<RolesTypes>;
 }
-
-export type Path =
-    'main'
-    | 'about'
-    | 'profile'
-    | 'articlesPage'
-    | 'articlesDetailsPage'
-    | 'adminPage'
-    | 'forbiddenPage'
-    | 'notFound'
-
-export const routerPath: Record<Path, string> = {
-    main: '/',
-    about: '/about',
-    profile: '/profile/',
-    articlesPage: '/articles',
-    articlesDetailsPage: '/articles/',
-    adminPage: '/admin',
-    forbiddenPage: '/forbidden',
-    notFound: '*',
-};
 
 export const routerConfig: Record<Path, RouterProps> = {
     main: {

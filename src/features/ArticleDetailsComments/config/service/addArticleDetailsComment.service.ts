@@ -1,5 +1,5 @@
 import {Comment} from "@/entities/Comments";
-import {rtkApi} from "@/shared/config/api/rtkApi";
+import {rtkApi} from "@/shared/api/rtkApi";
 import {AddCommentPayloadTypes} from "../types/ArticleDetailsCommentsTypes.types";
 
 const addArticleDetailsComment = rtkApi.injectEndpoints({

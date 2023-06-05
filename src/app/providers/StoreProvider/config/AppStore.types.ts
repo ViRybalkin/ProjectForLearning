@@ -7,7 +7,7 @@ import {ArticleDetailsReducerType} from "@/entities/ArticleDetails";
 import {AuthByUserNameTypes} from "@/features/AuthByUserName";
 import {GetScrollPositionTypes} from "@/features/getScrollPosition";
 import {ArticleListTypes} from "@/pages/ArticlesPage";
-import {rtkApi} from "@/shared/config/api/rtkApi";
+import {rtkApi} from "@/shared/api/rtkApi";
 import {createReduxStore} from "../config/AppStore";
 
 export interface AppStoreTypes {
@@ -18,7 +18,6 @@ export interface AppStoreTypes {
     profile?: ProfileTypes;
     articleDetails?: ArticleDetailsReducerType;
     articleList?: ArticleListTypes;
-
 }
 
 export type AppStoreKeys = keyof AppStoreTypes

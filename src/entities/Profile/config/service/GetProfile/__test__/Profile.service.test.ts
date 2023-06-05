@@ -1,5 +1,5 @@
-import * as ErrorHelper from "@/shared/config/helpers/error";
-import {$api} from "@/shared/config/api/api";
+import * as ErrorHelper from "@/shared/helpers/error";
+import {$api} from "@/shared/api/api";
 import {getProfile} from "../../GetProfile/Profile.service";
 
 const errorResponse = {data: {message: 'error'}}

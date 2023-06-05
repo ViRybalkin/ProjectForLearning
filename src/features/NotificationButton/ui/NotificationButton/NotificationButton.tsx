@@ -6,8 +6,7 @@ import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { MobileComponent } from '@/shared/ui/MobileComponent';
 import { DesktopComponent } from '@/shared/ui/DesktopComponent';
 import { Drawer } from '@/shared/ui/Drawer';
-import { classNames } from '@/shared/config/helpers/classNames';
-import { AnimationProvider } from '@/shared/providers/AnimationProvider';
+import { classNames } from '@/shared/helpers/classNames';
 import cls from './NotificationButton.module.scss';
 import { useGetNotificationsQuery } from '../../config/service/getNotifications.service';
 

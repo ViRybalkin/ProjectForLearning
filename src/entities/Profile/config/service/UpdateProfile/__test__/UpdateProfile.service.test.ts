@@ -1,4 +1,4 @@
-import {$api} from "@/shared/config/api/api";
+import {$api} from "@/shared/api/api";
 import {updateProfile} from "../../UpdateProfile/UpdateProfile.service";
 import {ProfileDataTypes} from "../../../types/Profile.types";
 import * as ValidationProfileMock from '../../ValidationErrors/ValidationErrors.service'

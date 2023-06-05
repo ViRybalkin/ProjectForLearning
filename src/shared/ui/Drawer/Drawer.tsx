@@ -3,7 +3,7 @@ import { AnimationProvider, useAnimationContext } from '@/shared/providers/Anima
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
-import { classNames } from '../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Overlay } from '../Overlay';
 
 const height = window.innerHeight - 100;

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {userAction, UserSliceTypes} from "@/entities/User";
-import {handleError} from "@/shared/config/helpers/error";
+import {handleError} from "@/shared/helpers/error";
 import {ThunkConfig} from "@/app/providers/StoreProvider";
 import {LOCAL_STORAGE_KEY} from "@/shared/constants/localStorageKey";
 import {UserData} from "../types/AuthByUserName.types";

@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
-import { useModal } from '../../config/helpers/useModal';
+import { useModal } from '@/shared/helpers/useModal';
 import cls from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 

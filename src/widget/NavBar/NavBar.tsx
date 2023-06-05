@@ -6,7 +6,7 @@ import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { LoginModal } from '@/features/AuthByUserName';
 import { getIsAuth } from '@/entities/User';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarButton } from '@/features/AvatarButton';
 import { ThemeSwitcher } from '../ThemeSwitcher';

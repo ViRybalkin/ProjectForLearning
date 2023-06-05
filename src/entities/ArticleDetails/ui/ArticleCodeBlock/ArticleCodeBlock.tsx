@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Code } from '@/shared/ui/Code';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { ArticleCodeBlockProps } from './ArticleCodeBlock.types';
 
 export const ArticleCodeBlock = memo(({ text, classname }: ArticleCodeBlockProps) => {

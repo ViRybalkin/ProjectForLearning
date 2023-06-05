@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
-import { routerPath } from '@/shared/config/routes/Routes';
 import { getIsAdmin, getIsManager, getUser, userAction } from '@/entities/User';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
+import { routerPath } from '@/shared/constants';
 
 export const AvatarButton = memo(() => {
   const { t } = useTranslation();
