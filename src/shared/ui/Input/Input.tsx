@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { classNames } from '../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Typography } from '../Typography';
 import { InputProps } from './Input.types';
 import cls from './input.module.scss';

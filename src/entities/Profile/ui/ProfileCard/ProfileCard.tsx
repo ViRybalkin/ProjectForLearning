@@ -7,7 +7,7 @@ import { VStack } from '@/shared/ui/VStack';
 import { HStack } from '@/shared/ui/HStack';
 import { Input } from '@/shared/ui/Input';
 import { Avatar } from '@/shared/ui/Avatar';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { CountrySelect } from '../../../Country/ui/CountrySelect/CountrySelect';
 import cls from './profileCard.module.scss';
 import { ProfileDataTypes } from '../../config/types/Profile.types';

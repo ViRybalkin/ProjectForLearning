@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { classNames } from '../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { CardProps } from './Card.types';
 import cls from './Card.module.scss';
 

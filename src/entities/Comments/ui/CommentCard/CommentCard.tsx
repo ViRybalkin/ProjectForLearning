@@ -5,9 +5,9 @@ import { Typography } from '@/shared/ui/Typography';
 import { VStack } from '@/shared/ui/VStack';
 import { Button } from '@/shared/ui/Button';
 import { Avatar } from '@/shared/ui/Avatar';
-import { routerPath } from '@/shared/config/routes/Routes';
 import { CommentCardProps } from './CommentCard.types';
 import cls from './CommentCard.module.scss';
+import { routerPath } from '@/shared/constants';
 
 export const CommentCard = memo(({ comment }: CommentCardProps) => {
   const navigate = useNavigate();

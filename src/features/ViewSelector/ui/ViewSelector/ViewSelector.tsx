@@ -5,7 +5,7 @@ import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { Icon } from '@/shared/ui/Icon';
 import { ArticleListView } from '@/entities/ArticleDetails';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { ViewSelectorProps, ViewsList } from './ViewSelector.types';
 import cls from './ViewSelector.module.scss';
 

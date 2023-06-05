@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { classNames } from '../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { AvatarProps } from './Avatar.types';
 import cls from './Avatar.module.scss';
 

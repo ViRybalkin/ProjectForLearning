@@ -18,7 +18,7 @@ import {
   updateProfile,
 } from '@/entities/Profile';
 import { Typography } from '@/shared/ui/Typography';
-import { useInitialEffect } from '@/shared/config/helpers/useInitialEffect';
+import { useInitialEffect } from '@/shared/helpers/useInitialEffect';
 import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
 
 const ProfilePage = () => {

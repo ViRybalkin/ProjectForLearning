@@ -1,5 +1,5 @@
 import {ArticleDetailsDataType} from "@/entities/ArticleDetails";
-import {rtkApi} from "@/shared/config/api/rtkApi";
+import {rtkApi} from "@/shared/api/rtkApi";
 
 const getRecommendationList = rtkApi.injectEndpoints({
     endpoints: (build) => ({

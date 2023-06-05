@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { HStack } from '@/shared/ui/HStack';
 import { Icon } from '@/shared/ui/Icon';

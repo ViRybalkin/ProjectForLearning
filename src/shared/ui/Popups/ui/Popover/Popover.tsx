@@ -2,7 +2,7 @@ import { Popover as HPopover } from '@headlessui/react';
 import { memo } from 'react';
 import { PopoverProps } from './Popover.types';
 import popupsCls from '../../styles/Popups.module.scss';
-import { classNames } from '../../../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 
 export const Popover = memo(
   ({ children, buttonItem, childrenLength, classname, position = 'bottomLeft' }: PopoverProps) => {

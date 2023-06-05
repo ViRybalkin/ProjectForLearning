@@ -1,4 +1,4 @@
-import {rtkApi} from "@/shared/config/api/rtkApi";
+import {rtkApi} from "@/shared/api/rtkApi";
 import {ArticleDetailsDataType} from "../../types/article.types";
 
 

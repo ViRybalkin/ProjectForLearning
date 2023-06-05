@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from '../../../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Typography } from '../../../Typography';
 import cls from './ListBox.module.scss';
 import popupsCls from '../../styles/Popups.module.scss';

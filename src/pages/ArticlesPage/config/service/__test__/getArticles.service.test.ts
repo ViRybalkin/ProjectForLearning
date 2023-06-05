@@ -1,5 +1,5 @@
-import {$api} from "@/shared/config/api/api";
-import * as ErrorHelper from "@/shared/config/helpers/error";
+import {$api} from "@/shared/api/api";
+import * as ErrorHelper from "@/shared/helpers/error";
 import {articleListMocks} from "@/__mocks__";
 import {getArticleList} from "../getArticles.service";
 // import * as Selector from '../../selectors'

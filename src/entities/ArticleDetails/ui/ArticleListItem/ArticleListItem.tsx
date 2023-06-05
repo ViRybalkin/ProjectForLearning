@@ -6,13 +6,13 @@ import { Icon } from '@/shared/ui/Icon';
 import { Card } from '@/shared/ui/Card';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { routerPath } from '@/shared/config/routes/Routes';
 import { ArticleListItemProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 import { ArticleDetailsTextBlock } from '../../config/types/article.types';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { routerPath } from '@/shared/constants';
 
 export const ArticleListItem = memo(({ article, view, target }: ArticleListItemProps) => {
   const { t } = useTranslation('articlesDetails');

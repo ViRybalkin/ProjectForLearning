@@ -8,7 +8,7 @@ import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { HStack } from '@/shared/ui/HStack';
 import { Input } from '@/shared/ui/Input';
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
-import { useDebounce } from '@/shared/config/helpers/useDebounce';
+import { useDebounce } from '@/shared/helpers/useDebounce';
 import { ArticleListView } from '@/entities/ArticleDetails';
 import { getArticleListType } from '../../config/selectors/getArticleListType';
 import { getArticleListView } from '../../config/selectors/getArticleListView';

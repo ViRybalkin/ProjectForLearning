@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {handleError} from "@/shared/config/helpers/error";
+import {handleError} from "@/shared/helpers/error";
 import {ThunkConfig} from "@/app/providers/StoreProvider";
 import {ProfileDataTypes} from "../../types/Profile.types";
 

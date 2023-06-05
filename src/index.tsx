@@ -4,7 +4,7 @@ import { StoreProvider } from '@/app/providers/StoreProvider';
 import { ThemeProvider } from '@/app/providers/ThemeProviders';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { App } from '@/app/App';
-import '@/shared/config/i18n/i18nConfig';
+import '@/shared/i18n/i18nConfig';
 
 render(
   <BrowserRouter>

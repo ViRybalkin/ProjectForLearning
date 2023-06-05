@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import { classNames } from '../../config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { Button } from '../Button/Button';
 import Copy from '../../assets/icons/copy.svg';
 import { Icon } from '../Icon';

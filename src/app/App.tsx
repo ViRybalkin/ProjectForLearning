@@ -3,9 +3,9 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { SideBar } from '@/widget/SideBar';
 import { NavBar } from '@/widget/NavBar';
-import { AppRouter } from '@/shared/config/routes/ui/AppRouter';
+import { AppRouter } from '@/app/providers/RouterProvider';
 import { getInited, userAction } from '@/entities/User';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 import { useAppDispatch } from './providers/StoreProvider';
 
 export const App = () => {

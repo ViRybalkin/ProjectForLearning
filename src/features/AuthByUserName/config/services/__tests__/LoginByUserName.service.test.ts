@@ -1,5 +1,5 @@
 import {userAction} from "@/entities/User";
-import {$api} from "@/shared/config/api/api";
+import {$api} from "@/shared/api/api";
 import {authByUserNameThunk} from "../LoginByUserName.service";
 import {UserData} from "../../types/AuthByUserName.types";
 
