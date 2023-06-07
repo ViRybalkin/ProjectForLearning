@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { DynamicComponent } from '@/shared/providers/DynamicComponent';
 import { Page } from '@/widget/Page';
 import { ArticleList } from '@/entities/ArticleDetails';
-import { DynamicComponent } from '@/app/providers/DynamicComponent';
-import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/helpers/useInitialEffect';
 import { getArticleListIsLoading } from '../../config/selectors/getArticleListIsLoading';
 import { ArticleListReducer, articleListSelector } from '../../config/slice/articlesSlice';
@@ -13,6 +12,7 @@ import { articlePageInitialEffect } from '../../config/service/articlePageInitia
 import { getArticleListView } from '../../config/selectors/getArticleListView';
 import { getPaginatedArticleListService } from '../../config/service/getPaginatedArticleList.service';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
+import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 const reducer = {
   articleList: ArticleListReducer,

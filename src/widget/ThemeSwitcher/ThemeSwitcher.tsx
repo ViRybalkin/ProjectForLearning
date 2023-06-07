@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Button } from '@/shared/ui/Button';
-import { UseTheme } from '@/app/providers/ThemeProviders';
+import { UseTheme } from '@/shared/providers/ThemeProviders';
 import DarkMode from '@/shared/assets/icons/dark-mode.svg';
 import LightMode from '@/shared/assets/icons/light-mode.svg';
 import OrangeMode from '@/shared/assets/icons/orange-mode.svg';

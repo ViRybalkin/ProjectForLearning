@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import { useStore } from 'react-redux';
-import { AppStoreKeys, StoreWithReducerManager } from '../../StoreProvider';
+import { AppStoreKeys, StoreWithReducerManager } from '@/app/providers/StoreProvider';
 import { DynamicComponentProps } from './DynamicComponent.types';
 
 export const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount = true }: DynamicComponentProps) => {

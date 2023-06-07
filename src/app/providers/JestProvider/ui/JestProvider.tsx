@@ -1,7 +1,7 @@
 import { FC, Suspense } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
-import { ThemeProvider } from '../../ThemeProviders';
+import { ThemeProvider } from '@/shared/providers/ThemeProviders';
 import { StoreProvider } from '../../StoreProvider';
 import i18n from '../config/i18nForTest';
 

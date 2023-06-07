@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { JestProvider } from '@/app/providers/JestProvider';
-import { App } from '@/app/App';
-import * as Selectors from '@/entities/User/config/selectors/getInited';
+import { App } from '../App';
+import * as Selectors from '@/entities/User';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
