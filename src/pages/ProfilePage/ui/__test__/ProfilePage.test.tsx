@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { JestProvider } from '@/app/providers/JestProvider';
-import * as Selectors from '@/entities/Profile/config/selectors/getProfileData';
+import * as Selectors from '@/entities/Profile';
 import ProfilePage from '../ProfilePage/ProfilePage';
 
 const mockDispatch = jest.fn();

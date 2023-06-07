@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import { ReactNode } from 'react';
-import { AppStoreKeys } from '../../StoreProvider/config/AppStore.types';
+import { AppStoreKeys } from '@/app/providers/StoreProvider';
 
 type ReducersTypes = {
   [name in AppStoreKeys]?: Reducer;

@@ -3,10 +3,10 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { SideBar } from '@/widget/SideBar';
 import { NavBar } from '@/widget/NavBar';
-import { AppRouter } from '@/app/providers/RouterProvider';
+import { AppRouter } from './providers/RouterProvider';
 import { getInited, userAction } from '@/entities/User';
 import { classNames } from '@/shared/helpers/classNames';
-import { useAppDispatch } from './providers/StoreProvider';
+import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 export const App = () => {
   const dispatch = useAppDispatch();

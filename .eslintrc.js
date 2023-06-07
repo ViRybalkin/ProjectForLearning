@@ -76,6 +76,13 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'for-fsd-path/path-checker': ['error', { alias: '@' }],
     'for-fsd-path/public-api-imports': ['error', { alias: '@' }],
+    'for-fsd-path/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportsPatterns: ['**/providers/JestProvider', '**/providers/StoreProvider', '**/selectors/**'],
+      },
+    ],
     'key-spacing': [
       'error',
       {

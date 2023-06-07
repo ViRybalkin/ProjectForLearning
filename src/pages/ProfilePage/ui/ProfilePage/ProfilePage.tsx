@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/widget/Page';
-import { DynamicComponent } from '@/app/providers/DynamicComponent';
-import { useAppDispatch } from '@/app/providers/StoreProvider';
+import { DynamicComponent } from '@/shared/providers/DynamicComponent';
 import {
   getError,
   getIsLoading,
@@ -20,6 +19,7 @@ import {
 import { Typography } from '@/shared/ui/Typography';
 import { useInitialEffect } from '@/shared/helpers/useInitialEffect';
 import { ProfileHeader } from '../ProfileHeader/ProfileHeader';
+import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 const ProfilePage = () => {
   const { profileId } = useParams();
