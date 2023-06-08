@@ -1,7 +1,7 @@
 import React, { memo, MutableRefObject, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { AppStoreTypes, useAppDispatch } from '@/app/providers/StoreProvider';
+import { AppStoreTypes } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/helpers/useThrottle';
 import { useInitialEffect } from '@/shared/helpers/useInitialEffect';
 import { useInfinityScroll } from '@/shared/helpers/useInfinityScroll';
@@ -9,6 +9,7 @@ import { getScroll, getScrollPositionAction } from '@/features/getScrollPosition
 import { classNames } from '@/shared/helpers/classNames';
 import cls from './Page.module.scss';
 import { PageProps } from './Page.types';
+import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 export const Page = memo(({ classname, children, onScrollEnd, testId }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
