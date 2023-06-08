@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/widget/Page';
 import { ArticleDetails } from '@/entities/ArticleDetails';

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimationContext } from '../config/AnimationContext';
 import { AnimationProviderProps } from './AnimationProvider.types';
 import { GestureType, SpringType } from '../config/AnimationContext.types';

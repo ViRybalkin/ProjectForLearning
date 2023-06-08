@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from '@/shared/ui/Popups';
 import { CountrySelectProps } from './CountrySelect.types';

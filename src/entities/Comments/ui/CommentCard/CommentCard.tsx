@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HStack } from '@/shared/ui/HStack';
 import { Typography } from '@/shared/ui/Typography';

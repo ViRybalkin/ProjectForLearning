@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { HStack } from '@/shared/ui/HStack';

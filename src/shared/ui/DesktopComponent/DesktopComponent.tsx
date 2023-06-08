@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { DesktopComponentProps } from './DesktopComponent.types';
 
 export const DesktopComponent = memo(({ children, classname }: DesktopComponentProps) => {

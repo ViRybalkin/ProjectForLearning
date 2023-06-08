@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { MobileComponentProps } from './MobileComponent.types';
 
 export const MobileComponent = memo(({ children, classname }: MobileComponentProps) => {

@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 import { Popover } from '@/shared/ui/Popups';
 import { NotificationList } from '@/entities/NotificationList';
 import { Icon } from '@/shared/ui/Icon';

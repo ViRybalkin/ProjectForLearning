@@ -17,7 +17,7 @@ module.exports = {
     sourceType: 'module',
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks', 'for-fsd-path'],
+  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks', 'for-fsd-path', 'unused-imports'],
   rules: {
     'react/jsx-filename-extension': [
       'off',
@@ -82,6 +82,11 @@ module.exports = {
         alias: '@',
         ignoreImportsPatterns: ['**/providers/JestProvider', '**/providers/StoreProvider', '**/selectors/**'],
       },
+    ],
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
     ],
     'key-spacing': [
       'error',

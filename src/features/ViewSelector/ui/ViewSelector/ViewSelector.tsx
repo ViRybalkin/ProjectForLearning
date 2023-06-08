@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import ListView from '@/shared/assets/icons/list-view.svg';
 import TableView from '@/shared/assets/icons/table-view.svg';
 import { Button } from '@/shared/ui/Button';

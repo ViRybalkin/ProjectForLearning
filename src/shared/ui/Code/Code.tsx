@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { Button } from '../Button/Button';
 import Copy from '../../assets/icons/copy.svg';

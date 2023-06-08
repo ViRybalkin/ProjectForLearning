@@ -1,4 +1,3 @@
-import React from 'react';
 import { Loader } from '@/shared/ui/Loader';
 import { classNames } from '@/shared/helpers/classNames';
 import cls from './PageLoader.module.scss';

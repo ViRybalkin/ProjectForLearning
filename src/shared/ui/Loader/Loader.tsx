@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import cls from './loader.module.scss';
 import { LoaderProps } from './Loader.types';

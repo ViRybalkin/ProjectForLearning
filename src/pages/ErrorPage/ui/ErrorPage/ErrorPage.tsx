@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widget/Page';
 import { classNames } from '@/shared/helpers/classNames';
