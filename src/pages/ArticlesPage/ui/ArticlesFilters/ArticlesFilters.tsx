@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewSelector } from '@/features/ViewSelector';
 import { ArticleSortList } from '@/entities/ArticlesSortList';
-import { useAppDispatch } from '@/app/providers/StoreProvider';
+import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 import { HStack } from '@/shared/ui/HStack';
 import { Input } from '@/shared/ui/Input';
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
