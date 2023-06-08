@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { FlexProps } from './Flex.types';
 import cls from './Flex.module.scss';

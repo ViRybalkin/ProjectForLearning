@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { AnimationProvider, useAnimationContext } from '@/shared/providers/AnimationProvider';
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';

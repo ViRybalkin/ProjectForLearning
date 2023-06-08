@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { IconProps } from './Icon.types';
 import cls from './Icon.module.scss';

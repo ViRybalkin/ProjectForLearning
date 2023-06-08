@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import cls from './Typography.module.scss';
 import { TypographyProps } from './Typography.types';

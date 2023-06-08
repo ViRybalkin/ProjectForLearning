@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { Typography } from '../Typography/Typography';
 import { SelectProps } from './Select.types';

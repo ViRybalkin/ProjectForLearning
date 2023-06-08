@@ -1,4 +1,4 @@
-import React, { FormEvent, memo, useCallback } from 'react';
+import { FormEvent, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Controller, useForm } from 'react-hook-form';

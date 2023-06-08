@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/helpers/classNames';
 import { Typography } from '@/shared/ui/Typography';
 import { ArticleListProps } from './ArticleList.types';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Provider } from 'react-redux';
 import { createReduxStore } from '../config/AppStore';
 import { StoreProviderTypes } from './StoreProvider.types';

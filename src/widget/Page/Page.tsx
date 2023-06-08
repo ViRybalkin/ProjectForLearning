@@ -1,4 +1,4 @@
-import React, { memo, MutableRefObject, UIEvent, useRef } from 'react';
+import { memo, MutableRefObject, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { AppStoreTypes } from '@/app/providers/StoreProvider';

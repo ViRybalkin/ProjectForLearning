@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { HStack } from '@/shared/ui/HStack';
 import { Typography } from '@/shared/ui/Typography';

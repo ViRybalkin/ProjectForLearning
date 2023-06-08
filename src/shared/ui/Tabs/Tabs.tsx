@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { Card } from '../Card';
 import { HStack } from '../HStack';
 import { TabItem, TabsProps } from './Tabs.types';
