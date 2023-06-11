@@ -1,9 +1,9 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 import { StarRatingProps } from './StarRating.types';
 import cls from './StarRating.module.scss';
 import Star from '../../assets/icons/star.svg';
 import { Icon } from '../Icon';
-import { classNames } from '@/shared/config/helpers/classNames';
+import { classNames } from '@/shared/helpers/classNames';
 
 export const StarRating = memo(({ size, onSelect, selectedStar = 0, starNumber = 5 }: StarRatingProps) => {
   const [hoveredCount, setHoveredCount] = useState<number>(selectedStar);
