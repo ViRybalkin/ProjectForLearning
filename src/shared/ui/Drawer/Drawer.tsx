@@ -1,11 +1,10 @@
 import { memo, useCallback, useEffect } from 'react';
-import { AnimationProvider, useAnimationContext } from '@/shared/providers/AnimationProvider';
 import { DrawerProps } from './Drawer.types';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { classNames } from '@/shared/helpers/classNames';
 import { Overlay } from '../Overlay';
-import { AnimationProvider } from '../../providers/AnimationProvider';
+import { AnimationProvider, useAnimationContext } from '../../providers/AnimationProvider';
 
 const height = window.innerHeight - 100;
 
