@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useCallback, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './Rating.module.scss';
 import { RatingProps } from './Rating.types';
