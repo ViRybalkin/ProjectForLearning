@@ -2,7 +2,7 @@ import {PathRouteProps} from 'react-router/dist/lib/components';
 import {lazy} from 'react';
 import {RolesTypes} from "@/entities/User";
 import {Path} from "@/shared/types";
-import {routerPath} from "@/shared/constants";
+import {generateRoute} from "@/shared/constants";
 
 const MainPage = lazy(() => import('@/pages/MainPage/ui/MainPage/MainPage'));
 const AboutPage = lazy(() => import('@/pages/About/About'));
@@ -20,40 +20,41 @@ export interface RouterProps extends PathRouteProps {
 
 export const routerConfig: Record<Path, RouterProps> = {
     main: {
-        path: routerPath.main,
+        path: generateRoute.main(),
         element: <MainPage/>,
     },
     about: {
-        path: routerPath.about,
+        path: generateRoute.about(),
         element: <AboutPage/>,
     },
     profile: {
-        path: `${routerPath.profile}:profileId`,
+        path: generateRoute.profile(':profileId'),
         element: <ProfilePage/>,
         isAuth: true,
     },
     articlesPage: {
-        path: routerPath.articlesPage,
+        path: generateRoute.articlesPage(),
         element: <ArticlesPage/>,
         isAuth: true,
     },
     articlesDetailsPage: {
-        path: `${routerPath.articlesDetailsPage}:id`,
+        path: generateRoute.articlesDetailsPage(':id'),
         element: <ArticlesDetailsPage/>,
         isAuth: true,
     },
     adminPage: {
-        path: routerPath.adminPage,
+        path: generateRoute.adminPage(),
         element: <AdminPage/>,
         isAuth: true,
         roles: ['ADMIN', 'MANAGER'],
-    }, forbiddenPage: {
-        path: routerPath.forbiddenPage,
+    },
+    forbiddenPage: {
+        path: generateRoute.forbiddenPage(),
         element: <ForbiddenPage/>,
         isAuth: true,
     },
     notFound: {
-        path: routerPath.notFound,
+        path: generateRoute.notFound(),
         element: <NotFoundPage/>,
     },
 };

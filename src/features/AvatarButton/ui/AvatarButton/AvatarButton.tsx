@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import { getIsAdmin, getIsManager, getUser, userAction } from '@/entities/User';
-import { routerPath } from '@/shared/constants';
+import { generateRoute } from '@/shared/constants';
 import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 export const AvatarButton = memo(() => {
@@ -19,7 +19,7 @@ export const AvatarButton = memo(() => {
 
   const onLogout = useCallback(() => {
     dispatch(userAction.logout());
-    navigate(routerPath.main);
+    navigate(generateRoute.main());
   }, [dispatch, navigate]);
 
   return (
@@ -30,13 +30,13 @@ export const AvatarButton = memo(() => {
           ? [
               {
                 content: t('admin', { ns: 'links' }),
-                href: routerPath.adminPage,
+                href: generateRoute.adminPage(),
               },
             ]
           : []),
         {
           content: t('profile', { ns: 'links' }),
-          href: `profile/${user?.id}`,
+          href: generateRoute.profile(user?.id),
         },
         {
           content: t('logout', { ns: 'translation' }),
