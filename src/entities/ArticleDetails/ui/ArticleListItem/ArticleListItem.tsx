@@ -12,7 +12,7 @@ import { ArticleListItemProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 import { ArticleDetailsTextBlock } from '../../config/types/article.types';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
-import { routerPath } from '@/shared/constants';
+import { generateRoute } from '@/shared/constants';
 
 export const ArticleListItem = memo(({ article, view, target }: ArticleListItemProps) => {
   const { t } = useTranslation('articlesDetails');
@@ -49,7 +49,7 @@ export const ArticleListItem = memo(({ article, view, target }: ArticleListItemP
           />
         ) : null}
         <div className={cls.footer}>
-          <AppLink to={routerPath.articlesDetailsPage + article.id}>
+          <AppLink to={generateRoute.articlesDetailsPage(article.id)}>
             <Button theme='contained'>{t('readMore')}</Button>
           </AppLink>
           {blockWithIcon}
@@ -59,7 +59,7 @@ export const ArticleListItem = memo(({ article, view, target }: ArticleListItemP
   }
 
   return (
-    <AppLink to={routerPath.articlesDetailsPage + article.id} target={target}>
+    <AppLink to={generateRoute.articlesDetailsPage(article.id)} target={target}>
       <Card classname={classNames('', {}, [cls[view]])}>
         <div data-testid='articleListItemSmall' className={cls.imgWrapper}>
           <img src={article.img} className={cls.img} alt={article.img} />

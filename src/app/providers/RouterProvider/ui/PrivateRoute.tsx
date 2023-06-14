@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getUserRoles } from '@/entities/User';
-import { routerPath } from '@/shared/constants';
+import { generateRoute } from '@/shared/constants';
 import { PrivateRouteProps } from './AppRouter.types';
 
 export const PrivateRoute = memo(({ children, isAuth, roles }: PrivateRouteProps) => {
@@ -19,11 +19,11 @@ export const PrivateRoute = memo(({ children, isAuth, roles }: PrivateRouteProps
   }, [roles, userRoles]);
 
   if (!isAuth) {
-    return <Navigate to={routerPath.main} replace />;
+    return <Navigate to={generateRoute.main()} replace />;
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={routerPath.forbiddenPage} replace />;
+    return <Navigate to={generateRoute.forbiddenPage()} replace />;
   }
 
   return children;

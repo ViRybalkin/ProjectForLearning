@@ -7,13 +7,13 @@ import { Button } from '@/shared/ui/Button';
 import { Avatar } from '@/shared/ui/Avatar';
 import { CommentCardProps } from './CommentCard.types';
 import cls from './CommentCard.module.scss';
-import { routerPath } from '@/shared/constants';
+import { generateRoute } from '@/shared/constants';
 
 export const CommentCard = memo(({ comment }: CommentCardProps) => {
   const navigate = useNavigate();
 
   const onUserClick = useCallback(() => {
-    navigate(`${routerPath.profile}${comment.user?.id}`);
+    navigate(generateRoute.profile(comment.user?.id));
   }, [comment.user?.id, navigate]);
 
   return (
