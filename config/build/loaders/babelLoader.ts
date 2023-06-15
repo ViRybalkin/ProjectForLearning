@@ -8,13 +8,14 @@ export const babelLoader = (isDev: boolean, isTsx: boolean) => {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
+                cacheDirectory: true,
                 plugins: [
                     [
                         "@babel/plugin-transform-typescript", {
                         isTsx,
                     }
                     ],
-                    isTsx && [babelRemovePropsPlugin,
+                    isTsx && !isDev && [babelRemovePropsPlugin,
                         {attribute: ['data-testid']}],
                     '@babel/plugin-transform-runtime',
                     isDev && require.resolve('react-refresh/babel')].filter(Boolean),
