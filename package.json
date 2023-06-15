@@ -27,8 +27,11 @@
     "visual:report:json": "node config/generate-visual-json-report.js",
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "generator:layer": "node generator/layerGenerator.js",
-    "generator:component": "node generator/sharedGenerator.js",
-    "postinstall": "rm -r ./node_modules/.cache"
+    "generator:component": "node generator/sharedGenerator.js"
+  },
+  "development": {
+    "scripts": {
+    }
   },
   "author": "",
   "license": "ISC",
