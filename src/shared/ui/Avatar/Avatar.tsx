@@ -1,14 +1,18 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/helpers/classNames';
 import { AvatarProps } from './Avatar.types';
 import cls from './Avatar.module.scss';
+import { AppImage } from '../AppImage';
+import { Skeleton } from '../Skeleton';
 
 const Avatar = memo(({ src, alt, size }: AvatarProps) => {
   const styles = {
     height: size,
     width: size,
   };
-  return <img style={styles} className={classNames(cls.avatar)} src={src} alt={alt} />;
+
+  const fallback = <Skeleton width={Number(size)} height={Number(size)} borderRadius={50} />;
+
+  return <AppImage style={styles} classname={cls.avatar} fallback={fallback} src={src} alt={alt} />;
 });
 
 export { Avatar };
