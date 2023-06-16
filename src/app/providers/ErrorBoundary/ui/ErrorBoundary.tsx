@@ -6,19 +6,19 @@ const ErrorPage = lazy(() => import('@/pages/ErrorPage/ui/ErrorPage/ErrorPage'))
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false, error: null, errorInfo: null };
+    this.state = { error: null, errorInfo: null, hasError: false };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState({
-      hasError: true,
       error,
       errorInfo,
+      hasError: true,
     });
   }
 
   render() {
-    const { hasError, error, errorInfo } = this.state;
+    const { error, errorInfo, hasError } = this.state;
     const { children } = this.props;
 
     if (hasError && error && errorInfo) {

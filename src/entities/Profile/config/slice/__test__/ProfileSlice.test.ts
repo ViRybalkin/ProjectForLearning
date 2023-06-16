@@ -22,24 +22,24 @@ describe('Тестирование слайса Profile', () => {
         expect(ProfileReducer(state, ProfileAction.onCancel())).toEqual(
             {
                 data: undefined,
+                error: undefined,
                 isLoading: false,
                 readonly: !state.readonly,
-                error: undefined,
             })
     });
 
     test('onCancel должен вернуть корректные данные', () => {
         const state = {
-            readonly: false,
             isLoading: false,
+            readonly: false,
         };
 
         expect(ProfileReducer(state, ProfileAction.setReadonly())).toEqual(
             {
                 data: undefined,
+                error: undefined,
                 isLoading: false,
                 readonly: !state.readonly,
-                error: undefined,
             })
     });
 
@@ -56,22 +56,22 @@ describe('Тестирование слайса Profile', () => {
         expect(ProfileReducer(state, action)).toEqual(
             {
                 data: undefined,
+                error: undefined,
                 isLoading: true,
                 readonly: false,
-                error: undefined,
             })
     });
 
     test('getProfile fulfilled должен изменить данные', () => {
         const action = {
-            type: getProfile.fulfilled.type,
             payload: 'some data',
+            type: getProfile.fulfilled.type,
         };
 
         const state = {
+            data: undefined,
             isLoading: true,
             readonly: false,
-            data: undefined,
         };
 
         expect(ProfileReducer(state, action)).toEqual(
@@ -84,8 +84,8 @@ describe('Тестирование слайса Profile', () => {
 
     test('getProfile rejected должен изменить данные', () => {
         const action = {
-            type: getProfile.rejected.type,
             payload: 'some error',
+            type: getProfile.rejected.type,
         };
 
         const state = {
@@ -120,14 +120,14 @@ describe('Тестирование слайса Profile', () => {
 
     test('updateProfile fulfilled должен изменить данные', () => {
         const action = {
-            type: updateProfile.fulfilled.type,
             payload: 'some data',
+            type: updateProfile.fulfilled.type,
         };
 
         const state = {
+            data: undefined,
             isLoading: true,
             readonly: false,
-            data: undefined,
         };
 
         expect(ProfileReducer(state, action)).toEqual(
@@ -140,8 +140,8 @@ describe('Тестирование слайса Profile', () => {
 
     test('updateProfile rejected должен изменить данные', () => {
         const action = {
-            type: updateProfile.rejected.type,
             payload: 'some error',
+            type: updateProfile.rejected.type,
         };
 
         const state = {
@@ -151,9 +151,9 @@ describe('Тестирование слайса Profile', () => {
 
         expect(ProfileReducer(state, action)).toEqual(
             {
-                validationError: 'some error',
                 isLoading: false,
                 readonly: false,
+                validationError: 'some error',
             })
     });
 

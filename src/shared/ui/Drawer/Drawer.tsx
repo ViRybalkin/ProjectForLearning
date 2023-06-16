@@ -8,12 +8,12 @@ import { AnimationProvider, useAnimationContext } from '../../providers/Animatio
 
 const height = window.innerHeight - 100;
 
-const DrawerContext = ({ isOpen, onClose, children }: DrawerProps) => {
-  const { Spring, Gesture } = useAnimationContext();
+const DrawerContext = ({ children, isOpen, onClose }: DrawerProps) => {
+  const { Gesture, Spring } = useAnimationContext();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
   const openDrawer = useCallback(() => {
-    api.start({ y: 0, immediate: false });
+    api.start({ immediate: false, y: 0 });
   }, [api]);
 
   useEffect(() => {
@@ -24,15 +24,15 @@ const DrawerContext = ({ isOpen, onClose, children }: DrawerProps) => {
 
   const close = (velocity = 0) => {
     api.start({
-      y: height,
-      immediate: false,
       config: { ...Spring.config.stiff, velocity },
+      immediate: false,
       onResolve: onClose,
+      y: height,
     });
   };
 
   const bind = Gesture.useDrag(
-    ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
+    ({ cancel, direction: [, dy], last, movement: [, my], velocity: [, vy] }) => {
       if (my < -70) cancel();
 
       if (last) {
@@ -42,13 +42,13 @@ const DrawerContext = ({ isOpen, onClose, children }: DrawerProps) => {
           openDrawer();
         }
       } else {
-        api.start({ y: my, immediate: true });
+        api.start({ immediate: true, y: my });
       }
     },
     {
-      from: () => [0, y.get()],
-      filterTaps: true,
       bounds: { top: 0 },
+      filterTaps: true,
+      from: () => [0, y.get()],
       rubberband: true,
     }
   );
@@ -64,7 +64,7 @@ const DrawerContext = ({ isOpen, onClose, children }: DrawerProps) => {
       <div data-testid='modalTestId' className={classNames(cls.drawer, { [cls.opened]: isOpen })}>
         <Overlay testId='overlayTestId' onClick={() => close()} classname={cls.overlay}>
           <Spring.a.div
-            style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+            style={{ bottom: `calc(-100vh + ${height - 100}px)`, display, y }}
             className={classNames(cls.content)}
             {...bind()}>
             {children}

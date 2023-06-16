@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_KEY } from '@/shared/constants/localStorageKey';
 import { ThemeContext, ThemeTypes } from './ThemeContext';
 
 export const UseTheme = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { setTheme, theme } = useContext(ThemeContext);
 
   document.body.className = theme || 'light';
   const onToggleTheme = () => {
@@ -30,7 +30,7 @@ export const UseTheme = () => {
   };
 
   return {
-    theme: theme || 'light',
     onToggleTheme,
+    theme: theme || 'light',
   };
 };

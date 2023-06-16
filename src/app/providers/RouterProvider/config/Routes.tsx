@@ -19,42 +19,42 @@ export interface RouterProps extends PathRouteProps {
 }
 
 export const routerConfig: Record<Path, RouterProps> = {
-    main: {
-        path: generateRoute.main(),
-        element: <MainPage/>,
-    },
     about: {
-        path: generateRoute.about(),
         element: <AboutPage/>,
-    },
-    profile: {
-        path: generateRoute.profile(':profileId'),
-        element: <ProfilePage/>,
-        isAuth: true,
-    },
-    articlesPage: {
-        path: generateRoute.articlesPage(),
-        element: <ArticlesPage/>,
-        isAuth: true,
-    },
-    articlesDetailsPage: {
-        path: generateRoute.articlesDetailsPage(':id'),
-        element: <ArticlesDetailsPage/>,
-        isAuth: true,
+        path: generateRoute.about(),
     },
     adminPage: {
-        path: generateRoute.adminPage(),
         element: <AdminPage/>,
         isAuth: true,
+        path: generateRoute.adminPage(),
         roles: ['ADMIN', 'MANAGER'],
     },
+    articlesDetailsPage: {
+        element: <ArticlesDetailsPage/>,
+        isAuth: true,
+        path: generateRoute.articlesDetailsPage(':id'),
+    },
+    articlesPage: {
+        element: <ArticlesPage/>,
+        isAuth: true,
+        path: generateRoute.articlesPage(),
+    },
     forbiddenPage: {
-        path: generateRoute.forbiddenPage(),
         element: <ForbiddenPage/>,
         isAuth: true,
+        path: generateRoute.forbiddenPage(),
+    },
+    main: {
+        element: <MainPage/>,
+        path: generateRoute.main(),
     },
     notFound: {
-        path: generateRoute.notFound(),
         element: <NotFoundPage/>,
+        path: generateRoute.notFound(),
+    },
+    profile: {
+        element: <ProfilePage/>,
+        isAuth: true,
+        path: generateRoute.profile(':profileId'),
     },
 };

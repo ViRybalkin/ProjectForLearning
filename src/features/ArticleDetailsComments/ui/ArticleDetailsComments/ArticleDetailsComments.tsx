@@ -13,7 +13,7 @@ import { VStack } from '@/shared/ui/VStack';
 
 export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsCommentsProps) => {
   const { t } = useTranslation('articlesDetails');
-  const { data: comments, isLoading, error, refetch } = useGetArticleDetailsCommentsQuery(articleId);
+  const { data: comments, error, isLoading, refetch } = useGetArticleDetailsCommentsQuery(articleId);
   const errorMessage = JSON.stringify(error);
   const [addComment] = useAddArticleDetailsCommentMutation();
   const userData = useSelector(getUser);

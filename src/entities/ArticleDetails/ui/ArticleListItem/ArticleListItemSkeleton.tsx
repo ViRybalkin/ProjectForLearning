@@ -5,7 +5,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import { ArticleListItemSkeletonProps } from './ArticleListItem.types';
 import cls from './ArticleListItem.module.scss';
 
-export const ArticleListItemSkeleton = memo(({ view, classname }: ArticleListItemSkeletonProps) => {
+export const ArticleListItemSkeleton = memo(({ classname, view }: ArticleListItemSkeletonProps) => {
   if (view === 'BIG') {
     return (
       <Card classname={classNames('', {}, [classname, cls[view]])}>

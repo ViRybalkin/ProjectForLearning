@@ -3,7 +3,7 @@ import { AppImageProps } from './AppImage.types';
 import { classNames } from '@/shared/helpers/classNames';
 
 export const AppImage = memo(
-  ({ src, classname, fallback, errorFallback, alt = 'image', ...otherProps }: AppImageProps) => {
+  ({ alt = 'image', classname, errorFallback, fallback, src, ...otherProps }: AppImageProps) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
 

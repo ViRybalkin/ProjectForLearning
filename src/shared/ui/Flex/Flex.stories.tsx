@@ -3,8 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
-  title: 'shared/Flex',
   component: Flex,
+  title: 'shared/Flex',
 } as ComponentMeta<typeof Flex>;
 
 export const Template: ComponentStory<typeof Flex> = (args) => (

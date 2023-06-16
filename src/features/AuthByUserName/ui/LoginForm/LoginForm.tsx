@@ -17,7 +17,7 @@ import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
 const LoginForm = ({ onClose }: LoginFormProps) => {
   const { t } = useTranslation();
-  const { handleSubmit, control } = useForm<LoginFormTypes>();
+  const { control, handleSubmit } = useForm<LoginFormTypes>();
   const dispatch = useAppDispatch();
   const error = useSelector(getError);
   const isLoading = useSelector(getIsLoading);
@@ -26,11 +26,11 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
     async (data: LoginFormTypes) => {
       dispatch(
         authActions.setUserData({
-          username: data.username,
           password: data.password,
+          username: data.username,
         })
       );
-      const res = await dispatch(authByUserNameThunk({ username: data.username, password: data.password }));
+      const res = await dispatch(authByUserNameThunk({ password: data.password, username: data.username }));
       if (res?.meta?.requestStatus === 'fulfilled') {
         onClose();
       }

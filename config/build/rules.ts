@@ -4,8 +4,8 @@ import {babelLoader} from "./loaders/babelLoader";
 
 export const Rules = (isDev: boolean): webpack.RuleSetRule[] => {
     const svgRules = {
-        test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
+        test: /\.svg$/i,
         use: ['@svgr/webpack'],
     };
 

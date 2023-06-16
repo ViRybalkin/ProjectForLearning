@@ -12,17 +12,6 @@ const initialState: ProfileTypes = {
 };
 
 export const ProfileSlice = createSlice({
-    name: 'profile',
-    initialState,
-    reducers: {
-        setReadonly(state: ProfileTypes) {
-            state.readonly = !state.readonly
-        },
-        onCancel(state: ProfileTypes) {
-            state.readonly = !state.readonly;
-            state.error = undefined;
-        }
-    },
     extraReducers: (builder) => {
         builder
             .addCase(getProfile.pending, (state) => {
@@ -52,6 +41,17 @@ export const ProfileSlice = createSlice({
                 state.readonly = true
                 state.validationError = undefined
             })
+    },
+    initialState,
+    name: 'profile',
+    reducers: {
+        onCancel(state: ProfileTypes) {
+            state.readonly = !state.readonly;
+            state.error = undefined;
+        },
+        setReadonly(state: ProfileTypes) {
+            state.readonly = !state.readonly
+        }
     }
 });
 

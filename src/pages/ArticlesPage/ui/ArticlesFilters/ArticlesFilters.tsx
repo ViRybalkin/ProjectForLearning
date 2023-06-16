@@ -78,20 +78,20 @@ export const ArticlesFilters = memo(() => {
 
   const types = [
     {
-      value: 'all',
       content: t('typeAll'),
+      value: 'all',
     },
     {
-      value: 'IT',
       content: t('typeIt'),
+      value: 'IT',
     },
     {
-      value: 'BUSINESS',
       content: t('typeBusiness'),
+      value: 'BUSINESS',
     },
     {
-      value: 'MECHANICS',
       content: t('typeMechanic'),
+      value: 'MECHANICS',
     },
   ];
 

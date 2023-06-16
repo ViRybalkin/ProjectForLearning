@@ -6,28 +6,28 @@ describe('Тестирование селектора getIsLoading', () => {
         const state = {
             profile: {
                 data: {
+                    age: 26,
+                    avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+                    city: "Saint-Petersburg",
+                    country: "Russia",
+                    currency: "RUB",
                     first: "Виталий",
                     lastname: "Рыбалкин",
-                    age: 26,
-                    currency: "RUB",
-                    country: "Russia",
-                    city: "Saint-Petersburg",
-                    username: "admin",
-                    avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+                    username: "admin"
                 }
             }
         };
         const result = getProfileData({
             profile: {
                 data: {
+                    age: 26,
+                    avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg",
+                    city: "Saint-Petersburg",
+                    country: "Russia",
+                    currency: "RUB",
                     first: "Виталий",
                     lastname: "Рыбалкин",
-                    age: 26,
-                    currency: "RUB",
-                    country: "Russia",
-                    city: "Saint-Petersburg",
-                    username: "admin",
-                    avatar: "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+                    username: "admin"
                 }
             }
         } as AppStoreTypes);

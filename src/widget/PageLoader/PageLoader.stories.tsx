@@ -2,8 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PageLoader } from './PageLoader';
 
 export default {
-  title: 'widget/PageLoader',
   component: PageLoader,
+  title: 'widget/PageLoader',
 } as ComponentMeta<typeof PageLoader>;
 
 const Proto: ComponentStory<typeof PageLoader> = () => <PageLoader />;

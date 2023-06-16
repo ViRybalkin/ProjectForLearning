@@ -6,18 +6,18 @@ const articleRating = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getArticleRating: build.query<Array<ArticleRatingTypes>, GetArticleRatingPayload>({
             query: ({articleId, userId}) => ({
-                url: '/rating',
                 params: {
-                    userId,
                     articleId,
+                    userId,
                 },
+                url: '/rating',
             }),
         }),
         setFeedback: build.mutation<void, SetArticleRatingPayload>({
             query: (args) => ({
-                url: '/rating',
-                method: 'POST',
                 body: args,
+                method: 'POST',
+                url: '/rating',
             })
         })
 

@@ -7,22 +7,22 @@ import {UserData} from "../types/AuthByUserName.types";
 
 export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, ThunkConfig<string>>(
     'login/authByUserName',
-    async (authData: UserData, {extra: {api}, rejectWithValue, dispatch}) => {
+    async (authData: UserData, {dispatch, extra: {api}, rejectWithValue}) => {
         try {
             const {data} = await api.post<UserSliceTypes>('/login', authData)
 
             dispatch(userAction.setUserData({
                 avatar: data.avatar,
-                isAuth: true,
-                username: data.username,
                 id: data.id,
+                isAuth: true,
                 roles: data.roles,
+                username: data.username,
             }))
             localStorage.setItem(LOCAL_STORAGE_KEY.auth, JSON.stringify({
-                username: data.username,
-                id: data.id,
                 avatar: data.avatar,
+                id: data.id,
                 roles: data.roles,
+                username: data.username,
             }))
 
             return data

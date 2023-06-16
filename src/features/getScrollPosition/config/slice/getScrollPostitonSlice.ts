@@ -6,8 +6,8 @@ const initialState: GetScrollPositionTypes = {
 };
 
 export const getScrollPositionSlice = createSlice({
-    name: 'getScrollPosition',
     initialState,
+    name: 'getScrollPosition',
     reducers: {
         setPosition(state: GetScrollPositionTypes, action: PayloadAction<{ path: string, position: number }>) {
             state.scrollPosition[action.payload.path] = action.payload.position

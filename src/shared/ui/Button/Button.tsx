@@ -4,7 +4,7 @@ import cls from './button.module.scss';
 import { ButtonProps } from './Button.types';
 
 const Button = memo(
-  ({ className, theme, children, size = 'medium', type = 'button', disabled, form, ...otherProps }: ButtonProps) => (
+  ({ children, className, disabled, form, size = 'medium', theme, type = 'button', ...otherProps }: ButtonProps) => (
     <button
       form={form}
       disabled={disabled}

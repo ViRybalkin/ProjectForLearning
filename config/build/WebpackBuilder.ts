@@ -6,19 +6,19 @@ import {WebpackBuildOption} from './types';
 import {buildDevServer} from './buildDevServer';
 
 export const WebpackBuilder = (options: WebpackBuildOption): webpack.Configuration => ({
-    mode: options.mode,
+    devServer: options.isDev ? buildDevServer(options.port) : undefined,
+    devtool: options.isDev ? 'eval-source-map' : undefined,
     entry: options.path.entry,
-    output: {
-        path: options.path.output,
-        filename: '[name].[contenthash].js',
-        publicPath: '/',
-        clean: true,
-    },
-    plugins: Plugins(options),
+    mode: options.mode,
     module: {
         rules: Rules(options.isDev),
     },
-    devtool: options.isDev ? 'eval-source-map' : undefined,
+    output: {
+        clean: true,
+        filename: '[name].[contenthash].js',
+        path: options.path.output,
+        publicPath: '/',
+    },
+    plugins: Plugins(options),
     resolve: Extensions(options.path.src),
-    devServer: options.isDev ? buildDevServer(options.port) : undefined,
 });

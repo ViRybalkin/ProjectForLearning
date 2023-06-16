@@ -12,14 +12,14 @@ jest.mock('shared/config/helpers/error', () => ({
 const mockedAxios = jest.mocked($api, true)
 
 const response = {
+    age: 22,
+    avatar: 'avatar',
+    city: 'city',
+    country: 'country',
+    currency: 'currency',
     first: 'first',
     lastname: 'lastname',
-    currency: 'currency',
-    country: 'country',
-    city: 'city',
     username: 'username',
-    avatar: 'avatar',
-    age: 22,
 }
 
 describe('Тестирование сервиса Profile', () => {

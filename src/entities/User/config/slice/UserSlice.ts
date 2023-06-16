@@ -3,24 +3,17 @@ import {LOCAL_STORAGE_KEY} from '@/shared/constants/localStorageKey';
 import {UserSliceTypes} from '../types/UserSlice.types';
 
 const initialState: UserSliceTypes = {
-    username: '',
-    id: '',
-    avatar: '',
-    isAuth: false,
     _inited: false,
+    avatar: '',
+    id: '',
+    isAuth: false,
+    username: '',
 };
 
 export const userSlice = createSlice({
-    name: 'user',
     initialState,
+    name: 'user',
     reducers: {
-        setUserData(state: UserSliceTypes, action: PayloadAction<UserSliceTypes>) {
-            state.username = action.payload.username;
-            state.id = action.payload.id;
-            state.avatar = action.payload.avatar;
-            state.isAuth = action.payload.isAuth;
-            state.roles = action.payload.roles;
-        },
         initUserData(state: UserSliceTypes) {
             const data = localStorage.getItem(LOCAL_STORAGE_KEY.auth);
             if (data) {
@@ -41,6 +34,13 @@ export const userSlice = createSlice({
             state.roles = undefined;
 
             localStorage.removeItem(LOCAL_STORAGE_KEY.auth);
+        },
+        setUserData(state: UserSliceTypes, action: PayloadAction<UserSliceTypes>) {
+            state.username = action.payload.username;
+            state.id = action.payload.id;
+            state.avatar = action.payload.avatar;
+            state.isAuth = action.payload.isAuth;
+            state.roles = action.payload.roles;
         },
     },
 });

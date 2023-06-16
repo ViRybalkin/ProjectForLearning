@@ -5,30 +5,30 @@ import { Comment } from '../../../config/types/Comment.types';
 
 const commentList = [
   {
-    id: '1',
     comment: 'коммент 1',
+    id: '1',
     user: {
-      username: 'username 1',
-      id: '1',
       avatar: 'avatar 1',
+      id: '1',
+      username: 'username 1',
     },
   },
   {
-    id: '2',
     comment: 'коммент 2',
+    id: '2',
     user: {
-      username: 'username 2',
-      id: '2',
       avatar: 'avatar 2',
+      id: '2',
+      username: 'username 2',
     },
   },
   {
-    id: '3',
     comment: 'коммент 3',
+    id: '3',
     user: {
-      username: 'username 3',
-      id: '3',
       avatar: 'avatar 3',
+      id: '3',
+      username: 'username 3',
     },
   },
 ];

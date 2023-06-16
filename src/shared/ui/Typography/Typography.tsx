@@ -3,7 +3,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import cls from './Typography.module.scss';
 import { TypographyProps } from './Typography.types';
 
-const Typography = memo(({ error, variant, children, align, classname }: TypographyProps) => {
+const Typography = memo(({ align, children, classname, error, variant }: TypographyProps) => {
   const Component = error ? 'p' : variant || 'p';
 
   return (

@@ -4,7 +4,7 @@ import { HStack } from '../HStack';
 import { TabItem, TabsProps } from './Tabs.types';
 import cls from './Tabs.module.scss';
 
-export const Tabs = memo(({ tabs, value, onTabChange }: TabsProps) => {
+export const Tabs = memo(({ onTabChange, tabs, value }: TabsProps) => {
   const onTabClickHandler = useCallback(
     (tab: TabItem) => {
       onTabChange(tab);

@@ -5,7 +5,7 @@ import { SelectProps } from './Select.types';
 import cls from './Select.module.scss';
 
 const Select = forwardRef(
-  ({ readonly, options, fullWidth, label, size = 'medium', ...otherProps }: SelectProps, ref) => {
+  ({ fullWidth, label, options, readonly, size = 'medium', ...otherProps }: SelectProps, ref) => {
     const classes = {
       [cls.fullWidth]: fullWidth,
     };

@@ -3,7 +3,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import { IconProps } from './Icon.types';
 import cls from './Icon.module.scss';
 
-export const Icon = memo(({ Svg, width, height, onClick, classname, ...otherProps }: IconProps) => {
+export const Icon = memo(({ Svg, classname, height, onClick, width, ...otherProps }: IconProps) => {
   return (
     <Svg
       width={width}

@@ -11,14 +11,14 @@ import cls from './Page.module.scss';
 import { PageProps } from './Page.types';
 import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
 
-export const Page = memo(({ classname, children, onScrollEnd, testId }: PageProps) => {
+export const Page = memo(({ children, classname, onScrollEnd, testId }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const scroll = useSelector((state: AppStoreTypes) => getScroll(state, pathname));
 
-  useInfinityScroll({ wrapperRef, triggerRef, callback: onScrollEnd });
+  useInfinityScroll({ callback: onScrollEnd, triggerRef, wrapperRef });
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scroll;

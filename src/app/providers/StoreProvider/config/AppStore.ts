@@ -9,9 +9,9 @@ import {AppStoreTypes, ThunkExtraArgumentsTypes} from "./AppStore.types";
 
 export const createReduxStore = (preloadedState?: AppStoreTypes) => {
     const rootReducers: ReducersMapObject<AppStoreTypes> = {
-        user: userReducer,
         getPosition: getScrollPositionReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
+        user: userReducer,
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -21,14 +21,14 @@ export const createReduxStore = (preloadedState?: AppStoreTypes) => {
     }
 
     const store = configureStore({
-        reducer: reducerManager.reduce as Reducer<CombinedState<AppStoreTypes>>,
-        preloadedState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             serializableCheck: false,
             thunk: {
                 extraArgument: extraArgs
             }
         }).concat(rtkApi.middleware),
+        preloadedState,
+        reducer: reducerManager.reduce as Reducer<CombinedState<AppStoreTypes>>,
     })
 
     // @ts-ignore

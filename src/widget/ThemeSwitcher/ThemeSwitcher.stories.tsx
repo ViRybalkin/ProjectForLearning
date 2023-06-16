@@ -2,8 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
-  title: 'widget/ThemeSwitcher',
   component: ThemeSwitcher,
+  title: 'widget/ThemeSwitcher',
 } as ComponentMeta<typeof ThemeSwitcher>;
 
 const Proto: ComponentStory<typeof ThemeSwitcher> = () => <ThemeSwitcher />;

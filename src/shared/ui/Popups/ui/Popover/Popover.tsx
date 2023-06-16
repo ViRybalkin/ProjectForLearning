@@ -5,7 +5,7 @@ import popupsCls from '../../styles/Popups.module.scss';
 import { classNames } from '@/shared/helpers/classNames';
 
 export const Popover = memo(
-  ({ children, buttonItem, childrenLength, classname, position = 'bottomLeft' }: PopoverProps) => {
+  ({ buttonItem, children, childrenLength, classname, position = 'bottomLeft' }: PopoverProps) => {
     return (
       <HPopover data-content={childrenLength} className={classNames(popupsCls.popups, {}, [classname])}>
         <HPopover.Button className={popupsCls.button}>{buttonItem}</HPopover.Button>

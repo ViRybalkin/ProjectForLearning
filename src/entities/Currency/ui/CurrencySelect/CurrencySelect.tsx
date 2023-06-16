@@ -4,21 +4,21 @@ import { ListBox } from '@/shared/ui/Popups';
 import { CurrencySelectProps } from './CurrencySelect.types';
 import cls from './CurrencySelect.module.scss';
 
-const CurrencySelect = forwardRef(({ readonly, onChange, value, ...otherProps }: CurrencySelectProps, ref) => {
+const CurrencySelect = forwardRef(({ onChange, readonly, value, ...otherProps }: CurrencySelectProps, ref) => {
   const { t } = useTranslation('profilePage');
 
   const options = [
     {
-      value: 'RUB',
       id: 'RUB',
+      value: 'RUB',
     },
     {
-      value: 'USD',
       id: 'USD',
+      value: 'USD',
     },
     {
-      value: 'EUR',
       id: 'EUR',
+      value: 'EUR',
     },
   ];
 

@@ -5,7 +5,7 @@ import cls from './AppLink.module.scss';
 import { AppLinkProps } from './AppLink.types';
 
 export const AppLink = memo((props: AppLinkProps) => {
-  const { to, className, children, theme = 'primary', ...otherProps } = props;
+  const { children, className, theme = 'primary', to, ...otherProps } = props;
 
   return (
     <Link

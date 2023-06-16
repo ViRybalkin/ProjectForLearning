@@ -5,11 +5,11 @@ const getArticleDetailsComments = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getArticleDetailsComments: build.query<Array<Comment>, string>({
             query: (articleId) => ({
-                url: '/comments',
                 params: {
-                    articleId,
-                    _expand: 'user'
-                }
+                    _expand: 'user',
+                    articleId
+                },
+                url: '/comments'
             }),
         }),
     }),

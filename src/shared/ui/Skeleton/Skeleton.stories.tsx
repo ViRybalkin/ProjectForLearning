@@ -2,22 +2,22 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 
 export default {
-  title: 'shared/Skeleton',
-  component: Skeleton,
   argTypes: {
-    width: {
+    borderRadius: {
+      defaultValue: 50,
       type: 'number',
-      defaultValue: 100,
     },
     height: {
-      type: 'number',
       defaultValue: 100,
-    },
-    borderRadius: {
       type: 'number',
-      defaultValue: 50,
+    },
+    width: {
+      defaultValue: 100,
+      type: 'number',
     },
   },
+  component: Skeleton,
+  title: 'shared/Skeleton',
 } as ComponentMeta<typeof Skeleton>;
 
 export const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;

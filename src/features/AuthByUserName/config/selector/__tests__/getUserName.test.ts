@@ -5,14 +5,14 @@ describe('Тестирование селектора getUserName', () => {
     test('getUserName должен вернуть корректные данные', () => {
         const state = {
             login: {
-                username: 'name',
                 password: '123',
+                username: 'name',
             },
         };
         const result = getUserName({
             login: {
-                username: 'name',
                 password: '123',
+                username: 'name',
             },
         } as AppStoreTypes);
 

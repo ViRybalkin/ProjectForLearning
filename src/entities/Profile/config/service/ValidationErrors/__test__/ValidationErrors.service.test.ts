@@ -3,15 +3,15 @@ import {validateProfile} from "../ValidationErrors.service";
 describe('Тестирование сервиса ValidationErrors', () => {
     test('Если не переданы имя или фамилия сервис должен вернуть корректные данные', () => {
         const profile = {
-            id: '',
-            first: '',
-            lastname: '',
-            currency: 'currency',
-            country: 'country',
-            city: 'city',
-            username: 'username',
-            avatar: 'avatar',
             age: 22,
+            avatar: 'avatar',
+            city: 'city',
+            country: 'country',
+            currency: 'currency',
+            first: '',
+            id: '',
+            lastname: '',
+            username: 'username',
         }
 
         const result = validateProfile(profile)
@@ -21,15 +21,15 @@ describe('Тестирование сервиса ValidationErrors', () => {
 
     test('Если не переданы возраст сервис должен вернуть корректные данные', () => {
         const profile = {
-            id: '1',
-            first: 'first',
-            lastname: 'lastname',
-            currency: 'currency',
-            country: 'country',
-            city: 'city',
-            username: 'username',
-            avatar: 'avatar',
             age: undefined,
+            avatar: 'avatar',
+            city: 'city',
+            country: 'country',
+            currency: 'currency',
+            first: 'first',
+            id: '1',
+            lastname: 'lastname',
+            username: 'username',
         }
 
         const result = validateProfile(profile)
@@ -39,13 +39,13 @@ describe('Тестирование сервиса ValidationErrors', () => {
 
     test('Если не переданы возраст сервис должен вернуть корректные данные', () => {
         const profile = {
+            age: 22,
+            avatar: 'avatar',
+            city: 'city',
+            currency: 'currency',
             first: 'first',
             lastname: 'lastname',
-            currency: 'currency',
-            city: 'city',
             username: 'username',
-            avatar: 'avatar',
-            age: 22,
         }
 
         // @ts-ignore

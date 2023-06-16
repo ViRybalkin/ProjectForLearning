@@ -5,7 +5,7 @@ import { AppLink } from '../../../AppLink';
 import { DropDownProps } from './DropDown.types';
 import popupsCls from '../../styles/Popups.module.scss';
 
-export const Dropdown = memo(({ items, buttonItem, position = 'bottomLeft' }: DropDownProps) => {
+export const Dropdown = memo(({ buttonItem, items, position = 'bottomLeft' }: DropDownProps) => {
   return (
     <Menu as='div' className={popupsCls.popups}>
       <Menu.Button className={popupsCls.button}>{buttonItem}</Menu.Button>

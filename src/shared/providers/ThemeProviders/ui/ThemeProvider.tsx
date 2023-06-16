@@ -8,8 +8,8 @@ export const ThemeProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState<ThemeTypes>(defaultTheme);
   const defaultValue = useMemo(
     () => ({
-      theme,
       setTheme,
+      theme,
     }),
     [theme]
   );

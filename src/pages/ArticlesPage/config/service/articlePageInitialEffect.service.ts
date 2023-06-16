@@ -10,7 +10,7 @@ export const articlePageInitialEffect = createAsyncThunk<
     ThunkConfig<string>
 >(
     'article/articlePageInitialEffect',
-    async (searchParams: URLSearchParams, {getState, dispatch}) => {
+    async (searchParams: URLSearchParams, {dispatch, getState}) => {
         const inited = getArticleListInited(getState());
         const search = searchParams.get('search');
         const sortDirection = searchParams.get('sortDirection');

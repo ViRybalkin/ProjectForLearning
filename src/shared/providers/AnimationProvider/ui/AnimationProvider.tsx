@@ -22,8 +22,8 @@ export const AnimationProvider = ({ children }: AnimationProviderProps) => {
 
   const defaultValue = useMemo(() => {
     return {
-      Spring: SpringRef.current,
       Gesture: GestureRef.current,
+      Spring: SpringRef.current,
       isLoaded,
     };
   }, [isLoaded]);

@@ -5,16 +5,16 @@ describe('Тестирование селектора getUser', () => {
     test('getUser должен вернуть корректные данные', () => {
         const state = {
             user: {
-                username: 'name',
                 id: 'id',
                 isAuth: true,
+                username: 'name',
             },
         };
         const result = getUser({
             user: {
-                username: 'name',
                 id: 'id',
                 isAuth: true,
+                username: 'name',
             },
         } as AppStoreTypes);
 

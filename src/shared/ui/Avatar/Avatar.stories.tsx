@@ -4,14 +4,14 @@ import AvatarImg from '@/shared/assets/img/storybook.jpg';
 import { Avatar } from './Avatar';
 
 export default {
-  title: 'shared/Avatar',
-  component: Avatar,
   argTypes: {
     size: {
-      type: 'number',
       defaultValue: false,
+      type: 'number',
     },
   },
+  component: Avatar,
+  title: 'shared/Avatar',
 } as ComponentMeta<typeof Avatar>;
 
 const Primary: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

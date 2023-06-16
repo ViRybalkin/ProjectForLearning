@@ -7,13 +7,13 @@ import cls from './input.module.scss';
 const Input = forwardRef(
   (
     {
-      placeholder,
-      type = 'text',
-      size = 'small',
-      fullWidth = false,
       className,
-      readonly,
+      fullWidth = false,
       label,
+      placeholder,
+      readonly,
+      size = 'small',
+      type = 'text',
       ...otherProps
     }: InputProps,
     ref

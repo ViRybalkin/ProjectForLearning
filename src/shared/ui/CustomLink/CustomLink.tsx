@@ -4,7 +4,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import cls from './customLink.module.scss';
 import { CustomLinkProps } from './CustomLink.types';
 
-const CustomLink = memo(({ className, to, name }: CustomLinkProps) => {
+const CustomLink = memo(({ className, name, to }: CustomLinkProps) => {
   return (
     <div>
       <Link data-testid='customLinkTestId' to={to} className={classNames(cls.link, {}, [className])}>

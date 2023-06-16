@@ -3,11 +3,11 @@ import { classNames } from '@/shared/helpers/classNames';
 import cls from './Skeleton.module.scss';
 import { SkeletonProps } from './Skeleton.types';
 
-export const Skeleton = memo(({ height, width, borderRadius, className }: SkeletonProps) => {
+export const Skeleton = memo(({ borderRadius, className, height, width }: SkeletonProps) => {
   const style: CSSProperties = {
-    width,
-    height,
     borderRadius,
+    height,
+    width,
   };
 
   return <div style={style} className={classNames(cls.skeleton, {}, [className])} />;

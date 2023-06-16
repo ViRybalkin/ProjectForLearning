@@ -5,20 +5,20 @@ describe('Тестирование слайса authByUserName', () => {
     test('должен вернуть начальное состояние', () => {
         expect(authByUserNameReducer(undefined, {type: undefined})).toEqual(
             {
-                username: '',
-                password: '',
                 error: undefined,
                 isLoading: false,
+                password: '',
+                username: '',
             }
         )
     })
 
     test('стейт должен содержать корректные данные', () => {
         const data = {
-            username: 'name',
-            password: 'password',
-            isLoading: false,
             error: undefined,
+            isLoading: false,
+            password: 'password',
+            username: 'name',
         }
         expect(authByUserNameReducer(undefined, authActions.setUserData(data))).toEqual(
             {
@@ -31,15 +31,15 @@ describe('Тестирование слайса authByUserName', () => {
 
     test('authByUserNameThunk rejected должен изменить данные', () => {
         const action = {
-            type: authByUserNameThunk.rejected.type,
             payload: 'some error',
+            type: authByUserNameThunk.rejected.type,
         };
 
         const state = {
-            username: '',
-            password: '',
             error: undefined,
             isLoading: true,
+            password: '',
+            username: '',
         };
 
         expect(authByUserNameReducer(state, action)).toEqual(
@@ -52,15 +52,15 @@ describe('Тестирование слайса authByUserName', () => {
 
     test('authByUserNameThunk fulfilled должен изменить данные', () => {
         const action = {
-            type: authByUserNameThunk.fulfilled.type,
             payload: 'some data',
+            type: authByUserNameThunk.fulfilled.type,
         };
 
         const state = {
-            username: '',
-            password: '',
             error: undefined,
             isLoading: true,
+            password: '',
+            username: '',
         };
 
         expect(authByUserNameReducer(state, action)).toEqual(
@@ -76,10 +76,10 @@ describe('Тестирование слайса authByUserName', () => {
         };
 
         const state = {
-            username: '',
-            password: '',
             error: undefined,
             isLoading: false,
+            password: '',
+            username: '',
         };
 
         expect(authByUserNameReducer(state, action)).toEqual(

@@ -8,7 +8,7 @@ import { useGetRecommendationListQuery } from '../../config/service/getRecommend
 
 export const RecommendationList = memo(() => {
   const { t } = useTranslation('articlesDetails');
-  const { data: articles, isLoading, error } = useGetRecommendationListQuery();
+  const { data: articles, error, isLoading } = useGetRecommendationListQuery();
 
   const errorMessage = JSON.stringify(error);
 

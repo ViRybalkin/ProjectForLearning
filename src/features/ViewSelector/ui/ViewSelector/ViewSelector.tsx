@@ -9,15 +9,15 @@ import { classNames } from '@/shared/helpers/classNames';
 import { ViewSelectorProps, ViewsList } from './ViewSelector.types';
 import cls from './ViewSelector.module.scss';
 
-export const ViewSelector = memo(({ view, onViewClick }: ViewSelectorProps) => {
+export const ViewSelector = memo(({ onViewClick, view }: ViewSelectorProps) => {
   const views: Array<ViewsList> = [
     {
-      view: 'SMALL',
       icon: TableView,
+      view: 'SMALL',
     },
     {
-      view: 'BIG',
       icon: ListView,
+      view: 'BIG',
     },
   ];
 

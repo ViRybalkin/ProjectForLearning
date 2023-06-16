@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { LOCAL_STORAGE_KEY } from '../constants/localStorageKey';
 
 export const rtkApi = createApi({
-  reducerPath: 'rtkApi',
   baseQuery: fetchBaseQuery({
     baseUrl: __BASE_URL__,
     prepareHeaders: (headers) => {
@@ -14,4 +13,5 @@ export const rtkApi = createApi({
     },
   }),
   endpoints: () => ({}),
+  reducerPath: 'rtkApi',
 });
