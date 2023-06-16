@@ -13,6 +13,7 @@ import cls from './ArticleListItem.module.scss';
 import { ArticleDetailsTextBlock } from '../../config/types/article.types';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { generateRoute } from '@/shared/constants';
+import { AppImage } from '@/shared/ui/AppImage';
 
 export const ArticleListItem = memo(({ article, view, target }: ArticleListItemProps) => {
   const { t } = useTranslation('articlesDetails');
@@ -40,7 +41,7 @@ export const ArticleListItem = memo(({ article, view, target }: ArticleListItemP
           {article.title}
         </Typography>
         <Typography classname={cls.types}>{types}</Typography>
-        <img src={article.img} alt={article.img} className={cls.img} />
+        <AppImage src={article.img} alt={article.img} className={cls.img} />
         {articleTextBlock ? (
           <ArticleTextBlock
             classname={cls.articleText}
@@ -62,7 +63,7 @@ export const ArticleListItem = memo(({ article, view, target }: ArticleListItemP
     <AppLink to={generateRoute.articlesDetailsPage(article.id)} target={target}>
       <Card classname={classNames('', {}, [cls[view]])}>
         <div data-testid='articleListItemSmall' className={cls.imgWrapper}>
-          <img src={article.img} className={cls.img} alt={article.img} />
+          <AppImage src={article.img} className={cls.img} alt={article.img} />
           <Typography classname={cls.date}>{article.createdAt}</Typography>
         </div>
         <div className={cls.infoWrapper}>
