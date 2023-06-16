@@ -9,7 +9,6 @@
     "start-dev-server": "webpack serve --env port=3007",
     "start-dev-server:vite": "vite",
     "start:json-server": "node ./config/json-server/index.js",
-    "pre-commit": "npm run eslint && npm run stylelint",
     "build:prod": "webpack --env mode=production baseUrl=https://project-for-learning-be.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "eslint": " eslint \"**/*.{ts,tsx}\"",
@@ -28,10 +27,6 @@
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "generator:layer": "node generator/layerGenerator.js",
     "generator:component": "node generator/sharedGenerator.js"
-  },
-  "development": {
-    "scripts": {
-    }
   },
   "author": "",
   "license": "ISC",
@@ -103,6 +98,7 @@
     "jest-html-reporters": "3.1.4",
     "jest-transformer-svg": "2.0.0",
     "json-server": "0.17.0",
+    "lint-staged": "13.2.2",
     "loki": "0.31.0",
     "mini-css-extract-plugin": "2.5.3",
     "prettier": "2.8.4",
