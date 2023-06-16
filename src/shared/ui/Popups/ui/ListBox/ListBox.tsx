@@ -7,7 +7,7 @@ import popupsCls from '../../styles/Popups.module.scss';
 import { ListBoxProps } from './ListBox.types';
 
 export const ListBox = forwardRef(
-  ({ onChange, options, value, label, readonly, fullWidth, size = 'medium' }: ListBoxProps, ref) => {
+  ({ fullWidth, label, onChange, options, readonly, size = 'medium', value }: ListBoxProps, ref) => {
     const classes = {
       [cls.fullWidth]: fullWidth,
     };
@@ -29,8 +29,8 @@ export const ListBox = forwardRef(
               {({ active, selected }) => (
                 <div
                   className={classNames('', {
-                    [popupsCls.active]: active,
                     [cls.unavailable]: item.unavailable,
+                    [popupsCls.active]: active,
                     ...classes,
                   })}>
                   {selected && '!!!'}

@@ -6,11 +6,11 @@ const addArticleDetailsComment = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         addArticleDetailsComment: build.mutation<Array<Comment>, AddCommentPayloadTypes>({
             query: ({comment, postId, userId}) => ({
-                url: '/comments',
-                method: 'POST',
                 body: {
-                    postId, userId, comment
-                }
+                    comment, postId, userId
+                },
+                method: 'POST',
+                url: '/comments'
             }),
         }),
     }),

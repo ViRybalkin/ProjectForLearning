@@ -6,16 +6,16 @@ import cls from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 
 const Modal = ({
-  isOpen,
-  onClose,
   children,
+  isOpen,
+  lazy = false,
+  onClose,
   onEscapeClose = true,
   onOverlayClose = true,
-  lazy = false,
 }: ModalProps) => {
-  const { onOverlayClick, onContentClick, isMounted } = useModal({
-    onClose,
+  const { isMounted, onContentClick, onOverlayClick } = useModal({
     isOpen,
+    onClose,
     onEscapeClose,
     onOverlayClose,
   });

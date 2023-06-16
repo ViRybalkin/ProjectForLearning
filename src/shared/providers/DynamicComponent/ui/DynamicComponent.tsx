@@ -3,7 +3,7 @@ import { useStore } from 'react-redux';
 import { AppStoreKeys, StoreWithReducerManager } from '@/app/providers/StoreProvider';
 import { DynamicComponentProps } from './DynamicComponent.types';
 
-export const DynamicComponent = ({ reducers, children, shouldRemoveAfterUnmount = true }: DynamicComponentProps) => {
+export const DynamicComponent = ({ children, reducers, shouldRemoveAfterUnmount = true }: DynamicComponentProps) => {
   const store = useStore() as StoreWithReducerManager;
 
   useLayoutEffect(() => {

@@ -3,19 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Input } from './Input';
 
 export default {
-  title: 'shared/Input',
-  component: Input,
   argTypes: {
-    size: {
-      options: ['small', 'medium', 'large'],
-      control: { type: 'radio' },
-      defaultValue: 'small',
-    },
-    type: {
-      options: ['text', 'number'],
-      control: { type: 'radio' },
-      defaultValue: 'text',
-    },
     fullWidth: {
       control: { type: 'boolean' },
       defaultValue: false,
@@ -23,7 +11,19 @@ export default {
     placeholder: {
       control: { type: 'text' },
     },
+    size: {
+      control: { type: 'radio' },
+      defaultValue: 'small',
+      options: ['small', 'medium', 'large'],
+    },
+    type: {
+      control: { type: 'radio' },
+      defaultValue: 'text',
+      options: ['text', 'number'],
+    },
   },
+  component: Input,
+  title: 'shared/Input',
 } as ComponentMeta<typeof Input>;
 
 export const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;

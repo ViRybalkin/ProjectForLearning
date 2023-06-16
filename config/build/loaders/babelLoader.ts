@@ -2,12 +2,11 @@ import babelRemovePropsPlugin from "../babel/babelRemovePropsPlugin";
 
 export const babelLoader = (isDev: boolean, isTsx: boolean) => {
     return {
-        test: isTsx ? /\.(|jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
+        test: isTsx ? /\.(|jsx|tsx)$/ : /\.(js|ts)$/,
         use: {
             loader: 'babel-loader',
             options: {
-                presets: ['@babel/preset-env'],
                 cacheDirectory: true,
                 plugins: [
                     [
@@ -19,6 +18,7 @@ export const babelLoader = (isDev: boolean, isTsx: boolean) => {
                         {attribute: ['data-testid']}],
                     '@babel/plugin-transform-runtime',
                     isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+                presets: ['@babel/preset-env'],
             },
         },
     }

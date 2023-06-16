@@ -12,10 +12,10 @@ jest.mock('react-redux', () => ({
 }));
 
 const userData = {
-  username: 'username',
-  id: '1',
   avatar: 'avatar',
+  id: '1',
   isAuth: true,
+  username: 'username',
 };
 
 jest.mock('entities', () => ({

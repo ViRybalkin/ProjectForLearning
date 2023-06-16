@@ -14,50 +14,6 @@ export const articleListSelector = articleListAdapter.getSelectors<AppStoreTypes
 )
 
 export const ArticleListSlice = createSlice({
-    name: 'articleComments',
-    initialState: articleListAdapter.getInitialState<ArticleListTypes>({
-        isLoading: false,
-        error: '',
-        view: 'SMALL',
-        page: 1,
-        limit: 9,
-        ids: [],
-        hasMore: false,
-        entities: {},
-        sortDirection: 'asc',
-        sortField: 'views',
-        search: '',
-        type: 'all',
-        _inited: false,
-    }),
-    reducers: {
-        setArticleListView: (state, action) => {
-            state.view = action.payload;
-            localStorage.setItem(LOCAL_STORAGE_KEY.articleView, action.payload)
-        },
-        setPage: (state, action) => {
-            state.page = action.payload
-        },
-        setSortDirection: (state, action) => {
-            state.sortDirection = action.payload;
-        },
-        setSortField: (state, action) => {
-            state.sortField = action.payload;
-        },
-        setSearchValue: (state, action) => {
-            state.search = action.payload;
-        },
-        setType: (state, action) => {
-            state.type = action.payload;
-        },
-        initArticleListView: (state) => {
-            const articleListView = localStorage.getItem(LOCAL_STORAGE_KEY.articleView)
-            if (articleListView) {
-                state.view = articleListView as ArticleListView;
-                state.limit = articleListView === 'SMALL' ? 9 : 4;
-            }
-        }
-    },
     extraReducers: (builder) => {
         builder
             .addCase(getArticleList.pending, (state) => {
@@ -78,6 +34,50 @@ export const ArticleListSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.error.message;
             })
+    },
+    initialState: articleListAdapter.getInitialState<ArticleListTypes>({
+        _inited: false,
+        entities: {},
+        error: '',
+        hasMore: false,
+        ids: [],
+        isLoading: false,
+        limit: 9,
+        page: 1,
+        search: '',
+        sortDirection: 'asc',
+        sortField: 'views',
+        type: 'all',
+        view: 'SMALL',
+    }),
+    name: 'articleComments',
+    reducers: {
+        initArticleListView: (state) => {
+            const articleListView = localStorage.getItem(LOCAL_STORAGE_KEY.articleView)
+            if (articleListView) {
+                state.view = articleListView as ArticleListView;
+                state.limit = articleListView === 'SMALL' ? 9 : 4;
+            }
+        },
+        setArticleListView: (state, action) => {
+            state.view = action.payload;
+            localStorage.setItem(LOCAL_STORAGE_KEY.articleView, action.payload)
+        },
+        setPage: (state, action) => {
+            state.page = action.payload
+        },
+        setSearchValue: (state, action) => {
+            state.search = action.payload;
+        },
+        setSortDirection: (state, action) => {
+            state.sortDirection = action.payload;
+        },
+        setSortField: (state, action) => {
+            state.sortField = action.payload;
+        },
+        setType: (state, action) => {
+            state.type = action.payload;
+        }
     }
 });
 

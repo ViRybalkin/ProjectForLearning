@@ -5,7 +5,7 @@ import { ArticleImageBlockProps } from './ArticleImageBlock.types';
 import cls from './ArticleImageBlock.module.scss';
 import { AppImage } from '@/shared/ui/AppImage';
 
-export const ArticleImageBlock = memo(({ img, alt, title, classname }: ArticleImageBlockProps) => {
+export const ArticleImageBlock = memo(({ alt, classname, img, title }: ArticleImageBlockProps) => {
   return (
     <div className={classNames('', {}, [classname])}>
       <AppImage className={cls.image} src={img} alt={alt} />

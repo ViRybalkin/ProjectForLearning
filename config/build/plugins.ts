@@ -10,10 +10,10 @@ import {WebpackBuildOption} from "./types";
 
 
 export const Plugins = ({
-                            path,
+                            baseUrl,
                             isDev,
                             isReport,
-                            baseUrl,
+                            path,
                             project
                         }: WebpackBuildOption): webpack.WebpackPluginInstance[] => {
 
@@ -21,18 +21,18 @@ export const Plugins = ({
         new HtmlWebpackPlugin({template: path.html}),
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin({
-            __IS_DEV__: JSON.stringify(isDev),
             __BASE_URL__: JSON.stringify(baseUrl),
+            __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project)
         }),
         new BundleAnalyzerPlugin({
-            openAnalyzer: isReport,
             analyzerMode: isReport ? 'server' : 'disabled',
+            openAnalyzer: isReport,
         }),
         new CircularDependencyPlugin({
+            cwd: process.cwd(),
             exclude: /node_modules/,
             failOnError: true,
-            cwd: process.cwd(),
         })
     ];
 
@@ -42,8 +42,8 @@ export const Plugins = ({
     }
     if (!isDev) {
         plugins.push(new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
+            filename: 'css/[name].[contenthash:8].css',
         }))
         plugins.push(new CopyPlugin({patterns: [{from: path.fromLocale, to: path.toLocale}]}),)
     }

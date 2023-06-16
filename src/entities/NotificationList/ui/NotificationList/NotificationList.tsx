@@ -5,7 +5,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { NotificationListProps } from './NotificationList.types';
 
-export const NotificationList = memo(({ items, isLoading, classname }: NotificationListProps) => {
+export const NotificationList = memo(({ classname, isLoading, items }: NotificationListProps) => {
   if (isLoading) {
     return (
       <VStack gap='8'>

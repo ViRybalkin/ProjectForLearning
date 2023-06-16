@@ -8,15 +8,15 @@ jest.mock('shared/config/api/api');
 const mockedAxios = jest.mocked($api, true)
 
 const response: ProfileDataTypes = {
-    id: '1',
-    first: 'first',
-    lastname: 'lastname',
-    currency: 'currency',
-    country: 'country',
-    city: 'city',
-    username: 'username',
-    avatar: 'avatar',
     age: 22,
+    avatar: 'avatar',
+    city: 'city',
+    country: 'country',
+    currency: 'currency',
+    first: 'first',
+    id: '1',
+    lastname: 'lastname',
+    username: 'username',
 }
 describe('Тестирование сервиса UpdateProfile', () => {
     const extraData = {
@@ -63,15 +63,15 @@ describe('Тестирование сервиса UpdateProfile', () => {
     test('если передан некорректный профиль сервис валидации должен быть вызван ', async () => {
         jest.spyOn(ValidationProfileMock, 'validateProfile')
         const invalidResponse = {
-            id: '',
-            first: '',
-            lastname: '',
-            currency: 'currency',
-            country: 'country',
-            city: 'city',
-            username: 'username',
-            avatar: 'avatar',
             age: 22,
+            avatar: 'avatar',
+            city: 'city',
+            country: 'country',
+            currency: 'currency',
+            first: '',
+            id: '',
+            lastname: '',
+            username: 'username',
         }
         const action = updateProfile(invalidResponse)
 

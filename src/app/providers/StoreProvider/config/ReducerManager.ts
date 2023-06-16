@@ -9,6 +9,16 @@ export function createReducerManager(initialReducers: ReducersMapObject<AppStore
     let keysToRemove: AppStoreKeys[] = []
 
     return {
+        add: (key: AppStoreKeys, reducer: Reducer) => {
+            if (!key || reducers[key]) {
+                return
+            }
+
+            reducers[key] = reducer
+
+            combinedReducer = combineReducers(reducers)
+        },
+
         getReducerMap: () => reducers,
 
         reduce: (state: AppStoreTypes, action: AnyAction) => {
@@ -21,16 +31,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<AppStore
             }
 
             return combinedReducer(state, action)
-        },
-
-        add: (key: AppStoreKeys, reducer: Reducer) => {
-            if (!key || reducers[key]) {
-                return
-            }
-
-            reducers[key] = reducer
-
-            combinedReducer = combineReducers(reducers)
         },
 
         remove: (key: AppStoreKeys) => {

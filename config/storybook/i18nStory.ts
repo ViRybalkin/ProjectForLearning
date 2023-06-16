@@ -22,15 +22,15 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        fallbackLng: 'en',
         debug: __IS_DEV__,
         defaultNS: 'translation',
-        supportedLngs,
-        resources,
-        ns,
+        fallbackLng: 'en',
         interpolation: {
             escapeValue: false,
         },
+        ns,
+        resources,
+        supportedLngs,
     });
 
 export default i18n;

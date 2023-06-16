@@ -4,28 +4,28 @@ import { ListBox } from '@/shared/ui/Popups';
 import { CountrySelectProps } from './CountrySelect.types';
 import cls from './CountrySelect.module.scss';
 
-const CountrySelect = forwardRef(({ readonly, onChange, value, ...otherProps }: CountrySelectProps, ref) => {
+const CountrySelect = forwardRef(({ onChange, readonly, value, ...otherProps }: CountrySelectProps, ref) => {
   const { t } = useTranslation('profilePage');
   const options = [
     {
-      value: 'Russia',
       id: 'Russia',
+      value: 'Russia',
     },
     {
-      value: 'Belarus',
       id: 'Belarus',
+      value: 'Belarus',
     },
     {
-      value: 'Ukraine',
       id: 'Ukraine',
+      value: 'Ukraine',
     },
     {
-      value: 'Kazahstan',
       id: 'Kazahstan',
+      value: 'Kazahstan',
     },
     {
-      value: 'Armenia',
       id: 'Armenia',
+      value: 'Armenia',
     },
   ];
 

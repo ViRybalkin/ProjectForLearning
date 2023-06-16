@@ -9,7 +9,7 @@ import { AddCommentFormProps, AddCommentFormTypes } from './AddCommentForm.types
 
 export const AddCommentForm = memo(({ submitHandler }: AddCommentFormProps) => {
   const { t } = useTranslation('articlesDetails');
-  const { setValue, control, getValues } = useForm<AddCommentFormTypes>();
+  const { control, getValues, setValue } = useForm<AddCommentFormTypes>();
   const onSubmit = useCallback(() => {
     const comment = getValues('newComment');
     submitHandler({ newComment: comment });

@@ -5,33 +5,33 @@ import { Select } from '@/shared/ui/Select';
 import { ArticleSortListProps } from './ArticleSortList.types';
 import cls from './ArticleListSort.module.scss';
 
-export const ArticleSortList = memo(({ onFieldChange, onDirectionChange }: ArticleSortListProps) => {
+export const ArticleSortList = memo(({ onDirectionChange, onFieldChange }: ArticleSortListProps) => {
   const { t } = useTranslation('articlesDetails');
   const { control, setValue } = useForm();
 
   const fieldOptions = [
     {
-      value: 'views',
       content: t('sortFieldViews'),
+      value: 'views',
     },
     {
-      value: 'title',
       content: t('sortFieldTitle'),
+      value: 'title',
     },
     {
-      value: 'createdAt',
       content: t('sortFieldDate'),
+      value: 'createdAt',
     },
   ];
 
   const directionOptions = [
     {
-      value: 'asc',
       content: t('ascSortDirection'),
+      value: 'asc',
     },
     {
-      value: 'desc',
       content: t('descSortDirection'),
+      value: 'desc',
     },
   ];
 

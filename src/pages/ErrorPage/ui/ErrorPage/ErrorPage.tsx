@@ -4,7 +4,7 @@ import { classNames } from '@/shared/helpers/classNames';
 import { ErrorPageProps } from './ErrorPage.types';
 import cls from './errorPage.module.scss';
 
-const ErrorPage = ({ errorName, errorMessage, errorInfo }: ErrorPageProps) => {
+const ErrorPage = ({ errorInfo, errorMessage, errorName }: ErrorPageProps) => {
   const { t } = useTranslation('error');
 
   const onReload = () => window.location.reload();

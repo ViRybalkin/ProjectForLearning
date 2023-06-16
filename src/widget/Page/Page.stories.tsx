@@ -2,12 +2,12 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Page } from './Page';
 
 export default {
-  title: 'shared/Page',
   component: Page,
+  title: 'shared/Page',
 } as ComponentMeta<typeof Page>;
 
 export const Template: ComponentStory<typeof Page> = (args) => (
   <Page {...args}>
-    <div style={{ width: '200px', height: '200px' }}>Some info</div>
+    <div style={{ height: '200px', width: '200px' }}>Some info</div>
   </Page>
 );

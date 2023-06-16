@@ -12,13 +12,13 @@ jest.mock('shared/config/helpers/error', () => ({
 }));
 describe('Тестирование сервиса loginByUserName', () => {
     const requestData: UserData = {
-        username: 'name',
-        password: 'password'
+        password: 'password',
+        username: 'name'
     };
     const responseData = {
-        username: 'name',
+        avatar: 'avatar',
         id: 'someId',
-        avatar: 'avatar'
+        username: 'name'
     }
 
     const extraData = {
@@ -50,10 +50,10 @@ describe('Тестирование сервиса loginByUserName', () => {
         await action(dispatch, getState, extraData);
 
         expect(dispatch).toHaveBeenCalledWith(userAction.setUserData({
-            username: responseData.username,
-            id: responseData.id,
             avatar: responseData.avatar,
+            id: responseData.id,
             isAuth: true,
+            username: responseData.username,
         }))
     })
 
@@ -66,9 +66,9 @@ describe('Тестирование сервиса loginByUserName', () => {
         await action(dispatch, getState, extraData);
 
         expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
-            username: responseData.username,
-            id: responseData.id,
             avatar: responseData.avatar,
+            id: responseData.id,
+            username: responseData.username,
         }))
     });
 

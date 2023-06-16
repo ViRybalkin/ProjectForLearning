@@ -16,7 +16,7 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { VStack } from '@/shared/ui/VStack';
 
 export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
-  const { data: articleData, isLoading, error: errorProto } = useGetArticleDetailsQuery(articleId);
+  const { data: articleData, error: errorProto, isLoading } = useGetArticleDetailsQuery(articleId);
   const error = JSON.stringify(errorProto);
 
   if (error) {

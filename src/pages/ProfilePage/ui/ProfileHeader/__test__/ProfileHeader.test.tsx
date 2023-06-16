@@ -19,22 +19,22 @@ jest.mock('entities/User', () => ({
 }));
 
 const profile = {
-  id: '1',
-  first: 'first',
-  lastname: 'lastname',
-  currency: 'currency',
-  country: 'country',
-  city: 'city',
-  username: 'username',
-  avatar: 'avatar',
   age: 1,
+  avatar: 'avatar',
+  city: 'city',
+  country: 'country',
+  currency: 'currency',
+  first: 'first',
+  id: '1',
+  lastname: 'lastname',
+  username: 'username',
 };
 
 const userData = {
-  username: 'username',
+  avatar: '',
   id: '1',
   isAuth: true,
-  avatar: '',
+  username: 'username',
 };
 
 const mockDispatch = jest.fn();

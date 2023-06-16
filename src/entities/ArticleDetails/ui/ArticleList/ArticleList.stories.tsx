@@ -3,8 +3,6 @@ import { articleListMocks } from '@/__mocks__';
 import { ArticleList } from './ArticleList';
 
 export default {
-  title: 'entities/ArticleList',
-  component: ArticleList,
   argTypes: {
     articles: {
       defaultValue: articleListMocks,
@@ -13,6 +11,8 @@ export default {
       defaultValue: 'SMALL',
     },
   },
+  component: ArticleList,
+  title: 'entities/ArticleList',
 } as ComponentMeta<typeof ArticleList>;
 
 export const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;

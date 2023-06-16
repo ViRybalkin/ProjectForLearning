@@ -9,20 +9,20 @@ export default (env: BuildEnvType) => {
   const webpackAnalyze = env.report || false;
 
   const webpackBuildOption: WebpackBuildOption = {
-    mode,
-    port,
+    baseUrl,
     isDev,
     isReport: webpackAnalyze,
-    baseUrl,
-    project: 'frontend',
+    mode,
     path: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
-      output: path.resolve(__dirname, 'dist'),
+      fromLocale: path.resolve(__dirname, 'public', 'locales'),
       html: path.resolve(__dirname, 'public', 'index.html'),
+      output: path.resolve(__dirname, 'dist'),
       src: path.resolve(__dirname, 'src'),
       toLocale: path.resolve(__dirname, 'dist', 'locales'),
-      fromLocale: path.resolve(__dirname, 'public', 'locales'),
     },
+    port,
+    project: 'frontend',
   };
 
   return WebpackBuilder(webpackBuildOption);

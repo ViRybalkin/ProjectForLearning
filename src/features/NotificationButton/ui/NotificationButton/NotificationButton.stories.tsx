@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { NotificationButton } from './NotificationButton';
 
 export default {
-  title: 'features/NotificationButton',
   component: NotificationButton,
+  title: 'features/NotificationButton',
 } as ComponentMeta<typeof NotificationButton>;
 
 export const Template: ComponentStory<typeof NotificationButton> = () => <NotificationButton />;

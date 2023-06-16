@@ -6,19 +6,19 @@ describe('Тестирование слайса articleSlice', () => {
     test('должен вернуть начальное состояние', () => {
         expect(ArticleListReducer(undefined, {type: undefined})).toEqual(
             {
-                isLoading: false,
+                _inited: false,
+                entities: {},
                 error: '',
-                view: 'SMALL',
+                hasMore: false,
                 ids: [],
+                isLoading: false,
                 limit: 9,
                 page: 1,
-                hasMore: false,
-                entities: {},
-                _inited: false,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'SMALL',
 
             }
         )
@@ -27,19 +27,19 @@ describe('Тестирование слайса articleSlice', () => {
     test('стейт должен содержать корректные данные после вызова setArticleListView', () => {
         expect(ArticleListReducer(undefined, ArticleListAction.setArticleListView('BIG'))).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 1,
-                limit: 9,
-                view: 'BIG',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 9,
+                page: 1,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'BIG',
             }
         )
     });
@@ -48,19 +48,19 @@ describe('Тестирование слайса articleSlice', () => {
         Storage.prototype.setItem = jest.fn();
         expect(ArticleListReducer(undefined, ArticleListAction.setArticleListView('BIG'))).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 1,
-                limit: 9,
-                view: 'BIG',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 9,
+                page: 1,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'BIG',
             }
         )
 
@@ -72,19 +72,19 @@ describe('Тестирование слайса articleSlice', () => {
         Storage.prototype.setItem = jest.fn();
         expect(ArticleListReducer(undefined, ArticleListAction.initArticleListView())).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 1,
-                limit: 4,
-                view: 'BIG',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 4,
+                page: 1,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'BIG',
             }
         )
         expect(localStorage.getItem).toHaveBeenCalledWith("articleView");
@@ -102,50 +102,50 @@ describe('Тестирование слайса articleSlice', () => {
         // @ts-ignore
         expect(ArticleListReducer(state, action)).toEqual(
             {
-                isLoading: true,
                 error: undefined,
+                isLoading: true,
             })
     });
 
     test('articleSlice fulfilled должен изменить данные', () => {
         const action = {
-            type: getArticleList.fulfilled.type,
-            payload: articleListMocks,
             meta: {
                 arg: {
                     replace: true,
                 }
-            }
+            },
+            payload: articleListMocks,
+            type: getArticleList.fulfilled.type
         };
 
         const state = {
-            isLoading: true,
             entities: {
                 "1": articleListMocks[0]
             },
             ids: ['1'],
+            isLoading: true,
         }
 
         // @ts-ignore
         expect(ArticleListReducer(state, action)).toEqual(
             {
+                _inited: true,
                 entities: {
                     "1": articleListMocks[0]
                 },
+                hasMore: true,
                 ids: ['1'],
                 isLoading: false,
-                hasMore: true,
-                _inited: true,
             }
         )
     });
 
     test('articleSlice rejected должен изменить данные', () => {
         const action = {
-            type: getArticleList.rejected.type,
             error: {
                 message: 'error'
-            }
+            },
+            type: getArticleList.rejected.type
         };
 
         const state = {
@@ -163,19 +163,19 @@ describe('Тестирование слайса articleSlice', () => {
     test('Вызов setPage должен изменить стейт', () => {
         expect(ArticleListReducer(undefined, ArticleListAction.setPage(10))).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 10,
-                limit: 9,
-                view: 'SMALL',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 9,
+                page: 10,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'SMALL',
             }
         )
     })
@@ -183,19 +183,19 @@ describe('Тестирование слайса articleSlice', () => {
     test('если view равен small limit равен 9', () => {
         expect(ArticleListReducer(undefined, ArticleListAction.setArticleListView('SMALL'))).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 1,
-                limit: 9,
-                view: 'SMALL',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 9,
+                page: 1,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'SMALL',
             }
         )
     });
@@ -204,19 +204,19 @@ describe('Тестирование слайса articleSlice', () => {
         ArticleListReducer(undefined, ArticleListAction.setArticleListView('BIG'));
         expect(ArticleListReducer(undefined, ArticleListAction.initArticleListView())).toEqual(
             {
-                error: '',
-                isLoading: false,
-                entities: {},
-                ids: [],
-                hasMore: false,
-                page: 1,
-                limit: 4,
-                view: 'BIG',
                 _inited: false,
+                entities: {},
+                error: '',
+                hasMore: false,
+                ids: [],
+                isLoading: false,
+                limit: 4,
+                page: 1,
                 search: '',
                 sortDirection: 'asc',
                 sortField: 'views',
                 type: 'all',
+                view: 'BIG',
             }
         )
     })

@@ -5,7 +5,7 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { VStack } from '@/shared/ui/VStack';
 import { NotificationItemProps } from './NotificationItem.types';
 
-export const NotificationItem = memo(({ item, classname }: NotificationItemProps) => {
+export const NotificationItem = memo(({ classname, item }: NotificationItemProps) => {
   const content = (
     <Card classname={classname}>
       <VStack align='start' gap='10'>

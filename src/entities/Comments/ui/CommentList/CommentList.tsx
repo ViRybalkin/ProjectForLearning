@@ -7,7 +7,7 @@ import cls from './CommentList.module.scss';
 import { CommentListProps } from './CommentList.types';
 import { CommentCard } from '../CommentCard/CommentCard';
 
-export const CommentList = memo(({ comments, isLoading, error }: CommentListProps) => {
+export const CommentList = memo(({ comments, error, isLoading }: CommentListProps) => {
   const { t } = useTranslation('articlesDetails');
 
   if (error) {

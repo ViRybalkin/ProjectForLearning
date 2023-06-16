@@ -1,7 +1,6 @@
 import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
 export const buildDevServer = (port: number): DevServerConfiguration => ({
-  port,
   historyApiFallback: true,
   hot: true,
   open: {
@@ -9,4 +8,5 @@ export const buildDevServer = (port: number): DevServerConfiguration => ({
       name: 'Safari',
     },
   },
+  port,
 });

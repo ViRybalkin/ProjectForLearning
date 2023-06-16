@@ -17,9 +17,9 @@ export const ArticleRating = memo(({ articleId }: ArticleRatingProps) => {
     (starCount, feedback) => {
       setArticleRating({
         articleId,
-        userId,
         feedback,
         rate: starCount,
+        userId,
       });
     },
     [articleId, setArticleRating, userId]

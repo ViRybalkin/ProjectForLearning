@@ -13,7 +13,7 @@ interface ReturnTypes {
     isMounted: boolean;
 }
 
-export const useModal = ({isOpen, onClose, onOverlayClose, onEscapeClose}: UseModalProps): ReturnTypes => {
+export const useModal = ({isOpen, onClose, onEscapeClose, onOverlayClose}: UseModalProps): ReturnTypes => {
     const [isMounted, setIsMounted] = useState<boolean>(false);
 
     const closeHandler = useCallback(() => {
@@ -58,7 +58,7 @@ export const useModal = ({isOpen, onClose, onOverlayClose, onEscapeClose}: UseMo
     }, []);
 
     return {
-        onContentClick, onOverlayClick,
-        isMounted,
+        isMounted, onContentClick,
+        onOverlayClick,
     }
 }

@@ -5,13 +5,13 @@ import cls from './Flex.module.scss';
 
 export const Flex = memo(
   ({
+    align = 'center',
     children,
     classname,
-    gap,
-    justify = 'center',
-    align = 'center',
     direction = 'column',
     fullWidth = false,
+    gap,
+    justify = 'center',
   }: FlexProps) => {
     const classes = [
       classname,

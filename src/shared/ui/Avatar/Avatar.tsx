@@ -4,7 +4,7 @@ import cls from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
 
-const Avatar = memo(({ src, alt, size }: AvatarProps) => {
+const Avatar = memo(({ alt, size, src }: AvatarProps) => {
   const styles = {
     height: size,
     width: size,

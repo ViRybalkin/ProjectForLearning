@@ -12,7 +12,7 @@ export const getPaginatedArticleListService = createAsyncThunk<
     ThunkConfig<string>
 >(
     'article/getPaginatedArticleListService',
-    async (_, {getState, dispatch}) => {
+    async (_, {dispatch, getState}) => {
         const page = getArticleListPage(getState());
         const hasMore = getArticleListHasMore(getState());
         const isLoading = getArticleListIsLoading(getState());

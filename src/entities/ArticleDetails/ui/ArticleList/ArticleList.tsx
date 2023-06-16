@@ -6,7 +6,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-export const ArticleList = memo(({ articles, isLoading, error, classname, target, view = 'BIG' }: ArticleListProps) => {
+export const ArticleList = memo(({ articles, classname, error, isLoading, target, view = 'BIG' }: ArticleListProps) => {
   const skeletonLength = new Array(view === 'SMALL' ? 9 : 3).fill(0);
 
   if (error) {

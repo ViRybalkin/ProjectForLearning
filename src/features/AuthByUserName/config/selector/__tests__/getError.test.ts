@@ -5,16 +5,16 @@ describe('Тестирование селектора getError', () => {
     test('getError должен вернуть корректные данные', () => {
         const state = {
             login: {
-                username: 'name',
+                error: 'text error',
                 password: '123',
-                error: 'text error'
+                username: 'name'
             },
         };
         const result = getError({
             login: {
-                username: 'name',
+                error: 'text error',
                 password: '123',
-                error: 'text error'
+                username: 'name'
             },
         } as AppStoreTypes);
 

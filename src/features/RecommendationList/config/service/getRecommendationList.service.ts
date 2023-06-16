@@ -5,10 +5,10 @@ const getRecommendationList = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getRecommendationList: build.query<Array<ArticleDetailsDataType>, void>({
             query: () => ({
-                url: '/articles',
                 params: {
                     _limit: 4,
-                }
+                },
+                url: '/articles'
             }),
         }),
     }),

@@ -13,7 +13,7 @@ import {getArticleListProps} from "../types/articles.types";
 
 export const getArticleList = createAsyncThunk<Array<ArticleDetailsDataType>, getArticleListProps, ThunkConfig<string>>(
     'article/getArticles',
-    async (_, {extra: {api}, rejectWithValue, getState}) => {
+    async (_, {extra: {api}, getState, rejectWithValue}) => {
         try {
             const limit = getArticleListLimit(getState());
             const type = getArticleListType(getState());
@@ -22,16 +22,16 @@ export const getArticleList = createAsyncThunk<Array<ArticleDetailsDataType>, ge
             const sortField = getArticleListSortField(getState());
             const page = getArticleListPage(getState());
 
-            addQueryParams({sortDirection, sortField, type, search})
+            addQueryParams({search, sortDirection, sortField, type})
 
 
             const {data} = await api.get('/articles', {
                 params: {
                     _expand: 'user',
-                    _page: page,
                     _limit: limit,
-                    _sort: sortField,
                     _order: sortDirection,
+                    _page: page,
+                    _sort: sortField,
                     q: search?.length ? search : undefined,
                     type_like: type === 'all' ? undefined : type,
                 }

@@ -5,7 +5,7 @@ import Star from '../../assets/icons/star.svg';
 import { Icon } from '../Icon';
 import { classNames } from '@/shared/helpers/classNames';
 
-export const StarRating = memo(({ size, onSelect, selectedStar = 0, starNumber = 5 }: StarRatingProps) => {
+export const StarRating = memo(({ onSelect, selectedStar = 0, size, starNumber = 5 }: StarRatingProps) => {
   const [hoveredCount, setHoveredCount] = useState<number>(selectedStar);
   const [isSelected, setIsSelected] = useState<boolean>(Boolean(selectedStar));
   const ratingNumbers = Array.from({ length: starNumber }, (value, index) => index + 1);

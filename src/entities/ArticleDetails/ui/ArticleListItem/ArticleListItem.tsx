@@ -15,7 +15,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { generateRoute } from '@/shared/constants';
 import { AppImage } from '@/shared/ui/AppImage';
 
-export const ArticleListItem = memo(({ article, view, target }: ArticleListItemProps) => {
+export const ArticleListItem = memo(({ article, target, view }: ArticleListItemProps) => {
   const { t } = useTranslation('articlesDetails');
   const types = article.type.join(' ');
   const articleTextBlock = article.blocks.find((el) => el.type === 'TEXT') as ArticleDetailsTextBlock;

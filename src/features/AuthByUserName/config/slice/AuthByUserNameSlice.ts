@@ -3,21 +3,13 @@ import {authByUserNameThunk} from "../services/LoginByUserName.service";
 import {AuthByUserNameTypes} from '../types/AuthByUserName.types';
 
 const initialState: AuthByUserNameTypes = {
-    username: '',
-    password: '',
     error: undefined,
     isLoading: false,
+    password: '',
+    username: '',
 };
 
 export const authByUserNameSlice = createSlice({
-    name: 'authByUserName',
-    initialState,
-    reducers: {
-        setUserData(state: AuthByUserNameTypes, action: PayloadAction<AuthByUserNameTypes>) {
-            state.username = action.payload.username;
-            state.password = action.payload.password;
-        },
-    },
     extraReducers: (builder) => {
         builder
             .addCase(authByUserNameThunk.pending, (state) => {
@@ -30,6 +22,14 @@ export const authByUserNameSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             })
+    },
+    initialState,
+    name: 'authByUserName',
+    reducers: {
+        setUserData(state: AuthByUserNameTypes, action: PayloadAction<AuthByUserNameTypes>) {
+            state.username = action.payload.username;
+            state.password = action.payload.password;
+        },
     }
 })
 

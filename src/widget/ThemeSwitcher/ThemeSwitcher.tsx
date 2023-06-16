@@ -6,7 +6,7 @@ import LightMode from '@/shared/assets/icons/light-mode.svg';
 import OrangeMode from '@/shared/assets/icons/orange-mode.svg';
 
 export const ThemeSwitcher = memo(() => {
-  const { theme, onToggleTheme } = UseTheme();
+  const { onToggleTheme, theme } = UseTheme();
 
   return (
     <Button data-testid='themeSwitcherId' theme='clear' onClick={onToggleTheme}>

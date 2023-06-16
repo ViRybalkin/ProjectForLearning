@@ -10,7 +10,7 @@ import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/HStack';
 import { VStack } from '@/shared/ui/VStack';
 
-export const Rating = memo(({ ratingTitle, feedbackTitle, onAccept, rate = 0, hasFeedback = false }: RatingProps) => {
+export const Rating = memo(({ feedbackTitle, hasFeedback = false, onAccept, rate = 0, ratingTitle }: RatingProps) => {
   const { t } = useTranslation('articlesDetails');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [starCount, setStarCount] = useState<number>(rate);
