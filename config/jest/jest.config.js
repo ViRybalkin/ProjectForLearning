@@ -7,7 +7,7 @@ module.exports = async () => {
         reporters: [
             "default",
             ["jest-html-reporters", {
-                publicPath: "./config/jest/html-report",
+                publicPath: "./reports/jest/html-report",
                 filename: "report.html",
                 openReport: true,
                 includeConsoleLog: true,
