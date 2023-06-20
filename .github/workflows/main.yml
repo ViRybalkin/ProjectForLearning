@@ -38,14 +38,14 @@ jobs:
       - name: screenshot testing
         run: npm run loki:ci
         if: always()
-      - name: move loki files
-        run: mv .loki reports/
-        if: always()
       - name: jest testing
         run: npm run test
         if: always()
       - name: Generate HTML report
         run: npm run visual:report
+        if: always()
+      - name: move loki files
+        run: mv .loki reports/
         if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
