@@ -4,3 +4,4 @@ dist
 coverage
 storybook-static
 config/jest/html-report
+reports
