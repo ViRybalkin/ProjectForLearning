@@ -11,6 +11,6 @@ export interface GetArticleRatingPayload {
 }
 
 export interface SetArticleRatingPayload extends GetArticleRatingPayload {
-    rate: string;
+    rate: number;
     feedback?: string;
 }
