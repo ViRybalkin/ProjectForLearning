@@ -1,5 +1,5 @@
-import {PathRouteProps} from 'react-router/dist/lib/components';
 import {lazy} from 'react';
+import {PathRouteProps} from 'react-router-dom';
 import {RolesTypes} from "@/entities/User";
 import {Path} from "@/shared/types";
 import {generateRoute} from "@/shared/constants";
