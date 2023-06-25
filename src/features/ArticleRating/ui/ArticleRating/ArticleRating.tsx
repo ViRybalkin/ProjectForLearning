@@ -14,7 +14,7 @@ export const ArticleRating = memo(({ articleId }: ArticleRatingProps) => {
   const [setArticleRating] = useSetFeedbackMutation();
 
   const onAccept = useCallback(
-    (starCount, feedback) => {
+    (starCount: number, feedback?: string) => {
       setArticleRating({
         articleId,
         feedback,
