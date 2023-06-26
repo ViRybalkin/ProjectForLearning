@@ -1,4 +1,5 @@
 import { ArticleDetailsDataType } from '@/entities/ArticleDetails';
+import { Comment } from '@/entities/Comments';
 
 export const ArticleDetailsMock: ArticleDetailsDataType = {
   blocks: [
@@ -45,7 +46,7 @@ export const ArticleDetailsMock: ArticleDetailsDataType = {
     },
     {
       id: '8',
-      src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+      src: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
       title: 'Рисунок 1 - скриншот сайта',
       type: 'IMAGE',
     },
@@ -60,7 +61,7 @@ export const ArticleDetailsMock: ArticleDetailsDataType = {
   ],
   createdAt: '10.22.2023',
   id: '1',
-  img: 'img',
+  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   subtitle: 'subtitle',
   title: 'title',
   type: ['IT'],
@@ -72,3 +73,25 @@ export const ArticleDetailsMock: ArticleDetailsDataType = {
   },
   views: 123,
 };
+
+export const articleDetailsCommentsMock: Comment[] = [
+  {
+    comment: 'some comment',
+    id: '1',
+    user: {
+      avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+      id: '1',
+      username: 'admin',
+    },
+  },
+  {
+    comment: 'Новый комментарий',
+    id: '2',
+    user: {
+      avatar:
+        'https://w0.peakpx.com/wallpaper/165/445/HD-wallpaper-neon-mask-hacker-hackers-lonely-hacker-neon-mask.jpg',
+      id: '2',
+      username: 'user',
+    },
+  },
+];
