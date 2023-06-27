@@ -8,7 +8,10 @@ const LoginForm = lazy(() => import('../LoginForm/LoginForm'));
 const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
   return (
     <div>
-      <Modal lazy isOpen={isOpen} onClose={onClose}>
+      <Modal
+        lazy
+        isOpen={isOpen}
+        onClose={onClose}>
         <Suspense fallback={<Loader />}>
           <LoginForm onClose={onClose} />
         </Suspense>

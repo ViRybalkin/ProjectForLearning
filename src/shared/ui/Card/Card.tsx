@@ -5,7 +5,9 @@ import cls from './Card.module.scss';
 
 export const Card = memo(({ children, classname, theme = 'normal', ...other }: CardProps) => {
   return (
-    <div {...other} className={classNames(cls.card, {}, [classname, cls[theme]])}>
+    <div
+      {...other}
+      className={classNames(cls.card, {}, [classname, cls[theme]])}>
       {children}
     </div>
   );

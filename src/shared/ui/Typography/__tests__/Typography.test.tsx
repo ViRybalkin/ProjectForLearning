@@ -7,7 +7,9 @@ const variants = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'];
 describe('Тестирование компонента Typography', () => {
   const setup = (variant?: TypographyProps['variant'], error = false) => {
     render(
-      <Typography error={error} variant={variant}>
+      <Typography
+        error={error}
+        variant={variant}>
         some Text
       </Typography>
     );

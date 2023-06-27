@@ -4,7 +4,9 @@ import { HStackProps } from './HStack.types';
 
 export const HStack = memo(({ children, ...otherProps }: HStackProps) => {
   return (
-    <Flex direction='row' {...otherProps}>
+    <Flex
+      direction='row'
+      {...otherProps}>
       {children}
     </Flex>
   );

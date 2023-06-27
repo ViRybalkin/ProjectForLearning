@@ -28,7 +28,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
       return (
         <Suspense fallback=''>
-          <ErrorPage errorInfo={errorInfoText} errorName={errorName} errorMessage={errorMessage} />
+          <ErrorPage
+            errorInfo={errorInfoText}
+            errorName={errorName}
+            errorMessage={errorMessage}
+          />
         </Suspense>
       );
     }

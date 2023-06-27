@@ -17,7 +17,9 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid='appId' className={classNames('app', {})}>
+    <div
+      data-testid='appId'
+      className={classNames('app', {})}>
       <Suspense fallback=''>
         <NavBar />
         <main className={classNames('mainWrapper')}>

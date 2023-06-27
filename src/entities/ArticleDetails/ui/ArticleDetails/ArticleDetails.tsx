@@ -21,7 +21,9 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
 
   if (error) {
     return (
-      <div data-testid='ArticleDetailsErrorId' className={classNames(cls.errorWrapper)}>
+      <div
+        data-testid='ArticleDetailsErrorId'
+        className={classNames(cls.errorWrapper)}>
         <Typography variant='h1'>{error}</Typography>
       </div>
     );
@@ -29,22 +31,67 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
 
   if (isLoading) {
     return (
-      <VStack fullWidth data-testid='ArticleDetailsSkeletonId' classname={classNames(cls.loadingWrapper)}>
-        <Skeleton className={cls.loadingWrapper__avatar} height={200} width={200} borderRadius={100} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={20} width={500} borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={20} width={400} borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={20} width={100} borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={20} width={70} borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
-        <Skeleton className={cls.loadingWrapper__mb20} height={250} width='100%' borderRadius={5} />
+      <VStack
+        fullWidth
+        data-testid='ArticleDetailsSkeletonId'
+        classname={classNames(cls.loadingWrapper)}>
+        <Skeleton
+          className={cls.loadingWrapper__avatar}
+          height={200}
+          width={200}
+          borderRadius={100}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={20}
+          width={500}
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={20}
+          width={400}
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={20}
+          width={100}
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={20}
+          width={70}
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={250}
+          width='100%'
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={250}
+          width='100%'
+          borderRadius={5}
+        />
+        <Skeleton
+          className={cls.loadingWrapper__mb20}
+          height={250}
+          width='100%'
+          borderRadius={5}
+        />
       </VStack>
     );
   }
 
   if (error) {
     return (
-      <HStack data-testid='ArticleDetailsErrorId' classname={classNames(cls.errorWrapper)}>
+      <HStack
+        data-testid='ArticleDetailsErrorId'
+        classname={classNames(cls.errorWrapper)}>
         <Typography variant='h1'>{error}</Typography>
       </HStack>
     );
@@ -54,34 +101,71 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
     <div>
       {articleData ? (
         <>
-          <div data-testid='articleDetailsId' className={cls.mainInfoBlock}>
-            <HStack fullWidth classname={cls.avatar}>
-              <Avatar src={articleData?.img} alt={articleData.img} size={200} />
+          <div
+            data-testid='articleDetailsId'
+            className={cls.mainInfoBlock}>
+            <HStack
+              fullWidth
+              classname={cls.avatar}>
+              <Avatar
+                src={articleData?.img}
+                alt={articleData.img}
+                size={200}
+              />
             </HStack>
             <Typography variant='h1'>{articleData.title}</Typography>
             <Typography variant='h2'>{articleData.subtitle}</Typography>
-            <HStack gap='10' justify='start'>
-              <Icon width={20} height={20} Svg={EyeIcon} />
+            <HStack
+              gap='10'
+              justify='start'>
+              <Icon
+                width={20}
+                height={20}
+                Svg={EyeIcon}
+              />
               <Typography variant='h3'>{articleData.views}</Typography>
             </HStack>
-            <HStack gap='10' justify='start'>
-              <Icon width={20} height={20} Svg={CalendarIcon} />
+            <HStack
+              gap='10'
+              justify='start'>
+              <Icon
+                width={20}
+                height={20}
+                Svg={CalendarIcon}
+              />
               <Typography variant='h3'>{articleData.createdAt}</Typography>
             </HStack>
           </div>
           {articleData?.blocks &&
             articleData?.blocks.map((el) => {
               if (el.type === 'CODE') {
-                return <ArticleCodeBlock classname={cls.block} key={el.id} text={el.code} />;
+                return (
+                  <ArticleCodeBlock
+                    classname={cls.block}
+                    key={el.id}
+                    text={el.code}
+                  />
+                );
               }
               if (el.type === 'TEXT') {
                 return (
-                  <ArticleTextBlock classname={cls.block} key={el.id} title={el.title} paragraphs={el.paragraphs} />
+                  <ArticleTextBlock
+                    classname={cls.block}
+                    key={el.id}
+                    title={el.title}
+                    paragraphs={el.paragraphs}
+                  />
                 );
               }
               if (el.type === 'IMAGE') {
                 return (
-                  <ArticleImageBlock classname={cls.block} key={el.id} title={el.title} alt={el.src} img={el.src} />
+                  <ArticleImageBlock
+                    classname={cls.block}
+                    key={el.id}
+                    title={el.title}
+                    alt={el.src}
+                    img={el.src}
+                  />
                 );
               }
               return null;

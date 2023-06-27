@@ -6,7 +6,9 @@ const ForbiddenPage = () => {
   const { t } = useTranslation('forbidden');
   return (
     <HStack>
-      <Typography variant='h1' align='center'>
+      <Typography
+        variant='h1'
+        align='center'>
         {t('title')}
       </Typography>
     </HStack>

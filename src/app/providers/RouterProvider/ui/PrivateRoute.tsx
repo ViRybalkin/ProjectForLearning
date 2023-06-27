@@ -19,11 +19,21 @@ export const PrivateRoute = memo(({ children, isAuth, roles }: PrivateRouteProps
   }, [roles, userRoles]);
 
   if (!isAuth) {
-    return <Navigate to={generateRoute.main()} replace />;
+    return (
+      <Navigate
+        to={generateRoute.main()}
+        replace
+      />
+    );
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={generateRoute.forbiddenPage()} replace />;
+    return (
+      <Navigate
+        to={generateRoute.forbiddenPage()}
+        replace
+      />
+    );
   }
 
   return children;

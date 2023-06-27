@@ -23,25 +23,41 @@ export const ArticleListItem = memo(({ article, target, view }: ArticleListItemP
   const blockWithIcon = (
     <div className={cls.blockWithIcon}>
       <Typography>{article.views}</Typography>
-      <Icon width={20} height={20} Svg={EyeIcon} />
+      <Icon
+        width={20}
+        height={20}
+        Svg={EyeIcon}
+      />
     </div>
   );
 
   if (view === 'BIG') {
     return (
       <Card classname={classNames('', {}, [cls[view]])}>
-        <div data-testid='articleListItemBig' className={cls.header}>
+        <div
+          data-testid='articleListItemBig'
+          className={cls.header}>
           <div className={cls.userInfo}>
-            <Avatar src={article.user.avatar} alt={article.img} size={35} />
+            <Avatar
+              src={article.user.avatar}
+              alt={article.img}
+              size={35}
+            />
             <Typography>{article.user.username}</Typography>
           </div>
           <Typography>{article.createdAt}</Typography>
         </div>
-        <Typography variant='h2' classname={cls.articleTitle}>
+        <Typography
+          variant='h2'
+          classname={cls.articleTitle}>
           {article.title}
         </Typography>
         <Typography classname={cls.types}>{types}</Typography>
-        <AppImage src={article.img} alt={article.img} className={cls.img} />
+        <AppImage
+          src={article.img}
+          alt={article.img}
+          className={cls.img}
+        />
         {articleTextBlock ? (
           <ArticleTextBlock
             classname={cls.articleText}
@@ -60,10 +76,18 @@ export const ArticleListItem = memo(({ article, target, view }: ArticleListItemP
   }
 
   return (
-    <AppLink to={generateRoute.articlesDetailsPage(article.id)} target={target}>
+    <AppLink
+      to={generateRoute.articlesDetailsPage(article.id)}
+      target={target}>
       <Card classname={classNames('', {}, [cls[view]])}>
-        <div data-testid='articleListItemSmall' className={cls.imgWrapper}>
-          <AppImage src={article.img} className={cls.img} alt={article.img} />
+        <div
+          data-testid='articleListItemSmall'
+          className={cls.imgWrapper}>
+          <AppImage
+            src={article.img}
+            className={cls.img}
+            alt={article.img}
+          />
           <Typography classname={cls.date}>{article.createdAt}</Typography>
         </div>
         <div className={cls.infoWrapper}>

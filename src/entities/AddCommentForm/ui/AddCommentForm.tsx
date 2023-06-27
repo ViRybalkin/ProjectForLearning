@@ -17,14 +17,28 @@ export const AddCommentForm = memo(({ submitHandler }: AddCommentFormProps) => {
   }, [getValues, setValue, submitHandler]);
 
   return (
-    <HStack fullWidth gap='20' justify='between' classname={cls.addCommentWrapper}>
+    <HStack
+      fullWidth
+      gap='20'
+      justify='between'
+      classname={cls.addCommentWrapper}>
       <Controller
         name='newComment'
         defaultValue=''
         control={control}
-        render={({ field }) => <Input size='medium' fullWidth placeholder={t('addNewComment')} {...field} />}
+        render={({ field }) => (
+          <Input
+            size='medium'
+            fullWidth
+            placeholder={t('addNewComment')}
+            {...field}
+          />
+        )}
       />
-      <Button theme='contained' type='submit' onClick={onSubmit}>
+      <Button
+        theme='contained'
+        type='submit'
+        onClick={onSubmit}>
         Отправить
       </Button>
     </HStack>

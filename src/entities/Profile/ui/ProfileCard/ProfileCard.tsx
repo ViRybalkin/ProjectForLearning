@@ -62,13 +62,22 @@ export const ProfileCard = memo(({ data, error, isLoading, readonly, submitHandl
 
   return (
     <div className={classNames(cls.profileCard)}>
-      <form id='hook-form' onSubmit={handleSubmit(onSubmit)}>
+      <form
+        id='hook-form'
+        onSubmit={handleSubmit(onSubmit)}>
         {data?.avatar ? (
           <HStack classname={classNames(cls.avatarWrapper)}>
-            <Avatar size={150} src={avatar} alt={t('avatarAlt')} />
+            <Avatar
+              size={150}
+              src={avatar}
+              alt={t('avatarAlt')}
+            />
           </HStack>
         ) : null}
-        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
+        <HStack
+          justify='between'
+          gap='10'
+          classname={cls.inputsWrapper}>
           <Controller
             name='first'
             defaultValue=''
@@ -98,7 +107,10 @@ export const ProfileCard = memo(({ data, error, isLoading, readonly, submitHandl
             )}
           />
         </HStack>
-        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
+        <HStack
+          justify='between'
+          gap='10'
+          classname={cls.inputsWrapper}>
           <Controller
             name='age'
             defaultValue={0}
@@ -119,11 +131,20 @@ export const ProfileCard = memo(({ data, error, isLoading, readonly, submitHandl
             defaultValue=''
             control={control}
             render={({ field }) => (
-              <Input label={t('cityLabel')} fullWidth readonly={readonly} placeholder={t('cityLabel')} {...field} />
+              <Input
+                label={t('cityLabel')}
+                fullWidth
+                readonly={readonly}
+                placeholder={t('cityLabel')}
+                {...field}
+              />
             )}
           />
         </HStack>
-        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
+        <HStack
+          justify='between'
+          gap='10'
+          classname={cls.inputsWrapper}>
           <Controller
             name='username'
             defaultValue=''
@@ -143,22 +164,41 @@ export const ProfileCard = memo(({ data, error, isLoading, readonly, submitHandl
             defaultValue=''
             control={control}
             render={({ field }) => (
-              <Input label={t('avatarLabel')} fullWidth readonly={readonly} placeholder={t('avatarLabel')} {...field} />
+              <Input
+                label={t('avatarLabel')}
+                fullWidth
+                readonly={readonly}
+                placeholder={t('avatarLabel')}
+                {...field}
+              />
             )}
           />
         </HStack>
-        <HStack justify='between' gap='10' classname={cls.inputsWrapper}>
+        <HStack
+          justify='between'
+          gap='10'
+          classname={cls.inputsWrapper}>
           <Controller
             name='country'
             defaultValue=''
             control={control}
-            render={({ field }) => <CountrySelect readonly={readonly} {...field} />}
+            render={({ field }) => (
+              <CountrySelect
+                readonly={readonly}
+                {...field}
+              />
+            )}
           />
           <Controller
             name='currency'
             defaultValue=''
             control={control}
-            render={({ field }) => <CurrencySelect readonly={readonly} {...field} />}
+            render={({ field }) => (
+              <CurrencySelect
+                readonly={readonly}
+                {...field}
+              />
+            )}
           />
         </HStack>
       </form>

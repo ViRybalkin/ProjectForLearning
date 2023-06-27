@@ -6,7 +6,9 @@ import { Button } from '../Button';
 describe('Тестирование компонента Button', () => {
   const setup = (theme?: BtnThemes, className?: string, children?: ReactNode | string) => {
     render(
-      <Button theme={theme} className={className}>
+      <Button
+        theme={theme}
+        className={className}>
         {children}
       </Button>
     );

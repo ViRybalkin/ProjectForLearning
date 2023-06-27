@@ -23,23 +23,39 @@ export const NavBar = memo(({ className }: NavBarProps) => {
   }, []);
 
   return (
-    <header data-testid='navBarId' className={classNames(cls.navBar, {}, [className])}>
+    <header
+      data-testid='navBarId'
+      className={classNames(cls.navBar, {}, [className])}>
       <ThemeSwitcher />
       <HStack data-testid='navTagNavBarId'>
-        <CustomLink to='/' name={t('main')} />
-        <CustomLink to='/about' name={t('about')} />
+        <CustomLink
+          to='/'
+          name={t('main')}
+        />
+        <CustomLink
+          to='/about'
+          name={t('about')}
+        />
         {isAuth ? (
           <HStack gap='10'>
-            <CustomLink to='/articles' name={t('articles')} />
+            <CustomLink
+              to='/articles'
+              name={t('articles')}
+            />
             <NotificationButton />
             <AvatarButton />
           </HStack>
         ) : (
           <>
-            <Button data-testid='loginBtnId' onClick={onLogin}>
+            <Button
+              data-testid='loginBtnId'
+              onClick={onLogin}>
               {t('login', { ns: 'translation' })}
             </Button>
-            <LoginModal isOpen={open} onClose={() => setOpen(false)} />
+            <LoginModal
+              isOpen={open}
+              onClose={() => setOpen(false)}
+            />
           </>
         )}
       </HStack>

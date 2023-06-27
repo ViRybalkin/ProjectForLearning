@@ -98,9 +98,18 @@ export const ArticlesFilters = memo(() => {
   return (
     <div className={cls.filtersWrapper}>
       <div>
-        <HStack justify='between' align='end' classname={cls.sortView}>
-          <ArticleSortList onDirectionChange={onDirectionChangeHandler} onFieldChange={onFiledChangeHandler} />
-          <ViewSelector view={articleListView} onViewClick={onViewClickHandler} />
+        <HStack
+          justify='between'
+          align='end'
+          classname={cls.sortView}>
+          <ArticleSortList
+            onDirectionChange={onDirectionChangeHandler}
+            onFieldChange={onFiledChangeHandler}
+          />
+          <ViewSelector
+            view={articleListView}
+            onViewClick={onViewClickHandler}
+          />
         </HStack>
       </div>
       <Controller
@@ -118,7 +127,11 @@ export const ArticlesFilters = memo(() => {
           />
         )}
       />
-      <Tabs onTabChange={onTabChangeHandler} tabs={types} value={type} />
+      <Tabs
+        onTabChange={onTabChangeHandler}
+        tabs={types}
+        value={type}
+      />
     </div>
   );
 });

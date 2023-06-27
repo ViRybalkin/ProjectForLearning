@@ -15,7 +15,12 @@ export const Code = memo(({ code }: CodeProps) => {
     <div className={classNames(cls.code, {})}>
       <div className={cls.svg}>
         <Button theme='clear'>
-          <Icon onClick={onCopyClickHandler} width={20} height={20} Svg={Copy} />
+          <Icon
+            onClick={onCopyClickHandler}
+            width={20}
+            height={20}
+            Svg={Copy}
+          />
         </Button>
       </div>
       <pre>{code}</pre>

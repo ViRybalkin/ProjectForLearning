@@ -14,7 +14,9 @@ const ArticlesDetailsPage = () => {
     <Page>
       <ArticleDetailsHeader />
       {id ? (
-        <VStack gap='20' fullWidth>
+        <VStack
+          gap='20'
+          fullWidth>
           <ArticleDetails articleId={id} />
           <ArticleRating articleId={id} />
           <RecommendationList />

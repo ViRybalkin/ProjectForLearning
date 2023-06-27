@@ -18,7 +18,9 @@ const AppRouter = memo(() => {
           key={route.path}
           element={
             route.isAuth ? (
-              <PrivateRoute roles={route.roles} isAuth={isAuth}>
+              <PrivateRoute
+                roles={route.roles}
+                isAuth={isAuth}>
                 {element}
               </PrivateRoute>
             ) : (

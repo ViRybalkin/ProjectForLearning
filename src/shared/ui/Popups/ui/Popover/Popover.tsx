@@ -7,7 +7,9 @@ import { classNames } from '@/shared/helpers/classNames';
 export const Popover = memo(
   ({ buttonItem, children, childrenLength, classname, position = 'bottomLeft' }: PopoverProps) => {
     return (
-      <HPopover data-content={childrenLength} className={classNames(popupsCls.popups, {}, [classname])}>
+      <HPopover
+        data-content={childrenLength}
+        className={classNames(popupsCls.popups, {}, [classname])}>
         <HPopover.Button className={popupsCls.button}>{buttonItem}</HPopover.Button>
 
         <HPopover.Panel className={classNames(popupsCls.items, {}, [popupsCls.verticalItems, popupsCls[position]])}>

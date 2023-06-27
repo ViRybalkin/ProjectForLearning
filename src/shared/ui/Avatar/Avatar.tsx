@@ -10,9 +10,23 @@ const Avatar = memo(({ alt, size, src }: AvatarProps) => {
     width: size,
   };
 
-  const fallback = <Skeleton width={Number(size)} height={Number(size)} borderRadius={50} />;
+  const fallback = (
+    <Skeleton
+      width={Number(size)}
+      height={Number(size)}
+      borderRadius={50}
+    />
+  );
 
-  return <AppImage style={styles} classname={cls.avatar} fallback={fallback} src={src} alt={alt} />;
+  return (
+    <AppImage
+      style={styles}
+      classname={cls.avatar}
+      fallback={fallback}
+      src={src}
+      alt={alt}
+    />
+  );
 });
 
 export { Avatar };

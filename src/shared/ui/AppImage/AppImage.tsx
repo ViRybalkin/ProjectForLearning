@@ -27,6 +27,13 @@ export const AppImage = memo(
       return errorFallback;
     }
 
-    return <img className={classNames('', {}, [classname])} src={src} alt={alt} {...otherProps} />;
+    return (
+      <img
+        className={classNames('', {}, [classname])}
+        src={src}
+        alt={alt}
+        {...otherProps}
+      />
+    );
   }
 );

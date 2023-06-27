@@ -12,7 +12,9 @@ export const ArticleList = memo(({ articles, classname, error, isLoading, target
   if (error) {
     return (
       <div data-testid='articleListErrorId'>
-        <Typography align='center' variant='h1'>
+        <Typography
+          align='center'
+          variant='h1'>
           {error}
         </Typography>
       </div>
@@ -21,14 +23,28 @@ export const ArticleList = memo(({ articles, classname, error, isLoading, target
 
   return (
     // @ts-ignore
-    <div data-testid='articleListId' className={classNames('', {}, [cls[view], classname])}>
+    <div
+      data-testid='articleListId'
+      className={classNames('', {}, [cls[view], classname])}>
       {articles.length > 0 &&
-        articles.map((el) => <ArticleListItem target={target} key={el.id} view={view} article={el} />)}
+        articles.map((el) => (
+          <ArticleListItem
+            target={target}
+            key={el.id}
+            view={view}
+            article={el}
+          />
+        ))}
       {isLoading && (
         // @ts-ignore
-        <div data-testid='articleListSkeletonId' className={cls[view]}>
+        <div
+          data-testid='articleListSkeletonId'
+          className={cls[view]}>
           {skeletonLength.map((el, index) => (
-            <ArticleListItemSkeleton key={index} view={view} />
+            <ArticleListItemSkeleton
+              key={index}
+              view={view}
+            />
           ))}
         </div>
       )}

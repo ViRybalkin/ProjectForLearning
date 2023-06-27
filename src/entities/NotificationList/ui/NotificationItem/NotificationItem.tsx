@@ -8,7 +8,9 @@ import { NotificationItemProps } from './NotificationItem.types';
 export const NotificationItem = memo(({ classname, item }: NotificationItemProps) => {
   const content = (
     <Card classname={classname}>
-      <VStack align='start' gap='10'>
+      <VStack
+        align='start'
+        gap='10'>
         <Typography variant='h3'>{item.title}</Typography>
         <Typography variant='h3'>{item.description}</Typography>
       </VStack>
@@ -17,7 +19,10 @@ export const NotificationItem = memo(({ classname, item }: NotificationItemProps
 
   if (item.href) {
     return (
-      <AppLink className={classname} target='_blank' to={item.href}>
+      <AppLink
+        className={classname}
+        target='_blank'
+        to={item.href}>
         {content}
       </AppLink>
     );

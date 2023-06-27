@@ -3,13 +3,13 @@ type Error = {
     data: {
       message: string;
     };
-    status: number
-  }
+    status: number;
+  };
 };
 
 export const handleError = (e: unknown) => {
   const {
-    response: {data, status},
-  } = e as unknown as Error
-  return {data, status}
-}
+    response: { data, status },
+  } = e as unknown as Error;
+  return { data, status };
+};

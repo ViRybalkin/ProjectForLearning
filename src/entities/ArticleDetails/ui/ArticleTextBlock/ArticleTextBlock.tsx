@@ -7,11 +7,16 @@ import cls from './ArticleTextBlock.module.scss';
 export const ArticleTextBlock = memo(({ classname, paragraphs, title }: ArticleTextBlockProps) => {
   return (
     <div className={classNames('', {}, [classname])}>
-      <Typography classname={cls.title} variant='h3' align='center'>
+      <Typography
+        classname={cls.title}
+        variant='h3'
+        align='center'>
         {title}
       </Typography>
       {paragraphs.map((el) => (
-        <Typography key={el} classname={cls.paragraph}>
+        <Typography
+          key={el}
+          classname={cls.paragraph}>
           {el}
         </Typography>
       ))}

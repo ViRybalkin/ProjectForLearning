@@ -6,7 +6,11 @@ describe('Тестирование компонента CustomLink', () => {
   const setup = (className?: string, name = '', to = '') => {
     render(
       <JestProvider>
-        <CustomLink to={to} className={className} name={name} />
+        <CustomLink
+          to={to}
+          className={className}
+          name={name}
+        />
       </JestProvider>
     );
   };

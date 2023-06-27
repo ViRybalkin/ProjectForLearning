@@ -13,7 +13,9 @@ export const Tabs = memo(({ onTabChange, tabs, value }: TabsProps) => {
   );
 
   return (
-    <HStack gap='10' justify='start'>
+    <HStack
+      gap='10'
+      justify='start'>
       {tabs.map((tab) => {
         return (
           <Card

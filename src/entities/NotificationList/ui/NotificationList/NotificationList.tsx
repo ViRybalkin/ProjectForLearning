@@ -9,9 +9,21 @@ export const NotificationList = memo(({ classname, isLoading, items }: Notificat
   if (isLoading) {
     return (
       <VStack gap='8'>
-        <Skeleton width='200px' height='80' borderRadius='5px' />
-        <Skeleton width='200px' height='80' borderRadius='5px' />
-        <Skeleton width='200px' height='80' borderRadius='5px' />
+        <Skeleton
+          width='200px'
+          height='80'
+          borderRadius='5px'
+        />
+        <Skeleton
+          width='200px'
+          height='80'
+          borderRadius='5px'
+        />
+        <Skeleton
+          width='200px'
+          height='80'
+          borderRadius='5px'
+        />
       </VStack>
     );
   }
@@ -19,7 +31,11 @@ export const NotificationList = memo(({ classname, isLoading, items }: Notificat
   return (
     <VStack gap='8'>
       {items?.map((item) => (
-        <NotificationItem key={item.id} classname={classNames('', {}, [classname])} item={item} />
+        <NotificationItem
+          key={item.id}
+          classname={classNames('', {}, [classname])}
+          item={item}
+        />
       ))}
     </VStack>
   );

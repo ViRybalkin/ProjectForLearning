@@ -8,7 +8,12 @@ describe('Тестирование компонента ArticleList', () => {
   const setup = (isLoading?: boolean, view?: ArticleListView, error?: string, articles = articleListMocks) => {
     render(
       <JestProvider>
-        <ArticleList articles={articles} isLoading={isLoading} error={error} view={view} />
+        <ArticleList
+          articles={articles}
+          isLoading={isLoading}
+          error={error}
+          view={view}
+        />
       </JestProvider>
     );
   };

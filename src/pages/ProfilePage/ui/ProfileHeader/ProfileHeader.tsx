@@ -29,20 +29,30 @@ export const ProfileHeader = memo(({ isEditDisabled }: ProfileHeaderProps) => {
   }, [dispatch]);
 
   return (
-    <HStack justify='between' classname={cls.title}>
+    <HStack
+      justify='between'
+      classname={cls.title}>
       <Typography variant='h1'>{t('profileCardTitle')}</Typography>
       {isCanEdit ? (
         <div>
           {isReadOnly ? (
-            <Button theme='contained' disabled={isEditDisabled} onClick={onEditHandler}>
+            <Button
+              theme='contained'
+              disabled={isEditDisabled}
+              onClick={onEditHandler}>
               {t('editBtn')}
             </Button>
           ) : (
             <HStack gap='10'>
-              <Button type='submit' form='hook-form' theme='contained'>
+              <Button
+                type='submit'
+                form='hook-form'
+                theme='contained'>
                 {t('save')}
               </Button>
-              <Button theme='contained' onClick={onCancelHandler}>
+              <Button
+                theme='contained'
+                onClick={onCancelHandler}>
                 {t('cancel')}
               </Button>
             </HStack>

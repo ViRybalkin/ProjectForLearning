@@ -28,12 +28,23 @@ export const ArticleRating = memo(({ articleId }: ArticleRatingProps) => {
   const articleRating = data?.[0];
 
   if (isLoading) {
-    return <Skeleton width='100%' height={70} />;
+    return (
+      <Skeleton
+        width='100%'
+        height={70}
+      />
+    );
   }
 
   const ratingTitle = articleRating?.rate ? t('thankForFeedback') : t('LeaveAReview');
 
   return (
-    <Rating rate={articleRating?.rate} ratingTitle={ratingTitle} onAccept={onAccept} feedbackTitle='' hasFeedback />
+    <Rating
+      rate={articleRating?.rate}
+      ratingTitle={ratingTitle}
+      onAccept={onAccept}
+      feedbackTitle=''
+      hasFeedback
+    />
   );
 });

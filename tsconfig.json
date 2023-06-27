@@ -16,12 +16,13 @@
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
-      }],
+      }
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["node_modules" ,"storybook-static", "config/jest"],
+  "exclude": ["node_modules", "storybook-static", "config/jest"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

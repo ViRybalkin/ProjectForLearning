@@ -26,9 +26,15 @@ const Modal = ({
 
   return (
     <Portal>
-      <div data-testid='modalTestId' className={classNames(cls.modal, { [cls.opened]: isOpen })}>
-        <Overlay testId='overlayTestId' onClick={onOverlayClick}>
-          <div onClick={onContentClick} className={classNames(cls.content)}>
+      <div
+        data-testid='modalTestId'
+        className={classNames(cls.modal, { [cls.opened]: isOpen })}>
+        <Overlay
+          testId='overlayTestId'
+          onClick={onOverlayClick}>
+          <div
+            onClick={onContentClick}
+            className={classNames(cls.content)}>
             {children}
           </div>
         </Overlay>

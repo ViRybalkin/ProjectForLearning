@@ -1,22 +1,22 @@
-import {handleError} from "../error";
+import { handleError } from '../error';
 
 describe('Тестирование функции handleError', () => {
-    test('функция error должна вернуть корректные данные', () => {
-        const error = {
-            response: {
-                data: {
-                    message: 'some error',
-                },
-                status: 100
-            }
-        }
-        const result = handleError(error)
+  test('функция error должна вернуть корректные данные', () => {
+    const error = {
+      response: {
+        data: {
+          message: 'some error',
+        },
+        status: 100,
+      },
+    };
+    const result = handleError(error);
 
-        expect(result).toEqual({
-            data: {
-                message: 'some error',
-            },
-            status: 100
-        })
-    })
+    expect(result).toEqual({
+      data: {
+        message: 'some error',
+      },
+      status: 100,
+    });
+  });
 });

@@ -4,7 +4,9 @@ import { VStackProps } from './VStack.types';
 
 export const VStack = memo(({ children, ...otherProps }: VStackProps) => {
   return (
-    <Flex direction='column' {...otherProps}>
+    <Flex
+      direction='column'
+      {...otherProps}>
       {children}
     </Flex>
   );

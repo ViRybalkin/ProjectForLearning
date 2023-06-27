@@ -29,15 +29,30 @@ export const NotificationButton = memo(() => {
   return (
     <div>
       <DesktopComponent>
-        <Popover childrenLength={childrenLength} classname={cls.itemLength} buttonItem={Button}>
-          <NotificationList classname={cls.notification} items={data} isLoading={isLoading} />
+        <Popover
+          childrenLength={childrenLength}
+          classname={cls.itemLength}
+          buttonItem={Button}>
+          <NotificationList
+            classname={cls.notification}
+            items={data}
+            isLoading={isLoading}
+          />
         </Popover>
       </DesktopComponent>
       <MobileComponent classname={cls.mobileItemLength}>
-        <div data-content={childrenLength} className={cls.itemLength}>
+        <div
+          data-content={childrenLength}
+          className={cls.itemLength}>
           {Button}
-          <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <NotificationList classname={cls.mobileNotification} items={data} isLoading={isLoading} />
+          <Drawer
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}>
+            <NotificationList
+              classname={cls.mobileNotification}
+              items={data}
+              isLoading={isLoading}
+            />
           </Drawer>
         </div>
       </MobileComponent>
