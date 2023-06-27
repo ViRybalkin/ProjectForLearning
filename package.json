@@ -19,6 +19,7 @@
     "webpackAnalyze": "webpack --env report=true",
     "storybook": "start-storybook -p 6006 -c config/storybook BROWSER=safari",
     "build-storybook": "build-storybook -c config/storybook",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
     "loki": "npx loki",
     "loki:ok": "npx loki approve",
     "loki:ci": "npx loki --requireReference --reactUri file:./storybook-static",

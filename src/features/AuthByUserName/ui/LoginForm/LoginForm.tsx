@@ -39,8 +39,12 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
   );
 
   return (
-    <DynamicComponent shouldRemoveAfterUnmount reducers={{ login: authByUserNameReducer }}>
-      <form className={classNames(cls.form)} onSubmit={handleSubmit(onSubmit)}>
+    <DynamicComponent
+      shouldRemoveAfterUnmount
+      reducers={{ login: authByUserNameReducer }}>
+      <form
+        className={classNames(cls.form)}
+        onSubmit={handleSubmit(onSubmit)}>
         <div className={classNames(cls.inputsWrapper)}>
           <Controller
             name='username'
@@ -73,10 +77,17 @@ const LoginForm = ({ onClose }: LoginFormProps) => {
         </div>
         {error ? <Typography error>{error}</Typography> : null}
         <div className={classNames(cls.btnWrapper)}>
-          <Button disabled={isLoading} data-testid='saveBtnId' theme='contained' type='submit'>
+          <Button
+            disabled={isLoading}
+            data-testid='saveBtnId'
+            theme='contained'
+            type='submit'>
             {t('save')}
           </Button>
-          <Button data-testid='closeBtnId' theme='contained' onClick={onClose}>
+          <Button
+            data-testid='closeBtnId'
+            theme='contained'
+            onClick={onClose}>
             {t('close')}
           </Button>
         </div>

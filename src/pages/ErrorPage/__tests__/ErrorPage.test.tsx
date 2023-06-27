@@ -12,7 +12,11 @@ describe('Тестирование страницы ErrorPage', () => {
   const setup = () => {
     render(
       <JestProvider>
-        <ErrorPage errorName={errorName} errorInfo={errorInfo} errorMessage={errorMessage} />
+        <ErrorPage
+          errorName={errorName}
+          errorInfo={errorInfo}
+          errorMessage={errorMessage}
+        />
       </JestProvider>
     );
   };

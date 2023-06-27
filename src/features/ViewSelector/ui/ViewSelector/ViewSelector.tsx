@@ -28,10 +28,16 @@ export const ViewSelector = memo(({ onViewClick, view }: ViewSelectorProps) => {
     [onViewClick]
   );
   return (
-    <HStack justify='start' gap='10'>
+    <HStack
+      justify='start'
+      gap='10'>
       {views.map((el) => {
         return (
-          <Button key={el.view} style={{ fill: 'blue' }} theme='clear' onClick={() => onViewClickHandler(el.view)}>
+          <Button
+            key={el.view}
+            style={{ fill: 'blue' }}
+            theme='clear'
+            onClick={() => onViewClickHandler(el.view)}>
             <Icon
               Svg={el.icon}
               height={30}

@@ -34,10 +34,19 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   return (
-    <DynamicComponent reducers={reducer} shouldRemoveAfterUnmount={false}>
-      <Page testId='articlePageId' onScrollEnd={() => onNextPageHandler()}>
+    <DynamicComponent
+      reducers={reducer}
+      shouldRemoveAfterUnmount={false}>
+      <Page
+        testId='articlePageId'
+        onScrollEnd={() => onNextPageHandler()}>
         <ArticlesFilters />
-        <ArticleList view={articleListView} isLoading={isLoading} articles={articles} error={error} />
+        <ArticleList
+          view={articleListView}
+          isLoading={isLoading}
+          articles={articles}
+          error={error}
+        />
       </Page>
     </DynamicComponent>
   );

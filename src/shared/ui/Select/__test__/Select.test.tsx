@@ -24,7 +24,15 @@ describe('Тестирование компонента Select', () => {
   const user = userEvent.setup();
 
   const setup = (label?: string, readOnly?: boolean, fullWidth?: boolean, size?: SizeType) => {
-    render(<Select options={options} label={label} readonly={readOnly} fullWidth={fullWidth} size={size} />);
+    render(
+      <Select
+        options={options}
+        label={label}
+        readonly={readOnly}
+        fullWidth={fullWidth}
+        size={size}
+      />
+    );
   };
 
   test('Если передан label он должен быть виден', () => {

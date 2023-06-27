@@ -18,7 +18,10 @@ describe('Тестирование компонента ArticleList', () => {
   const setup = (view: ArticleListView, article = articleListMocks[0]) => {
     render(
       <JestProvider>
-        <ArticleListItem article={article} view={view} />
+        <ArticleListItem
+          article={article}
+          view={view}
+        />
       </JestProvider>
     );
   };

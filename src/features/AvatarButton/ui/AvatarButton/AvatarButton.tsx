@@ -24,7 +24,13 @@ export const AvatarButton = memo(() => {
 
   return (
     <Dropdown
-      buttonItem={<Avatar size={40} alt={user?.avatar} src={user?.avatar} />}
+      buttonItem={
+        <Avatar
+          size={40}
+          alt={user?.avatar}
+          src={user?.avatar}
+        />
+      }
       items={[
         ...(adminPageEnable
           ? [

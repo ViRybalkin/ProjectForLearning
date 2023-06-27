@@ -28,11 +28,17 @@ export const ArticleDetailsComments = memo(({ articleId }: ArticleDetailsComment
   );
   return (
     <VStack fullWidth>
-      <Typography classname={cls.commentTitle} variant='h2'>
+      <Typography
+        classname={cls.commentTitle}
+        variant='h2'>
         {t('commentTitle')}
       </Typography>
       <AddCommentForm submitHandler={(form) => addNewCommentHandler(form)} />
-      <CommentList comments={comments || []} error={errorMessage} isLoading={isLoading} />
+      <CommentList
+        comments={comments || []}
+        error={errorMessage}
+        isLoading={isLoading}
+      />
     </VStack>
   );
 });

@@ -19,7 +19,9 @@ const Select = forwardRef(
           disabled={readonly}
           {...otherProps}>
           {options.map((el) => (
-            <option key={el.value} value={el.value}>
+            <option
+              key={el.value}
+              value={el.value}>
               {el.content}
             </option>
           ))}

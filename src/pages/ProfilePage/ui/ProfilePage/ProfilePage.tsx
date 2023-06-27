@@ -50,7 +50,10 @@ const ProfilePage = () => {
         <ProfileHeader isEditDisabled={Boolean(error)} />
         {validationError?.map((errorText) => {
           return (
-            <Typography key={errorText} variant='h2' align='center'>
+            <Typography
+              key={errorText}
+              variant='h2'
+              align='center'>
               {t(errorText)}
             </Typography>
           );

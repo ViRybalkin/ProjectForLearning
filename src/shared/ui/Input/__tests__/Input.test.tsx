@@ -12,7 +12,15 @@ describe('тестирование компонента Input', () => {
     type?: InputProps['type'],
     onChange?: InputProps['onChange']
   ) => {
-    render(<Input onChange={onChange} fullWidth={fullWidth} size={size} placeholder={placeholder} type={type} />);
+    render(
+      <Input
+        onChange={onChange}
+        fullWidth={fullWidth}
+        size={size}
+        placeholder={placeholder}
+        type={type}
+      />
+    );
   };
 
   test('если передан проп fullWidth Input должен содержать корректный класс', () => {

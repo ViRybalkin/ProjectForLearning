@@ -37,7 +37,11 @@ describe('Тестирование компонента CommentList', () => {
   const setup = (comments: Array<Comment>, isLoading?: boolean, error?: string) => {
     render(
       <JestProvider>
-        <CommentList comments={comments} isLoading={isLoading} error={error} />
+        <CommentList
+          comments={comments}
+          isLoading={isLoading}
+          error={error}
+        />
       </JestProvider>
     );
   };

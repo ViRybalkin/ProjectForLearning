@@ -25,7 +25,11 @@ export const ListBox = forwardRef(
         <HListBox.Button className={classNames(cls.button, classes, [cls[size]])}>{value}</HListBox.Button>
         <HListBox.Options className={classNames(popupsCls.items, classes, [cls.options])}>
           {options.map((item) => (
-            <HListBox.Option className={cls.item} key={item.id} value={item} disabled={item.unavailable}>
+            <HListBox.Option
+              className={cls.item}
+              key={item.id}
+              value={item}
+              disabled={item.unavailable}>
               {({ active, selected }) => (
                 <div
                   className={classNames('', {

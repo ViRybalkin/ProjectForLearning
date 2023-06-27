@@ -9,4 +9,5 @@ module.exports = {
   bracketSameLine: true,
   arrowParens: 'always',
   proseWrap: 'always',
+  singleAttributePerLine: true,
 };

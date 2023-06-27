@@ -5,7 +5,9 @@ import { LoaderProps } from './Loader.types';
 
 export const Loader = memo(({ className }: LoaderProps) => {
   return (
-    <div data-testid='loaderTestId' className={classNames(cls.ldsRing, {}, [className])}>
+    <div
+      data-testid='loaderTestId'
+      className={classNames(cls.ldsRing, {}, [className])}>
       <div />
       <div />
       <div />

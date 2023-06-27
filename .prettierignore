@@ -3,3 +3,5 @@ coverage
 storybook-static
 config
 .loki
+dist
+vite.config.ts

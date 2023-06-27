@@ -3,7 +3,13 @@ import { Avatar } from '../Avatar';
 
 describe('Тестирование компонента Avatar', () => {
   const setup = (size?: number) => {
-    render(<Avatar src='' alt='altText' size={size} />);
+    render(
+      <Avatar
+        src=''
+        alt='altText'
+        size={size}
+      />
+    );
   };
 
   test('Аватар должен содержать корректный alt', () => {

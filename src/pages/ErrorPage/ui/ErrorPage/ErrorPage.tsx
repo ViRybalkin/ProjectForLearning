@@ -20,7 +20,9 @@ const ErrorPage = ({ errorInfo, errorMessage, errorName }: ErrorPageProps) => {
         </h3>
         <br />
         <h4 className={classNames(cls.errorText)}>{errorInfo}</h4>
-        <button type='button' onClick={onReload}>
+        <button
+          type='button'
+          onClick={onReload}>
           {t('reloadBtn')}
         </button>
       </div>

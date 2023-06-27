@@ -61,8 +61,13 @@ const DrawerContext = ({ children, isOpen, onClose }: DrawerProps) => {
 
   return (
     <Portal>
-      <div data-testid='modalTestId' className={classNames(cls.drawer, { [cls.opened]: isOpen })}>
-        <Overlay testId='overlayTestId' onClick={() => close()} classname={cls.overlay}>
+      <div
+        data-testid='modalTestId'
+        className={classNames(cls.drawer, { [cls.opened]: isOpen })}>
+        <Overlay
+          testId='overlayTestId'
+          onClick={() => close()}
+          classname={cls.overlay}>
           <Spring.a.div
             style={{ bottom: `calc(-100vh + ${height - 100}px)`, display, y }}
             className={classNames(cls.content)}

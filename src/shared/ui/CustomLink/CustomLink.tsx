@@ -7,7 +7,10 @@ import { CustomLinkProps } from './CustomLink.types';
 const CustomLink = memo(({ className, name, to }: CustomLinkProps) => {
   return (
     <div>
-      <Link data-testid='customLinkTestId' to={to} className={classNames(cls.link, {}, [className])}>
+      <Link
+        data-testid='customLinkTestId'
+        to={to}
+        className={classNames(cls.link, {}, [className])}>
         {name}
       </Link>
     </div>

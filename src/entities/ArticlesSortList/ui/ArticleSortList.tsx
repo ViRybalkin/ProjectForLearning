@@ -60,7 +60,12 @@ export const ArticleSortList = memo(({ onDirectionChange, onFieldChange }: Artic
         control={control}
         defaultValue=''
         render={({ field }) => (
-          <Select label={t('articleSortFiled')} options={fieldOptions} {...field} onChange={onSortFieldChangeHandler} />
+          <Select
+            label={t('articleSortFiled')}
+            options={fieldOptions}
+            {...field}
+            onChange={onSortFieldChangeHandler}
+          />
         )}
       />{' '}
       <Controller

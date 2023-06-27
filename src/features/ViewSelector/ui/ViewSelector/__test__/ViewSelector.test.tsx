@@ -7,7 +7,12 @@ describe('Тестирования компонента VIewSelector', () => {
   const onViewClick = jest.fn();
   const user = userEvent.setup();
   const setup = (view?: ArticleListView) => {
-    render(<ViewSelector onViewClick={onViewClick} view={view} />);
+    render(
+      <ViewSelector
+        onViewClick={onViewClick}
+        view={view}
+      />
+    );
   };
   test('Нажатие на иконку должно вызвать onViewClick с правильными аргументами', async () => {
     setup();

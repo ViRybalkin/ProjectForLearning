@@ -116,6 +116,7 @@ module.exports = {
         extensions: ['.tsx', '.jsx'],
       },
     ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
     'react/jsx-one-expression-per-line': ['off'],
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',

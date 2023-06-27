@@ -38,11 +38,20 @@ export const Rating = memo(({ feedbackTitle, hasFeedback = false, onAccept, rate
 
   return (
     <>
-      <VStack fullWidth classname={cls.rating} gap='20'>
+      <VStack
+        fullWidth
+        classname={cls.rating}
+        gap='20'>
         <Typography variant='h3'>{ratingTitle}</Typography>
-        <StarRating onSelect={(count) => onStarSelect(count)} size={30} selectedStar={starCount} />
+        <StarRating
+          onSelect={(count) => onStarSelect(count)}
+          size={30}
+          selectedStar={starCount}
+        />
       </VStack>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen((prevState) => !prevState)}>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen((prevState) => !prevState)}>
         <VStack gap='10'>
           <Typography variant='h4'>{feedbackTitle}</Typography>
           <Input
@@ -50,11 +59,17 @@ export const Rating = memo(({ feedbackTitle, hasFeedback = false, onAccept, rate
             fullWidth
             onInput={(event: ChangeEvent<HTMLInputElement>) => setFeedback(event.target.value)}
           />
-          <HStack gap='10' justify='end'>
-            <Button theme='contained' onClick={onAcceptHandler}>
+          <HStack
+            gap='10'
+            justify='end'>
+            <Button
+              theme='contained'
+              onClick={onAcceptHandler}>
               Отправить
             </Button>
-            <Button theme='outlined' onClick={onCancelHandler}>
+            <Button
+              theme='outlined'
+              onClick={onCancelHandler}>
               Закрыть
             </Button>
           </HStack>
