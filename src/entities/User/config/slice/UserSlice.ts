@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {LOCAL_STORAGE_KEY} from '@/shared/constants/localStorageKey';
 import {UserSliceTypes} from '../types/UserSlice.types';
+import {setFeatureFlag} from "@/shared/featureFlag";
 
 const initialState: UserSliceTypes = {
     _inited: false,
@@ -23,6 +24,7 @@ export const userSlice = createSlice({
                 state.avatar = authData.avatar;
                 state.roles = authData.roles;
                 state.isAuth = true;
+                setFeatureFlag(authData.featureFlags)
             }
             state._inited = true;
         },
@@ -41,6 +43,7 @@ export const userSlice = createSlice({
             state.avatar = action.payload.avatar;
             state.isAuth = action.payload.isAuth;
             state.roles = action.payload.roles;
+            setFeatureFlag(action.payload.featureFlags);
         },
     },
 });
