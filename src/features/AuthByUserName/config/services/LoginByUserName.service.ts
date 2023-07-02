@@ -10,9 +10,9 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
     async (authData: UserData, {dispatch, extra: {api}, rejectWithValue}) => {
         try {
             const {data} = await api.post<UserSliceTypes>('/login', authData)
-
             dispatch(userAction.setUserData({
                 avatar: data.avatar,
+                featureFlags: data.featureFlags,
                 id: data.id,
                 isAuth: true,
                 roles: data.roles,
@@ -20,6 +20,7 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
             }))
             localStorage.setItem(LOCAL_STORAGE_KEY.auth, JSON.stringify({
                 avatar: data.avatar,
+                featureFlags: data.featureFlags,
                 id: data.id,
                 roles: data.roles,
                 username: data.username,

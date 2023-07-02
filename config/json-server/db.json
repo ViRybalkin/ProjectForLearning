@@ -577,6 +577,10 @@
     {
       "username": "admin",
       "password": "123123",
+      "featureFlags": {
+        "isSearchEnable": false,
+        "isFiltersEnable": true
+      },
       "roles": [
         "ADMIN",
         "MANAGER"
@@ -588,6 +592,10 @@
     {
       "username": "user",
       "password": "123123",
+      "featureFlags": {
+        "isSearchEnable": false,
+        "isFiltersEnable": false
+      },
       "roles": [
         "USER"
       ],

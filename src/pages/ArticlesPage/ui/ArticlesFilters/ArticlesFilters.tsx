@@ -15,6 +15,7 @@ import { getArticleListView } from '../../config/selectors/getArticleListView';
 import { ArticleListAction } from '../../config/slice/articlesSlice';
 import { getArticleList } from '../../config/service/getArticles.service';
 import cls from './ArticlesFilters.module.scss';
+import { getFeatureFlag } from '@/shared/featureFlag';
 
 export const ArticlesFilters = memo(() => {
   const { t } = useTranslation('articlesDetails');
@@ -22,6 +23,8 @@ export const ArticlesFilters = memo(() => {
   const articleListView = useSelector(getArticleListView);
   const type = useSelector(getArticleListType);
   const { control, setValue } = useForm();
+  const isFiltersEnable = getFeatureFlag('isFiltersEnable');
+  const isSearchEnable = getFeatureFlag('isSearchEnable');
 
   const fetchData = useCallback(() => {
     dispatch(getArticleList({ replace: true }));
@@ -112,26 +115,30 @@ export const ArticlesFilters = memo(() => {
           />
         </HStack>
       </div>
-      <Controller
-        name='search'
-        control={control}
-        defaultValue=''
-        render={({ field }) => (
-          <Input
-            className={cls.filtersWrapper}
-            fullWidth
-            size='medium'
-            placeholder={t('searchInput')}
-            {...field}
-            onChange={onSearchChangeHandler}
-          />
-        )}
-      />
-      <Tabs
-        onTabChange={onTabChangeHandler}
-        tabs={types}
-        value={type}
-      />
+      {isSearchEnable && (
+        <Controller
+          name='search'
+          control={control}
+          defaultValue=''
+          render={({ field }) => (
+            <Input
+              className={cls.filtersWrapper}
+              fullWidth
+              size='medium'
+              placeholder={t('searchInput')}
+              {...field}
+              onChange={onSearchChangeHandler}
+            />
+          )}
+        />
+      )}
+      {isFiltersEnable && (
+        <Tabs
+          onTabChange={onTabChangeHandler}
+          tabs={types}
+          value={type}
+        />
+      )}
     </div>
   );
 });
