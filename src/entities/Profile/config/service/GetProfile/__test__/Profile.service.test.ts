@@ -4,9 +4,9 @@ import {getProfile} from "../../GetProfile/Profile.service";
 
 const errorResponse = {data: {message: 'error'}}
 
-jest.mock('shared/config/api/api');
+jest.mock('@/shared/api/api');
 
-jest.mock('shared/config/helpers/error', () => ({
+jest.mock('@/shared/helpers/error', () => ({
     handleError: jest.fn().mockReturnValue(errorResponse),
 }));
 const mockedAxios = jest.mocked($api, true)

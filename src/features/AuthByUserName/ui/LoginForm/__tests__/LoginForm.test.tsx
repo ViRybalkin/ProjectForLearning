@@ -1,8 +1,10 @@
-import { act, render, screen } from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { JestProvider } from '@/app/providers/JestProvider';
-import * as Selectors from '../../../config/selector/getError';
+import {JestProvider} from '@/app/providers/JestProvider';
+import * as ErrorSelector from '../../../config/selector/getError';
+import * as LoadingSelector from '../../../config/selector/getIsLoading';
 import LoginForm from '../LoginForm';
+// import LoginForm from '../../../../AuthByUserName/config/selector/getIsLoading';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -11,9 +13,9 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-jest.mock('features/AuthByUserName/config/selector', () => ({
+jest.mock('../../../../AuthByUserName/config/selector/getIsLoading', () => ({
   // @ts-ignore
-  ...jest.requireActual('features/AuthByUserName/config/selector'),
+  ...jest.requireActual('../../../../AuthByUserName/config/selector/getIsLoading'),
   __esModule: true,
 }));
 
@@ -62,7 +64,7 @@ describe('Тестирование формы логина', () => {
   });
 
   test('Если loading равен true кнопка должна быть заблокирована', async () => {
-    // jest.spyOn(Selectors, 'getIsLoading').mockImplementation(() => true);
+    jest.spyOn(LoadingSelector, 'getIsLoading').mockImplementation(() => true);
     setup();
     const saveBtn = screen.getByTestId('saveBtnId');
 
@@ -71,7 +73,7 @@ describe('Тестирование формы логина', () => {
 
   test('error должен отобразиться', async () => {
     const error = 'error text';
-    jest.spyOn(Selectors, 'getError').mockImplementation(() => error);
+    jest.spyOn(ErrorSelector, 'getError').mockImplementation(() => error);
     setup();
     const errorText = screen.getByText(error);
 

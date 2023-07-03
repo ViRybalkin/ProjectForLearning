@@ -2,14 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { JestProvider } from '@/app/providers/JestProvider';
 import { ArticleDetails } from '../ArticleDetails';
 
-jest.mock('../../../config/selectors', () => ({
-  getArticleDetailsData: jest.fn().mockReturnValue(true),
-  getArticleDetailsIsLoading: jest.fn().mockReturnValue(true),
-  // @ts-ignore
-  ...jest.requireActual('../../../config/selectors'),
-  __esModule: true,
-}));
-
 describe('Тестирование компонента ArticleDetails', () => {
   const setup = (id: string) => {
     render(

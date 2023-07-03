@@ -18,11 +18,11 @@ const userData = {
   username: 'username',
 };
 
-jest.mock('entities', () => ({
+jest.mock('@/entities/User', () => ({
   getIsAuth: jest.fn().mockImplementation(() => false),
   getUser: jest.fn().mockImplementation(() => userData),
   // @ts-ignore
-  ...jest.requireActual('entities'),
+  ...jest.requireActual('@/entities/User'),
   __esModule: true,
 }));
 

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { JestProvider } from '@/app/providers/JestProvider';
 import ArticlesPage from '../ArticlesPage/ArticlesPage';
+import { setFeatureFlag } from '@/shared/featureFlag';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -11,9 +12,9 @@ jest.mock('react-redux', () => ({
 }));
 
 const mockArticlePageInitialEffect = jest.fn();
-jest.mock('../config', () => ({
+jest.mock('../../config/service/articlePageInitialEffect.service', () => ({
   // @ts-ignore
-  ...jest.requireActual('../config'),
+  ...jest.requireActual('../../config/service/articlePageInitialEffect.service'),
   articlePageInitialEffect: () => mockArticlePageInitialEffect,
 }));
 
@@ -22,6 +23,12 @@ describe('Тестирование страницы articlePage', () => {
     observe: () => null,
     unobserve: () => null,
   });
+
+  setFeatureFlag({
+    isFiltersEnable: false,
+    isSearchEnable: false,
+  });
+
   window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverMock);
 
   const user = userEvent.setup();

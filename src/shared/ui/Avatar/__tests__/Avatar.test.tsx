@@ -5,7 +5,7 @@ describe('Тестирование компонента Avatar', () => {
   const setup = (size?: number) => {
     render(
       <Avatar
-        src=''
+        src='someSrc'
         alt='altText'
         size={size}
       />

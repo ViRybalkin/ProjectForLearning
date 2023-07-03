@@ -1,4 +1,4 @@
 export interface FeatureFlagTypes {
-  isSearchEnable: boolean;
-  isFiltersEnable: boolean;
+  isSearchEnable?: boolean;
+  isFiltersEnable?: boolean;
 }
