@@ -5,9 +5,9 @@ import {UserData} from "../../types/AuthByUserName.types";
 
 const errorResponse = {data: {message: 'error'}}
 const mockedAxios = jest.mocked($api, true)
-jest.mock('shared/config/api/api');
+jest.mock('@/shared/api/api');
 
-jest.mock('shared/config/helpers/error', () => ({
+jest.mock('@/shared/helpers/error', () => ({
     handleError: jest.fn().mockReturnValue(errorResponse),
 }));
 describe('Тестирование сервиса loginByUserName', () => {

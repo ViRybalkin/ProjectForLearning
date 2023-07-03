@@ -2,19 +2,25 @@ import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { JestProvider } from '@/app/providers/JestProvider';
-import * as Selectors from '@/entities/Profile';
-import * as UserSelectors from '@/entities/User';
+import * as Selectors from '../../../../../entities/Profile/config/selectors/getProfileReadOnly';
+import * as ProfileSelector from '../../../../../entities/Profile/config/selectors/getProfileData';
+import * as UserSelectors from '../../../../../entities/User/config/selectors/getUser';
 import { ProfileHeader } from '../ProfileHeader';
 
-jest.mock('entities/Profile', () => ({
+jest.mock('@/entities/Profile/config/selectors/getProfileReadOnly', () => ({
   // @ts-ignore
-  ...jest.requireActual('entities/Profile'),
+  ...jest.requireActual('@/entities/Profile/config/selectors/getProfileReadOnly'),
+  __esModule: true,
+}));
+jest.mock('@/entities/Profile/config/selectors/getProfileData', () => ({
+  // @ts-ignore
+  ...jest.requireActual('@/entities/Profile/config/selectors/getProfileData'),
   __esModule: true,
 }));
 
-jest.mock('entities/User', () => ({
+jest.mock('@/entities/User/config/selectors/getUser', () => ({
   // @ts-ignore
-  ...jest.requireActual('entities/User'),
+  ...jest.requireActual('@/entities/User/config/selectors/getUser'),
   __esModule: true,
 }));
 
@@ -58,7 +64,7 @@ describe('Тестирование компонента ProfileHeader', () => {
 
   test('Если isReadOnly то кнопка редактирования должна быть видна', () => {
     jest.spyOn(Selectors, 'getProfileReadOnly').mockImplementation(() => true);
-    // jest.spyOn(Selectors, 'getProfileData').mockImplementation(() => profile);
+    jest.spyOn(ProfileSelector, 'getProfileData').mockImplementation(() => profile);
     jest.spyOn(UserSelectors, 'getUser').mockImplementation(() => userData);
     setup();
 

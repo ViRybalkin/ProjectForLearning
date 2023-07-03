@@ -3,7 +3,7 @@ import {updateProfile} from "../../UpdateProfile/UpdateProfile.service";
 import {ProfileDataTypes} from "../../../types/Profile.types";
 import * as ValidationProfileMock from '../../ValidationErrors/ValidationErrors.service'
 
-jest.mock('shared/config/api/api');
+jest.mock('@/shared/api/api');
 
 const mockedAxios = jest.mocked($api, true)
 
