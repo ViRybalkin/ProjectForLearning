@@ -13,4 +13,5 @@ export interface FlexProps {
   direction?: DirectionProp;
   fullWidth?: boolean;
   gap?: GapProp;
+  dataTestid?: string;
 }
