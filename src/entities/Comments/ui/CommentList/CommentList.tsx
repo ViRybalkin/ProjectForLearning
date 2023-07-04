@@ -29,7 +29,7 @@ export const CommentList = memo(({ comments, error, isLoading }: CommentListProp
         classname={cls.loadingWrapper}
         align='start'
         gap='10'
-        data-testid='commentListLoading'>
+        dataTestid='commentListLoading'>
         <VStack
           gap='10'
           align='start'>

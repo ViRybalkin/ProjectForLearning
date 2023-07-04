@@ -8,6 +8,7 @@ export const Flex = memo(
     align = 'center',
     children,
     classname,
+    dataTestid,
     direction = 'column',
     fullWidth = false,
     gap,
@@ -21,6 +22,12 @@ export const Flex = memo(
       gap && cls[`gap__${gap}`],
     ];
 
-    return <div className={classNames(cls.flex, { [cls.fullWidth]: fullWidth }, classes)}>{children}</div>;
+    return (
+      <div
+        data-testid={dataTestid}
+        className={classNames(cls.flex, { [cls.fullWidth]: fullWidth }, classes)}>
+        {children}
+      </div>
+    );
   }
 );
