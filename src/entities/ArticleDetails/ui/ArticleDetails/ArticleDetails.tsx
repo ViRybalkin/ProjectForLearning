@@ -33,7 +33,7 @@ export const ArticleDetails = memo(({ articleId }: ArticleDetailsProps) => {
     return (
       <VStack
         fullWidth
-        data-testid='ArticleDetailsSkeletonId'
+        dataTestid='ArticleDetailsSkeletonId'
         classname={classNames(cls.loadingWrapper)}>
         <Skeleton
           className={cls.loadingWrapper__avatar}
