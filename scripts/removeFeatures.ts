@@ -19,16 +19,30 @@ const project = new Project({});
 
 project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
+
 const files = project.getSourceFiles();
+const toggleFeatureFunctionName = 'toggleFeature';
 
 const isToggleFeatureFn = (node: Node) => {
   let isToggleFn = false;
   node.forEachChild((child) => {
-    if (child.isKind(SyntaxKind.Identifier) && child.getText() === 'toggleFeature') {
+    if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFeatureFunctionName) {
       isToggleFn = true;
     }
   });
   return isToggleFn;
+};
+
+const importRemoveFn = (sourceFile: SourceFile) => {
+  const importDeclarations = sourceFile.getImportDeclarations();
+
+  const importToRemove = importDeclarations.find((file) => {
+    return file.getImportClause()?.getText().slice(1, -1).trim() === toggleFeatureFunctionName;
+  });
+
+  if (importToRemove) {
+    importToRemove.remove();
+  }
 };
 
 files.forEach((sourceFile: SourceFile) => {
@@ -58,6 +72,8 @@ files.forEach((sourceFile: SourceFile) => {
       if (featureState === 'off') {
         node?.replaceWithText(offFunction?.getBody().getText() ?? '');
       }
+
+      importRemoveFn(sourceFile);
     }
   });
 });

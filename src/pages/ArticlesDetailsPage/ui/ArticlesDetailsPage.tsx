@@ -6,21 +6,13 @@ import { ArticleDetailsComments } from '@/features/ArticleDetailsComments';
 import { ArticleDetailsHeader } from './components';
 import { ArticleRating } from '@/features/ArticleRating';
 import { VStack } from '@/shared/ui/VStack';
-import { toggleFeature } from '@/shared/featureFlag/toggleFeature';
 
 const ArticlesDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
 
-  const counter = toggleFeature({
-    name: 'isFiltersEnable',
-    off: () => <div>off</div>,
-    on: () => <div>on</div>,
-  });
-
   return (
     <Page>
       <ArticleDetailsHeader />
-      {counter}
       {id ? (
         <VStack
           gap='20'
