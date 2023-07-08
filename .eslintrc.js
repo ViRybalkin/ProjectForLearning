@@ -120,6 +120,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': ['off'],
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'react/no-unstable-nested-components': 'warn',
     'react-hooks/exhaustive-deps': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'unused-imports/no-unused-imports': 'error',
