@@ -1,5 +1,5 @@
 .itemLength {
-  &:before {
+  &::before {
     content: attr(data-content);
     display: block;
     position: absolute;
