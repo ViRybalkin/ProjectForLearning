@@ -27,7 +27,8 @@
     "visual:report:json": "node config/generate-visual-json-report.js",
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "generator:layer": "node generator/layerGenerator.js",
-    "generator:component": "node generator/sharedGenerator.js"
+    "generator:component": "node generator/sharedGenerator.js",
+    "removeFeature": "ts-node scripts/removeFeatures.ts"
   },
   "author": "",
   "license": "ISC",
@@ -57,6 +58,7 @@
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@types/circular-dependency-plugin": "5.0.5",
+    "@types/inquirer": "9.0.3",
     "@types/jest": "27.4.1",
     "@types/node": "17.0.21",
     "@types/react": "18.2.14",
