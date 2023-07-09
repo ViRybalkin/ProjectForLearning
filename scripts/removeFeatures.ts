@@ -62,8 +62,9 @@ const removeFeature = (removeFeatureName: string, featureState: 'on' | 'off') =>
           ?.getText()
           .slice(1, -1);
 
-        if (featureName !== removeFeatureName) return;
-
+        if (featureName !== removeFeatureName) {
+          throw new Error('Данной фичи нет, обратитесь к списки фичей и выберите из них');
+        }
         if (featureState === 'on') {
           node?.replaceWithText(onFunction?.getBody().getText() ?? '');
         }
