@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {LOCAL_STORAGE_KEY} from '@/shared/constants/localStorageKey';
 import {UserSliceTypes} from '../types/UserSlice.types';
 import {setFeatureFlag} from "@/shared/featureFlag";
+import {saveUserSettingsService} from '../services/saveUserSettings.service';
 
 const initialState: UserSliceTypes = {
     _inited: false,
@@ -12,6 +13,13 @@ const initialState: UserSliceTypes = {
 };
 
 export const userSlice = createSlice({
+    extraReducers: (builder) => {
+        builder.addCase(saveUserSettingsService.fulfilled, (state, action) => {
+            if (action.payload) {
+                state.userSettings = action.payload;
+            }
+        })
+    },
     initialState,
     name: 'user',
     reducers: {
@@ -24,6 +32,7 @@ export const userSlice = createSlice({
                 state.avatar = authData.avatar;
                 state.roles = authData.roles;
                 state.isAuth = true;
+                state.userSettings = authData.userSettings
                 setFeatureFlag(authData.featureFlags)
             }
             state._inited = true;
@@ -43,6 +52,7 @@ export const userSlice = createSlice({
             state.avatar = action.payload.avatar;
             state.isAuth = action.payload.isAuth;
             state.roles = action.payload.roles;
+            state.userSettings = action.payload.userSettings
             setFeatureFlag(action.payload.featureFlags);
         },
     },
