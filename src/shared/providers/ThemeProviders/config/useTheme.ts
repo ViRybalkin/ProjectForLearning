@@ -1,36 +1,35 @@
-import { useContext } from 'react';
-import { LOCAL_STORAGE_KEY } from '@/shared/constants/localStorageKey';
-import { ThemeContext, ThemeTypes } from './ThemeContext';
+import {useContext} from 'react';
+import {ThemeContext, ThemeTypes} from './ThemeContext';
 
 export const UseTheme = () => {
-  const { setTheme, theme } = useContext(ThemeContext);
+    const {setTheme, theme} = useContext(ThemeContext);
 
-  document.body.className = theme || 'light';
-  const onToggleTheme = () => {
-    let newTheme: ThemeTypes;
+    document.body.className = theme || 'light';
+    const onToggleTheme = (saveAction: (newTheme: ThemeTypes) => void) => {
+        let newTheme: ThemeTypes;
 
-    switch (theme) {
-      case 'dark':
-        newTheme = 'light';
-        break;
-      case 'light':
-        newTheme = 'orange';
-        break;
-      case 'orange':
-        newTheme = 'dark';
-        break;
-      default:
-        newTheme = 'light';
-    }
-    document.body.className = newTheme;
-    if (setTheme) {
-      setTheme(newTheme);
-    }
-    localStorage.setItem(LOCAL_STORAGE_KEY.theme, newTheme);
-  };
+        switch (theme) {
+            case 'dark':
+                newTheme = 'light';
+                break;
+            case 'light':
+                newTheme = 'orange';
+                break;
+            case 'orange':
+                newTheme = 'dark';
+                break;
+            default:
+                newTheme = 'light';
+        }
+        document.body.className = newTheme;
+        if (setTheme) {
+            setTheme(newTheme);
+        }
+        saveAction?.(newTheme);
+    };
 
-  return {
-    onToggleTheme,
-    theme: theme || 'light',
-  };
+    return {
+        onToggleTheme,
+        theme: theme || 'light',
+    };
 };

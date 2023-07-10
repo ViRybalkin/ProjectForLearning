@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { StoreProvider } from '@/app/providers/StoreProvider';
-import { ThemeProvider } from '@/shared/providers/ThemeProviders';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { App } from '@/app/App';
 import '@/shared/i18n/i18nConfig';
