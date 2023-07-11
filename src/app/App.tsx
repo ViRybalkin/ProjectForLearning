@@ -4,17 +4,31 @@ import { useSelector } from 'react-redux';
 import { SideBar } from '@/widget/SideBar';
 import { NavBar } from '@/widget/NavBar';
 import { AppRouter } from './providers/RouterProvider';
-import { getInited, userAction } from '@/entities/User';
+import { getInited, initAuthDataService } from '@/entities/User';
 import { classNames } from '@/shared/helpers/classNames';
 import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
+import { Loader } from '@/shared/ui/Loader';
+import { Flex } from '@/shared/ui/Flex';
 
 export const App = () => {
   const dispatch = useAppDispatch();
   const isInited = useSelector(getInited);
 
   useEffect(() => {
-    dispatch(userAction.initUserData());
+    dispatch(initAuthDataService());
   }, [dispatch]);
+
+  if (!isInited) {
+    return (
+      <Flex
+        justify='between'
+        fullWidth
+        fullHeight
+        align='center'>
+        <Loader />
+      </Flex>
+    );
+  }
 
   return (
     <div

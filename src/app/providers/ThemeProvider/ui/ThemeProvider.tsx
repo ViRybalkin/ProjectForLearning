@@ -5,8 +5,8 @@ import { getUserSettings } from '@/entities/User';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const userSettings = useSelector(getUserSettings);
-  const defaultTheme = userSettings?.theme || 'light';
-  const [theme, setTheme] = useState<ThemeTypes>(defaultTheme);
+  const defaultTheme = userSettings?.theme;
+  const [theme, setTheme] = useState<ThemeTypes>(defaultTheme || 'light');
   const [isThemeInited, setIsThemeInited] = useState<boolean>(false);
   const defaultValue = useMemo(
     () => ({
@@ -17,7 +17,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   );
 
   useEffect(() => {
-    if (!isThemeInited) {
+    if (!isThemeInited && defaultTheme) {
       setTheme(defaultTheme);
       setIsThemeInited(true);
     }

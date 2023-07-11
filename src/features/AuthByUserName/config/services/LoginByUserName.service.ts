@@ -19,14 +19,7 @@ export const authByUserNameThunk = createAsyncThunk<UserSliceTypes, UserData, Th
                 userSettings: data.userSettings,
                 username: data.username
             }))
-            localStorage.setItem(LOCAL_STORAGE_KEY.auth, JSON.stringify({
-                avatar: data.avatar,
-                featureFlags: data.featureFlags,
-                id: data.id,
-                roles: data.roles,
-                userSettings: data.userSettings,
-                username: data.username
-            }))
+            localStorage.setItem(LOCAL_STORAGE_KEY.auth, data.id)
 
             return data
         } catch (error) {

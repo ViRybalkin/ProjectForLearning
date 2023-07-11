@@ -3,6 +3,7 @@ import {LOCAL_STORAGE_KEY} from '@/shared/constants/localStorageKey';
 import {UserSliceTypes} from '../types/UserSlice.types';
 import {setFeatureFlag} from "@/shared/featureFlag";
 import {saveUserSettingsService} from '../services/saveUserSettings.service';
+import {initAuthDataService} from '../services/initAuthData.service';
 
 const initialState: UserSliceTypes = {
     _inited: false,
@@ -18,25 +19,24 @@ export const userSlice = createSlice({
             if (action.payload) {
                 state.userSettings = action.payload;
             }
+        }).addCase(initAuthDataService.fulfilled, (state, action) => {
+            if (action.payload) {
+                state.userSettings = action.payload.userSettings
+                setFeatureFlag(action.payload.featureFlags)
+                state._inited = true;
+                state.username = action.payload.username;
+                state.id = action.payload.id;
+                state.avatar = action.payload.avatar;
+                state.roles = action.payload.roles;
+                state.isAuth = true;
+            }
+        }).addCase(initAuthDataService.rejected, (state, action) => {
+            state._inited = true;
         })
     },
     initialState,
     name: 'user',
     reducers: {
-        initUserData(state: UserSliceTypes) {
-            const data = localStorage.getItem(LOCAL_STORAGE_KEY.auth);
-            if (data) {
-                const authData: UserSliceTypes = JSON.parse(data);
-                state.username = authData.username;
-                state.id = authData.id;
-                state.avatar = authData.avatar;
-                state.roles = authData.roles;
-                state.isAuth = true;
-                state.userSettings = authData.userSettings
-                setFeatureFlag(authData.featureFlags)
-            }
-            state._inited = true;
-        },
         logout(state: UserSliceTypes) {
             state.username = '';
             state.id = '';

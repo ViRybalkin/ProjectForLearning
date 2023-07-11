@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.fullHeight {
+  height: calc(100vh - var(--nav-bar-height));
+}
+
 .gap {
   &__2 {
     gap: 2px
