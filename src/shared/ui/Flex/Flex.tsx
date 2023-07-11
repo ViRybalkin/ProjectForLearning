@@ -10,6 +10,7 @@ export const Flex = memo(
     classname,
     dataTestid,
     direction = 'column',
+    fullHeight = false,
     fullWidth = false,
     gap,
     justify = 'center',
@@ -25,7 +26,7 @@ export const Flex = memo(
     return (
       <div
         data-testid={dataTestid}
-        className={classNames(cls.flex, { [cls.fullWidth]: fullWidth }, classes)}>
+        className={classNames(cls.flex, { [cls.fullHeight]: fullHeight, [cls.fullWidth]: fullWidth }, classes)}>
         {children}
       </div>
     );

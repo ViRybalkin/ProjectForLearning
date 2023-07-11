@@ -12,6 +12,7 @@ export interface FlexProps {
   align?: AlignProp;
   direction?: DirectionProp;
   fullWidth?: boolean;
+  fullHeight?: boolean;
   gap?: GapProp;
   dataTestid?: string;
 }

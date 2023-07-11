@@ -4,6 +4,12 @@ import {UserApiTypes} from "../types/UserApi.types";
 
 const userApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
+        getAuthData: build.query<UserSliceTypes, string>({
+            query: (userId) => ({
+                method: 'GET',
+                url: `/users/${userId}`,
+            }),
+        }),
         setUserSettings: build.mutation<UserSliceTypes, UserApiTypes>({
             query: ({userId, userSettings}) => ({
                 body: {
@@ -17,3 +23,4 @@ const userApi = rtkApi.injectEndpoints({
 });
 
 export const setUserSettingsMutation = userApi.endpoints.setUserSettings.initiate;
+export const getUserDataQuery = userApi.endpoints.getAuthData.initiate;

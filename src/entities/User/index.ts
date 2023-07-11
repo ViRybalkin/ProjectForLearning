@@ -6,3 +6,4 @@ export * from './config/selectors/getUserSettings';
 export * from './config/slice/UserSlice';
 export * from './config/types/UserSlice.types';
 export * from './config/services/saveUserSettings.service';
+export * from './config/services/initAuthData.service';
