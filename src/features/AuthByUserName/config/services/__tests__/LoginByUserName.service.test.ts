@@ -65,11 +65,7 @@ describe('Тестирование сервиса loginByUserName', () => {
 
         await action(dispatch, getState, extraData);
 
-        expect(localStorage.setItem).toHaveBeenCalledWith('auth', JSON.stringify({
-            avatar: responseData.avatar,
-            id: responseData.id,
-            username: responseData.username,
-        }))
+        expect(localStorage.setItem).toHaveBeenCalledWith('auth', responseData.id)
     });
 
     test('если запрос вернул 500 статус должен быть rejected', async () => {
