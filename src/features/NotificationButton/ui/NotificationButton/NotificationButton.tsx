@@ -40,6 +40,7 @@ export const NotificationButton = memo(() => {
           />
         </Popover>
       </DesktopComponent>
+
       <MobileComponent classname={cls.mobileItemLength}>
         <div
           data-content={childrenLength}

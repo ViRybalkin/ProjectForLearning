@@ -13,6 +13,7 @@ import { getArticleListView } from '../../config/selectors/getArticleListView';
 import { getPaginatedArticleListService } from '../../config/service/getPaginatedArticleList.service';
 import { ArticlesFilters } from '../ArticlesFilters/ArticlesFilters';
 import { useAppDispatch } from '@/shared/helpers/useAppDispatch';
+import { GreetingModal } from '@/features/GreetingModal';
 
 const reducer = {
   articleList: ArticleListReducer,
@@ -47,6 +48,7 @@ const ArticlesPage = () => {
           articles={articles}
           error={error}
         />
+        <GreetingModal />
       </Page>
     </DynamicComponent>
   );

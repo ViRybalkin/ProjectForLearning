@@ -19,5 +19,6 @@
   "recommendationTitle": "Recommendation",
   "enterText": "Enter text here",
   "thankForFeedback": "Thanks for feedback",
-  "LeaveAReview": "Rate us"
+  "LeaveAReview": "Rate us",
+  "greeting": "Welcome, this modal window will appear the first time you visit the articles page and won't bother you anymore!\n Here you can search and view articles on various topics"
 }
